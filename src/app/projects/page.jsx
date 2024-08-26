@@ -1,5 +1,7 @@
+import styles from "./projects.module.css";
+
 const ProjectsPage = () => {
-  return <div>הפרויקטים שלנו</div>;
+  return <div className={styles.container}>הפרויקטים שלנו</div>;
 };
 
 export default ProjectsPage;

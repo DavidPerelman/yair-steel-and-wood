@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <div>
       <Video />
+      <Video />
     </div>
   );
 };
