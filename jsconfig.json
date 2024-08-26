@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
+      "prop-types": ["./node_modules/prop-types"],
       "@/*": ["./src/*"]
     }
   }
