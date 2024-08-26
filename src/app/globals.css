@@ -1,3 +1,27 @@
+:root {
+  --bg: #0d0c22;
+  --bgSoft: #2d2b42;
+  --text: white;
+  --textsoft: #e5e5e5;
+  --btn: #3673fd;
+}
+
 * {
   direction: rtl;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
