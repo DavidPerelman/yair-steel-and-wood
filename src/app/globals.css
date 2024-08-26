@@ -11,6 +11,11 @@
   margin: 0;
 }
 
+body {
+  /* padding-top: 110px; */
+  /* background-color: aqua; */
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -18,10 +23,11 @@ a {
 
 .container {
   margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* padding-left: 50px; */
+  /* padding-right: 50px; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* background-color: aqua; */
 }
