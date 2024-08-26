@@ -1,16 +1,10 @@
+import BackgroundVideo from "next-video/background-video";
 import styles from "./video.module.css";
-// import videoBg from "../../../assets/radiohead-hebrew-medley.mp4";
 
 const Video = () => {
   return (
     <main>
-      <video
-        src={require("../../../assets/dream-aquarium.mp4")}
-        autoPlay
-        loop
-        muted
-        className={styles.container}
-      />
+      <BackgroundVideo src="https://videos.pexels.com/video-files/8841382/8841382-uhd_2732_1440_30fps.mp4"></BackgroundVideo>
     </main>
   );
 };
