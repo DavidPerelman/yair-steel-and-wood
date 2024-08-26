@@ -5,7 +5,7 @@ const Video = () => {
   return (
     <main>
       <video
-        src={require("../../../public/dream-aquarium.mp4")}
+        src={require("../../../assets/dream-aquarium.mp4")}
         autoPlay
         loop
         muted
