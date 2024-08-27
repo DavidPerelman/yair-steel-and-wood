@@ -5,6 +5,7 @@ import Links from "../links/Links";
 import styles from "./navbar.module.css";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -27,7 +28,9 @@ const Navbar = () => {
   return (
     <div id="navbar" className={styles.container}>
       <Links />
-      <Image src="/logo.PNG" width={100} height={100} alt="logo" />
+      <Link href="/">
+        <Image src="/logo.png" width={100} height={100} alt="logo" />
+      </Link>
       <div>Social</div>
     </div>
   );
