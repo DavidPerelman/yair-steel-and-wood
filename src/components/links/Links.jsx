@@ -4,9 +4,9 @@ import styles from "./links.module.css";
 const Links = () => {
   const links = [
     { title: "ראשי", path: "/" },
+    { title: "פרויקטים", path: "/projects" },
     { title: "אודות", path: "/about" },
     { title: "צור קשר", path: "/contact" },
-    { title: "פרויקטים", path: "/projects" },
   ];
 
   return (
