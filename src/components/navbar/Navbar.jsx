@@ -48,13 +48,21 @@ const Navbar = () => {
           alt="logo"
         />
       </Link>
-      <div>
+      <div className={styles.contact}>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
-            src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/f39d4c78-d6d7-46f0-be67-ea20575c7ead.png"
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724775580/images/ecesznayvsrzlfxaptap.png"
             width={50}
             height={50}
-            alt="logo"
+            alt="instagram-logo"
+          />
+        </Link>
+        <Link target="_blank" href="https://wa.me/972584422401">
+          <Image
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724777187/images/kuc6cyctjol0r0yfjy5a.png"
+            width={43}
+            height={43}
+            alt="whatsapp-logo"
           />
         </Link>
       </div>
