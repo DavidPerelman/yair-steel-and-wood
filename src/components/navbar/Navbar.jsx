@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div id="navbar" className={styles.container}>
       <Links />
-      <Image src="/logo.png" width={100} height={100} alt="logo" />
+      <Image src="/logo.PNG" width={100} height={100} alt="logo" />
       <div>Social</div>
     </div>
   );
