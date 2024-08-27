@@ -1,17 +1,17 @@
-// import BackgroundVideo from "next-video/background-video";
+import BackgroundVideo from "next-video/background-video";
 import styles from "./video.module.css";
 
 const Video = () => {
   return (
     <main>
-      <video
-        src={require("/video.mp4")}
+      {/* <video
+        src={require("https://vod.api.video/vod/vi67FW5vvj367CiuS5EwK1zd/mp4/source.mp4")}
         autoPlay
         muted
         loop
         className={styles.container}
-      />
-      {/* <BackgroundVideo src="https://vod.api.video/vod/vi67FW5vvj367CiuS5EwK1zd/mp4/source.mp4"></BackgroundVideo> */}
+      /> */}
+      <BackgroundVideo src="https://vod.api.video/vod/vi67FW5vvj367CiuS5EwK1zd/mp4/source.mp4"></BackgroundVideo>
     </main>
   );
 };
