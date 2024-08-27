@@ -15,7 +15,6 @@ const getData = async () => {
 
 const ProjectsPage = async () => {
   const posts = await getProjects();
-  console.log(posts);
 
   return (
     <div className={styles.container}>
