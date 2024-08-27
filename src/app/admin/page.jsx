@@ -1,15 +1,15 @@
 "use client";
 
-import { upload } from "@/lib/upload";
 import styles from "./admin.module.css";
 // import { handleGithubLogin } from "@/lib/action";
 // import RegisterForm from "@/components/registerForm/RegisterForm";
 // import LoginForm from "@/components/loginForm/LoginForm";
-import { useFormState } from "react-dom";
+import { CldUploadWidget } from "next-cloudinary";
 
 const AdminPage = () => {
-  const [url, formAction] = useFormState(upload, null);
-  console.log(url);
+  const uploadSuccess = (results) => {
+    console.log(results.info.secure_url);
+  };
 
   return (
     <div className={styles.container}>
@@ -23,15 +23,12 @@ const AdminPage = () => {
           {/* <form action={handleGithubLogin}>
             <button>Login with github</button>
           </form> */}
-          <form action={formAction}>
-            <input type="file" accept="video/*" name="video" />
-            <button
-              type="submit"
-              className="bg-blue-800 text-white p-2 rounded-md"
-            >
-              Upload
-            </button>
-          </form>
+
+          <CldUploadWidget uploadPreset="ngj2sv5f" onSuccess={uploadSuccess}>
+            {({ open }) => {
+              return <button onClick={() => open()}>Upload an File</button>;
+            }}
+          </CldUploadWidget>
         </div>
       </div>
     </div>
