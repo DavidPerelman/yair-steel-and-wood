@@ -1,4 +1,5 @@
 {
   "https://videos.pexels.com/video-files/8841382/8841382-uhd_2732_1440_30fps.mp4": { "integrity": "sha512-b902ZGXCESixAmQ9V81RLNZsvKxXFxonQlWpLYZdpNZg1O6KnT9ZJhi9d75jVLMTpCnQsqDCAjwl6bsHeGUQMg==", "contentType": "" },
+  "https://vod.api.video/vod/vi67FW5vvj367CiuS5EwK1zd/mp4/source.mp4": { "integrity": "sha512-2zT2EdmTwBZzHPqW82vksQliKOlOGz8cajH3I9VoXZK8vVqFXU/Azd65PSR8l/PPZhJOaEmbccuCYgVQ928Uzg==", "contentType": "video/mp4" },
   "version": 1
 }

@@ -1,10 +1,17 @@
-import BackgroundVideo from "next-video/background-video";
+// import BackgroundVideo from "next-video/background-video";
 import styles from "./video.module.css";
 
 const Video = () => {
   return (
     <main>
-      <BackgroundVideo src="https://videos.pexels.com/video-files/8841382/8841382-uhd_2732_1440_30fps.mp4"></BackgroundVideo>
+      <video
+        src={require("../../../public/video.mp4")}
+        autoPlay
+        muted
+        loop
+        className={styles.container}
+      />
+      {/* <BackgroundVideo src="https://vod.api.video/vod/vi67FW5vvj367CiuS5EwK1zd/mp4/source.mp4"></BackgroundVideo> */}
     </main>
   );
 };

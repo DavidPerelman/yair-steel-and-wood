@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & npx next-video sync -w",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -15,7 +15,7 @@
     "bcrypt": "^5.1.1",
     "mongoose": "^8.5.4",
     "next": "14.0.4",
-    "next-auth": "^5.0.0-beta.3",
+    "next-auth": "^4.24.7",
     "next-video": "^1.1.4",
     "next-videos": "^1.4.1",
     "prop-types": "^15.8.1",

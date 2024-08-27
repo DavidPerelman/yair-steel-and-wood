@@ -6,18 +6,29 @@ import styles from "./navbar.module.css";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import LogoutForm from "../logoutForm/LogoutForm";
+// import LogoutForm from "../logoutForm/LogoutForm";
 
 const Navbar = () => {
   const pathname = usePathname();
 
+  // console.log("pathname");
+
   useEffect(() => {
+    console.log("useEffect");
+
     const onResize = () => {
       const navbar = document.querySelector("#navbar");
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);
     };
 
     const navbar = document.querySelector("#navbar");
+
+    if (pathname !== "/") {
+      navbar.classList.add(styles.white);
+    } else {
+      navbar.classList.remove(styles.white);
+    }
+
     if (pathname === "/") {
       window.addEventListener("scroll", onResize);
       navbar.classList.add(styles.home);
@@ -47,9 +58,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div>
-        <LogoutForm />
-      </div>
+      <div>{/* <LogoutForm /> */}</div>
     </div>
   );
 };
