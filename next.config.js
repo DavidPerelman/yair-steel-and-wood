@@ -9,6 +9,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "instagram.fsdv2-1.fna.fbcdn.net",
       },
+      {
+        protocol: "https",
+        hostname: "files.edgestore.dev",
+      },
     ],
   },
 };
