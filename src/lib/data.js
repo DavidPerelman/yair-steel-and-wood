@@ -1,5 +1,5 @@
 import { connectToDb } from "./connectToDb";
-import { Project, User } from "./models";
+import { Project } from "./models";
 import { unstable_noStore as noStore } from "next/cache";
 
 // // TEMPORARY DATA
@@ -37,25 +37,25 @@ export const getProject = async (slug) => {
   }
 };
 
-export const getUser = async (id) => {
-  noStore();
-  try {
-    connectToDb();
-    const user = await User.findById(id);
-    return user;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch user");
-  }
-};
+// export const getUser = async (id) => {
+//   noStore();
+//   try {
+//     connectToDb();
+//     const user = await User.findById(id);
+//     return user;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Failed to fetch user");
+//   }
+// };
 
-export const getUsers = async () => {
-  try {
-    connectToDb();
-    const users = await User.find();
-    return users;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch users");
-  }
-};
+// export const getUsers = async () => {
+//   try {
+//     connectToDb();
+//     const users = await User.find();
+//     return users;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Failed to fetch users");
+//   }
+// };
