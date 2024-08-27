@@ -5,7 +5,7 @@ const Video = () => {
   return (
     <main>
       <video
-        src={require("../../../public/video.mp4")}
+        src={require("/video.mp4")}
         autoPlay
         muted
         loop
