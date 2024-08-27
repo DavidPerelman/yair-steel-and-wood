@@ -1,12 +1,23 @@
 "use server";
 
 // import { revalidatePath } from "next/cache";
-// import { connectToDb } from "./connectToDb";
-// import { Post, User } from "./models";
-import { backendClient } from "./edgestore-server";
+import { User } from "./models";
+// import { backendClient } from "./edgestore-server";
+import { connectToDb } from "./connectToDb";
 // import { signIn, signOut } from "./auth";
-// import bcrypt from "bcrypt";
+import bcrypt from "bcrypt";
+import { signIn, signOut } from "./auth";
 
+// export const getUsers = async () => {
+//   try {
+//     connectToDb();
+
+//     const users = await User.find();
+//     return users;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 // export const getImages = async () => {
 //   const res = await backendClient.myPublicImages.listFiles();
 //   console.log(res.data);
@@ -81,63 +92,62 @@ import { backendClient } from "./edgestore-server";
 //   }
 // };
 
-// export const handleGithubLogin = async () => {
-//   "use server";
-//   await signIn("github");
-// };
+export const handleGithubLogin = async () => {
+  "use server";
+  await signIn("github");
+};
 
-// export const handleLogout = async () => {
-//   "use server";
-//   await signOut();
-// };
+export const handleLogout = async () => {
+  "use server";
+  await signOut();
+};
 
-// export const register = async (previousState, formData) => {
-//   const { username, email, password, passwordRepeat, img } =
-//     Object.fromEntries(formData);
+export const register = async (previousState, formData) => {
+  const { email, password, passwordRepeat } = Object.fromEntries(formData);
 
-//   if (password !== passwordRepeat) {
-//     return { error: "Passwords do not match" };
-//   }
+  if (password !== passwordRepeat) {
+    return { error: "Passwords do not match" };
+  }
 
-//   try {
-//     connectToDb();
+  try {
+    connectToDb();
 
-//     const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
-//     if (user) {
-//       return { error: "Username already exists" };
-//     }
+    if (user) {
+      return { error: "email already exists" };
+    }
 
-//     const salt = await bcrypt.genSalt(10);
-//     const hashPassword = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(password, salt);
 
-//     const newUser = new User({
-//       username,
-//       email,
-//       password: hashPassword,
-//       img,
-//     });
+    const newUser = new User({
+      email,
+      password: hashPassword,
+    });
 
-//     await newUser.save();
-//     console.log("saved to db");
-//     return { success: true };
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong" };
-//   }
-// };
+    await newUser.save();
+    console.log("saved to db");
+    return { success: true };
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong" };
+  }
+};
 
-// export const login = async (previousState, formData) => {
-//   const { username, password } = Object.fromEntries(formData);
+export const login = async (previousState, formData) => {
+  const { email, password } = Object.fromEntries(formData);
 
-//   try {
-//     await signIn("credentials", { username, password });
-//   } catch (error) {
-//     console.log(error);
+  try {
+    console.log(email, password);
 
-//     if (error.message.includes("CredentialsSignin")) {
-//       return { error: "Invalid username or password" };
-//     }
-//     throw error;
-//   }
-// };
+    await signIn("credentials", { email, password });
+  } catch (error) {
+    console.log(error);
+
+    if (error.message.includes("CredentialsSignin")) {
+      return { error: "Invalid email or password" };
+    }
+    throw error;
+  }
+};
