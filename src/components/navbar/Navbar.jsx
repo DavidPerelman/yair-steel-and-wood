@@ -29,12 +29,12 @@ const Navbar = () => {
     <div id="navbar" className={styles.container}>
       <Links />
       <Link href="/">
-        <Image src="/public/logo.png" width={100} height={100} alt="logo" />
+        <Image src="public/logo.png" width={100} height={100} alt="logo" />
       </Link>
       <div>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
-            src="/public/instagram-logo.png"
+            src="public/instagram-logo.png"
             width={50}
             height={50}
             alt="logo"
