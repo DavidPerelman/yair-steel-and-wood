@@ -1,5 +1,17 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
+}
+
+.link:hover {
+  padding: 10px;
+  background-color: rgb(173, 171, 171);
+  border-radius: 5px;
+}
+
+.link {
+  padding: 10px;
+  background-color: rgb(216, 214, 214);
+  border-radius: 5px;
 }

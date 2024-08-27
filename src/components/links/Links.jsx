@@ -12,7 +12,7 @@ const Links = () => {
   return (
     <div className={styles.links}>
       {links.map((link) => (
-        <Link key={link.title} href={link.path}>
+        <Link className={styles.link} key={link.title} href={link.path}>
           {link.title}
         </Link>
       ))}
