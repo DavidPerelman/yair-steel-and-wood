@@ -1,10 +1,9 @@
-"use client";
-
-import { useEdgeStore } from "@/lib/edgestore";
+// import { useEdgeStore } from "@/lib/edgestore";
 // import { getProjects } from "@/lib/data";
+import Image from "next/image";
+import { backendClient } from "../api/edgestore/[...edgestore]/route";
 import styles from "./projects.module.css";
-import { useState } from "react";
-import Link from "next/link";
+// import { getImages } from "@/lib/action";
 
 // const getData = async () => {
 //   const res = await fetch("http://localhost:3000/api/projects", {
@@ -18,34 +17,17 @@ import Link from "next/link";
 //   return res.json();
 // };
 
-const ProjectsPage = () => {
-  const [file, setFile] = useState();
-  const [urls, setUrls] = useState();
-  const { edgestore } = useEdgeStore();
+const ProjectsPage = async () => {
+  // const images = getImages();
 
-  // const posts = await getProjects();
+  const res = await backendClient.myPublicImages.listFiles();
+  const images = res.data;
 
   return (
     <div className={styles.container}>
       <h1>הפרויקטים שלנו</h1>
-      <input
-        type="file"
-        onChange={(e) => {
-          setFile(e.target.files?.[0]);
-        }}
-      />
-      <button
-        onClick={async () => {
-          if (file) {
-            const res = await edgestore.myPublicImages.upload({ file });
 
-            setUrls({ url: res.url, thumbnailUrl: res.thumbnailUrl });
-          }
-        }}
-      >
-        Upload
-      </button>
-      {urls?.url && (
+      {/* {urls?.url && (
         <Link href={urls.url} target="_blank">
           URL
         </Link>
@@ -54,10 +36,12 @@ const ProjectsPage = () => {
         <Link href={urls.thumbnailUrl} target="_blank">
           THUMBNAIL
         </Link>
-      )}
-      {/* {posts.map((post) => (
-        <div key={post.id}>{post.title}</div>
-      ))} */}
+      )} */}
+      {images.map((image) => (
+        <div key={image.path}>
+          <Image src={image.url} width={50} height={50} alt="" />
+        </div>
+      ))}
     </div>
   );
 };

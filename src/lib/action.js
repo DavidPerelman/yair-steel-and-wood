@@ -1,47 +1,53 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { connectToDb } from "./connectToDb";
-import { Post, User } from "./models";
+// import { revalidatePath } from "next/cache";
+// import { connectToDb } from "./connectToDb";
+// import { Post, User } from "./models";
+import { backendClient } from "./edgestore-server";
 // import { signIn, signOut } from "./auth";
 // import bcrypt from "bcrypt";
 
-export const addPost = async (previousState, formData) => {
-  //   const title = formData.get("title");
-  //   const desc = formData.get("desc");
-  //   const slug = formData.get("slug");
+// export const getImages = async () => {
+//   const res = await backendClient.myPublicImages.listFiles();
+//   console.log(res.data);
+// };
 
-  const { title, desc, slug, userId } = Object.fromEntries(formData);
+// export const addPost = async (previousState, formData) => {
+//   //   const title = formData.get("title");
+//   //   const desc = formData.get("desc");
+//   //   const slug = formData.get("slug");
 
-  try {
-    connectToDb();
-    const newPost = Post({ title, desc, slug, userId });
+//   const { title, desc, slug, userId } = Object.fromEntries(formData);
 
-    await newPost.save();
-    console.log("saved to db");
-    revalidatePath("/blog");
-    revalidatePath("/admin");
-  } catch (error) {
-    console.log(error);
-    return { error: "Something went wrong!" };
-  }
-};
+//   try {
+//     connectToDb();
+//     const newPost = Post({ title, desc, slug, userId });
 
-export const deletePost = async (formData) => {
-  const { id } = Object.fromEntries(formData);
+//     await newPost.save();
+//     console.log("saved to db");
+//     revalidatePath("/blog");
+//     revalidatePath("/admin");
+//   } catch (error) {
+//     console.log(error);
+//     return { error: "Something went wrong!" };
+//   }
+// };
 
-  try {
-    connectToDb();
+// export const deletePost = async (formData) => {
+//   const { id } = Object.fromEntries(formData);
 
-    await Post.findByIdAndDelete(id);
-    console.log("deleted from db");
-    revalidatePath("/blog");
-    revalidatePath("/admin");
-  } catch (error) {
-    console.log(error);
-    return { error: "Something went wrong!" };
-  }
-};
+//   try {
+//     connectToDb();
+
+//     await Post.findByIdAndDelete(id);
+//     console.log("deleted from db");
+//     revalidatePath("/blog");
+//     revalidatePath("/admin");
+//   } catch (error) {
+//     console.log(error);
+//     return { error: "Something went wrong!" };
+//   }
+// };
 
 // export const addUser = async (previousState, formData) => {
 //   const { username, email, password, img } = Object.fromEntries(formData);

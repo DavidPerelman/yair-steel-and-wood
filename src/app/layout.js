@@ -1,10 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
-import { EdgeStoreProvider } from "@/lib/edgestore";
-
 const inter = Inter({ subsets: ["latin"] });
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 export const metadata = {
   title: "יאיר ברזל ועץ",
@@ -18,7 +16,6 @@ export default function RootLayout({ children }) {
         <EdgeStoreProvider>
           <Navbar />
           <div className="container">{children}</div>
-          {/* <Footer /> */}
         </EdgeStoreProvider>
       </body>
     </html>

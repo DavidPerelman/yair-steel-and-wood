@@ -38,7 +38,12 @@ const Navbar = () => {
       </Link>
       <div>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
-          <Image src="/instagram-logo.png" width={50} height={50} alt="logo" />
+          <Image
+            src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/f39d4c78-d6d7-46f0-be67-ea20575c7ead.png"
+            width={50}
+            height={50}
+            alt="logo"
+          />
         </Link>
       </div>
     </div>
