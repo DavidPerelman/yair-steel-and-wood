@@ -29,7 +29,12 @@ const Navbar = () => {
     <div id="navbar" className={styles.container}>
       <Links />
       <Link href="/">
-        <Image src="/logo.png" width={100} height={100} alt="logo" />
+        <Image
+          src="https://instagram.fsdv2-1.fna.fbcdn.net/v/t51.2885-19/419279788_233022136515472_58428490118301314_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fsdv2-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=r5Os1k4QcQ8Q7kNvgHpduTu&edm=AEhyXUkBAAAA&ccb=7-5&oh=00_AYAnxcisoOdxglaCN8DUXvfi4g-G3bkHR4i5rC0Zk1ITkQ&oe=66D3595D&_nc_sid=8f1549"
+          width={100}
+          height={100}
+          alt="logo"
+        />
       </Link>
       <div>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
