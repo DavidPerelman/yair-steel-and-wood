@@ -7,7 +7,7 @@ import { googleLogout } from "@/lib/action";
 const AdminPage = async () => {
   const session = await auth();
 
-  // if (!session?.user) redirect("/admin");
+  if (!session?.user) redirect("/admin");
 
   return (
     <div className={styles.container}>
