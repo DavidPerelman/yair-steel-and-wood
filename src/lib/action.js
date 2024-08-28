@@ -3,10 +3,8 @@
 // import { revalidatePath } from "next/cache";
 import { User } from "./models";
 import { connectToDb } from "./connectToDb";
-// import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
 import { signIn, signOut } from "@/auth";
-// import { signIn, signOut } from "./auth";
 
 // export const getUsers = async () => {
 //   try {

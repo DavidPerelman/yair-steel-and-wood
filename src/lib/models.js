@@ -13,9 +13,10 @@ const userSchema = new mongoose.Schema(
 const projectSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    desc: { type: String, required: true },
+    description: { type: String, required: true },
     date: { type: String },
-    img: { type: String },
+    images: { type: [String] },
+    thumbnail: { type: String },
     slug: { type: String, required: true, unique: true },
   },
   { timestamps: true }
