@@ -2,21 +2,27 @@ import Image from "next/image";
 import styles from "./singleProjectPage.module.css";
 import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
+import { getProject } from "@/lib/data";
 
-const getData = async (slug) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+// FETCH DATA WITH AN API
+// const getData = async (slug) => {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
 
-  if (!res.ok) {
-    throw new Error("Something went wrong");
-  }
+//   if (!res.ok) {
+//     throw new Error("Something went wrong");
+//   }
 
-  return res.json();
-};
+//   return res.json();
+// };
 
 const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
 
-  const project = await getData(slug);
+  // FETCH DATA WITH AN API
+  // const project = await getData(slug);
+
+  // FETCH DATA WITHOUT AN API
+  const project = await getProject(slug);
 
   return (
     <div className={styles.singleProjectPage}>
