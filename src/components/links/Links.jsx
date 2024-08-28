@@ -1,13 +1,20 @@
 import Link from "next/link";
 import styles from "./links.module.css";
+import { handleLogout } from "@/lib/action";
+import { auth } from "@/lib/auth";
 
-const Links = () => {
+const Links = async () => {
   const links = [
     { title: "ראשי", path: "/" },
     { title: "פרויקטים", path: "/projects" },
     { title: "אודות", path: "/about" },
     { title: "צור קשר", path: "/contact" },
   ];
+
+  const session = await auth();
+  const isAdmin = true;
+
+  console.log(session);
 
   return (
     <div className={styles.links}>
@@ -16,6 +23,15 @@ const Links = () => {
           {link.title}
         </Link>
       ))}
+      {session ? (
+        <>
+          <form action={handleLogout}>
+            <button className={styles.link}>Logout</button>
+          </form>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// import { backendClient } from "@/app/api/edgestore/[...edgestore]/route";
 import { getImages } from "@/lib/action";
 import Image from "next/image";
 import React from "react";

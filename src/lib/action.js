@@ -2,7 +2,6 @@
 
 // import { revalidatePath } from "next/cache";
 import { User } from "./models";
-// import { backendClient } from "./edgestore-server";
 import { connectToDb } from "./connectToDb";
 // import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
@@ -98,13 +97,16 @@ export const handleGithubLogin = async () => {
   await signIn("github");
 };
 
-// export const handleLogout = async () => {
-//   "use server";
-//   await signOut();
-// };
+export const handleLogout = async () => {
+  ("use server");
+  await signOut();
+};
 
 export const register = async (previousState, formData) => {
-  const { email, password, passwordRepeat } = Object.fromEntries(formData);
+  // const { email, password, passwordRepeat } = Object.fromEntries(formData);
+  const email = "dperelman3@gmail.com";
+  const password = "123456";
+  const passwordRepeat = "123456";
 
   if (password !== passwordRepeat) {
     return { error: "Passwords do not match" };
@@ -136,22 +138,22 @@ export const register = async (previousState, formData) => {
   }
 };
 
-// export const login = async (previousState, formData) => {
-//   const { email, password } = Object.fromEntries(formData);
+export const login = async (previousState, formData) => {
+  const { email, password } = Object.fromEntries(formData);
 
-//   try {
-//     console.log(email, password);
+  try {
+    console.log(email, password);
 
-//     await signIn("credentials", { email, password });
-//   } catch (error) {
-//     console.log(error);
+    await signIn("credentials", { email, password });
+  } catch (error) {
+    console.log(error);
 
-//     if (error.message.includes("CredentialsSignin")) {
-//       return { error: "Invalid email or password" };
-//     }
-//     throw error;
-//   }
-// };
+    if (error.message.includes("CredentialsSignin")) {
+      return { error: "Invalid email or password" };
+    }
+    throw error;
+  }
+};
 
 export const googleLogin = async (formData) => {
   const action = formData.get("action");

@@ -1,7 +1,5 @@
-// import { useEdgeStore } from "@/lib/edgestore";
 // import { getProjects } from "@/lib/data";
 import Image from "next/image";
-import { backendClient } from "../api/edgestore/[...edgestore]/route";
 import styles from "./projects.module.css";
 // import { getImages } from "@/lib/action";
 
@@ -20,9 +18,6 @@ import styles from "./projects.module.css";
 const ProjectsPage = async () => {
   // const images = getImages();
 
-  const res = await backendClient.myPublicImages.listFiles();
-  const images = res.data;
-
   return (
     <div className={styles.container}>
       <h1>הפרויקטים שלנו</h1>
@@ -37,11 +32,11 @@ const ProjectsPage = async () => {
           THUMBNAIL
         </Link>
       )} */}
-      {images.map((image) => (
+      {/* {images.map((image) => (
         <div key={image.path}>
           <Image src={image.url} width={50} height={50} alt="" />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

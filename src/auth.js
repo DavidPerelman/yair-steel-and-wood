@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import Github from "next-auth/providers/github";
+import { connectToDb } from "./lib/connectToDb";
+import { User } from "./lib/models";
 
 export const {
   handlers: { GET, POST },
@@ -8,16 +10,33 @@ export const {
   signOut,
 } = NextAuth({
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
+    Github({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      console.log(user, account, profile);
+      if (account.provider === "github") {
+        connectToDb();
+        try {
+          const user = await User.findOne({ email: profile.email });
+
+          if (!user) {
+            const newUser = new User({
+              email: profile.email,
+              image: profile.avatar_url,
+            });
+
+            await newUser.save();
+          }
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      }
+      return true;
+    },
+  },
 });
