@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./projectCard.module.css";
 import Link from "next/link";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -17,13 +17,8 @@ const ProjectCard = () => {
         <span className={styles.date}>01.01.2024</span>
       </div>
       <div className={styles.bottom}>
-        <h1 className={styles.title}>Project Example</h1>
-        <p className={styles.desc}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur
-          nesciunt vero enim perferendis praesentium molestiae alias, a
-          consectetur voluptas eum cumque? Nam labore magnam praesentium quidem
-          eveniet mollitia delectus voluptatem?
-        </p>
+        <h1 className={styles.title}>{project.title}</h1>
+        <p className={styles.desc}>{project.body}</p>
         <Link className={styles.link} href="/projects/project">
           READ MORE
         </Link>
