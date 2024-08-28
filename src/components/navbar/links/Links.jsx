@@ -15,8 +15,6 @@ const links = [
 ];
 
 const Links = ({ open, openMenuClick, menuSrc }) => {
-  console.log(menuSrc);
-
   const pathname = usePathname();
   // const [menuSrc, setMenuSrc] = useState("");
 
