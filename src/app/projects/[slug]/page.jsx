@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./singleProjectPage.module.css";
+import PostUser from "@/components/postUser/PostUser";
+import { Suspense } from "react";
 
 const getData = async (slug) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
@@ -37,10 +39,9 @@ const SingleProjectPage = async ({ params }) => {
               width={50}
               height={50}
             />
-            <div className={styles.detailText}>
-              <span className={styles.detailTitle}>Author</span>
-              <span className={styles.detailValue}>David Perelman</span>
-            </div>
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={project.userId} />
+            </Suspense>
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Published</span>
               <span className={styles.detailValue}>01.01.2024</span>
