@@ -18,9 +18,10 @@ const SingleProjectPage = () => {
           <div className={styles.detail}>
             <Image
               src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724870263/o19tuepnhfayumdbfs8q.jpg"
-              fill
               alt=""
-              className={styles.img}
+              className={styles.avatar}
+              width={50}
+              height={50}
             />
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Author</span>
