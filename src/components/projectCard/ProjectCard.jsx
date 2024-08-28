@@ -19,7 +19,7 @@ const ProjectCard = ({ project }) => {
       <div className={styles.bottom}>
         <h1 className={styles.title}>{project.title}</h1>
         <p className={styles.desc}>{project.body}</p>
-        <Link className={styles.link} href="/projects/project">
+        <Link className={styles.link} href={`/projects/${project.id}`}>
           READ MORE
         </Link>
       </div>
