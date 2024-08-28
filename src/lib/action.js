@@ -155,5 +155,5 @@ export const register = async (previousState, formData) => {
 
 export const googleLogin = async (formData) => {
   const action = formData.get("action");
-  await signIn(action, { redirectTo: "/home" });
+  await signIn(action, { redirectTo: "/admin/panel" });
 };

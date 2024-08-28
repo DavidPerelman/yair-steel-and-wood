@@ -1,32 +1,19 @@
 "use client";
 
-import { useEdgeStore } from "@/lib/edgestore";
-import { useState } from "react";
+import { CldUploadWidget } from "next-cloudinary";
 
 const UploadImage = () => {
-  const [file, setFile] = useState();
-  const [urls, setUrls] = useState();
-  const { edgestore } = useEdgeStore();
+  const uploadSuccess = (results) => {
+    console.log(results.info.secure_url);
+  };
 
   return (
     <div>
-      <input
-        type="file"
-        onChange={(e) => {
-          setFile(e.target.files?.[0]);
+      <CldUploadWidget uploadPreset="ngj2sv5f" onSuccess={uploadSuccess}>
+        {({ open }) => {
+          return <button onClick={() => open()}>Upload an File</button>;
         }}
-      />
-      <button
-        onClick={async () => {
-          if (file) {
-            const res = await edgestore.myPublicImages.upload({ file });
-
-            setUrls({ url: res.url, thumbnailUrl: res.thumbnailUrl });
-          }
-        }}
-      >
-        Upload
-      </button>
+      </CldUploadWidget>
     </div>
   );
 };
