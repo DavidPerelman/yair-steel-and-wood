@@ -14,8 +14,6 @@ const Navbar = () => {
   // console.log("pathname");
 
   useEffect(() => {
-    console.log("useEffect");
-
     const onResize = () => {
       const navbar = document.querySelector("#navbar");
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);

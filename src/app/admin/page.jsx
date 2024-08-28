@@ -1,5 +1,6 @@
 "use client";
 
+import { googleLogin } from "@/lib/action";
 import styles from "./admin.module.css";
 // import { handleGithubLogin } from "@/lib/action";
 // import RegisterForm from "@/components/registerForm/RegisterForm";
@@ -20,9 +21,11 @@ const AdminPage = () => {
           <br />
           {/* <LoginForm /> */}
           <br />
-          {/* <form action={handleGithubLogin}>
-            <button>Login with github</button>
-          </form> */}
+          <form action={googleLogin}>
+            <button type="submit" name="action" value="google">
+              Login With Google
+            </button>
+          </form>
 
           <CldUploadWidget uploadPreset="ngj2sv5f" onSuccess={uploadSuccess}>
             {({ open }) => {
