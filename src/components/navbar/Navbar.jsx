@@ -6,12 +6,9 @@ import styles from "./navbar.module.css";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-// import LogoutForm from "../logoutForm/LogoutForm";
 
 const Navbar = () => {
   const pathname = usePathname();
-
-  // console.log("pathname");
 
   useEffect(() => {
     const onResize = () => {
@@ -76,7 +73,6 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div>{/* <LogoutForm /> */}</div>
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import styles from "./links.module.css";
-import { handleLogout } from "@/lib/action";
-import { auth } from "@/lib/auth";
 
 const Links = async () => {
   const links = [
@@ -11,9 +9,6 @@ const Links = async () => {
     { title: "צור קשר", path: "/contact" },
   ];
 
-  const session = await auth();
-  const isAdmin = true;
-
   return (
     <div className={styles.links}>
       {links.map((link) => (
@@ -21,15 +16,6 @@ const Links = async () => {
           {link.title}
         </Link>
       ))}
-      {session ? (
-        <>
-          <form action={handleLogout}>
-            <button className={styles.link}>Logout</button>
-          </form>
-        </>
-      ) : (
-        <></>
-      )}
     </div>
   );
 };

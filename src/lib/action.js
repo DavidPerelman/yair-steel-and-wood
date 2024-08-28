@@ -98,13 +98,15 @@ export const handleGithubLogin = async () => {
 };
 
 export const handleLogout = async () => {
-  ("use server");
+  "use server";
+  console.log("handleLogout");
+
   await signOut();
 };
 
 export const register = async (previousState, formData) => {
   // const { email, password, passwordRepeat } = Object.fromEntries(formData);
-  const email = "dperelman3@gmail.com";
+  const email = "dperelman1@gmail.com";
   const password = "123456";
   const passwordRepeat = "123456";
 
@@ -142,8 +144,6 @@ export const login = async (previousState, formData) => {
   const { email, password } = Object.fromEntries(formData);
 
   try {
-    console.log(email, password);
-
     await signIn("credentials", { email, password });
   } catch (error) {
     console.log(error);
@@ -153,13 +153,4 @@ export const login = async (previousState, formData) => {
     }
     throw error;
   }
-};
-
-export const googleLogin = async (formData) => {
-  const action = formData.get("action");
-  await signIn(action, { redirectTo: "/admin/panel" });
-};
-
-export const googleLogout = async (formData) => {
-  await signOut({ redirectTo: "/admin" });
 };
