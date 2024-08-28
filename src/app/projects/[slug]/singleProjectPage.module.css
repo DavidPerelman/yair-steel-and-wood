@@ -30,7 +30,7 @@
 }
 
 .title {
-  font-size: 64px;
+  font-size: 54px;
 }
 
 .detail {
@@ -60,4 +60,23 @@
 
 .content {
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .img {
+    position: relative !important;
+  }
+
+  .title {
+    font-size: 44px;
+  }
+
+  .textContainer {
+    margin-bottom: 30px;
+  }
 }
