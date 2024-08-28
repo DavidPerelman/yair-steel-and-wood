@@ -18,8 +18,15 @@ const ProjectCard = () => {
       </div>
       <div className={styles.bottom}>
         <h1 className={styles.title}>Project Example</h1>
-        <p className={styles.desc}>Desc</p>
-        <Link href="/projects/project">READ MORE</Link>
+        <p className={styles.desc}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur
+          nesciunt vero enim perferendis praesentium molestiae alias, a
+          consectetur voluptas eum cumque? Nam labore magnam praesentium quidem
+          eveniet mollitia delectus voluptatem?
+        </p>
+        <Link className={styles.link} href="/projects/project">
+          READ MORE
+        </Link>
       </div>
     </div>
   );
