@@ -1,3 +1,4 @@
+import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 
 const AboutPage = () => {

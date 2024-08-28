@@ -1,5 +1,6 @@
 import LoginForm from "@/components/loginForm/LoginForm";
 import styles from "./admin.module.css";
+import CustomHead from "@/components/customHead/CustomHead";
 // import { register } from "@/lib/action";
 
 const AdminPage = async () => {
