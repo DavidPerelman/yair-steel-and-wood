@@ -15,6 +15,7 @@
 }
 
 .home {
+  background-color: transparent;
   color: rgb(44, 43, 43);
   font-weight: bold;
   border-bottom: none;

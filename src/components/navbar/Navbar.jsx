@@ -15,16 +15,13 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      setOpen(false);
-    }
-
-    const onResize = () => {
-      const navbar = document.querySelector("#navbar");
-      navbar.classList.toggle(styles.sticky, window.scrollY > 0);
-    };
+    console.log("navbar");
 
     const navbar = document.querySelector("#navbar");
+
+    const onResize = () => {
+      navbar.classList.toggle(styles.sticky, window.scrollY > 0);
+    };
 
     navbar.classList.remove(styles.menuOpen);
 
@@ -44,6 +41,7 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       window.addEventListener("scroll", onResize);
       navbar.classList.add(styles.home);
     } else {
+      window.addEventListener("scroll", onResize);
       navbar.classList.remove(styles.home);
     }
   }, [open, pathname]);

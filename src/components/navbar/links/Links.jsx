@@ -1,11 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./links.module.css";
-import { useEffect, useState } from "react";
 import NavLink from "./navLink/NavLink";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 
 const links = [
   { title: "ראשי", path: "/" },
@@ -15,17 +12,6 @@ const links = [
 ];
 
 const Links = ({ open, openMenuClick, menuSrc }) => {
-  const pathname = usePathname();
-  // const [menuSrc, setMenuSrc] = useState("");
-
-  useEffect(() => {
-    // if (pathname !== "/") {
-    //   setMenuSrc("/menu-gray.png");
-    // } else {
-    //   setMenuSrc("/menu-white.png");
-    // }
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.links}>
@@ -36,12 +22,6 @@ const Links = ({ open, openMenuClick, menuSrc }) => {
         ))}
       </div>
       <div>
-        {/* <button
-          className={styles.menuButton}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          Menu
-        </button> */}
         <Image
           className={styles.menuButton}
           src={menuSrc}

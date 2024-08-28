@@ -18,11 +18,11 @@ const ProjectsContainer = async () => {
       <div>
         <h2>הפרויקטים שלנו</h2>
         <div>
-          {projects.map((project) => (
+          {/* {projects.map((project) => (
             <div key={project.id}>
               <h1>{project.title}</h1>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </main>
