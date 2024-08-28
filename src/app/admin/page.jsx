@@ -5,6 +5,10 @@ import styles from "./admin.module.css";
 const AdminPage = async () => {
   return (
     <div className={styles.container}>
+      <CustomHead
+        title="יאיר ברזל ועץ - התחברות"
+        description="יאיר ברזל ועץ - התחברות"
+      />
       <h1>התחברות</h1>
       <div className={styles.container}>
         <div className={styles.wrapper}>

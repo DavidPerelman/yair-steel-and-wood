@@ -5,12 +5,9 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import CustomHead from "@/components/customHead/CustomHead";
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
-
-// export const metadata = {
-//   title: "יאיר ברזל ועץ",
-//   description: "יאיר ברזל ועץ",
-// };
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -29,6 +26,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
       <body className={inter.className}>
         <Navbar open={open} setOpen={setOpen} menuSrc={menuSrc} />
         <div className="container">{children}</div>
@@ -36,3 +34,13 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// RootLayout.getInitialProps = async () => {
+//   const metadata = await fetchMetadata();
+
+//   return {
+//     title: metadata.title,
+//     description: metadata.description,
+//     keywords: metadata.keywords,
+//   };
+// };

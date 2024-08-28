@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/projectCard/ProjectCard";
 import styles from "./projects.module.css";
 import { getProjects } from "@/lib/data";
+import CustomHead from "@/components/customHead/CustomHead";
 
 // FETCH DATA WITH AN API
 // const getData = async () => {
@@ -24,6 +25,10 @@ const ProjectsPage = async () => {
 
   return (
     <div className={styles.projectsPage}>
+      <CustomHead
+        title="יאיר ברזל ועץ - פרויקטים"
+        description="יאיר ברזל ועץ - פרויקטים"
+      />
       <h1>הפרויקטים שלנו</h1>
       <div className={styles.container}>
         {projects.map((project) => (

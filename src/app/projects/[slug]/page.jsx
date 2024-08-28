@@ -3,6 +3,7 @@ import styles from "./singleProjectPage.module.css";
 import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
 import { getProject } from "@/lib/data";
+import CustomHead from "@/components/customHead/CustomHead";
 
 // FETCH DATA WITH AN API
 // const getData = async (slug) => {
@@ -26,6 +27,10 @@ const SingleProjectPage = async ({ params }) => {
 
   return (
     <div className={styles.singleProjectPage}>
+      <CustomHead
+        title={`יאיר ברזל ועץ - ${project.title}`}
+        description={`יאיר ברזל ועץ - ${project.title}`}
+      />
       <div className={styles.container}>
         <div className={styles.imgContainer}>
           <Image
