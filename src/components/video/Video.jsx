@@ -11,7 +11,7 @@ const Video = () => {
         loop
         className={styles.container}
       /> */}
-      <BackgroundVideo src="https://res.cloudinary.com/dyzl8mvwt/video/upload/f_auto:video,q_auto/my_video"></BackgroundVideo>
+      <BackgroundVideo src="https://res.cloudinary.com/dyzl8mvwt/video/upload/v1724840260/er8y0ugumauuaexgcfii.mp4"></BackgroundVideo>
     </main>
   );
 };
