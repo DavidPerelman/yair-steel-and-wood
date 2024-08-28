@@ -39,21 +39,21 @@ const SingleProjectPage = async ({ params }) => {
           <h1 className={styles.title}>{project.title}</h1>
           <div className={styles.detail}>
             <Image
-              src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724870263/o19tuepnhfayumdbfs8q.jpg"
+              src={project.images[0]}
               alt=""
               className={styles.avatar}
               width={50}
               height={50}
             />
             <Suspense fallback={<div>Loading...</div>}>
-              <PostUser userId={project.userId} />
+              {/* <PostUser userId={project.userId} /> */}
             </Suspense>
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Published</span>
               <span className={styles.detailValue}>01.01.2024</span>
             </div>
           </div>
-          <div className={styles.content}>{project.body}</div>
+          <div className={styles.content}>{project.description}</div>
         </div>
       </div>
     </div>

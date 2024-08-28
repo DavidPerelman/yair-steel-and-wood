@@ -27,7 +27,7 @@ const ProjectsPage = async () => {
       <h1>הפרויקטים שלנו</h1>
       <div className={styles.container}>
         {projects.map((project) => (
-          <div className={styles.project} key={project.id}>
+          <div className={styles.project} key={project.slug}>
             <ProjectCard project={project} />
           </div>
         ))}
