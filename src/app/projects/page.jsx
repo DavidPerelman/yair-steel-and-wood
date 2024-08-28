@@ -3,9 +3,9 @@ import styles from "./projects.module.css";
 
 const ProjectsPage = async () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.projectsPage}>
       <h1>הפרויקטים שלנו</h1>
-      <div className={styles.projectsGrid}>
+      <div className={styles.container}>
         <div className={styles.project}>
           <ProjectCard />
         </div>
