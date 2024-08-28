@@ -52,16 +52,28 @@ const Navbar = () => {
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
             src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724775580/images/ecesznayvsrzlfxaptap.png"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
             alt="instagram-logo"
           />
         </Link>
         <Link target="_blank" href="https://wa.me/972584422401">
           <Image
+            id={styles.whatsappLogo}
             src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724777187/images/kuc6cyctjol0r0yfjy5a.png"
-            width={43}
-            height={43}
+            width={33}
+            height={33}
+            alt="whatsapp-logo"
+          />
+        </Link>
+        <Link
+          target="_blank"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
+        >
+          <Image
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724824960/tuw3walof8qzlasd3dpt.png"
+            width={37}
+            height={31}
             alt="whatsapp-logo"
           />
         </Link>
