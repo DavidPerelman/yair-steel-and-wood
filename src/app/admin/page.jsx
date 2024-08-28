@@ -1,27 +1,25 @@
 import { auth } from "@/lib/auth";
 import styles from "./admin.module.css";
-import { handleGithubLogin } from "@/lib/action";
+import { handleGithubLogin, login, register } from "@/lib/action";
 
 const AdminPage = async () => {
   const session = await auth();
-
-  console.log(session);
 
   return (
     <div className={styles.container}>
       <h1>התחברות</h1>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          {/* <form action={formAction}>
+          <form action={login}>
             <input type="text" placeholder="email" name="email" />
             <input type="password" placeholder="password" name="password" />
-            <button type="submit">Login</button>
-          </form> */}
-          <form action={handleGithubLogin}>
-            <button type="submit" name="action" value="google">
-              Login With Github
-            </button>
+            <button>Login</button>
           </form>
+          {/* <form action={register}>
+            <button type="submit" name="action" value="google">
+              register
+            </button>
+          </form> */}
         </div>
       </div>
     </div>

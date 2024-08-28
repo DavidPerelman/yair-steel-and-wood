@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Github from "next-auth/providers/github";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDb } from "./lib/connectToDb";
 import { User } from "./lib/models";
 
@@ -14,10 +15,10 @@ export const {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+    // CredentialsProvider()
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log(user, account, profile);
       if (account.provider === "github") {
         connectToDb();
         try {

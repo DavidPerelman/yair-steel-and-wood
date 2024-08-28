@@ -14,8 +14,6 @@ const Links = async () => {
   const session = await auth();
   const isAdmin = true;
 
-  console.log(session);
-
   return (
     <div className={styles.links}>
       {links.map((link) => (
