@@ -1,5 +1,5 @@
 import { connectToDb } from "./connectToDb";
-import { Project } from "./models";
+import { Project, User } from "./models";
 import { unstable_noStore as noStore } from "next/cache";
 
 // TEMPORARY DATA
