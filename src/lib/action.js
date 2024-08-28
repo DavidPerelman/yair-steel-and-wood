@@ -6,7 +6,7 @@ import { User } from "./models";
 import { connectToDb } from "./connectToDb";
 // import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 // import { signIn, signOut } from "./auth";
 
 // export const getUsers = async () => {
@@ -156,4 +156,8 @@ export const register = async (previousState, formData) => {
 export const googleLogin = async (formData) => {
   const action = formData.get("action");
   await signIn(action, { redirectTo: "/admin/panel" });
+};
+
+export const googleLogout = async (formData) => {
+  await signOut({ redirectTo: "/admin" });
 };
