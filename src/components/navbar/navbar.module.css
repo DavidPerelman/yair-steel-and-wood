@@ -8,7 +8,7 @@
   padding: 10px;
   gap: 190px;
   z-index: 9999;
-  transition: 0.6s;
+  /* transition: 0.6s; */
   color: black;
   border-bottom: none;
   background-color: transparent;
@@ -17,11 +17,17 @@
 .home {
   color: rgb(44, 43, 43);
   font-weight: bold;
+  border-bottom: none;
 }
 
 .white {
   border-bottom: inset;
-  background-color: white;
+  /* background-color: white; */
+}
+
+.menuOpen {
+  /* border-bottom: inset; */
+  background-color: var(--bg);
 }
 
 .sticky {
@@ -40,4 +46,36 @@
 
 #whatsappLogo {
   padding-left: 5px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    background-color: transparent;
+    transition: 0.6s;
+  }
+
+  .sticky {
+    background-color: white;
+    border-bottom: inset;
+    color: black;
+    font-weight: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 568px) {
+  .container {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 468px) {
+  .container {
+    gap: 20px;
+  }
 }

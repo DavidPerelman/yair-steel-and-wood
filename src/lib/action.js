@@ -106,9 +106,9 @@ export const handleLogout = async () => {
 
 export const register = async (previousState, formData) => {
   // const { email, password, passwordRepeat } = Object.fromEntries(formData);
-  const email = "dperelman1@gmail.com";
-  const password = "123456";
-  const passwordRepeat = "123456";
+  const email = "yair.steelandwood@gmail.com";
+  const password = ")j@91CRwcN7)";
+  const passwordRepeat = ")j@91CRwcN7)";
 
   if (password !== passwordRepeat) {
     return { error: "Passwords do not match" };

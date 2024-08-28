@@ -1,22 +1,38 @@
 "use client";
 
 import Image from "next/image";
-import Links from "../links/Links";
+import Links from "./links/Links";
 import styles from "./navbar.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ menuSrc, open, setOpen }) => {
+  const openMenuClick = () => {
+    setOpen((prev) => !prev);
+  };
+
   const pathname = usePathname();
 
   useEffect(() => {
+    if (window.innerWidth > 768) {
+      setOpen(false);
+    }
+
     const onResize = () => {
       const navbar = document.querySelector("#navbar");
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);
     };
 
     const navbar = document.querySelector("#navbar");
+
+    navbar.classList.remove(styles.menuOpen);
+
+    if (open) {
+      navbar.classList.add(styles.menuOpen);
+    } else {
+      navbar.classList.remove(styles.menuOpen);
+    }
 
     if (pathname !== "/") {
       navbar.classList.add(styles.white);
@@ -30,11 +46,11 @@ const Navbar = () => {
     } else {
       navbar.classList.remove(styles.home);
     }
-  }, [pathname]);
+  }, [open, pathname]);
 
   return (
     <div id="navbar" className={styles.container}>
-      <Links />
+      <Links open={open} openMenuClick={openMenuClick} menuSrc={menuSrc} />
       <Link href="/">
         <Image
           src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/9c0aa524-1694-414b-a248-c10b54e40754.png"
@@ -47,8 +63,8 @@ const Navbar = () => {
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
             src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724775580/images/ecesznayvsrzlfxaptap.png"
-            width={40}
-            height={40}
+            width={44}
+            height={44}
             alt="instagram-logo"
           />
         </Link>
