@@ -26,6 +26,7 @@ const ProjectsPage = async () => {
                 className={styles.boxImg}
               />
             </div>
+            <p>Example</p>
           </div>
           // <div className={styles.project} key={project.slug}>
           //   <ProjectCard project={project} />
@@ -41,6 +42,7 @@ const ProjectsPage = async () => {
                 fill
               />
             </div>
+            <h1>כותרת לדוגמא</h1>
           </div>
           // <div className={styles.project} key={project.slug}>
           //   <ProjectCard project={project} />
