@@ -1,9 +1,19 @@
-// import LoginForm from "@/components/loginForm/LoginForm";
+import LoginForm from "@/components/loginForm/LoginForm";
 import styles from "./admin.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
+import axios from "axios";
 // import { register } from "@/lib/action";
 
 const AdminPage = async () => {
+  const register = async () => {
+    "use server";
+    try {
+      const res = await axios.post("http://localhost:3000/api/register", {});
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <CustomHead
@@ -13,10 +23,10 @@ const AdminPage = async () => {
       <h1>התחברות</h1>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          {/* <LoginForm /> */}
-          {/* <form action={register}>
+          <LoginForm />
+          <form action={register}>
             <button>Register</button>
-          </form> */}
+          </form>
         </div>
       </div>
     </div>

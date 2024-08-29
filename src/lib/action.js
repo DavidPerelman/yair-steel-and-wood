@@ -4,7 +4,7 @@
 import { User } from "./models";
 import { connectToDb } from "./connectToDb";
 import bcrypt from "bcrypt";
-// import { signIn, signOut } from "@/auth";
+import { signOut } from "next-auth/react";
 
 // export const getUsers = async () => {
 //   try {
@@ -95,12 +95,12 @@ import bcrypt from "bcrypt";
 //   await signIn("github");
 // };
 
-// export const handleLogout = async () => {
-//   "use server";
-//   console.log("handleLogout");
+export const handleLogout = async () => {
+  "use server";
+  console.log("handleLogout");
 
-//   await signOut();
-// };
+  signOut();
+};
 
 export const register = async (previousState, formData) => {
   // const { email, password, passwordRepeat } = Object.fromEntries(formData);

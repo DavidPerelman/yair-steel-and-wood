@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
 import Head from "next/head";
+import AuthProvider from "@/components/Provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
@@ -28,8 +29,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
       <body className={inter.className}>
-        <Navbar open={open} setOpen={setOpen} menuSrc={menuSrc} />
-        <div className="container">{children}</div>
+        <AuthProvider>
+          <Navbar open={open} setOpen={setOpen} menuSrc={menuSrc} />
+          <div className="container">{children}</div>
+        </AuthProvider>
       </body>
     </html>
   );
