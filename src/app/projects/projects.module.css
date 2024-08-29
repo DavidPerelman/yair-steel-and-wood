@@ -37,4 +37,5 @@
   text-align: -webkit-center;
   gap: 50px;
   padding: 20px;
+  place-content: center;
 }
