@@ -1,34 +1,9 @@
 .projectsPage {
   padding-top: 150px;
-  /* padding-right: 50px;
-  padding-left: 50px; */
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
 }
 
 .pageHeader {
   text-align: center;
-}
-
-.container {
-  /* display: flex;
-  justify-content: space-between; */
-  /* align-items: center; */
-  /* flex-wrap: wrap;
-  gap: 20px;
-  width: 100%; */
-}
-
-.project {
-  /* width: 100%;
-  display: flex; */
-}
-
-@media screen and (max-width: 1200px) {
-  .project {
-    width: 45%;
-  }
 }
 
 .boxContainer {

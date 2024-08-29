@@ -15,11 +15,7 @@ const ProjectsPage = async () => {
       <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
       <div className={styles.boxContainer}>
         {projects.map((project) => (
-          <ProjectCard
-            key={project.slug}
-            project={project}
-            // boxClickHandler={boxClickHandler}
-          />
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
     </div>
