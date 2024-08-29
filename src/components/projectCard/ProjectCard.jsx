@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
       <div className={styles.boxImgContainer}>
         <Image src={project.thumbnail} alt="" fill className={styles.boxImg} />
       </div>
-      <h2 className={styles.cardTitle}>כותרת לדוגמא</h2>
+      <h2>כותרת לדוגמא</h2>
     </div>
   );
 };

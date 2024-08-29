@@ -44,7 +44,8 @@
 
 .box {
   justify-self: center;
-  width: 90%;
+  width: 80%;
+  /* height: 50%; */
   border-radius: 2px;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
@@ -58,7 +59,7 @@
 }
 
 .boxImgContainer {
-  height: 400px;
+  height: 350px;
   position: relative;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
