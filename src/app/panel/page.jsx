@@ -4,12 +4,8 @@ import styles from "./panel.module.css";
 import UploadImage from "@/components/uploadImage/UploadImage";
 import CustomHead from "@/components/customHead/CustomHead";
 import logout from "@/lib/actions/logout";
-import { useSession } from "next-auth/react";
 
 const AdminPage = () => {
-  const { data } = useSession();
-  console.log(data);
-
   return (
     <div className={styles.container}>
       <CustomHead

@@ -96,61 +96,10 @@ import axios from "axios";
 //   await signIn("github");
 // };
 
-// export const register = async (previousState, formData) => {
-//   // const { email, password, passwordRepeat } = Object.fromEntries(formData);
-//   const email = "yair.steelandwood@gmail.com";
-//   const password = ")j@91CRwcN7)";
-//   const passwordRepeat = ")j@91CRwcN7)";
-
-//   if (password !== passwordRepeat) {
-//     return { error: "Passwords do not match" };
-//   }
-
-//   try {
-//     connectToDb();
-
-//     const user = await User.findOne({ email });
-
-//     if (user) {
-//       return { error: "email already exists" };
-//     }
-
-//     const salt = await bcrypt.genSalt(10);
-//     const hashPassword = await bcrypt.hash(password, salt);
-
-//     const newUser = new User({
-//       email,
-//       password: hashPassword,
-//     });
-
-//     await newUser.save();
-//     console.log("saved to db");
-//     return { success: true };
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong" };
-//   }
-// };
-
 export const register = async () => {
   try {
     const res = await axios.post("http://localhost:3000/api/register", {});
   } catch (error) {
     console.log(error);
-  }
-};
-
-export const login = async (previousState, formData) => {
-  const { email, password } = Object.fromEntries(formData);
-
-  try {
-    await signIn("credentials", { email, password });
-  } catch (error) {
-    console.log(error);
-
-    if (error.message.includes("CredentialsSignin")) {
-      return { error: "Invalid email or password" };
-    }
-    throw error;
   }
 };

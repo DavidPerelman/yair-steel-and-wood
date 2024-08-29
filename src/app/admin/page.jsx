@@ -1,14 +1,11 @@
 "use client";
+
 import LoginForm from "@/components/loginForm/LoginForm";
 import styles from "./admin.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
-import { register } from "@/lib/actions/register";
-import { useSession } from "next-auth/react";
+// import { register } from "@/lib/action";
 
 const AdminPage = () => {
-  const { data } = useSession();
-  console.log(data);
-
   return (
     <div className={styles.container}>
       <CustomHead
