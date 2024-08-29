@@ -1,22 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./projectCard.module.css";
-import Link from "next/link";
+import { boxClickHandler } from "@/lib/action";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
-        <div className={styles.imgContainer}>
-          <Image src={project.thumbnail} fill alt="" className={styles.img} />
-        </div>
+    <div
+      key={project.slug}
+      className={styles.box}
+      onClick={() => boxClickHandler(project.slug)}
+    >
+      <div className={styles.boxImgContainer}>
+        <Image src={project.thumbnail} alt="" fill className={styles.boxImg} />
       </div>
-      <div className={styles.bottom}>
-        <h1 className={styles.title}>{project.title}</h1>
-        <p className={styles.desc}>{project.body}</p>
-        <Link className={styles.link} href={`/projects/${project.slug}`}>
-          READ MORE
-        </Link>
-      </div>
+      <h2 className={styles.cardTitle}>כותרת לדוגמא</h2>
     </div>
   );
 };

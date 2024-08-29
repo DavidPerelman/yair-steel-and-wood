@@ -103,3 +103,7 @@ export const register = async () => {
     console.log(error);
   }
 };
+
+export const boxClickHandler = async (slug) => {
+  console.log(slug);
+};
