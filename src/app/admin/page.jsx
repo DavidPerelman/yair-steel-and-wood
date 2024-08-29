@@ -19,9 +19,9 @@ const AdminPage = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <LoginForm />
-          <form action={register}>
+          {/* <form action={register}>
             <button>Register</button>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>

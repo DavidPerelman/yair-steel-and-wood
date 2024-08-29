@@ -15,8 +15,6 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    console.log("navbar");
-
     const navbar = document.querySelector("#navbar");
 
     const onResize = () => {
