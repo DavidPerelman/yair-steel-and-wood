@@ -32,8 +32,6 @@ export async function POST(req) {
       succeess: true,
       user: savedUser,
     });
-
-    // return savedUser;
   } catch (error) {
     console.log(error);
   }

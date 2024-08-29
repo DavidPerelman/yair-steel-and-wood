@@ -5,23 +5,31 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
+const loginuser = {
+  email: "dperelman1@gmail.com",
+  password: "123456",
+};
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {},
       async authorize(credentials) {
-        const { email, password } = credentials;
+        // const { email, password } = credentials;
         try {
           await connectToDb();
 
-          const user = await User.findOne({ email });
+          const user = await User.findOne({ email: loginuser.email });
 
           if (!user) {
             return null;
           }
 
-          const passwordMatch = await bcrypt.compare(password, user.password);
+          const passwordMatch = await bcrypt.compare(
+            loginuser.password,
+            user.password
+          );
 
           if (!passwordMatch) {
             // throw new Error("Wrong Password");
@@ -38,24 +46,28 @@ export const authOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt(token, user) {
+    async jwt({ token, user }) {
       if (user) {
         token.email = user.email;
+        token.name = user.name;
       }
 
       return token;
     },
-    async session(session, token) {
+    async session({ session, token }) {
       if (session.user) {
         session.user.email = token.email;
+        session.user.name = token.name;
       }
+
+      console.log(session);
 
       return session;
     },
   },
   secret: process.env.AUTH_SECRET,
   pages: {
-    signIn: "/admin/login",
+    signIn: "/admin",
   },
 };
 

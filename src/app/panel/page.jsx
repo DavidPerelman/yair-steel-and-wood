@@ -1,9 +1,12 @@
-import { handleLogout } from "@/lib/action";
+"use client";
+
 import styles from "./panel.module.css";
 import UploadImage from "@/components/uploadImage/UploadImage";
 import CustomHead from "@/components/customHead/CustomHead";
+import { signOut } from "next-auth/react";
+import logout from "@/lib/actions/logout";
 
-const AdminPage = async () => {
+const AdminPage = () => {
   return (
     <div className={styles.container}>
       <CustomHead
@@ -14,9 +17,9 @@ const AdminPage = async () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <UploadImage />
-          <form action={handleLogout}>
-            <button className={styles.logout}>Logout</button>
-          </form>
+          <button className={styles.logout} onClick={logout}>
+            Logout
+          </button>
         </div>
       </div>
     </div>
