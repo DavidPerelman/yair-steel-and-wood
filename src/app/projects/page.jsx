@@ -2,6 +2,7 @@ import ProjectCard from "@/components/projectCard/ProjectCard";
 import styles from "./projects.module.css";
 import { getProjects } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
+import Link from "next/link";
 
 const ProjectsPage = async () => {
   const projects = await getProjects();
@@ -15,7 +16,9 @@ const ProjectsPage = async () => {
       <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
       <div className={styles.boxContainer}>
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <Link href={`/projects/${project.slug}`} key={project.slug}>
+            <ProjectCard project={project} />
+          </Link>
         ))}
       </div>
     </div>

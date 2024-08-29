@@ -105,5 +105,6 @@ export const register = async () => {
 };
 
 export const boxClickHandler = async (slug) => {
-  console.log(slug);
+  // "use server";
+  // console.log(`/projects/${slug}`);
 };

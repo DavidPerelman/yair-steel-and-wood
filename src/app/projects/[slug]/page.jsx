@@ -33,18 +33,13 @@ const SingleProjectPage = async ({ params }) => {
       />
       <div className={styles.container}>
         <div className={styles.imgContainer}>
-          <Image
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724870263/o19tuepnhfayumdbfs8q.jpg"
-            fill
-            alt=""
-            className={styles.img}
-          />
+          <Image src={project.thumbnail} fill alt="" className={styles.img} />
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{project.title}</h1>
           <div className={styles.detail}>
             <Image
-              src={project.images[0]}
+              src="/noavatar.png"
               alt=""
               className={styles.avatar}
               width={50}

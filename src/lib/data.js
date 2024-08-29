@@ -47,13 +47,10 @@ export const getProjects = async () => {
 };
 
 export const getProject = async (slug) => {
-  console.log(slug);
-
   try {
     connectToDb();
     const project = await Project.findOne({ slug });
     return project;
-    // return projects.find((project) => project.id === parseInt(slug));
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch project");
