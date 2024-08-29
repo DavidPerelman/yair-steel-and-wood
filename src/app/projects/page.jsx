@@ -26,7 +26,7 @@ const ProjectsPage = async () => {
                 className={styles.boxImg}
               />
             </div>
-            <p>Example</p>
+            <h1>כותרת לדוגמא</h1>
           </div>
           // <div className={styles.project} key={project.slug}>
           //   <ProjectCard project={project} />
