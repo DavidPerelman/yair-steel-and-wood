@@ -4,7 +4,7 @@
 import { User } from "./models";
 import { connectToDb } from "./connectToDb";
 import bcrypt from "bcrypt";
-import { signIn, signOut } from "@/auth";
+// import { signIn, signOut } from "@/auth";
 
 // export const getUsers = async () => {
 //   try {
@@ -90,17 +90,17 @@ import { signIn, signOut } from "@/auth";
 //   }
 // };
 
-export const handleGithubLogin = async () => {
-  "use server";
-  await signIn("github");
-};
+// export const handleGithubLogin = async () => {
+//   "use server";
+//   await signIn("github");
+// };
 
-export const handleLogout = async () => {
-  "use server";
-  console.log("handleLogout");
+// export const handleLogout = async () => {
+//   "use server";
+//   console.log("handleLogout");
 
-  await signOut();
-};
+//   await signOut();
+// };
 
 export const register = async (previousState, formData) => {
   // const { email, password, passwordRepeat } = Object.fromEntries(formData);
@@ -138,17 +138,17 @@ export const register = async (previousState, formData) => {
   }
 };
 
-export const login = async (previousState, formData) => {
-  const { email, password } = Object.fromEntries(formData);
+// export const login = async (previousState, formData) => {
+//   const { email, password } = Object.fromEntries(formData);
 
-  try {
-    await signIn("credentials", { email, password });
-  } catch (error) {
-    console.log(error);
+//   try {
+//     await signIn("credentials", { email, password });
+//   } catch (error) {
+//     console.log(error);
 
-    if (error.message.includes("CredentialsSignin")) {
-      return { error: "Invalid email or password" };
-    }
-    throw error;
-  }
-};
+//     if (error.message.includes("CredentialsSignin")) {
+//       return { error: "Invalid email or password" };
+//     }
+//     throw error;
+//   }
+// };

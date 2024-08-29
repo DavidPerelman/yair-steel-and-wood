@@ -1,4 +1,4 @@
-import LoginForm from "@/components/loginForm/LoginForm";
+// import LoginForm from "@/components/loginForm/LoginForm";
 import styles from "./admin.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
 // import { register } from "@/lib/action";
@@ -13,7 +13,7 @@ const AdminPage = async () => {
       <h1>התחברות</h1>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <LoginForm />
+          {/* <LoginForm /> */}
           {/* <form action={register}>
             <button>Register</button>
           </form> */}

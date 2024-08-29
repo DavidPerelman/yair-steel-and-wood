@@ -14,7 +14,7 @@
     "cloudinary": "^2.4.0",
     "mongoose": "^8.5.4",
     "next": "14.0.4",
-    "next-auth": "^5.0.0-beta.3",
+    "next-auth": "^4.24.7",
     "next-cloudinary": "^6.10.1",
     "next-video": "^1.1.4",
     "prop-types": "^15.8.1",

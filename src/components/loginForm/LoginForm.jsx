@@ -1,11 +1,11 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { login } from "@/lib/action";
+// import { login } from "@/lib/action";
 import { useState, useEffect } from "react";
 
 const LoginForm = () => {
-  const [state, formAction] = useFormState(login, undefined);
+  // const [state, formAction] = useFormState(login, undefined);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -15,12 +15,13 @@ const LoginForm = () => {
   return (
     <>
       {isClient ? (
-        <form action={formAction}>
-          <input type="text" placeholder="email" name="email" />
-          <input type="password" placeholder="password" name="password" />
-          <button>Login</button>
-        </form>
+        <></>
       ) : (
+        // <form action={formAction}>
+        //   <input type="text" placeholder="email" name="email" />
+        //   <input type="password" placeholder="password" name="password" />
+        //   <button>Login</button>
+        // </form>
         <></>
       )}
     </>
