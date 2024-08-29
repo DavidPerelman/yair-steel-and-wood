@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
+      {
+        protocol: "https",
+        hostname: "instagram.fsdv4-1.fna.fbcdn.net",
+      },
     ],
   },
 };
