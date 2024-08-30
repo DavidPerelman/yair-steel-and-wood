@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./panel.module.css";
-import UploadImage from "@/components/uploadImage/UploadImage";
 import CustomHead from "@/components/customHead/CustomHead";
 import logout from "@/lib/actions/logout";
 import Link from "next/link";
@@ -14,8 +13,7 @@ const AdminPage = () => {
         description="יאיר ברזל ועץ - ניהול אתר"
       />
       <h1>ניהול אתר</h1>
-      <div className={styles.pageHeader}></div>
-      {/* <div className={styles.container}> */}
+      <div className={styles.pageHeaderLine}></div>
       <div className={styles.wrapper}>
         <Link className={styles.logoutBtn} href={"/panel/menu"}>
           <h2 className={styles.linkHeader}>עריכת תפריט</h2>
@@ -23,7 +21,7 @@ const AdminPage = () => {
         <Link className={styles.logoutBtn} href={"/panel/video"}>
           <h2 className={styles.linkHeader}>סרטון בדף הראשי</h2>
         </Link>
-        <Link className={styles.logoutBtn} href={"/panel/projects"}>
+        <Link className={styles.logoutBtn} href={"/panel/projectsPanel"}>
           <h2 className={styles.linkHeader}>עריכת פרויקטים</h2>
         </Link>
         <Link className={styles.logoutBtn} href={"/panel/about"}>
@@ -33,13 +31,11 @@ const AdminPage = () => {
           <h2 className={styles.linkHeader}>עריכת צור קשר</h2>
         </Link>
         {/* <UploadImage /> */}
-        {/* <br /> */}
         <button className={styles.logoutBtn} onClick={logout}>
           <h2 className={styles.linkHeader}>התנתקות</h2>
         </button>
       </div>
     </div>
-    // </div>
   );
 };
 

@@ -28,4 +28,9 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 30px;
+}
+
+.pageHeader {
+  text-align: center;
 }

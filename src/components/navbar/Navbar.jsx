@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Links from "./links/Links";
 import styles from "./navbar.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -50,8 +50,8 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       <Link href="/">
         <Image
           src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/9c0aa524-1694-414b-a248-c10b54e40754.png"
-          width={90}
-          height={90}
+          width={95}
+          height={95}
           alt="logo"
         />
       </Link>

@@ -1,8 +1,7 @@
-import ProjectCard from "@/components/projectCard/ProjectCard";
 import styles from "./projects.module.css";
 import { getProjects } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
-import Link from "next/link";
+import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 
 const ProjectsPage = async () => {
   const projects = await getProjects();
@@ -14,13 +13,8 @@ const ProjectsPage = async () => {
         description="יאיר ברזל ועץ - פרויקטים"
       />
       <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
-      <div className={styles.boxContainer}>
-        {projects.map((project) => (
-          <Link href={`/projects/${project.slug}`} key={project.slug}>
-            <ProjectCard project={project} />
-          </Link>
-        ))}
-      </div>
+      <div className={styles.pageHeader}></div>
+      <ProjectsContainer projects={projects} link="/projects/" />
     </div>
   );
 };

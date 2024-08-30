@@ -18,7 +18,7 @@ const Links = ({ open, openMenuClick, menuSrc }) => {
       <div className={styles.links}>
         {links.map((link) => (
           <NavLink item={link} key={link.title}>
-            {link.title}
+            <h1>{link.title}</h1>
           </NavLink>
         ))}
       </div>
