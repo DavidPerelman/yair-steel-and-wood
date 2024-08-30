@@ -50,8 +50,8 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       <Link href="/">
         <Image
           src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/9c0aa524-1694-414b-a248-c10b54e40754.png"
-          width={100}
-          height={100}
+          width={90}
+          height={90}
           alt="logo"
         />
       </Link>

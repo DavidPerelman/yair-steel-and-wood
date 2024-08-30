@@ -1,5 +1,32 @@
 .container {
-  padding-top: 150px;
+  padding-top: 135px;
   padding-right: 50px;
   padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageHeader {
+  border-bottom: 3px solid;
+  width: 70%;
+}
+
+.linkHeader {
+  text-align: center;
+}
+
+.wrapper {
+  margin: 15px;
+  display: flex;
+  text-align-last: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logoutBtn {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: gainsboro;
+  border: none;
 }
