@@ -21,7 +21,7 @@ const AdminPage = () => {
           <h2 className={styles.linkHeader}>עריכת תפריט</h2>
         </Link>
         <Link className={styles.logoutBtn} href={"/panel/video"}>
-          <h2 className={styles.linkHeader}>סרטוט בדף הראשי</h2>
+          <h2 className={styles.linkHeader}>סרטון בדף הראשי</h2>
         </Link>
         <Link className={styles.logoutBtn} href={"/panel/projects"}>
           <h2 className={styles.linkHeader}>עריכת פרויקטים</h2>
@@ -35,7 +35,7 @@ const AdminPage = () => {
         {/* <UploadImage /> */}
         {/* <br /> */}
         <button className={styles.logoutBtn} onClick={logout}>
-          <h2 className={styles.linkHeader}>Logout</h2>
+          <h2 className={styles.linkHeader}>התנתקות</h2>
         </button>
       </div>
     </div>

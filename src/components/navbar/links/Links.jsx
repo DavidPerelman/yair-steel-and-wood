@@ -9,6 +9,7 @@ const links = [
   { title: "פרויקטים", path: "/projects" },
   { title: "אודות", path: "/about" },
   { title: "צור קשר", path: "/contact" },
+  { title: "ניהול", path: "/panel" },
 ];
 
 const Links = ({ open, openMenuClick, menuSrc }) => {
