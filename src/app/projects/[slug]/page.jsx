@@ -4,6 +4,7 @@ import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
 import { getProject } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 // FETCH DATA WITH AN API
 // const getData = async (slug) => {
@@ -45,7 +46,13 @@ const SingleProjectPage = async ({ params }) => {
               width={50}
               height={50}
             />
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSpinner />
+                </div>
+              }
+            >
               {/* <PostUser userId={project.userId} /> */}
             </Suspense>
             <div className={styles.detailText}>
