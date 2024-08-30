@@ -6,7 +6,7 @@ import styles from "./navLink.module.css";
 const NavLink = ({ item }) => {
   return (
     <Link href={item.path} className={styles.link}>
-      {item.title}
+      <h4>{item.title}</h4>
     </Link>
   );
 };
