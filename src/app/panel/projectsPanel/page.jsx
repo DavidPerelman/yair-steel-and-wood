@@ -1,13 +1,7 @@
-// "use client";
-
-import styles from "./projects.module.css";
-import UploadImage from "@/components/uploadImage/UploadImage";
+import styles from "./projectsPanel.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
-import logout from "@/lib/actions/logout";
-import Link from "next/link";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 import { getProjects } from "@/lib/data";
-import ProjectCard from "@/components/projectCard/ProjectCard";
 
 const AdminProjectsPage = async () => {
   const projects = await getProjects();

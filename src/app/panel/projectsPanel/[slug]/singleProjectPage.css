@@ -1,0 +1,59 @@
+/* .homeContentContainer {
+  padding-top: 150px;
+  position: absolute;
+  width: 60%;
+  margin: 0 auto;
+  top: 70px;
+  left: 0px;
+  right: 0px;
+} */
+
+/* .homeContentContainer {
+  padding-top: 150px;
+  position: absolute;
+  margin: 0 auto;
+  top: 70px;
+  left: 0px;
+  right: 0px;
+}
+
+.leftCol {
+  background-color: black;
+  width: 40%;
+  height: 100%;
+  float: left;
+} */
+
+.homeContentContainer {
+  padding-top: 140px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0px;
+  right: 0px;
+}
+
+.leftCol {
+  background-color: black;
+  width: calc(40% - 20px);
+  height: 100%;
+  float: left;
+}
+
+.rightCol {
+  background-color: red;
+  width: 60%;
+  height: 100%;
+  float: right;
+}
+
+.buyPanel {
+  width: 100%;
+  height: 230px;
+  margin: 40px 0 0 0;
+}
+
+.sellPanel {
+  width: 100%;
+  height: 230px;
+  margin: 40px 0 0 0;
+}
