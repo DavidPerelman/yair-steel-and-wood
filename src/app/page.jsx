@@ -8,8 +8,8 @@ const Home = async () => {
 
   return (
     <>
+      {/* <div className={"homePageContainer"}> */}
       <Video />
-      {/* <div className={"container"}> */}
       <h1 className="pageHeader">הפרויקטים שלנו</h1>
       <ProjectsContainer projects={projects} link="/projects/" />
       {/* </div> */}

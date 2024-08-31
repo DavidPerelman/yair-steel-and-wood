@@ -18,11 +18,21 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     setOpen(false);
+    const container = document.querySelector(".container");
+    console.log(container);
 
     if (pathname !== "/") {
       setMenuSrc("/menu-gray.png");
+      container.classList.add("homePageContainer");
     } else {
       setMenuSrc("/menu-white.png");
+      container.classList.remove("homePageContainer");
+    }
+
+    if (pathname === "/") {
+      container.classList.add("homePageContainer");
+    } else {
+      container.classList.remove("homePageContainer");
     }
   }, [pathname]);
 
