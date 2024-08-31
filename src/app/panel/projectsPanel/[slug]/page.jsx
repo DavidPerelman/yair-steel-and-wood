@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { getProject } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import SingleProjectContainer from "@/components/singleProjectContainer/SingleProjectContainer";
 
 const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
@@ -48,14 +49,10 @@ const SingleProjectPage = async ({ params }) => {
     //     </div>
     //   </div>
     // </div>
-    <div id="homeContentContainer" class="homeContentContainer">
-      <div class="leftCol">
-        <div class="buyPanel panel"></div>
-      </div>
-      <div class="rightCol">
-        <div class="buyPanel panel"></div>
-      </div>
-    </div>
+
+    <>
+      <SingleProjectContainer />
+    </>
   );
 };
 

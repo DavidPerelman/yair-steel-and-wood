@@ -12,6 +12,7 @@
   color: black;
   border-bottom: none;
   background-color: transparent;
+  background-color: white;
 }
 
 .home {
@@ -23,12 +24,7 @@
 
 .white {
   border-bottom: inset;
-  /* background-color: white; */
-}
-
-.menuOpen {
-  /* border-bottom: inset; */
-  background-color: var(--bg);
+  background-color: white;
 }
 
 .sticky {
@@ -38,8 +34,7 @@
   font-weight: normal;
 }
 
-.stickyOpen {
-  /* border-bottom: inset; */
+.stickyMenuOpen {
   background-color: var(--bg);
 }
 
@@ -55,10 +50,11 @@
 }
 
 @media (min-width: 768px) {
-  .container {
+  /* .container {
     background-color: transparent;
     transition: 0.6s;
-  }
+    background-color: white;
+  } */
 
   .sticky {
     background-color: white;

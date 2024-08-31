@@ -21,14 +21,11 @@ a {
 }
 
 .container {
-  /* margin: auto; */
   padding-top: 150px;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 30px;
-  /* text-align: -webkit-center; */
 }
 
 .homePageContainer {

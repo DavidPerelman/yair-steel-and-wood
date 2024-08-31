@@ -19,7 +19,6 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     setOpen(false);
     const container = document.querySelector(".container");
-    console.log(container);
 
     if (pathname !== "/") {
       setMenuSrc("/menu-gray.png");

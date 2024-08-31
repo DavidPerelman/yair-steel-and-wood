@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const AdminPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.panel_container}>
       <CustomHead
         title="יאיר ברזל ועץ - ניהול אתר"
         description="יאיר ברזל ועץ - ניהול אתר"
@@ -31,9 +31,9 @@ const AdminPage = () => {
           <h2 className={styles.linkHeader}>עריכת צור קשר</h2>
         </Link>
         {/* <UploadImage /> */}
-        <button className={styles.logoutBtn} onClick={logout}>
+        <Link className={styles.logoutBtn} onClick={logout} href="/admin">
           <h2 className={styles.linkHeader}>התנתקות</h2>
-        </button>
+        </Link>
       </div>
     </div>
   );

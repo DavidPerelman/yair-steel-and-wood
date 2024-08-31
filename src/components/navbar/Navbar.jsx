@@ -25,10 +25,10 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
 
     if (open) {
       navbar.classList.add(styles.menuOpen);
-      navbar.classList.add(styles.stickyOpen);
+      navbar.classList.add(styles.stickyMenuOpen);
     } else {
       navbar.classList.remove(styles.menuOpen);
-      navbar.classList.remove(styles.stickyOpen);
+      navbar.classList.remove(styles.stickyMenuOpen);
     }
 
     if (pathname !== "/") {
@@ -41,7 +41,6 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       window.addEventListener("scroll", onResize);
       navbar.classList.add(styles.home);
     } else {
-      // window.addEventListener("scroll", onResize);
       navbar.classList.remove(styles.home);
     }
   }, [open, pathname]);

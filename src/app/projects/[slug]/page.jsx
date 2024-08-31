@@ -5,34 +5,22 @@ import { Suspense } from "react";
 import { getProject } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
-
-// FETCH DATA WITH AN API
-// const getData = async (slug) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
-
-//   if (!res.ok) {
-//     throw new Error("Something went wrong");
-//   }
-
-//   return res.json();
-// };
+import SingleProjectContainer from "@/components/singleProjectContainer/SingleProjectContainer";
 
 const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
-
-  // FETCH DATA WITH AN API
-  // const project = await getData(slug);
 
   // FETCH DATA WITHOUT AN API
   const project = await getProject(slug);
 
   return (
-    <div className={styles.singleProjectPage}>
+    <>
       <CustomHead
         title={`יאיר ברזל ועץ - ${project.title}`}
         description={`יאיר ברזל ועץ - ${project.title}`}
       />
-      <div className={styles.container}>
+      <SingleProjectContainer />
+      {/* <div className={styles.container}>
         <div className={styles.imgContainer}>
           <Image src={project.thumbnail} fill alt="" className={styles.img} />
         </div>
@@ -53,7 +41,6 @@ const SingleProjectPage = async ({ params }) => {
                 </div>
               }
             >
-              {/* <PostUser userId={project.userId} /> */}
             </Suspense>
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Published</span>
@@ -62,8 +49,8 @@ const SingleProjectPage = async ({ params }) => {
           </div>
           <div className={styles.content}>{project.description}</div>
         </div>
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 };
 
