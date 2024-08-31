@@ -4,7 +4,8 @@ import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 
 const ProjectsPage = async () => {
-  const projects = await getProjects();
+  const data = await getProjects();
+  const projects = JSON.parse(JSON.stringify(data));
 
   return (
     <div className={styles.projectsPage}>

@@ -4,7 +4,8 @@ import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer"
 import { getProjects } from "@/lib/data";
 
 const AdminProjectsPage = async () => {
-  const projects = await getProjects();
+  const data = await getProjects();
+  const projects = JSON.parse(JSON.stringify(data));
 
   return (
     <div className={styles.container}>
