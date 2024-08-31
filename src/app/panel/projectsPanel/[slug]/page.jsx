@@ -11,14 +11,11 @@ const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
 
   // FETCH DATA WITHOUT AN API
-  const project = await getProject(slug);
+  const data = await getProject(slug);
+  const project = JSON.parse(JSON.stringify(data));
 
   return (
     // <div className={styles.singleProjectPage}>
-    //   <CustomHead
-    //     title={`יאיר ברזל ועץ - ${project.title}`}
-    //     description={`יאיר ברזל ועץ - ${project.title}`}
-    //   />
     //   <div className={styles.container}>
     //     <div className={styles.imgContainer}>
     //       <Image src={project.thumbnail} fill alt="" className={styles.img} />
@@ -51,7 +48,11 @@ const SingleProjectPage = async ({ params }) => {
     // </div>
 
     <>
-      <SingleProjectContainer />
+      <CustomHead
+        title={`יאיר ברזל ועץ - ${project.title}`}
+        description={`יאיר ברזל ועץ - ${project.title}`}
+      />
+      <SingleProjectContainer project={project} />
     </>
   );
 };

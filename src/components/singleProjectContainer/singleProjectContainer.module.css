@@ -1,3 +1,9 @@
+.content {
+  height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+}
+
 .homeContentContainer {
   position: absolute;
   margin: 0 auto;
@@ -8,25 +14,81 @@
 .leftCol {
   background-color: black;
   width: calc(40% - 20px);
-  height: 100%;
+  height: 77vh;
   float: left;
+  text-align: -webkit-center;
+  align-content: center;
 }
 
 .rightCol {
   background-color: red;
   width: 60%;
-  height: 100%;
+  height: 77vh;
   float: right;
+  text-align: -webkit-center;
+  align-content: center;
 }
 
-.buyPanel {
-  width: 100%;
-  height: 230px;
-  margin: 40px 0 0 0;
+.rightPanel {
+  background-color: black;
+  width: 90%;
+  height: 90%;
+  margin: 0 0 0 0;
 }
 
-.sellPanel {
-  width: 100%;
-  height: 230px;
-  margin: 40px 0 0 0;
+.leftPanel {
+  background-color: red;
+  width: 90%;
+  height: 90%;
+  margin: 0 0 0 0;
 }
+
+/*  */
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .top {
+  height: 80% !important;
+}
+
+.bottom {
+  height: 20% !important;
+} */

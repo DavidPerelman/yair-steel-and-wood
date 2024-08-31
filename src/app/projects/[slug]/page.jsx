@@ -11,7 +11,8 @@ const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
 
   // FETCH DATA WITHOUT AN API
-  const project = await getProject(slug);
+  const data = await getProject(slug);
+  const project = JSON.parse(JSON.stringify(data));
 
   return (
     <>
@@ -19,7 +20,7 @@ const SingleProjectPage = async ({ params }) => {
         title={`יאיר ברזל ועץ - ${project.title}`}
         description={`יאיר ברזל ועץ - ${project.title}`}
       />
-      <SingleProjectContainer />
+      <SingleProjectContainer project={project} />
       {/* <div className={styles.container}>
         <div className={styles.imgContainer}>
           <Image src={project.thumbnail} fill alt="" className={styles.img} />
