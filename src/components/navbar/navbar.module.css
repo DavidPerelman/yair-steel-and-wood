@@ -38,6 +38,11 @@
   font-weight: normal;
 }
 
+.stickyOpen {
+  /* border-bottom: inset; */
+  background-color: var(--bg);
+}
+
 .contact {
   display: flex;
   flex-direction: row;

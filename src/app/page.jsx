@@ -9,10 +9,10 @@ const Home = async () => {
   return (
     <>
       <Video />
-      <div className={"container"}>
-        <h1 className="pageHeader">הפרויקטים שלנו</h1>
-        <ProjectsContainer projects={projects} link="/projects/" />
-      </div>
+      {/* <div className={"container"}> */}
+      <h1 className="pageHeader">הפרויקטים שלנו</h1>
+      <ProjectsContainer projects={projects} link="/projects/" />
+      {/* </div> */}
     </>
   );
 };

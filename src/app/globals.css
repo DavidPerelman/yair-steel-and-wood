@@ -29,7 +29,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   gap: 30px;
-  text-align: -webkit-center;
+  /* text-align: -webkit-center; */
 }
 
 .pageHeader {

@@ -25,8 +25,10 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
 
     if (open) {
       navbar.classList.add(styles.menuOpen);
+      navbar.classList.add(styles.stickyOpen);
     } else {
       navbar.classList.remove(styles.menuOpen);
+      navbar.classList.remove(styles.stickyOpen);
     }
 
     if (pathname !== "/") {
@@ -39,7 +41,7 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       window.addEventListener("scroll", onResize);
       navbar.classList.add(styles.home);
     } else {
-      window.addEventListener("scroll", onResize);
+      // window.addEventListener("scroll", onResize);
       navbar.classList.remove(styles.home);
     }
   }, [open, pathname]);
