@@ -52,7 +52,7 @@
   color: blue;
 }
 
-p .links:not(:last-of-type)::after {
+p .span:not(:last-of-type)::after {
   content: ",";
 }
 
