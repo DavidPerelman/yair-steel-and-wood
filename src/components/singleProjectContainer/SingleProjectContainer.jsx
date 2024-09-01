@@ -12,9 +12,9 @@ const SingleProjectContainer = ({ project }) => {
       <div className={styles.leftCol}>
         <div className={`${styles.leftPanel} ${styles.panel}`}>
           <h1>{project.title}</h1>
-          <h3>מחיר - {project.price} ש״ח</h3>
+          <h3>{project.price} ש״ח</h3>
 
-          <p className={styles.material_div}>
+          {/* <p className={styles.material_div}>
             מחלקה -&nbsp;
             {project.division &&
               project.division.map((item) => (
@@ -22,9 +22,9 @@ const SingleProjectContainer = ({ project }) => {
                   {item.title}
                 </span>
               ))}
-          </p>
+          </p> */}
 
-          <p className={styles.material_div}>
+          {/* <p className={styles.material_div}>
             חומר -&nbsp;
             {project.material &&
               project.material.map((item) => (
@@ -32,7 +32,7 @@ const SingleProjectContainer = ({ project }) => {
                   {item.title}
                 </span>
               ))}
-          </p>
+          </p> */}
 
           {/* <div className={styles.material_div}>
             חומר -&nbsp;
@@ -46,7 +46,7 @@ const SingleProjectContainer = ({ project }) => {
               </Link>
             ))}
           </div> */}
-          <p>{project.description}</p>
+          <p className={styles.description}>{project.description}</p>
           <div>
             מידות -
             <br />

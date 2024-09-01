@@ -31,7 +31,7 @@ const ImagesCarousel = ({ slides }) => {
     <div className={styles.content}>
       <div className={styles.topCol}>
         <div className={styles.leftArrow} onClick={goToNext}>
-          ❰
+          &#10094;
         </div>
         {/* <button className={styles.leftArrow} onClick={goToNext}>
           ❰
@@ -45,7 +45,7 @@ const ImagesCarousel = ({ slides }) => {
           style={{ width: "100%", height: "100%" }}
         />
         <div className={styles.rightArrow} onClick={goToPrevious}>
-          ❱
+          &#10095;
         </div>
       </div>
       <div className={styles.bottomCol}>
@@ -68,7 +68,7 @@ const ImagesCarousel = ({ slides }) => {
               src={slides[slideIndex]}
               alt=""
               height={80}
-              width={100}
+              width={80}
               className={styles.dots}
               onClick={() => goToSlide(slideIndex)}
             />
