@@ -9,7 +9,6 @@
 .topCol {
   position: relative;
   align-content: center;
-  /* background-color: black; */
   height: 80%;
   width: 80%;
   float: left;
@@ -72,6 +71,7 @@
 
   .topCol {
     height: 50%;
+    width: 100%;
   }
 
   .bottomCol {

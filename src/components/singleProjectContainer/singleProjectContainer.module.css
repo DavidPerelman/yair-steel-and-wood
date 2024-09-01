@@ -41,6 +41,7 @@
   flex-direction: column;
   text-align: center;
   gap: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .size_header {
@@ -86,5 +87,9 @@ p .span:not(:last-of-type)::after {
   .rightPanel {
     width: 90%;
     height: 0%;
+  }
+
+  .leftPanel {
+    padding-bottom: 15px;
   }
 }
