@@ -45,8 +45,8 @@
   gap: 5px;
 }
 
-#whatsappLogo {
-  padding-left: 5px;
+.contactLogo {
+  border-radius: 5px;
 }
 
 @media (min-width: 768px) {

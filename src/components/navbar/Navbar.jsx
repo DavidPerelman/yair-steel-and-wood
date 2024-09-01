@@ -57,18 +57,28 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
         />
       </Link>
       <div className={styles.contact}>
+        <Link target="_blank" href="tel:0584455456">
+          <Image
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228721/nvoyobaxdshajgip79kk.jpg"
+            width={33}
+            height={33}
+            alt="phone-logo"
+            className={styles.contactLogo}
+          />
+        </Link>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724775580/images/ecesznayvsrzlfxaptap.png"
-            width={44}
-            height={44}
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228218/hzv6aee8d45so8hweef0.jpg"
+            width={33}
+            height={33}
             alt="instagram-logo"
+            className={styles.contactLogo}
           />
         </Link>
         <Link target="_blank" href="https://wa.me/972584422401">
           <Image
-            id={styles.whatsappLogo}
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724777187/images/kuc6cyctjol0r0yfjy5a.png"
+            className={styles.contactLogo}
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228219/qb8wel6tlmfqttftndh3.jpg"
             width={33}
             height={33}
             alt="whatsapp-logo"
@@ -79,9 +89,10 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
           href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
         >
           <Image
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1724824960/tuw3walof8qzlasd3dpt.png"
-            width={37}
-            height={31}
+            className={styles.contactLogo}
+            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228219/lcq6kvhgxrlihgmc6woh.jpg"
+            width={33}
+            height={33}
             alt="whatsapp-logo"
           />
         </Link>
