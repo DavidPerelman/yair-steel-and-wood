@@ -42,7 +42,7 @@
 
 @media (max-width: 568px) {
   .content {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
