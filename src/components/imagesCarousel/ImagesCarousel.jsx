@@ -30,9 +30,12 @@ const ImagesCarousel = ({ slides }) => {
   return (
     <div className={styles.content}>
       <div className={styles.topCol}>
-        <div className={styles.leftArrow} onClick={goToNext}>
+        {/* <div className={styles.leftArrow} onClick={goToNext}>
           ❰
-        </div>
+        </div> */}
+        <button className={styles.leftArrow} onClick={goToNext}>
+          ❰
+        </button>
         <Image
           src={slides[currentIndex]}
           alt=""
