@@ -68,4 +68,20 @@
     height: calc(77vh - 60%);
     gap: 1rem;
   }
+
+  .topCol {
+    height: 50%;
+  }
+
+  .bottomCol {
+    height: 15%;
+  }
+
+  .rightArrow {
+    right: 93%;
+  }
+
+  .leftArrow {
+    right: 1%;
+  }
 }
