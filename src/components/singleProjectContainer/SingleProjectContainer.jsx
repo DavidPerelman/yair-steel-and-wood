@@ -18,7 +18,11 @@ const SingleProjectContainer = ({ project }) => {
             מחלקה -&nbsp;
             {project.division &&
               project.division.map((item) => (
-                <Link class={styles.links} href={`/divisions/${item.slug}`}>
+                <Link
+                  key={item.slug}
+                  class={styles.links}
+                  href={`/divisions/${item.slug}`}
+                >
                   {item.title}
                 </Link>
               ))}
@@ -28,7 +32,11 @@ const SingleProjectContainer = ({ project }) => {
             חומר -&nbsp;
             {project.material &&
               project.material.map((item) => (
-                <Link class={styles.links} href={`/materials/${item.slug}`}>
+                <Link
+                  key={item.slug}
+                  class={styles.links}
+                  href={`/materials/${item.slug}`}
+                >
                   {item.title}
                 </Link>
               ))}

@@ -22,7 +22,7 @@ export const DELETE = async (request, { params }) => {
   try {
     connectToDb();
 
-    await Post.deleteOne({ slug });
+    await Project.deleteOne({ slug });
     return NextResponse.json("Post deleted");
   } catch (error) {
     console.log(error);
