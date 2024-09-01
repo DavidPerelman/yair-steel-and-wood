@@ -1,6 +1,6 @@
 .content {
   height: calc(100vh - 130px);
-  /* display: flex; */
+  display: flex;
   align-items: center;
 }
 
@@ -34,10 +34,22 @@
 }
 
 .leftPanel {
-  /* background-color: red; */
   width: 90%;
   height: 90%;
   margin: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 20px;
+}
+
+.size_header {
+  direction: ltr;
+}
+
+.links {
+  text-decoration: underline;
+  color: blue;
 }
 
 @media (max-width: 568px) {
