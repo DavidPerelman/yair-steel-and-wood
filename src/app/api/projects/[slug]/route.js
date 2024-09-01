@@ -1,5 +1,5 @@
 import { connectToDb } from "@/lib/connectToDb";
-import { Post } from "@/lib/models";
+import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
@@ -8,7 +8,7 @@ export const GET = async (request, { params }) => {
   try {
     connectToDb();
 
-    const post = await Post.findOne({ slug });
+    const post = await Project.findOne({ slug });
     return NextResponse.json(post);
   } catch (error) {
     console.log(error);

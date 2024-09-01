@@ -1,9 +1,9 @@
 // export { GET, POST } from "@/auth";
 import { connectToDb } from "@/lib/connectToDb";
-import { User } from "@/lib/models";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import { User } from "@/lib/models/userModel";
 
 export const authOptions = {
   providers: [

@@ -1,6 +1,7 @@
 import { connectToDb } from "./connectToDb";
-import { Project, User } from "./models";
 import { unstable_noStore as noStore } from "next/cache";
+import { Project } from "./models/projectModel";
+import { User } from "./models/userModel";
 
 // TEMPORARY DATA
 // const users = [
@@ -49,10 +50,14 @@ export const getProjects = async () => {
 export const getProject = async (slug) => {
   try {
     connectToDb();
-    const project = await Project.findOne({ slug });
+
+    const project = await Project.findOne({ slug })
+      .populate("division")
+      .populate("material");
+
     return project;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw new Error("Failed to fetch project");
   }
 };
