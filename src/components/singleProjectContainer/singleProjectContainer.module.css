@@ -17,7 +17,7 @@
   height: 77vh;
   float: left;
   text-align: -webkit-center;
-  align-content: center;
+  /* align-content: center; */
   padding-right: 5%;
 }
 
