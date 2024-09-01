@@ -9,9 +9,6 @@ const ImagesCarousel = ({ slides }) => {
   const [indexSlide, setIndexSlide] = useState(0);
 
   const goToPrevious = () => {
-    console.log("goToPrevious");
-    console.log(currentIndex);
-
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
 
@@ -19,9 +16,6 @@ const ImagesCarousel = ({ slides }) => {
   };
 
   const goToNext = () => {
-    console.log("goToNext");
-    console.log(currentIndex);
-
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
 
@@ -29,9 +23,6 @@ const ImagesCarousel = ({ slides }) => {
   };
 
   const goToSlide = (slideIndex) => {
-    console.log("goToSlide");
-    console.log(currentIndex);
-
     setCurrentIndex(slideIndex);
     setIndexSlide(slideIndex);
   };
