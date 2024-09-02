@@ -38,11 +38,12 @@
   background-color: var(--bg);
 }
 
-.contact {
+.contactLinks {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
+  margin-top: 2px;
 }
 
 .logoButtonsWhite {

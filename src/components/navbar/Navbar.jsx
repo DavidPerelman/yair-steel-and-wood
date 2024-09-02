@@ -118,7 +118,7 @@ const Navbar = ({ open, setOpen }) => {
           alt="logo"
         />
       </Link>
-      <div className={styles.contact}>
+      <div className={styles.contactLinks}>
         <Link target="_blank" href="tel:0584455456">
           <Image
             className="logo"
