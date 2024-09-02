@@ -15,13 +15,12 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
   const pathname = usePathname();
 
   useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
     const navbar = document.querySelector("#navbar");
     const logos = document.querySelectorAll(".logo");
 
     const onResize = () => {
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);
-
-      console.log(logos);
 
       Object.entries(logos).map((element) =>
         element[1].classList.toggle(styles.logoGray, window.scrollY > 0)
@@ -33,9 +32,21 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
     if (open) {
       navbar.classList.add(styles.menuOpen);
       navbar.classList.add(styles.stickyMenuOpen);
+
+      Object.entries(logos).map((element) =>
+        console.log(element[1].classList.add(styles.stickyMenuOpenIcons))
+      );
+
+      body.style.overflow = "hidden";
     } else {
       navbar.classList.remove(styles.menuOpen);
       navbar.classList.remove(styles.stickyMenuOpen);
+
+      Object.entries(logos).map((element) =>
+        console.log(element[1].classList.remove(styles.stickyMenuOpenIcons))
+      );
+
+      body.style.overflow = "";
     }
 
     if (pathname !== "/") {
@@ -109,8 +120,8 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
             id={styles.gmailLogo}
             className="logo"
             src="/gmail.svg"
-            width={28}
-            height={28}
+            width={27}
+            height={27}
             alt="whatsapp-logo"
           />
         </Link>
