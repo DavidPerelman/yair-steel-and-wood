@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navLink/NavLink";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const links = [
   { title: "ראשי", path: "/" },
@@ -14,11 +15,32 @@ const links = [
 ];
 
 const Links = ({ open, openMenuClick }) => {
-  useEffect(() => {}, []);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const linksContainer = document.querySelector("#links");
+
+    const onResize = () => {
+      linksContainer.classList.toggle(
+        styles.linksContainerGray,
+        window.scrollY > 0
+      );
+    };
+
+    if (pathname === "/") {
+      window.addEventListener("scroll", onResize);
+    }
+
+    if (pathname !== "/") {
+      linksContainer.classList.remove(styles.linksContainerWhite);
+
+      linksContainer.classList.add(styles.linksContainerGray);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
-      <div className={styles.links}>
+      <div className={styles.links} id="links">
         {links.map((link) => (
           <NavLink item={link} key={link.title}>
             {link.title}
