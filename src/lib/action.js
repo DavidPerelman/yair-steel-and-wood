@@ -55,7 +55,7 @@ export const addProject = async (previousState, formData) => {
 
     await newProject.save();
     console.log("saved to db");
-    revalidatePath("/projects");
+    // revalidatePath("/projects");
     return newProject;
   } catch (error) {
     console.log(error);
