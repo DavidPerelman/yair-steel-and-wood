@@ -59,16 +59,16 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       <div className={styles.contact}>
         <Link target="_blank" href="tel:0584455456">
           <Image
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228721/nvoyobaxdshajgip79kk.jpg"
-            width={33}
-            height={33}
+            src="/call.png"
+            width={30}
+            height={30}
             alt="phone-logo"
             className={styles.contactLogo}
           />
         </Link>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228218/hzv6aee8d45so8hweef0.jpg"
+            src="/instagram.png"
             width={33}
             height={33}
             alt="instagram-logo"
@@ -78,7 +78,7 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
         <Link target="_blank" href="https://wa.me/972584422401">
           <Image
             className={styles.contactLogo}
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228219/qb8wel6tlmfqttftndh3.jpg"
+            src="/whatsapp.png"
             width={33}
             height={33}
             alt="whatsapp-logo"
@@ -90,7 +90,7 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
         >
           <Image
             className={styles.contactLogo}
-            src="https://res.cloudinary.com/dyzl8mvwt/image/upload/v1725228219/lcq6kvhgxrlihgmc6woh.jpg"
+            src="/gmail.png"
             width={33}
             height={33}
             alt="whatsapp-logo"

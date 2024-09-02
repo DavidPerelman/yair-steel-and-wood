@@ -1,11 +1,11 @@
 "use server";
 
 // import { revalidatePath } from "next/cache";
-import { User } from "./models";
 import { connectToDb } from "./connectToDb";
 import bcrypt from "bcrypt";
 import { signIn, signOut } from "next-auth/react";
 import axios from "axios";
+import { Project } from "./models/projectModel";
 
 // export const getUsers = async () => {
 //   try {
@@ -22,26 +22,46 @@ import axios from "axios";
 //   console.log(res.data);
 // };
 
-// export const addPost = async (previousState, formData) => {
-//   //   const title = formData.get("title");
-//   //   const desc = formData.get("desc");
-//   //   const slug = formData.get("slug");
+export const addProject = async (previousState, formData) => {
+  //   const title = formData.get("title");
+  //   const desc = formData.get("desc");
+  //   const slug = formData.get("slug");
 
-//   const { title, desc, slug, userId } = Object.fromEntries(formData);
+  const {
+    title,
+    description,
+    thumbnail,
+    images,
+    price,
+    size,
+    division,
+    material,
+    slug,
+  } = Object.fromEntries(formData);
 
-//   try {
-//     connectToDb();
-//     const newPost = Post({ title, desc, slug, userId });
+  try {
+    connectToDb();
+    const newProject = Project({
+      title,
+      description,
+      thumbnail,
+      images,
+      price,
+      size,
+      division,
+      material,
+      slug,
+    });
 
-//     await newPost.save();
-//     console.log("saved to db");
-//     revalidatePath("/blog");
-//     revalidatePath("/admin");
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong!" };
-//   }
-// };
+    await newProject.save();
+    console.log("saved to db");
+    revalidatePath("/projects");
+    return newProject;
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong!" };
+  }
+};
 
 // export const deletePost = async (formData) => {
 //   const { id } = Object.fromEntries(formData);

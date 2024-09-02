@@ -2,9 +2,9 @@
 
 import { CldUploadWidget } from "next-cloudinary";
 
-const UploadImage = () => {
+const UploadImage = ({ setUrl }) => {
   const uploadSuccess = (results) => {
-    console.log(results.info.secure_url);
+    setUrl(results.info.secure_url);
   };
 
   return (

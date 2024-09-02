@@ -21,6 +21,9 @@ const AdminPage = () => {
         <Link className={styles.logoutBtn} href={"/panel/video"}>
           <h2 className={styles.linkHeader}>סרטון בדף הראשי</h2>
         </Link>
+        <Link className={styles.logoutBtn} href={"/panel/newProject"}>
+          <h2 className={styles.linkHeader}>פרויקט חדש</h2>
+        </Link>
         <Link className={styles.logoutBtn} href={"/panel/projectsPanel"}>
           <h2 className={styles.linkHeader}>עריכת פרויקטים</h2>
         </Link>
