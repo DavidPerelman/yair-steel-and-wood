@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navLink/NavLink";
 import Image from "next/image";
@@ -12,7 +13,9 @@ const links = [
   { title: "ניהול", path: "/panel" },
 ];
 
-const Links = ({ open, openMenuClick, menuSrc }) => {
+const Links = ({ open, openMenuClick }) => {
+  useEffect(() => {}, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.links}>
@@ -24,8 +27,9 @@ const Links = ({ open, openMenuClick, menuSrc }) => {
       </div>
       <div>
         <Image
+          id="menuButton"
           className={styles.menuButton}
-          src={menuSrc}
+          src={"/menu-button-gray.svg"}
           alt=""
           width={30}
           height={30}

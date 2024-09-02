@@ -14,19 +14,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [menuSrc, setMenuSrc] = useState("");
 
   useEffect(() => {
     setOpen(false);
     const container = document.querySelector(".container");
-
-    if (pathname !== "/") {
-      setMenuSrc("/menu-gray.png");
-      container.classList.add("homePageContainer");
-    } else {
-      setMenuSrc("/menu-white.png");
-      container.classList.remove("homePageContainer");
-    }
 
     if (pathname === "/") {
       container.classList.add("homePageContainer");
@@ -40,20 +31,10 @@ export default function RootLayout({ children }) {
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
       <body className={assistant.className}>
         <AuthProvider>
-          <Navbar open={open} setOpen={setOpen} menuSrc={menuSrc} />
+          <Navbar open={open} setOpen={setOpen} />
           <div className="container">{children}</div>
         </AuthProvider>
       </body>
     </html>
   );
 }
-
-// RootLayout.getInitialProps = async () => {
-//   const metadata = await fetchMetadata();
-
-//   return {
-//     title: metadata.title,
-//     description: metadata.description,
-//     keywords: metadata.keywords,
-//   };
-// };

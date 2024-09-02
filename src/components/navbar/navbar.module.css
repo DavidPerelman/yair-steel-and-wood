@@ -38,11 +38,6 @@
   background-color: var(--bg);
 }
 
-.stickyMenuOpenIcons {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
-    hue-rotate(179deg) brightness(108%) contrast(100%);
-}
-
 .contact {
   display: flex;
   flex-direction: row;
@@ -50,14 +45,49 @@
   gap: 5px;
 }
 
-.logoWhite {
+.logoButtonsWhite {
   filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
     hue-rotate(179deg) brightness(108%) contrast(100%);
 }
 
-.logoGray {
+.logoButtonsGray {
   filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
     hue-rotate(83deg) brightness(91%) contrast(92%);
+}
+
+.menuButtonWhite {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
+}
+
+.menuButtonGray {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
+    hue-rotate(83deg) brightness(91%) contrast(92%);
+}
+
+.navLinkButtonsWhite {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
+}
+
+.navLinkTitlesGray {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
+    hue-rotate(83deg) brightness(91%) contrast(92%);
+}
+
+.stickyLogoOpenIcons {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
+}
+
+.stickymenuButtonOpen {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
+}
+
+.stickyNavLinkTitlesOpen {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
 }
 
 #gmailLogo {

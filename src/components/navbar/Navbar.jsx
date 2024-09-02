@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const Navbar = ({ menuSrc, open, setOpen }) => {
+const Navbar = ({ open, setOpen }) => {
   const openMenuClick = () => {
     setOpen((prev) => !prev);
   };
@@ -15,15 +15,26 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
   const pathname = usePathname();
 
   useEffect(() => {
+    const menuButton = document.querySelector("#menuButton");
     const body = document.getElementsByTagName("body")[0];
     const navbar = document.querySelector("#navbar");
     const logos = document.querySelectorAll(".logo");
+    const navLinkTitles = document.querySelectorAll(".navLinkTitle");
 
     const onResize = () => {
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);
 
+      menuButton.classList.toggle(styles.menuButtonGray, window.scrollY > 0);
+
       Object.entries(logos).map((element) =>
-        element[1].classList.toggle(styles.logoGray, window.scrollY > 0)
+        element[1].classList.toggle(styles.logoButtonsGray, window.scrollY > 0)
+      );
+
+      Object.entries(navLinkTitles).map((element) =>
+        element[1].classList.toggle(
+          styles.navLinkTitlesGray,
+          window.scrollY > 0
+        )
       );
     };
 
@@ -34,8 +45,14 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       navbar.classList.add(styles.stickyMenuOpen);
 
       Object.entries(logos).map((element) =>
-        console.log(element[1].classList.add(styles.stickyMenuOpenIcons))
+        element[1].classList.add(styles.stickyLogoOpenIcons)
       );
+
+      Object.entries(navLinkTitles).map((element) =>
+        element[1].classList.add(styles.stickyNavLinkTitlesOpen)
+      );
+
+      menuButton.classList.add(styles.stickymenuButtonOpen);
 
       body.style.overflow = "hidden";
     } else {
@@ -43,17 +60,29 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       navbar.classList.remove(styles.stickyMenuOpen);
 
       Object.entries(logos).map((element) =>
-        console.log(element[1].classList.remove(styles.stickyMenuOpenIcons))
+        element[1].classList.remove(styles.stickyLogoOpenIcons)
       );
+
+      Object.entries(navLinkTitles).map((element) =>
+        element[1].classList.remove(styles.stickyNavLinkTitlesOpen)
+      );
+
+      menuButton.classList.remove(styles.stickymenuButtonOpen);
 
       body.style.overflow = "";
     }
 
     if (pathname !== "/") {
       Object.entries(logos).map((element) =>
-        console.log(element[1].classList.remove(styles.logoWhite))
+        element[1].classList.remove(styles.logoButtonsWhite)
       );
+
+      Object.entries(navLinkTitles).map((element) =>
+        element[1].classList.remove(styles.navLinkButtonsWhite)
+      );
+
       navbar.classList.add(styles.white);
+      menuButton.classList.remove(styles.menuButtonWhite);
     } else {
       navbar.classList.remove(styles.white);
     }
@@ -67,14 +96,20 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
 
     if (pathname === "/") {
       Object.entries(logos).map((element) =>
-        console.log(element[1].classList.add(styles.logoWhite))
+        element[1].classList.add(styles.logoButtonsWhite)
       );
+
+      Object.entries(navLinkTitles).map((element) =>
+        element[1].classList.add(styles.navLinkButtonsWhite)
+      );
+
+      menuButton.classList.add(styles.menuButtonWhite);
     }
   }, [open, pathname]);
 
   return (
     <div id="navbar" className={styles.container}>
-      <Links open={open} openMenuClick={openMenuClick} menuSrc={menuSrc} />
+      <Links open={open} openMenuClick={openMenuClick} />
       <Link href="/">
         <Image
           src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/9c0aa524-1694-414b-a248-c10b54e40754.png"
