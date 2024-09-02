@@ -16,9 +16,16 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
 
   useEffect(() => {
     const navbar = document.querySelector("#navbar");
+    const logos = document.querySelectorAll(".logo");
 
     const onResize = () => {
       navbar.classList.toggle(styles.sticky, window.scrollY > 0);
+
+      console.log(logos);
+
+      Object.entries(logos).map((element) =>
+        element[1].classList.toggle(styles.logoGray, window.scrollY > 0)
+      );
     };
 
     navbar.classList.remove(styles.menuOpen);
@@ -43,6 +50,12 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
     } else {
       navbar.classList.remove(styles.home);
     }
+
+    if (pathname === "/") {
+      Object.entries(logos).map((element) =>
+        console.log(element[1].classList.add(styles.logoWhite))
+      );
+    }
   }, [open, pathname]);
 
   return (
@@ -59,28 +72,29 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
       <div className={styles.contact}>
         <Link target="_blank" href="tel:0584455456">
           <Image
-            src="/call.png"
-            width={30}
-            height={30}
+            className="logo"
+            src="/call.svg"
+            width={27}
+            height={27}
             alt="phone-logo"
-            className={styles.contactLogo}
           />
         </Link>
         <Link target="_blank" href="https://www.instagram.com/yairperlman/">
           <Image
-            src="/instagram.png"
+            className="logo"
+            src="/instagram.svg"
             width={33}
             height={33}
             alt="instagram-logo"
-            className={styles.contactLogo}
           />
         </Link>
         <Link target="_blank" href="https://wa.me/972584422401">
           <Image
-            className={styles.contactLogo}
-            src="/whatsapp.png"
-            width={33}
-            height={33}
+            id={styles.whatsappLogo}
+            className="logo"
+            src="/whatsapp.svg"
+            width={26}
+            height={26}
             alt="whatsapp-logo"
           />
         </Link>
@@ -89,10 +103,11 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
           href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
         >
           <Image
-            className={styles.contactLogo}
-            src="/gmail.png"
-            width={33}
-            height={33}
+            id={styles.gmailLogo}
+            className="logo"
+            src="/gmail.svg"
+            width={28}
+            height={28}
             alt="whatsapp-logo"
           />
         </Link>

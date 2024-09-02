@@ -45,17 +45,25 @@
   gap: 5px;
 }
 
-.contactLogo {
-  border-radius: 5px;
+.logoWhite {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+    hue-rotate(179deg) brightness(108%) contrast(100%);
+}
+
+.logoGray {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
+    hue-rotate(83deg) brightness(91%) contrast(92%);
+}
+
+#gmailLogo {
+  margin-top: 2px;
+}
+
+#whatsappLogo {
+  margin-left: 4px;
 }
 
 @media (min-width: 768px) {
-  /* .container {
-    background-color: transparent;
-    transition: 0.6s;
-    background-color: white;
-  } */
-
   .sticky {
     background-color: white;
     border-bottom: inset;
