@@ -39,6 +39,9 @@ const Navbar = ({ menuSrc, open, setOpen }) => {
     }
 
     if (pathname !== "/") {
+      Object.entries(logos).map((element) =>
+        console.log(element[1].classList.remove(styles.logoWhite))
+      );
       navbar.classList.add(styles.white);
     } else {
       navbar.classList.remove(styles.white);
