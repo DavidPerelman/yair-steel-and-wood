@@ -11,6 +11,7 @@
 }
 
 .navLinkTitle {
-  filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
-    hue-rotate(83deg) brightness(91%) contrast(92%);
+  /* filter: brightness(0) saturate(100%) invert(55%) sepia(0%) saturate(0%)
+    hue-rotate(83deg) brightness(91%) contrast(92%); */
+  color: var(--bg);
 }
