@@ -9,6 +9,13 @@
 
 @media (max-width: 390px) {
   .boxContainer {
-    width: 85%;
+    width: 100%;
+    display: flex;
+    text-align: -webkit-center;
+    gap: 50px;
+    padding: 0;
+    place-content: center;
+    flex-direction: column;
+    align-self: center;
   }
 }

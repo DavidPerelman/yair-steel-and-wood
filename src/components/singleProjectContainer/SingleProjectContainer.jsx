@@ -2,9 +2,22 @@
 
 import styles from "./singleProjectContainer.module.css";
 import ImagesCarousel from "../imagesCarousel/ImagesCarousel";
-import Link from "next/link";
+import { useEffect } from "react";
 
 const SingleProjectContainer = ({ project }) => {
+  useEffect(() => {
+    const container = document.querySelector(".container");
+
+    const x = window.matchMedia("(max-width: 568px)");
+
+    if (x.matches) {
+      // If media query matches
+      container.style.marginTop = "120px";
+    }
+
+    console.log((container.style.marginTop = "120px"));
+  }, []);
+
   return (
     <div className={styles.content}>
       <div className={styles.leftCol}>
