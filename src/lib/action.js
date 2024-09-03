@@ -72,12 +72,7 @@ export const addPost = async (previousState, formData) => {
     const newPost = Post({
       title,
       description,
-      thumbnail,
       images,
-      price,
-      size,
-      division,
-      material,
       slug,
     });
 
