@@ -1,12 +1,34 @@
 "use client";
 
 import { createUpload } from "@/lib/action";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 
 const UploadImageForm = () => {
+  const [state, formAction] = useFormState(createUpload, undefined);
+  const [uploadedImages, setUploadedImages] = useState([]);
+
+  useEffect(() => {
+    console.log(state !== undefined);
+
+    if (state !== undefined) {
+      setUploadedImages((uploadedImages) => [
+        ...uploadedImages,
+        state.secure_url,
+      ]);
+      console.log(uploadedImages);
+
+      // setUploadedImages(state.secure_url);
+    }
+    // setUploadedImages(state.secure_url);
+    console.log(uploadedImages);
+  }, [state]);
+
   return (
     <div>
       <form
-        action={createUpload}
+        action={formAction}
         className="bg-white border border-slate-200 dark:border-slate-500 rounded p-6 mb-6"
       >
         <p className="mb-6">
@@ -23,6 +45,13 @@ const UploadImageForm = () => {
         </p>
         <button>Submit</button>
       </form>
+      {uploadedImages.length > 0 && (
+        <div>
+          {uploadedImages.map((image) => (
+            <Image key={image} src={image} height={100} width={100} alt="" />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -177,19 +177,19 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export async function createUpload(formData) {
-  console.log(formData);
+export async function createUpload(previousState, formData) {
+  "use server";
 
-  ("use server");
-  const file = formData.get("image");
-  const arrayBuffer = await file.arrayBuffer();
+  const { image } = Object.fromEntries(formData);
+
+  const arrayBuffer = await image.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 
   const uploaded = await new Promise((resolve, reject) => {
     cloudinary.uploader
       .upload_stream(
         {
-          tags: ["nextjs-server-actions-upload-sneakers"],
+          // tags: ["nextjs-server-actions-upload-sneakers"],
           upload_preset: "ngj2sv5f",
         },
         function (error, result) {
