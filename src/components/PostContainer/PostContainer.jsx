@@ -9,6 +9,7 @@ const PostContainer = ({ data }) => {
     <div className={styles.content}>
       <div className={styles.leftCol}>
         <div className={`${styles.leftPanel} ${styles.panel}`}>
+          {/* <h1>אודות</h1> */}
           {data.description.map((post, i) => (
             <Fragment key={i}>
               <p key={`${i}-text`}>{post}</p>
