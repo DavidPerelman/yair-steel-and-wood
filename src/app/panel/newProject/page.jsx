@@ -5,6 +5,7 @@ import styles from "./newProject.module.css";
 import { useState } from "react";
 import { addProject } from "@/lib/action";
 import UploadImageForm from "@/components/uploadImageForm/UploadImageForm";
+import MultistepForm from "@/components/MultistepForm/MultistepForm";
 
 const NewProjectPage = () => {
   // const [state, formAction] = useFormState(addProject, undefined);
@@ -172,7 +173,8 @@ const NewProjectPage = () => {
           </select>
           <button onClick={handleSubmit}>Add</button>
         </form> */}
-        <UploadImageForm />
+        {/* <UploadImageForm /> */}
+        <MultistepForm />
       </div>
     </div>
   );

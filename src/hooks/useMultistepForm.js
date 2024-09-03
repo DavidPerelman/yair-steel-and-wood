@@ -19,5 +19,14 @@ export function useMultistepForm(steps) {
     setCurrentStepIndex(index);
   };
 
-  return { currentStepIndex, step: steps[currentStepIndex], next, back, goTo };
+  return {
+    currentStepIndex,
+    step: steps[currentStepIndex],
+    steps,
+    isFirstStep: currentStepIndex === 0,
+    isLastStep: currentStepIndex === steps.length - 1,
+    next,
+    back,
+    goTo,
+  };
 }
