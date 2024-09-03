@@ -1,17 +1,16 @@
 "use client";
 
-import { createUpload, deleteImageAction } from "@/lib/action";
+import { deleteImageAction, uploadToCloudinary } from "@/lib/action";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
 const UploadImageForm = () => {
-  const [state, formAction] = useFormState(createUpload, undefined);
+  const [state, formAction] = useFormState(uploadToCloudinary, undefined);
   const [uploadedImages, setUploadedImages] = useState([]);
 
   const deleteImage = async (id) => {
     const deleted = await deleteImageAction(id);
-    console.log(deleted);
 
     if (deleted.result === "ok") {
       const newUploadedImages = uploadedImages.filter(
@@ -62,7 +61,7 @@ const UploadImageForm = () => {
       {uploadedImages.length ? (
         <div key={""}>
           {uploadedImages.map((image, i) => (
-            <div>
+            <div key={i}>
               <button onClick={() => deleteImage(image.public_id)}>
                 מחק תמונה
               </button>

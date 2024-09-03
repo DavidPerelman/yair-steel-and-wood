@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 import { signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import { Project } from "./models/projectModel";
+var Promise = require("es6-promise").Promise;
 
 // const { cloudinary } = require("cloudinary");
 import { v2 as cloudinary } from "cloudinary";
@@ -133,7 +134,38 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export async function createUpload(previousState, formData) {
+// export async function createUpload(previousState, formData) {
+//   "use server";
+
+//   const { image } = Object.fromEntries(formData);
+
+//   const arrayBuffer = await image.arrayBuffer();
+//   const buffer = Buffer.from(arrayBuffer);
+
+//   const uploaded = await new Promise((resolve, reject) => {
+//     cloudinary.uploader
+//       .upload_stream(
+//         {
+//           // tags: ["nextjs-server-actions-upload-sneakers"],
+//           upload_preset: process.env.UPLOAD_PRESET,
+//         },
+//         function (error, result) {
+//           if (error) {
+//             reject(error);
+//             return;
+//           }
+//           resolve(result);
+//         }
+//       )
+//       .end(buffer);
+//   });
+
+//   return uploaded;
+
+//   // revalidatePath("/");
+// }
+
+export async function uploadToCloudinary(previousState, formData) {
   "use server";
 
   const { image } = Object.fromEntries(formData);
@@ -165,11 +197,10 @@ export async function createUpload(previousState, formData) {
 }
 
 export async function deleteImageAction(id) {
-  console.log(id);
-
   const deleted = await cloudinary.uploader.destroy(id, function (result) {
     console.log("result: ", result);
     return result;
   });
+
   return deleted;
 }
