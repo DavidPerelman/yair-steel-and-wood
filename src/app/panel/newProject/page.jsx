@@ -2,7 +2,6 @@
 
 import { useFormState } from "react-dom";
 import styles from "./newProject.module.css";
-import UploadImage from "@/components/uploadImage/UploadImage";
 import { useState } from "react";
 import { addProject } from "@/lib/action";
 import UploadImageForm from "@/components/uploadImageForm/UploadImageForm";
