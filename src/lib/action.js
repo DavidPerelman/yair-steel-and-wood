@@ -10,6 +10,7 @@ var Promise = require("es6-promise").Promise;
 
 // const { cloudinary } = require("cloudinary");
 import { v2 as cloudinary } from "cloudinary";
+import { Post } from "./models/postModel";
 
 // export const getUsers = async () => {
 //   try {
@@ -27,10 +28,6 @@ import { v2 as cloudinary } from "cloudinary";
 // };
 
 export const addProject = async (previousState, formData) => {
-  //   const title = formData.get("title");
-  //   const desc = formData.get("desc");
-  //   const slug = formData.get("slug");
-
   const {
     title,
     description,
@@ -61,6 +58,33 @@ export const addProject = async (previousState, formData) => {
     console.log("saved to db");
     // revalidatePath("/projects");
     return newProject;
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong!" };
+  }
+};
+
+export const addPost = async (previousState, formData) => {
+  const { title, description, images, slug } = Object.fromEntries(formData);
+
+  try {
+    connectToDb();
+    const newPost = Post({
+      title,
+      description,
+      thumbnail,
+      images,
+      price,
+      size,
+      division,
+      material,
+      slug,
+    });
+
+    await newPost.save();
+    console.log("saved to db");
+    // revalidatePath("/projects");
+    return newPost;
   } catch (error) {
     console.log(error);
     return { error: "Something went wrong!" };
