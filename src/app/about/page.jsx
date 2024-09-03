@@ -1,7 +1,6 @@
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 import { getPost } from "@/lib/data";
-import { Fragment } from "react";
 import PostContainer from "@/components/PostContainer/PostContainer";
 
 const AboutPage = async () => {
