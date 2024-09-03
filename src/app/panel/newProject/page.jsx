@@ -5,9 +5,10 @@ import styles from "./newProject.module.css";
 import UploadImage from "@/components/uploadImage/UploadImage";
 import { useState } from "react";
 import { addProject } from "@/lib/action";
+import UploadImageForm from "@/components/uploadImageForm/UploadImageForm";
 
 const NewProjectPage = () => {
-  const [state, formAction] = useFormState(addProject, undefined);
+  // const [state, formAction] = useFormState(addProject, undefined);
 
   const [size, setSize] = useState({
     heigth: "",
@@ -31,7 +32,7 @@ const NewProjectPage = () => {
   });
 
   const addThumbnail = () => {
-    setThumbnail(thumbnailUrl);
+    // setThumbnail(thumbnailUrl);
     console.log(thumbnail);
   };
 
@@ -95,7 +96,7 @@ const NewProjectPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.NewProjectPage}>
-        <form className={styles.form}>
+        {/* <form className={styles.form}>
           <h2>Add Project</h2>
           <input
             type="text"
@@ -103,7 +104,6 @@ const NewProjectPage = () => {
             placeholder="כותרת"
             value={formData.title}
             onChange={handleChange}
-            // required
           />
           <input
             type="text"
@@ -111,7 +111,6 @@ const NewProjectPage = () => {
             placeholder="slug"
             value={formData.slug}
             onChange={handleChange}
-            // required
           />
           <textarea
             type="text"
@@ -120,22 +119,20 @@ const NewProjectPage = () => {
             rows={10}
             value={formData.description}
             onChange={handleChange}
-            // required
           />
           <br />
-          <span>תצוגה: </span>
-          <UploadImage setUrl={setThumbnailUrl} />
-          <button onClick={addThumbnail}>הוסף תמונת תצוגה</button>
+          <div>
+            <span>תצוגה: </span>
+            <UploadImage setUrl={setThumbnailUrl} />
+            <button onClick={addThumbnail}>הוסף תמונת תצוגה</button>
+          </div>
           <span>תמונות: </span>
-          {/* <UploadImage setUrl={setImageUrl} />
-          <button onClick={addPicture}>הוסף תמונה</button> */}
           <input
             type="number"
             name="price"
             placeholder="מחיר"
             value={formData.price}
             onChange={handleChange}
-            // required
           />
           <input
             type="number"
@@ -143,7 +140,6 @@ const NewProjectPage = () => {
             placeholder="גובה"
             value={size.heigth}
             onChange={sizeHandleChange}
-            // required
           />
           <input
             type="number"
@@ -151,7 +147,6 @@ const NewProjectPage = () => {
             placeholder="רוחב"
             value={size.width}
             onChange={sizeHandleChange}
-            // required
           />
           <input
             type="number"
@@ -159,13 +154,8 @@ const NewProjectPage = () => {
             placeholder="אורך"
             value={size.length}
             onChange={sizeHandleChange}
-            // required
           />
-          <select
-            value={selectedMaterialValue}
-            onChange={handleMaterialChange}
-            // required
-          >
+          <select value={selectedMaterialValue} onChange={handleMaterialChange}>
             <option value="Material" disabled>
               חומר
             </option>
@@ -173,11 +163,7 @@ const NewProjectPage = () => {
             <option value="Material 2">חומר 2</option>
             <option value="Material 3">חומר 3</option>
           </select>
-          <select
-            value={selectedDivisionValue}
-            onChange={handleDivisionChange}
-            // required
-          >
+          <select value={selectedDivisionValue} onChange={handleDivisionChange}>
             <option value="Division" disabled>
               מחלקה
             </option>
@@ -186,7 +172,8 @@ const NewProjectPage = () => {
             <option value="Division 3">מחלקה 3</option>
           </select>
           <button onClick={handleSubmit}>Add</button>
-        </form>
+        </form> */}
+        <UploadImageForm />
       </div>
     </div>
   );
