@@ -12,7 +12,7 @@ const SingleProjectContainer = ({ project }) => {
 
     if (x.matches) {
       // If media query matches
-      container.style.marginTop = "120px";
+      container.style.paddingTop = "120px";
     }
 
     console.log((container.style.marginTop = "120px"));
