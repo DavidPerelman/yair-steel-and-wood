@@ -31,14 +31,10 @@ export async function GET(request) {
 export async function POST(request) {
   const data = await request.json();
 
-  // const uploadResponse = await cloudinary.uploader.upload(base64EncodedImage, {
-  //   upload_preset: "ngj2sv5f",
-  // });
-
   console.log(typeof data.base64EncodedImage);
 
   const uploadResponse = await cloudinary.uploader.upload(data.cloudinary, {
-    upload_preset: "ngj2sv5f",
+    upload_preset: process.env.UPLOAD_PRESET,
   });
 
   console.log(uploadResponse);

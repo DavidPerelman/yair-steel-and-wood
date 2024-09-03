@@ -23,7 +23,7 @@ const handleSubmitFile = async (selectedFile) => {
       .upload_stream(
         {
           tags: ["nextjs-server-actions-upload-sneakers"],
-          upload_preset: "ngj2sv5f",
+          upload_preset: process.env.UPLOAD_PRESET,
         },
         function (error, result) {
           if (error) {

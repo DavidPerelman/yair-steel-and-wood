@@ -1,6 +1,6 @@
 "use client";
 
-import { createUpload } from "@/lib/action";
+import { createUpload, deleteImageAction } from "@/lib/action";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
@@ -9,13 +9,27 @@ const UploadImageForm = () => {
   const [state, formAction] = useFormState(createUpload, undefined);
   const [uploadedImages, setUploadedImages] = useState([]);
 
+  const deleteImage = async (id) => {
+    const deleted = await deleteImageAction(id);
+    console.log(deleted);
+
+    if (deleted.result === "ok") {
+      const newUploadedImages = uploadedImages.filter(
+        (image) => image.public_id !== id
+      );
+
+      setUploadedImages(newUploadedImages);
+    }
+  };
+
   useEffect(() => {
+    // deleteImage("sahbwzjbkj43hzpr2uhv");
     console.log(state !== undefined);
 
     if (state !== undefined) {
       setUploadedImages((uploadedImages) => [
         ...uploadedImages,
-        state.secure_url,
+        { secure_url: state.secure_url, public_id: state.public_id },
       ]);
       console.log(uploadedImages);
 
@@ -45,12 +59,25 @@ const UploadImageForm = () => {
         </p>
         <button>Submit</button>
       </form>
-      {uploadedImages.length > 0 && (
-        <div>
-          {uploadedImages.map((image) => (
-            <Image key={image} src={image} height={100} width={100} alt="" />
+      {uploadedImages.length ? (
+        <div key={""}>
+          {uploadedImages.map((image, i) => (
+            <div>
+              <button onClick={() => deleteImage(image.public_id)}>
+                מחק תמונה
+              </button>
+              <Image
+                key={i}
+                src={image.secure_url}
+                height={100}
+                width={100}
+                alt=""
+              />
+            </div>
           ))}
         </div>
+      ) : (
+        <></>
       )}
     </div>
   );

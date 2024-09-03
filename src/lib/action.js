@@ -127,50 +127,6 @@ export const register = async () => {
   }
 };
 
-export const boxClickHandler = async (slug) => {
-  // "use server";
-  // console.log(`/projects/${slug}`);
-};
-
-// export const uploadImage = async (base64EncodedImage) => {
-//   try {
-//     console.log("base64EncodedImage");
-//     const uploadedResponse = await axios.post(
-//       "http://localhost:3000/api/upload",
-//       base64EncodedImage
-//     );
-
-//     console.log(uploadedResponse);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const create = async (data) => {
-//   console.log(data);
-
-//   const arrayBuffer = await data.arrayBuffer();
-//   const buffer = Buffer.from(arrayBuffer);
-
-//   await new Promise((resolve, reject) => {
-//     cloudinary.uploader
-//       .upload_stream(
-//         {
-//           tags: ["nextjs-server-actions-upload-sneakers"],
-//           upload_preset: "nextjs-server-actions-upload",
-//         },
-//         function (error, result) {
-//           if (error) {
-//             reject(error);
-//             return;
-//           }
-//           resolve(result);
-//         }
-//       )
-//       .end(buffer);
-//   });
-// };
-
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -190,7 +146,7 @@ export async function createUpload(previousState, formData) {
       .upload_stream(
         {
           // tags: ["nextjs-server-actions-upload-sneakers"],
-          upload_preset: "ngj2sv5f",
+          upload_preset: process.env.UPLOAD_PRESET,
         },
         function (error, result) {
           if (error) {
@@ -206,4 +162,14 @@ export async function createUpload(previousState, formData) {
   return uploaded;
 
   // revalidatePath("/");
+}
+
+export async function deleteImageAction(id) {
+  console.log(id);
+
+  const deleted = await cloudinary.uploader.destroy(id, function (result) {
+    console.log("result: ", result);
+    return result;
+  });
+  return deleted;
 }
