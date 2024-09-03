@@ -2,6 +2,7 @@ import { connectToDb } from "./connectToDb";
 import { unstable_noStore as noStore } from "next/cache";
 import { Project } from "./models/projectModel";
 import { User } from "./models/userModel";
+import { Post } from "./models/postModel";
 
 // TEMPORARY DATA
 // const users = [
@@ -56,6 +57,19 @@ export const getProject = async (slug) => {
       .populate("material");
 
     return project;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to fetch project");
+  }
+};
+
+export const getPost = async (slug) => {
+  try {
+    connectToDb();
+
+    const post = await Post.findOne({ slug });
+
+    return post;
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch project");
