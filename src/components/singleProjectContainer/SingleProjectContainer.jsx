@@ -5,47 +5,12 @@ import ImagesCarousel from "../imagesCarousel/ImagesCarousel";
 import Link from "next/link";
 
 const SingleProjectContainer = ({ project }) => {
-  console.log(project);
-
   return (
     <div className={styles.content}>
       <div className={styles.leftCol}>
         <div className={`${styles.leftPanel} ${styles.panel}`}>
           <h1>{project.title}</h1>
           <h3>{project.price} ש״ח</h3>
-
-          {/* <p className={styles.material_div}>
-            מחלקה -&nbsp;
-            {project.division &&
-              project.division.map((item) => (
-                <span key={item.slug} className={styles.span}>
-                  {item.title}
-                </span>
-              ))}
-          </p> */}
-
-          {/* <p className={styles.material_div}>
-            חומר -&nbsp;
-            {project.material &&
-              project.material.map((item) => (
-                <span key={item.slug} className={styles.span}>
-                  {item.title}
-                </span>
-              ))}
-          </p> */}
-
-          {/* <div className={styles.material_div}>
-            חומר -&nbsp;
-            {project.material.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/materials/${item.slug}`}
-                className={styles.links}
-              >
-                <h4>{item.title}</h4>
-              </Link>
-            ))}
-          </div> */}
           <p className={styles.description}>{project.description}</p>
           <div>
             מידות -
