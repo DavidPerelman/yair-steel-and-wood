@@ -14,8 +14,6 @@ const SingleProjectContainer = ({ project }) => {
       // If media query matches
       container.style.paddingTop = "120px";
     }
-
-    console.log((container.style.marginTop = "120px"));
   }, []);
 
   return (
