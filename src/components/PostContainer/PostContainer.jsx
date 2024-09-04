@@ -1,13 +1,13 @@
 "use client";
 
-// import { Fragment } from "react";
+import { Fragment } from "react";
 import styles from "./postContainer.module.css";
-// import Image from "next/image";
+import Image from "next/image";
 
 const PostContainer = ({ data }) => {
   return (
     <div className={styles.content}>
-      {/* <div className={styles.leftCol}>
+      <div className={styles.leftCol}>
         <div className={`${styles.leftPanel} ${styles.panel}`}>
           <h1>{data.title}</h1>
           {data.description.map((post, i) => (
@@ -29,7 +29,7 @@ const PostContainer = ({ data }) => {
             style={{ width: "100%", height: "100%" }}
           />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

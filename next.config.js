@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  eslint: {
+    dirs: ["src"],
+  },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
 
