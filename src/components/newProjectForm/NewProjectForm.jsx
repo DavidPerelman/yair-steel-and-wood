@@ -3,8 +3,6 @@
 import styles from "./newProjectForm.module.css";
 
 const NewProjectForm = ({ formData, setFormData }) => {
-  console.log(formData.size.heigth);
-
   const onOptionDivisionChangeHandler = (e) => {
     // setDivision(e.target.value);
     setFormData({ ...formData, division: e.target.value });

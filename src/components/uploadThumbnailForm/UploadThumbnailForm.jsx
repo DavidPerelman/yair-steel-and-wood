@@ -2,25 +2,29 @@
 
 import { deleteImageAction, uploadToCloudinary } from "@/lib/action";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFormState } from "react-dom";
 
-const UploadThumbnailForm = (formData, setFormData) => {
+const UploadThumbnailForm = ({ formData, setFormData }) => {
   const [state, formAction] = useFormState(uploadToCloudinary, undefined);
 
-  const deleteImage = async (imageIndex, imageObj) => {
-    const deleted = await deleteImageAction(imageObj.public_id);
+  const deleteImage = async (public_id) => {
+    const deleted = await deleteImageAction(public_id);
 
     if (deleted.result === "ok") {
       setFormData((prevState) => ({
         ...prevState,
-        images: prevState.images.filter((_, index) => index !== imageIndex),
+        thumbnail: "",
       }));
     }
   };
 
   useEffect(() => {
+    console.log(state);
+
     if (state !== undefined) {
+      console.log(state);
+
       const newImageObject = {
         public_id: state.public_id,
         secure_url: state.secure_url,
@@ -28,8 +32,10 @@ const UploadThumbnailForm = (formData, setFormData) => {
 
       setFormData((prevState) => ({
         ...prevState,
-        images: [...prevState.images, newImageObject],
+        thumbnail: newImageObject,
       }));
+
+      console.log(formData);
     }
   }, [state]);
 
@@ -54,13 +60,19 @@ const UploadThumbnailForm = (formData, setFormData) => {
         />
         <button>הוסף תמונה</button>
       </form>
-      {formData.thumbnail !== "" ? (
+      {formData.thumbnail && formData.thumbnail.secure_url ? (
         <div>
+          {console.log(formData.thumbnail.secure_url)}
           <div>
-            <button onClick={() => deleteImage(imageIndex, image)}>
+            <button onClick={() => deleteImage(formData.thumbnail.public_id)}>
               מחק תמונה
             </button>
-            <Image src={thumbnail} height={100} width={100} alt="" />
+            <Image
+              src={formData.thumbnail.secure_url}
+              height={100}
+              width={100}
+              alt=""
+            />
           </div>
         </div>
       ) : (

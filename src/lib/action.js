@@ -215,7 +215,6 @@ export async function uploadToCloudinary(previousState, formData) {
 
 export async function deleteImageAction(id) {
   const deleted = await cloudinary.uploader.destroy(id, function (result) {
-    console.log("result: ", result);
     return result;
   });
 

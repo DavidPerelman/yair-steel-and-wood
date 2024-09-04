@@ -9,14 +9,9 @@ const FormWrapper = ({ title, children }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    images: [
-      {
-        public_id: "h3p5oduc9gousalekdnl",
-        secure_url:
-          "https://res.cloudinary.com/dflevhwgh/image/upload/v172542}",
-      },
-    ],
+    images: [],
     thumbnail: "",
+    // thumbnail: { secure_url: "", public_id: "" },
     price: "",
     size: { heigth: "", width: "", length: "" },
     division: [],
