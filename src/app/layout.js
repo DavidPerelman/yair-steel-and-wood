@@ -1,6 +1,6 @@
 "use client";
 
-import { Inter, Assistant } from "next/font/google";
+import { Assistant } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
@@ -14,8 +14,6 @@ export default function RootLayout({ children }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    console.log("check");
-
     setOpen(false);
     const container = document.querySelector(".container");
 

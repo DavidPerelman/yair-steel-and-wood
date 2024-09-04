@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import path from "path";
 
 const nextConfig = {
   eslint: {
@@ -6,6 +7,9 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
+    config.resolve.alias = {
+      "@": path.join(__dirname, "src"),
+    };
 
     return config;
   },
