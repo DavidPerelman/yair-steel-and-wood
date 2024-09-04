@@ -1,7 +1,7 @@
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 import { getPost } from "@/lib/data";
-import PostContainer from "@/components/postContainer/PostContainer";
+// import PostContainer from "@/components/postContainer/PostContainer";
 
 const AboutPage = async () => {
   const data = await getPost("about");
@@ -13,7 +13,7 @@ const AboutPage = async () => {
         title="יאיר ברזל ועץ - אודות"
         description="יאיר ברזל ועץ - אודות"
       />
-      <PostContainer data={postData} />
+      {/* <PostContainer data={postData} /> */}
     </div>
   );
 };
