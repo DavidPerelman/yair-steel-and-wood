@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  // webpack: (config) => {
-  //   config.resolve.fallback = { fs: false };
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
 
-  //   return config;
-  // },
+    return config;
+  },
   images: {
     remotePatterns: [
       {
