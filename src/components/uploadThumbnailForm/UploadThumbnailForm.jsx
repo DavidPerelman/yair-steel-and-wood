@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
-const UploadImageForm = () => {
+const UploadThumbnailForm = (formData, setFormData) => {
   const [state, formAction] = useFormState(uploadToCloudinary, undefined);
   const [uploadedImages, setUploadedImages] = useState([]);
 
@@ -22,19 +22,13 @@ const UploadImageForm = () => {
   };
 
   useEffect(() => {
-    // deleteImage("sahbwzjbkj43hzpr2uhv");
-    console.log(state !== undefined);
-
     if (state !== undefined) {
       setUploadedImages((uploadedImages) => [
         ...uploadedImages,
         { secure_url: state.secure_url, public_id: state.public_id },
       ]);
       console.log(uploadedImages);
-
-      // setUploadedImages(state.secure_url);
     }
-    // setUploadedImages(state.secure_url);
     console.log(uploadedImages);
   }, [state]);
 
@@ -46,17 +40,18 @@ const UploadImageForm = () => {
       >
         <p className="mb-6">
           <label htmlFor="image" className="block font-semibold text-sm mb-2">
-            Select an Image to Upload
+            בחר תמונת תצוגה:
           </label>
-          <input
-            id="image"
-            className="block w-full border-slate-400 rounded focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            type="file"
-            name="image"
-            required
-          />
+          <br />
         </p>
-        <button>Submit</button>
+        <input
+          id="image"
+          className="block w-full border-slate-400 rounded focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          type="file"
+          name="image"
+          required
+        />
+        <button>הוסף תמונה</button>
       </form>
       {uploadedImages.length ? (
         <div key={""}>
@@ -82,4 +77,4 @@ const UploadImageForm = () => {
   );
 };
 
-export default UploadImageForm;
+export default UploadThumbnailForm;

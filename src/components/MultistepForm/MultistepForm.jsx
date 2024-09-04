@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./multistepForm.module.css";
-import { useMultistepForm } from "@/hooks/useMultistepForm";
+import FormWrapper from "../formWrapper/FormWrapper";
 
 const MultistepForm = () => {
-  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultistepForm([<div>One</div>, <div>Two</div>]);
-
   return (
     <div className={styles.container}>
-      <form>
+      {/* <form onSubmit={onSubmit}>
         <div className={styles.steps}>
           {steps.length} / {currentStepIndex + 1}
         </div>
@@ -19,13 +16,10 @@ const MultistepForm = () => {
               Back
             </button>
           )}
-          {
-            <button type="button" onClick={next}>
-              {isLastStep ? "Finish" : "Next"}
-            </button>
-          }
+          {<button type="submit">{isLastStep ? "Finish" : "Next"}</button>}
         </div>
-      </form>
+      </form> */}
+      <FormWrapper />
     </div>
   );
 };

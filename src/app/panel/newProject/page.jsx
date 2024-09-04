@@ -4,8 +4,8 @@ import { useFormState } from "react-dom";
 import styles from "./newProject.module.css";
 import { useState } from "react";
 import { addProject } from "@/lib/action";
-import UploadImageForm from "@/components/uploadImageForm/UploadImageForm";
-import MultistepForm from "@/components/MultistepForm/MultistepForm";
+import UploadImageForm from "@/components/uploadImagesForm/UploadImagesForm";
+import MultistepForm from "@/components/multistepForm/MultistepForm";
 
 const NewProjectPage = () => {
   // const [state, formAction] = useFormState(addProject, undefined);

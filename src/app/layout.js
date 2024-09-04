@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
-      <body className={assistant.className}>
+      <body className={assistant.className} suppressHydrationWarning={true}>
         <AuthProvider>
           <Navbar open={open} setOpen={setOpen} />
           <div className="container">{children}</div>

@@ -11,8 +11,10 @@ export function useMultistepForm(steps) {
   };
 
   const back = () => {
-    if (i <= 0) return i;
-    return i - 1;
+    setCurrentStepIndex((i) => {
+      if (i <= 0) return i;
+      return i - 1;
+    });
   };
 
   const goTo = (index) => {
