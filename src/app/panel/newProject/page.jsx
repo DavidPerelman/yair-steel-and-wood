@@ -1,13 +1,13 @@
 "use client";
 
-import MultistepForm from "@/components/multistepForm/MultistepForm";
 import styles from "./newProject.module.css";
+import MultistepsForm from "@/components/MultistepsForm/MultistepsForm";
 
 const NewProjectPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.NewProjectPage}>
-        <MultistepForm />
+        <MultistepsForm />
       </div>
     </div>
   );
