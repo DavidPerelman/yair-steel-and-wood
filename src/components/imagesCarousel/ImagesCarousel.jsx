@@ -37,7 +37,7 @@ const ImagesCarousel = ({ slides }) => {
           ❰
         </button> */}
         <Image
-          src={slides[currentIndex]}
+          src={slides[currentIndex].secure_url}
           alt=""
           width="0"
           height="0"
@@ -65,10 +65,10 @@ const ImagesCarousel = ({ slides }) => {
             )}
 
             <Image
-              src={slides[slideIndex]}
+              src={slides[slideIndex].secure_url}
               alt=""
               height={80}
-              width={80}
+              width={90}
               className={styles.dots}
               onClick={() => goToSlide(slideIndex)}
             />

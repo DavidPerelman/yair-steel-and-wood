@@ -1,8 +1,8 @@
 import { connectToDb } from "./connectToDb";
 import { unstable_noStore as noStore } from "next/cache";
-import { Project } from "./models/projectModel";
 import { User } from "./models/userModel";
 import { Post } from "./models/postModel";
+import { Project } from "./models/projectModel";
 
 // TEMPORARY DATA
 // const users = [
@@ -40,7 +40,9 @@ import { Post } from "./models/postModel";
 export const getProjects = async () => {
   try {
     connectToDb();
-    const projects = await Project.find();
+    const projects = await Project.find({});
+    console.log(projects);
+
     return projects;
   } catch (error) {
     console.log(error);

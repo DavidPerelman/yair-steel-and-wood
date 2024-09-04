@@ -189,8 +189,6 @@ export async function uploadToCloudinary(previousState, formData) {
 
   const { image } = Object.fromEntries(formData);
 
-  console.log(image);
-
   const arrayBuffer = await image.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 

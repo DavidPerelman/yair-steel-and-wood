@@ -7,29 +7,30 @@ import { useFormState } from "react-dom";
 
 const UploadThumbnailForm = (formData, setFormData) => {
   const [state, formAction] = useFormState(uploadToCloudinary, undefined);
-  const [uploadedImages, setUploadedImages] = useState([]);
 
-  const deleteImage = async (id) => {
-    const deleted = await deleteImageAction(id);
+  const deleteImage = async (imageIndex, imageObj) => {
+    const deleted = await deleteImageAction(imageObj.public_id);
 
     if (deleted.result === "ok") {
-      const newUploadedImages = uploadedImages.filter(
-        (image) => image.public_id !== id
-      );
-
-      setUploadedImages(newUploadedImages);
+      setFormData((prevState) => ({
+        ...prevState,
+        images: prevState.images.filter((_, index) => index !== imageIndex),
+      }));
     }
   };
 
   useEffect(() => {
     if (state !== undefined) {
-      setUploadedImages((uploadedImages) => [
-        ...uploadedImages,
-        { secure_url: state.secure_url, public_id: state.public_id },
-      ]);
-      console.log(uploadedImages);
+      const newImageObject = {
+        public_id: state.public_id,
+        secure_url: state.secure_url,
+      };
+
+      setFormData((prevState) => ({
+        ...prevState,
+        images: [...prevState.images, newImageObject],
+      }));
     }
-    console.log(uploadedImages);
   }, [state]);
 
   return (
@@ -53,22 +54,14 @@ const UploadThumbnailForm = (formData, setFormData) => {
         />
         <button>הוסף תמונה</button>
       </form>
-      {uploadedImages.length ? (
-        <div key={""}>
-          {uploadedImages.map((image, i) => (
-            <div key={i}>
-              <button onClick={() => deleteImage(image.public_id)}>
-                מחק תמונה
-              </button>
-              <Image
-                key={i}
-                src={image.secure_url}
-                height={100}
-                width={100}
-                alt=""
-              />
-            </div>
-          ))}
+      {formData.thumbnail !== "" ? (
+        <div>
+          <div>
+            <button onClick={() => deleteImage(imageIndex, image)}>
+              מחק תמונה
+            </button>
+            <Image src={thumbnail} height={100} width={100} alt="" />
+          </div>
         </div>
       ) : (
         <></>
