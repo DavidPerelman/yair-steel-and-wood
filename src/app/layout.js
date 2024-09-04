@@ -6,10 +6,8 @@ import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
-import Head from "next/head";
 import AuthProvider from "@/components/Provider";
 const assistant = Assistant({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();

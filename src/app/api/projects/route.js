@@ -2,7 +2,7 @@ import { connectToDb } from "@/lib/connectToDb";
 import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
 
-export const GET = async (request) => {
+export const GET = async () => {
   try {
     connectToDb();
 

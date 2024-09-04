@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/uploadThumbnailForm";
 
-const FormWrapper = ({ title, children }) => {
+const FormWrapper = () => {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     images: [],
     thumbnail: "",
-    // thumbnail: { secure_url: "", public_id: "" },
     price: "",
     size: { heigth: "", width: "", length: "" },
     division: [],

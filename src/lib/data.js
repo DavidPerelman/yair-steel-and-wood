@@ -41,7 +41,6 @@ export const getProjects = async () => {
   try {
     connectToDb();
     const projects = await Project.find({});
-    console.log(projects);
 
     return projects;
   } catch (error) {

@@ -7,12 +7,6 @@ const imageSchema = new mongoose.Schema({
   public_id: String,
 });
 
-const size = new mongoose.Schema({
-  height: String,
-  with: String,
-  length: String,
-});
-
 const projectSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },

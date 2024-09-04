@@ -1,10 +1,6 @@
-import Image from "next/image";
-import styles from "./singleProjectPage.module.css";
 import "./singleProjectPage.css";
-import { Suspense } from "react";
 import { getProject } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import SingleProjectContainer from "@/components/singleProjectContainer/SingleProjectContainer";
 
 const SingleProjectPage = async ({ params }) => {

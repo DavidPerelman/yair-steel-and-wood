@@ -16,7 +16,7 @@ const Loading = () => {
     } else {
       loading.classList.remove(styles.home);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <div id="loading" className={styles.loading}>

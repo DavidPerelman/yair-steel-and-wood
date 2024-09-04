@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
-// const { withNextVideo } = require("next-video/process");
 
 const nextConfig = {
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false };
+  // webpack: (config) => {
+  //   config.resolve.fallback = { fs: false };
 
-    return config;
-  },
+  //   return config;
+  // },
   images: {
     remotePatterns: [
       {
@@ -30,4 +29,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// module.exports = withNextVideo(nextConfig);

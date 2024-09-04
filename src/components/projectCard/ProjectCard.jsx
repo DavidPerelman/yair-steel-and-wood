@@ -4,8 +4,6 @@ import Image from "next/image";
 import styles from "./projectCard.module.css";
 
 const ProjectCard = ({ project }) => {
-  console.log(project);
-
   return (
     <div key={project.slug} className={styles.box}>
       <div className={styles.boxImgContainer}>

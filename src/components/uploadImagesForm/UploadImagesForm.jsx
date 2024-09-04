@@ -31,7 +31,7 @@ const UploadImageForm = ({ formData, setFormData }) => {
         images: [...prevState.images, newImageObject],
       }));
     }
-  }, [state]);
+  }, [state, setFormData]);
 
   return (
     <div>
@@ -58,7 +58,6 @@ const UploadImageForm = ({ formData, setFormData }) => {
         <div key={""}>
           {formData.images.map((image, imageIndex) => (
             <div key={imageIndex}>
-              {console.log(image.secure_url)}
               <button onClick={() => deleteImage(imageIndex, image)}>
                 מחק תמונה
               </button>

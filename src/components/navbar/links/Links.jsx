@@ -36,7 +36,7 @@ const Links = ({ open, openMenuClick }) => {
 
       linksContainer.classList.add(styles.linksContainerGray);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <div className={styles.container}>

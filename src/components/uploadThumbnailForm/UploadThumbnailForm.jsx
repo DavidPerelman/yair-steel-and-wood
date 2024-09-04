@@ -20,8 +20,6 @@ const UploadThumbnailForm = ({ formData, setFormData }) => {
   };
 
   useEffect(() => {
-    console.log(state);
-
     if (state !== undefined) {
       console.log(state);
 
@@ -34,10 +32,8 @@ const UploadThumbnailForm = ({ formData, setFormData }) => {
         ...prevState,
         thumbnail: newImageObject,
       }));
-
-      console.log(formData);
     }
-  }, [state]);
+  }, [state, setFormData]);
 
   return (
     <div>
@@ -62,7 +58,6 @@ const UploadThumbnailForm = ({ formData, setFormData }) => {
       </form>
       {formData.thumbnail && formData.thumbnail.secure_url ? (
         <div>
-          {console.log(formData.thumbnail.secure_url)}
           <div>
             <button onClick={() => deleteImage(formData.thumbnail.public_id)}>
               מחק תמונה

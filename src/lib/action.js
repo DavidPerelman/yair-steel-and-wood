@@ -2,8 +2,6 @@
 
 // import { revalidatePath } from "next/cache";
 import { connectToDb } from "./connectToDb";
-import bcrypt from "bcrypt";
-import { signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import { Project } from "./models/projectModel";
 var Promise = require("es6-promise").Promise;
