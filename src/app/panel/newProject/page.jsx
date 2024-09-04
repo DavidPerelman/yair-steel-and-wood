@@ -1,7 +1,7 @@
 "use client";
 
-import styles from "./newProject.module.css";
 import MultistepForm from "@/components/multistepForm/MultistepForm";
+import styles from "./newProject.module.css";
 
 const NewProjectPage = () => {
   return (
