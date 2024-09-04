@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import styles from "./multistepForm.module.css";
 import FormWrapper from "../formWrapper/FormWrapper";
+import styles from "./multistepForm.module.css";
 
 const MultistepForm = () => {
   return (
