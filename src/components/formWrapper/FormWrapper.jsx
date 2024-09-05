@@ -7,10 +7,7 @@ import { addProject } from "@/lib/data";
 
 const FormWrapper = ({ divisions, materials }) => {
   const addProjectClick = async () => {
-    console.log("addProjectClick");
-
     const newProject = await addProject(formData);
-    console.log(newProject);
   };
 
   const [page, setPage] = useState(0);

@@ -77,11 +77,13 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         <option value="division" disabled selected>
           בחר מחלקה
         </option>
-        {divisions.map((item) => (
-          <option key={item.slug} value={item._id}>
-            {item.title}
-          </option>
-        ))}
+        {divisions &&
+          divisions.length > 0 &&
+          divisions.map((item) => (
+            <option key={item.slug} value={item._id}>
+              {item.title}
+            </option>
+          ))}
       </select>
 
       <label htmlFor="material">חומר:</label>
@@ -93,11 +95,13 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         <option value="division" disabled selected>
           בחר חומר
         </option>
-        {materials.map((item) => (
-          <option key={item.slug} value={item._id}>
-            {item.title}
-          </option>
-        ))}
+        {materials &&
+          materials.length > 0 &&
+          materials.map((item) => (
+            <option key={item.slug} value={item._id}>
+              {item.title}
+            </option>
+          ))}
       </select>
     </div>
   );
