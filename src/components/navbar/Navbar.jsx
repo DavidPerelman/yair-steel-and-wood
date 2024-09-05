@@ -112,7 +112,7 @@ const Navbar = ({ open, setOpen }) => {
       <Links open={open} openMenuClick={openMenuClick} />
       <Link href="/">
         <Image
-          src="https://files.edgestore.dev/514s5z6elosh9is0/myPublicImages/_public/9c0aa524-1694-414b-a248-c10b54e40754.png"
+          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725533005/yh0u2addb6vxjwdfhvnn.png"
           width={95}
           height={95}
           alt="logo"

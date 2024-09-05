@@ -11,4 +11,4 @@ const divisionSchema = new mongoose.Schema(
 );
 
 export const Division =
-  mongoose.models.Division || mongoose.model("Division", divisionSchema);
+  mongoose.models?.Division || mongoose.model("Division", divisionSchema);

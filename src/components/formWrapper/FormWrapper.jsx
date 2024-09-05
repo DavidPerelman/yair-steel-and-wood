@@ -4,7 +4,7 @@ import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
 
-const FormWrapper = () => {
+const FormWrapper = ({ divisions, materials }) => {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     title: "",
@@ -20,7 +20,14 @@ const FormWrapper = () => {
 
   const pageDisplay = () => {
     if (page === 0) {
-      return <NewProjectForm formData={formData} setFormData={setFormData} />;
+      return (
+        <NewProjectForm
+          formData={formData}
+          setFormData={setFormData}
+          divisions={divisions}
+          materials={materials}
+        />
+      );
     } else if (page === 1) {
       return (
         <UploadThumbnailForm formData={formData} setFormData={setFormData} />

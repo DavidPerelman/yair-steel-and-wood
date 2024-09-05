@@ -11,4 +11,4 @@ const materialSchema = new mongoose.Schema(
 );
 
 export const Material =
-  mongoose.models.Material || mongoose.model("Material", materialSchema);
+  mongoose.models?.Material || mongoose.model("Material", materialSchema);

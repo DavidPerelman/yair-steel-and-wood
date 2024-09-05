@@ -3,6 +3,8 @@ import { unstable_noStore as noStore } from "next/cache";
 import { User } from "./models/userModel";
 import { Post } from "./models/postModel";
 import { Project } from "./models/projectModel";
+import { Division } from "./models/divisionModel";
+import { Material } from "./models/materialModel";
 
 // TEMPORARY DATA
 // const users = [
@@ -36,6 +38,30 @@ import { Project } from "./models/projectModel";
 //     userId: 2,
 //   },
 // ];
+
+export const getDivisions = async () => {
+  try {
+    connectToDb();
+    const divisions = await Division.find();
+
+    return divisions;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch divisions");
+  }
+};
+
+export const getMaterials = async () => {
+  try {
+    connectToDb();
+    const materials = await Material.find();
+
+    return materials;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch Materials");
+  }
+};
 
 export const getProjects = async () => {
   try {
@@ -76,6 +102,15 @@ export const getPost = async (slug) => {
     throw new Error("Failed to fetch project");
   }
 };
+
+export async function fetchData() {
+  try {
+    const users = await User.find();
+    console.log(users);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export const getUsers = async () => {
   try {

@@ -6,9 +6,28 @@ import axios from "axios";
 import { Project } from "./models/projectModel";
 var Promise = require("es6-promise").Promise;
 
-// const { cloudinary } = require("cloudinary");
 import { v2 as cloudinary } from "cloudinary";
 import { Post } from "./models/postModel";
+import { Division } from "./models/divisionModel";
+import { Material } from "./models/materialModel";
+
+export const getDivisions = async () => {
+  try {
+    connectToDb();
+
+    const divisions = await Division.find();
+    const divisionsWithSimpleIds = divisions.map((division) => ({
+      ...division,
+      id: division._id.toString(), // Convert _id to a string
+    }));
+    return divisionsWithSimpleIds;
+
+    // const divisions = await Division.find();
+    // return divisions;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // export const getUsers = async () => {
 //   try {
@@ -20,6 +39,7 @@ import { Post } from "./models/postModel";
 //     console.log(error);
 //   }
 // };
+
 // export const getImages = async () => {
 //   const res = await backendClient.myPublicImages.listFiles();
 //   console.log(res.data);

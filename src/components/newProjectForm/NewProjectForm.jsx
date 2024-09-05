@@ -2,7 +2,7 @@
 
 import styles from "./newProjectForm.module.css";
 
-const NewProjectForm = ({ formData, setFormData }) => {
+const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
   const onOptionDivisionChangeHandler = (e) => {
     // setDivision(e.target.value);
     setFormData({ ...formData, division: e.target.value });
