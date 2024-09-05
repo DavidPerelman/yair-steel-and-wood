@@ -75,6 +75,11 @@
     margin-top: 5px;
   }
 
+  .carousel-prev,
+  .carousel-next {
+    top: 40%;
+  }
+
   .carousel-prev {
     right: 2%;
   }
