@@ -43,11 +43,10 @@ const ImagesSlider = ({ images }) => {
             height={200}
             alt={`Slide`}
           />
-
-          <button className="carousel-next" onClick={handleNextClick}>
-            ❯
-          </button>
         </div>
+        <button className="carousel-next" onClick={handleNextClick}>
+          ❯
+        </button>
       </div>
 
       <div className="carousel-thumbnails">

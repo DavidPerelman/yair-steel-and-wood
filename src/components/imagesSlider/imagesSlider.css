@@ -43,7 +43,7 @@
 .carousel-prev,
 .carousel-next {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   /* background-color: rgba(0, 0, 0, 0.5); */
   background-color: rgb(249 249 249 / 71%);
@@ -73,11 +73,6 @@
     overflow-x: scroll;
     height: calc(20% - 35px);
     margin-top: 5px;
-  }
-
-  .carousel-prev,
-  .carousel-next {
-    top: 25%;
   }
 
   .carousel-prev {
