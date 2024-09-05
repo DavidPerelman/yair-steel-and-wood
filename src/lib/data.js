@@ -41,10 +41,13 @@ import { Material } from "./models/materialModel";
 
 export const getDivisions = async () => {
   try {
-    connectToDb();
-    const divisions = await Division.find();
+    // connectToDb();
+    console.log("connected");
 
-    return divisions;
+    // const divisions = await Division.find();
+
+    // return divisions;
+    return [];
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch divisions");
@@ -53,10 +56,12 @@ export const getDivisions = async () => {
 
 export const getMaterials = async () => {
   try {
-    connectToDb();
-    const materials = await Material.find();
+    // connectToDb();
+    console.log("connected");
+    // const materials = await Material.find();
 
-    return materials;
+    // return materials;
+    return [];
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch Materials");
