@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
-import UploadThumbnailForm from "../uploadThumbnailForm/uploadThumbnailForm";
+import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
 
 const FormWrapper = () => {
   const [page, setPage] = useState(0);
