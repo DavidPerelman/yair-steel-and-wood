@@ -3,6 +3,7 @@
 import styles from "./singleProjectContainer.module.css";
 import ImagesCarousel from "../imagesCarousel/ImagesCarousel";
 import { useEffect } from "react";
+import ImagesSlider from "../imagesSlider/ImagesSlider";
 
 const SingleProjectContainer = ({ project }) => {
   useEffect(() => {
@@ -36,7 +37,8 @@ const SingleProjectContainer = ({ project }) => {
       </div>
       <div className={styles.rightCol}>
         <div className={`${styles.rightPanel} ${styles.panel}`}>
-          <ImagesCarousel slides={project.images} />
+          <ImagesSlider images={project.images} />
+          {/* <ImagesCarousel slides={project.images} /> */}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@
 }
 
 .bottomCol {
-  width: 60%;
+  width: 100%;
   height: calc(20% - 0px);
   display: flex;
   place-content: center;
@@ -59,7 +59,7 @@
   cursor: pointer;
   height: 4px;
   background-color: white;
-  width: 60px;
+  width: 2%;
   margin-bottom: 5px;
 }
 
