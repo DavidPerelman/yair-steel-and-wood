@@ -4,12 +4,10 @@ import styles from "./newProjectForm.module.css";
 
 const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
   const onOptionDivisionChangeHandler = (e) => {
-    // setDivision(e.target.value);
     setFormData({ ...formData, division: e.target.value });
   };
 
   const onOptionMaterialChangeHandler = (e) => {
-    // setMaterial(e.target.value);
     setFormData({ ...formData, material: e.target.value });
   };
 
@@ -26,7 +24,6 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
 
       <label>תיאור:</label>
       <input
-        autoFocus
         // required
         type="text"
         value={formData.description}
@@ -89,10 +86,14 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="division"
         onChange={onOptionDivisionChangeHandler}
       >
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option value="division" disabled>
+          בחר מחלקה
+        </option>
+        {divisions.map((item) => (
+          <option key={item.slug} value={item.slug}>
+            {item.title}
+          </option>
+        ))}
       </select>
 
       <label htmlFor="material">חומר:</label>
@@ -101,10 +102,14 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="material"
         onChange={onOptionMaterialChangeHandler}
       >
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option value="division" disabled>
+          בחר חומר
+        </option>
+        {materials.map((item) => (
+          <option key={item.slug} value={item.slug}>
+            {item.title}
+          </option>
+        ))}
       </select>
     </div>
   );

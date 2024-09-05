@@ -41,13 +41,27 @@ import { Material } from "./models/materialModel";
 
 export const getDivisions = async () => {
   try {
+    const divisions = fetch("http://localhost:3000/api/divisions")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((responseJson) => {
+        // Do something with the response
+        return responseJson;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     // connectToDb();
-    console.log("connected");
+    // console.log("connected");
 
     // const divisions = await Division.find();
 
-    // return divisions;
-    return [];
+    return divisions;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch divisions");
@@ -56,12 +70,25 @@ export const getDivisions = async () => {
 
 export const getMaterials = async () => {
   try {
+    const materials = fetch("http://localhost:3000/api/materials")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((responseJson) => {
+        // Do something with the response
+        return responseJson;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     // connectToDb();
-    console.log("connected");
+    // console.log("connected");
     // const materials = await Material.find();
 
-    // return materials;
-    return [];
+    return materials;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch Materials");

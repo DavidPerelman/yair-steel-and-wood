@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Project } from "./projectModel";
+import { Project } from "./projectModel"; 
 
 const divisionSchema = new mongoose.Schema(
   {
