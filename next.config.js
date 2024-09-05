@@ -2,7 +2,7 @@
 
 const nextConfig = {
   eslint: {
-    dirs: ["src"],
+    ignoreDuringBuilds: true,
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };

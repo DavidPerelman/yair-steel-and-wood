@@ -1,0 +1,101 @@
+.content {
+  margin-top: 60px;
+  height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+}
+
+.homeContentContainer {
+  position: absolute;
+  margin: 0 auto;
+  left: 0px;
+  right: 0px;
+}
+
+.leftCol {
+  /* background-color: black; */
+  width: calc(40% - 20px);
+  height: 77vh;
+  float: left;
+  text-align: -webkit-center;
+  /* align-content: center; */
+  padding-right: 5%;
+}
+
+.rightCol {
+  width: 60%;
+  height: 77vh;
+  display: flex;
+  place-content: center;
+}
+
+.rightPanel {
+  width: 90%;
+  height: 90%;
+  margin: 0 0 0 0;
+}
+
+.leftPanel {
+  width: 90%;
+  margin: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  /* gap: 10px; */
+  /* padding-bottom: 10px; */
+}
+
+.size_header {
+  direction: ltr;
+}
+
+.links {
+  text-decoration: underline;
+  color: blue;
+}
+
+p .span:not(:last-of-type)::after {
+  content: ",";
+}
+
+.material_div {
+  display: flex;
+  align-self: center;
+}
+
+.description {
+  text-align: right;
+}
+
+@media (max-width: 568px) {
+  .content {
+    height: 77vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  .leftPanel {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .rightCol {
+    width: 100%;
+    height: 40%;
+  }
+
+  .leftCol {
+    width: 100%;
+    height: 70%;
+  }
+
+  .rightPanel {
+    width: 100%;
+    height: 100%;
+  }
+
+  .leftPanel {
+    padding-bottom: 15px;
+  }
+}
