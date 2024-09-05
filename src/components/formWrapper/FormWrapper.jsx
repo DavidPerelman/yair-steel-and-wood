@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
+import { addProject } from "@/lib/data";
 
 const FormWrapper = ({ divisions, materials }) => {
+  const addProjectClick = async () => {
+    console.log("addProjectClick");
+
+    const newProject = await addProject(formData);
+    console.log(newProject);
+  };
+
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     title: "",
@@ -12,7 +20,9 @@ const FormWrapper = ({ divisions, materials }) => {
     images: [],
     thumbnail: "",
     price: "",
-    size: { heigth: "", width: "", length: "" },
+    height: "",
+    width: "",
+    length: "",
     division: [],
     material: [],
   });
@@ -37,6 +47,10 @@ const FormWrapper = ({ divisions, materials }) => {
     }
   };
 
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   return (
     <div>
       <div className={styles.progress_bar}>
@@ -57,12 +71,17 @@ const FormWrapper = ({ divisions, materials }) => {
             Prev
           </button>
           <button
-            disabled={page === formTitle.length - 1}
             onClick={() => {
-              setPage((currPage) => currPage + 1);
+              console.log("addProjectClick");
+
+              if (page === formTitle.length - 1) {
+                addProjectClick();
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
             }}
           >
-            Next
+            {page === formTitle.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
       </div>

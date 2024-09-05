@@ -14,20 +14,9 @@ const projectSchema = new mongoose.Schema({
   thumbnail: { type: imageSchema, required: true },
   slug: { type: String, required: true, unique: true },
   price: { type: Number, required: true },
-  size: {
-    height: {
-      type: Number,
-      required: true,
-    },
-    width: {
-      type: Number,
-      required: true,
-    },
-    length: {
-      type: Number,
-      required: true,
-    },
-  },
+  height: { type: Number, required: true },
+  width: { type: Number, required: true },
+  length: { type: Number, required: true },
   division: [
     { type: mongoose.Schema.Types.ObjectId, ref: "Division", required: true },
   ],

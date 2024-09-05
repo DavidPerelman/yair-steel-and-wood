@@ -46,12 +46,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         // required
         min={1}
         type="number"
-        value={formData.size.heigth}
-        onChange={(e) => {
-          const f = { ...formData };
-          f.size.heigth = e.target.value;
-          setFormData(f);
-        }}
+        value={formData.height}
+        onChange={(e) => setFormData({ ...formData, height: e.target.value })}
       />
 
       <label>רוחב:</label>
@@ -59,12 +55,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         // required
         min={1}
         type="number"
-        value={formData.size.width}
-        onChange={(e) => {
-          const f = { ...formData };
-          f.size.width = e.target.value;
-          setFormData(f);
-        }}
+        value={formData.width}
+        onChange={(e) => setFormData({ ...formData, width: e.target.value })}
       />
 
       <label>אורך:</label>
@@ -72,12 +64,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         // required
         min={1}
         type="number"
-        value={formData.size.length}
-        onChange={(e) => {
-          const f = { ...formData };
-          f.size.length = e.target.value;
-          setFormData(f);
-        }}
+        value={formData.length}
+        onChange={(e) => setFormData({ ...formData, length: e.target.value })}
       />
 
       <label htmlFor="division">מחלקה:</label>
@@ -86,11 +74,11 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="division"
         onChange={onOptionDivisionChangeHandler}
       >
-        <option value="division" disabled>
+        <option value="division" disabled selected>
           בחר מחלקה
         </option>
         {divisions.map((item) => (
-          <option key={item.slug} value={item.slug}>
+          <option key={item.slug} value={item._id}>
             {item.title}
           </option>
         ))}
@@ -102,11 +90,11 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="material"
         onChange={onOptionMaterialChangeHandler}
       >
-        <option value="division" disabled>
+        <option value="division" disabled selected>
           בחר חומר
         </option>
         {materials.map((item) => (
-          <option key={item.slug} value={item.slug}>
+          <option key={item.slug} value={item._id}>
             {item.title}
           </option>
         ))}
