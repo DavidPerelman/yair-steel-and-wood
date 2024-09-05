@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import "./ImagesSlider.css";
+import "./imagesSlider.css";
 
 const ImagesSlider = ({ images }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
