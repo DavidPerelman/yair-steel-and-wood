@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react": "^18.3.4",
+    "aws4": "^1.13.2",
     "axios": "^1.7.5",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
