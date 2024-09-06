@@ -111,12 +111,7 @@ const Navbar = ({ open, setOpen }) => {
     <div id="navbar" className={styles.container}>
       <Links open={open} openMenuClick={openMenuClick} />
       <Link href="/">
-        <Image
-          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725533005/yh0u2addb6vxjwdfhvnn.png"
-          width={95}
-          height={95}
-          alt="logo"
-        />
+        <Image src="/logo.png" width={95} height={95} alt="logo" />
       </Link>
       <div className={styles.contactLinks}>
         <Link target="_blank" href="tel:0584422401">
