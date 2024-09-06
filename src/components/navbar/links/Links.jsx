@@ -35,6 +35,8 @@ const Links = ({ open, openMenuClick }) => {
       linksContainer.classList.remove(styles.linksContainerWhite);
 
       linksContainer.classList.add(styles.linksContainerGray);
+    } else {
+      linksContainer.classList.remove(styles.linksContainerGray);
     }
   }, [pathname]);
 
