@@ -3,11 +3,13 @@
 import Image from "next/image";
 import Links from "./links/Links";
 import styles from "./navbar.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import ContactLinks from "./links/contactLinks/ContactLinks";
 
 const Navbar = ({ open, setOpen }) => {
+  const [scrolled, setScrolled] = useState(false);
   const openMenuClick = () => {
     setOpen((prev) => !prev);
   };
@@ -20,23 +22,6 @@ const Navbar = ({ open, setOpen }) => {
     const navbar = document.querySelector("#navbar");
     const logos = document.querySelectorAll(".logo");
     const navLinkTitles = document.querySelectorAll(".navLinkTitle");
-
-    const onResize = () => {
-      navbar.classList.toggle(styles.sticky, window.scrollY > 0);
-
-      menuButton.classList.toggle(styles.menuButtonGray, window.scrollY > 0);
-
-      Object.entries(logos).map((element) =>
-        element[1].classList.toggle(styles.logoButtonsGray, window.scrollY > 0)
-      );
-
-      Object.entries(navLinkTitles).map((element) =>
-        element[1].classList.toggle(
-          styles.navLinkTitlesGray,
-          window.scrollY > 0
-        )
-      );
-    };
 
     navbar.classList.remove(styles.menuOpen);
 
@@ -72,95 +57,58 @@ const Navbar = ({ open, setOpen }) => {
       body.style.overflow = "";
     }
 
-    if (pathname !== "/") {
-      Object.entries(logos).map((element) =>
-        element[1].classList.remove(styles.logoButtonsWhite)
-      );
-
-      Object.entries(navLinkTitles).map((element) =>
-        element[1].classList.remove(styles.navLinkButtonsWhite)
-      );
-
-      navbar.classList.add(styles.white);
-      menuButton.classList.remove(styles.menuButtonWhite);
+    if (pathname === "/" || pathname === "/about") {
+      document.getElementById("navbar").style.backgroundColor = "white";
+      document.getElementById("navbar").style.borderBottom = "none";
     } else {
-      navbar.classList.remove(styles.white);
+      document.getElementById("navbar").style.borderBottom = "inset";
     }
 
-    if (pathname === "/") {
-      window.addEventListener("scroll", onResize);
-      navbar.classList.add(styles.home);
+    if (pathname === "/" || pathname === "/about") {
+      document.getElementById("navbar").style.backgroundColor = "transparent";
     } else {
-      navbar.classList.remove(styles.home);
+      document.getElementById("navbar").style.backgroundColor = "white";
     }
 
-    if (pathname === "/") {
-      Object.entries(logos).map((element) =>
-        element[1].classList.add(styles.logoButtonsWhite)
-      );
+    window.onscroll = () => sampleFunction();
 
-      Object.entries(navLinkTitles).map((element) =>
-        element[1].classList.add(styles.navLinkButtonsWhite)
-      );
+    function sampleFunction() {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+        document.getElementById("navbar").classList.add(styles.black);
+        document.getElementById("navbar").style.borderBottom = "inset";
+        document.getElementById("navbar").style.backgroundColor = "white";
+      } else {
+        setScrolled(false);
 
-      menuButton.classList.add(styles.menuButtonWhite);
+        document.getElementById("navbar").classList.remove(styles.black);
+
+        if (pathname === "/" || pathname === "/about") {
+          document.getElementById("navbar").style.backgroundColor =
+            "transparent";
+          document.getElementById("navbar").style.borderBottom = "none";
+        } else {
+          document.getElementById("navbar").style.backgroundColor = "white";
+          document.getElementById("navbar").style.borderBottom = "inset";
+        }
+      }
     }
   }, [open, pathname]);
 
   return (
     <div id="navbar" className={styles.container}>
-      <Links open={open} openMenuClick={openMenuClick} />
+      <Links open={open} openMenuClick={openMenuClick} scrolled={scrolled} />
       <Link href="/">
         <Image
           src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725533005/yh0u2addb6vxjwdfhvnn.png"
           width={95}
           height={95}
           alt="logo"
+          unoptimized
+          priority
         />
       </Link>
-      <div className={styles.contactLinks}>
-        <Link target="_blank" href="tel:0584422401">
-          <Image
-            className="logo"
-            src="/call.svg"
-            width={27}
-            height={27}
-            alt="phone-logo"
-          />
-        </Link>
-        <Link target="_blank" href="https://www.instagram.com/yairperlman/">
-          <Image
-            className="logo"
-            src="/instagram.svg"
-            width={33}
-            height={33}
-            alt="instagram-logo"
-          />
-        </Link>
-        <Link target="_blank" href="https://wa.me/972584422401">
-          <Image
-            id={styles.whatsappLogo}
-            className="logo"
-            src="/whatsapp.svg"
-            width={26}
-            height={26}
-            alt="whatsapp-logo"
-          />
-        </Link>
-        <Link
-          target="_blank"
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
-        >
-          <Image
-            id={styles.gmailLogo}
-            className="logo"
-            src="/gmail.svg"
-            width={27}
-            height={27}
-            alt="whatsapp-logo"
-          />
-        </Link>
-      </div>
+      <ContactLinks scrolled={scrolled} />
     </div>
   );
 };

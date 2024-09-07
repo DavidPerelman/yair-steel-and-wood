@@ -14,31 +14,68 @@ const links = [
   { title: "ניהול", path: "/panel" },
 ];
 
-const Links = ({ open, openMenuClick }) => {
+const Links = ({ open, openMenuClick, scrolled }) => {
   const pathname = usePathname();
 
   useEffect(() => {
     const linksContainer = document.querySelector("#links");
+    const menuButton = document.querySelector("#menuButton");
 
-    const onResize = () => {
-      linksContainer.classList.toggle(
-        styles.linksContainerGray,
-        window.scrollY > 0
-      );
-    };
+    // const onResize = () => {
+    //   linksContainer.classList.toggle(
+    //     styles.linksContainerGray,
+    //     window.scrollY > 0
+    //   );
+    // };
 
-    if (pathname === "/") {
-      window.addEventListener("scroll", onResize);
-    }
+    // if (pathname === "/") {
+    //   window.addEventListener("scroll", onResize);
+    // }
 
-    if (pathname !== "/") {
-      linksContainer.classList.remove(styles.linksContainerWhite);
+    // if (pathname !== "/") {
+    //   linksContainer.classList.remove(styles.linksContainerWhite);
 
-      linksContainer.classList.add(styles.linksContainerGray);
+    //   linksContainer.classList.add(styles.linksContainerGray);
+    // } else {
+    //   linksContainer.classList.remove(styles.linksContainerGray);
+    // }
+
+    // if (pathname === "/" || pathname === "/about") {
+    //   linksContainer.classList.add(styles.whiteFilter);
+    //   linksContainer.classList.remove(styles.grayFilter);
+    // } else {
+    //   linksContainer.classList.add(styles.grayFilter);
+    //   linksContainer.classList.remove(styles.whiteFilter);
+    // }
+
+    // if (scrolled) {
+    //   linksContainer.classList.add(styles.grayFilter);
+    //   linksContainer.classList.remove(styles.whiteFilter);
+    // } else {
+    //   linksContainer.classList.add(styles.whiteFilter);
+    //   linksContainer.classList.remove(styles.grayFilter);
+    // }
+
+    if (pathname === "/" || pathname === "/about") {
+      linksContainer.classList.add(styles.whiteFilter);
+      linksContainer.classList.remove(styles.grayFilter);
+      menuButton.classList.add(styles.whiteFilter);
+      menuButton.classList.remove(styles.grayFilter);
     } else {
-      linksContainer.classList.remove(styles.linksContainerGray);
+      linksContainer.classList.add(styles.grayFilter);
+      linksContainer.classList.remove(styles.whiteFilter);
+      menuButton.classList.add(styles.grayFilter);
+      menuButton.classList.remove(styles.whiteFilter);
     }
-  }, [pathname]);
+
+    if (scrolled) {
+      linksContainer.classList.add(styles.grayFilter);
+      menuButton.classList.add(styles.grayFilter);
+    } else {
+      linksContainer.classList.remove(styles.grayFilter);
+      menuButton.classList.remove(styles.grayFilter);
+    }
+  }, [pathname, scrolled]);
 
   return (
     <div className={styles.container}>
@@ -58,6 +95,7 @@ const Links = ({ open, openMenuClick }) => {
           width={30}
           height={30}
           onClick={openMenuClick}
+          unoptimized
         />
       </div>
       {open && (

@@ -10,9 +10,9 @@ const NavLink = ({ item }) => {
   return (
     <Link href={item.path} className="link">
       {item.path === pathname ? (
-        <h3 className="navLinkTitle underline">{item.title}</h3>
+        <h3 className={`navLinkTitle underline`}>{item.title}</h3>
       ) : (
-        <h3 className="navLinkTitle">{item.title}</h3>
+        <h3 className={`navLinkTitle`}>{item.title}</h3>
       )}
     </Link>
   );

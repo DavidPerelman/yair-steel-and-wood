@@ -12,6 +12,7 @@ const ProjectCard = ({ project }) => {
           alt=""
           fill
           className={styles.boxImg}
+          unoptimized
         />
       </div>
       <h2>{project.title}</h2>
