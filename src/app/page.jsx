@@ -11,10 +11,7 @@ const Home = async () => {
     <>
       {/* <div className={"homePageContainer"}> */}
       <Video />
-      {/* <h1 className="pageHeader">הפרויקטים שלנו</h1> */}
-      <ProjectsContainer projects={projects} link="/projects/" />
-      {/* <ProjectsCarousel projects={projects} link="/projects/" /> */}
-      {/* </div> */}
+      <ProjectsCarousel projects={projects} link="/projects/" />
     </>
   );
 };

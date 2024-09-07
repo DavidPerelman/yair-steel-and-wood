@@ -1,3 +1,10 @@
+.carousel {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
 .ltr {
   direction: ltr !important;
 }
