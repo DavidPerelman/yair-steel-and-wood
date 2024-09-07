@@ -1,10 +1,15 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import styles from "./postContainer.module.css";
 import Image from "next/image";
 
 const PostContainer = ({ data }) => {
+  // useEffect(() => {
+  //   const container = document.querySelector(".container");
+  //   container.classList.add(styles.aboutPage);
+  // }, []);
+
   return (
     <div className={styles.content}>
       <div className={styles.leftCol}>

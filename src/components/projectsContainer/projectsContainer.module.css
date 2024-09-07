@@ -1,3 +1,8 @@
+.projectsContainer {
+  padding-bottom: 20px;
+  border-bottom: inset;
+}
+
 .boxContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));

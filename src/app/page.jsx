@@ -1,6 +1,7 @@
 import Video from "@/components/video/Video";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 import { getProjects } from "@/lib/data";
+import ProjectsCarousel from "@/components/ProjectsCarousel/ProjectsCarousel";
 
 const Home = async () => {
   const data = await getProjects();
@@ -10,8 +11,9 @@ const Home = async () => {
     <>
       {/* <div className={"homePageContainer"}> */}
       <Video />
-      <h1 className="pageHeader">הפרויקטים שלנו</h1>
+      {/* <h1 className="pageHeader">הפרויקטים שלנו</h1> */}
       <ProjectsContainer projects={projects} link="/projects/" />
+      {/* <ProjectsCarousel projects={projects} link="/projects/" /> */}
       {/* </div> */}
     </>
   );

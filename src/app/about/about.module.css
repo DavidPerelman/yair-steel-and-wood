@@ -4,8 +4,15 @@
 .container {
   /* padding-right: 50px;
   padding-left: 50px; */
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @media (max-width: 568px) {
