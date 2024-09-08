@@ -27,7 +27,7 @@ const ProjectsCarousel = ({ projects, link }) => {
     },
   };
 
-  const projectsArray = projects.map((project) => (
+  const projectsArray = projects.slice(0, 6).map((project) => (
     <Link href={`${link}${project.slug}`} key={project.slug}>
       <ProjectCard project={project} />
     </Link>

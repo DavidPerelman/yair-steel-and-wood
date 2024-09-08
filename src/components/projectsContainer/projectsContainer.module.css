@@ -12,6 +12,15 @@
   place-content: center;
 }
 
+.showMoreBtn {
+  padding: 10px;
+  border: none;
+  background-color: var(--bg);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media (max-width: 390px) {
   .boxContainer {
     width: 100%;
