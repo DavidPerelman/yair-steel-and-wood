@@ -42,10 +42,11 @@
 }
 
 .absolute {
-  color: #020202;
+  color: #ffffff;
   padding: 100px 0; /* border: 3px solid green; */
   text-align: center;
   /* height: 55px; */
+  text-align: -webkit-center;
 }
 
 /* .bg-black {
@@ -73,6 +74,7 @@
 } */
 
 .text-white {
+  width: 50%;
   margin-bottom: 20px;
 }
 
@@ -83,4 +85,15 @@
   padding: 5px;
   margin-top: 20px;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .absolute {
+    width: 100%;
+    padding: 70px 0;
+  }
+
+  .text-white {
+    width: 90%;
+  }
 }
