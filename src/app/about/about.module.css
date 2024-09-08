@@ -21,3 +21,16 @@
     padding-left: 20px; */
   }
 }
+
+.whiteFilter {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(299deg) brightness(100%) contrast(104%);
+
+  display: flex;
+  padding: 30px;
+  text-align: center;
+  gap: 10px;
+  flex-direction: column;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
