@@ -42,9 +42,11 @@
 }
 
 .absolute {
-  padding: 70px 0;
-  border: 3px solid green;
+  color: white;
+  padding: 320px 0;
+  /* border: 3px solid green; */
   text-align: center;
+  height: 55px;
 }
 
 /* .bg-black {
@@ -70,3 +72,15 @@
 .text-lg {
   font-size: 1.25rem;
 } */
+
+.text-white {
+  margin-bottom: 20px;
+}
+
+.about-link {
+  font-size: 1.5rem;
+  background-color: brown;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+}

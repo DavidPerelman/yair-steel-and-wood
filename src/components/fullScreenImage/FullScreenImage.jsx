@@ -1,6 +1,7 @@
 import Image from "next/image";
 // import styles from "./fullScreenImage.module.css";
 import "./fullScreenImage.css";
+import Link from "next/link";
 
 const FullScreenImage = () => {
   return (
@@ -41,9 +42,10 @@ const FullScreenImage = () => {
           objectFit="cover"
         /> */}
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <h1 className="text-white text-center font-bold text-lg">
-            &quot;ציטוט מעניין שמושך את העין&quot;
-          </h1>
+          <h1 className="text-white">&quot;ציטוט מעניין שמושך את העין&quot;</h1>
+          <Link className="about-link" href="/about">
+            אודות
+          </Link>
         </div>
       </div>
     </>
