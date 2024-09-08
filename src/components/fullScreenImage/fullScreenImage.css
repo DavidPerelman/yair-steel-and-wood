@@ -43,9 +43,8 @@
 
 .absolute {
   color: #ffffff;
-  padding: 100px 0; /* border: 3px solid green; */
+  padding: 10% 0;
   text-align: center;
-  /* height: 55px; */
   text-align: -webkit-center;
 }
 
@@ -90,7 +89,7 @@
 @media (max-width: 768px) {
   .absolute {
     width: 100%;
-    padding: 70px 0;
+    padding: 10% 0;
   }
 
   .text-white {

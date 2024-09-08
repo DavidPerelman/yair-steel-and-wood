@@ -42,13 +42,10 @@ const FullScreenImage = () => {
           objectFit="cover"
         /> */}
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <h1 className="text-white">
+          <h2 className="text-white">
             &quot;עבודה בעץ תמיד הייתה תחום שעניין אותי. הפרויקט הראשון היה
             הנדנדה של סבא שלי...&quot;
-          </h1>
-          <Link className="about-link" href="/about">
-            אודות
-          </Link>
+          </h2>
         </div>
       </div>
     </>
