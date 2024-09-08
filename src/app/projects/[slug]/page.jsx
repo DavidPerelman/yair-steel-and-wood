@@ -1,6 +1,7 @@
 import { getProject } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
 import SingleProjectContainer from "@/components/singleProjectContainer/SingleProjectContainer";
+import SingleProjectPageContainer from "@/components/singleProjectPageContainer/SingleProjectPageContainer";
 
 const SingleProjectPage = async ({ params }) => {
   const { slug } = params;
@@ -15,7 +16,8 @@ const SingleProjectPage = async ({ params }) => {
         title={`יאיר ברזל ועץ - ${project.title}`}
         description={`יאיר ברזל ועץ - ${project.title}`}
       />
-      <SingleProjectContainer project={project} />
+      <SingleProjectPageContainer project={project} />
+      {/* <SingleProjectContainer project={project} /> */}
     </>
   );
 };

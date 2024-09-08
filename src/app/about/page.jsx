@@ -74,9 +74,6 @@ const AboutPage = async () => {
           <h1
             style={{
               paddingTop: "25vh",
-              // fontFamily: "monospace",
-              // fontSize: "3.5rem",
-              // fontWeight: "bold",
               textAlign: "center",
             }}
           >

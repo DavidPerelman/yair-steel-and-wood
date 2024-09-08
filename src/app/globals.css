@@ -25,7 +25,6 @@ a {
   padding-top: 130px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: 30px;
   text-align: -webkit-center;
 }
