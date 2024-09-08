@@ -7,6 +7,7 @@
   width: 50%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
+  align-self: center;
 }
 
 /* Clear floats after the columns */
@@ -28,14 +29,6 @@
   padding: 10px;
 }
 
-.imageColumn {
-  background-image: url("https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 400px;
-}
-
 @media (max-width: 768px) {
   .row {
     flex-direction: column;
@@ -48,7 +41,14 @@
   }
 
   .image {
-    height: 100%;
-    width: 100%;
+    display: none;
+  }
+
+  .imageColumn {
+    background-image: url("https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
   }
 }

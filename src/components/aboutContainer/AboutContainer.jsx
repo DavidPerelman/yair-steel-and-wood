@@ -22,19 +22,20 @@ const AboutContainer = () => {
           {text.map((item, i) => (
             <p key={i}>{item}</p>
           ))}
+          <br />
           <Link href="/about" className={styles.continue}>
             המשך לקרוא
           </Link>
         </div>
       </div>
       <div class={styles.imageColumn}>
-        {/* <Image
+        <Image
           className={styles.image}
           src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
           alt=""
           width={0}
           height={0}
-        /> */}
+        />
       </div>
     </div>
   );
