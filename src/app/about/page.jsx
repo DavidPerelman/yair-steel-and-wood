@@ -70,21 +70,23 @@ const AboutPage = async () => {
             objectFit="cover"
           />
         </div>
-        <h1
-          style={{
-            paddingTop: "30vh",
-            // fontFamily: "monospace",
-            // fontSize: "3.5rem",
-            // fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          אודות
-        </h1>
-        <div className={styles.whiteFilter}>
-          {text.map((item, i) => (
-            <p key={i}>{item}</p>
-          ))}
+        <div>
+          <h1
+            style={{
+              paddingTop: "25vh",
+              // fontFamily: "monospace",
+              // fontSize: "3.5rem",
+              // fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            אודות
+          </h1>
+          <div className={styles.whiteFilter}>
+            {text.map((item, i) => (
+              <p key={i}>{item}</p>
+            ))}
+          </div>
         </div>
       </>
     </>
