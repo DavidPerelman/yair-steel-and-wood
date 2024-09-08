@@ -42,7 +42,9 @@ const FullScreenImage = () => {
           objectFit="cover"
         /> */}
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <h1 className="text-white">&quot;ציטוט מעניין שמושך את העין&quot;</h1>
+          <h1 className="text-white">
+            &quot;העולם הזה מושך לי את תשומת הלב והדמיון&quot;
+          </h1>
           <Link className="about-link" href="/about">
             אודות
           </Link>

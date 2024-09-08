@@ -38,15 +38,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 700px;
+  height: 400px;
 }
 
 .absolute {
-  color: white;
-  padding: 320px 0;
-  /* border: 3px solid green; */
+  color: #020202;
+  padding: 100px 0; /* border: 3px solid green; */
   text-align: center;
-  height: 55px;
+  /* height: 55px; */
 }
 
 /* .bg-black {
@@ -83,4 +82,5 @@
   border-radius: 5px;
   padding: 5px;
   margin-top: 20px;
+  color: white;
 }
