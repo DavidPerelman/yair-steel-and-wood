@@ -15,24 +15,30 @@
   background-size: cover;
 }
 
-@media (max-width: 568px) {
-  .container {
-    /* padding-right: 20px;
-    padding-left: 20px; */
-  }
-}
-
 .whiteFilter {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
     hue-rotate(299deg) brightness(100%) contrast(104%);
 
   display: flex;
   text-align: center;
-  /* gap: 10px; */
   flex-direction: column;
   font-size: 0.9rem;
   font-weight: 700;
   width: 400px;
   align-self: center;
   height: 200px !important;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .whiteFilter {
+    width: 70% !important;
+    /* padding-right: 20px;
+    padding-left: 20px; */
+  }
+}
+
+.paragraph {
+  padding-left: 30px;
+  padding-right: 30px;
 }

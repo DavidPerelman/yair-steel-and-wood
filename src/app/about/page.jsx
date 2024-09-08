@@ -84,7 +84,9 @@ const AboutPage = async () => {
           </h1>
           <div className={styles.whiteFilter}>
             {text.map((item, i) => (
-              <p key={i}>{item}</p>
+              <p key={i} className={styles.paragrah}>
+                {item}
+              </p>
             ))}
           </div>
         </div>
