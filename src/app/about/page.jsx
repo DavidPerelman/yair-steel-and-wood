@@ -4,6 +4,7 @@ import { getPost } from "@/lib/data";
 import PostContainer from "@/components/postContainer/PostContainer";
 import Image from "next/image";
 import { Fragment } from "react";
+import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 
 const AboutPage = async () => {
   const data = await getPost("about");
@@ -44,7 +45,8 @@ const AboutPage = async () => {
         </>
       )}
       {/* </div> */}
-      <PostContainer data={postData} />
+      {/* <PostContainer data={postData} /> */}
+      <FullScreenImage />
     </>
   );
 };
