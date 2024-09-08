@@ -9,3 +9,12 @@
 .ltr {
   direction: ltr !important;
 }
+
+.pageHeader {
+  width: 200px;
+  align-self: center;
+}
+
+.pageHeader:hover {
+  border-bottom: solid 3px;
+}
