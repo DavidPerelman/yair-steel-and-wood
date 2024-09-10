@@ -73,6 +73,11 @@
 }
 
 @media (max-width: 768px) {
+  .filtersShowBtn {
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+
   .boxContainer {
     width: 100%;
     display: flex;
