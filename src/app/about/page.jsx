@@ -83,7 +83,7 @@ const AboutPage = async () => {
             אודות
           </h1>
           <div className={styles.textContainer}>
-            <div className={styles.whiteFilter}>
+            <div className={styles.textContent}>
               {text.map((item, i) => (
                 <p key={i} className={styles.paragrah}>
                   {item}

@@ -38,10 +38,12 @@
   background: #555;
 }
 
-.whiteFilter {
+.textContent {
   /* filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
     hue-rotate(299deg) brightness(100%) contrast(104%); */
 
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   gap: 10px;
