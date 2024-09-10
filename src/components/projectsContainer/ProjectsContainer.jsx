@@ -18,7 +18,6 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   const [open, setOpen] = useState(false);
 
   const openFiltersClick = () => {
-    clearFilterHandler();
     setOpen((prev) => !prev);
   };
 
