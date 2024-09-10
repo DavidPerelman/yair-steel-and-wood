@@ -4,10 +4,10 @@ import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 
 const ProjectsPage = async () => {
-  const projectsData = await getProjects();
-  const projects = JSON.parse(JSON.stringify(projectsData));
-  const divisionsData = await getDivisions();
-  const divisions = JSON.parse(JSON.stringify(divisionsData));
+  // const projectsData = await getProjects();
+  // const projects = JSON.parse(JSON.stringify(projectsData));
+  // const divisionsData = await getDivisions();
+  // const divisions = JSON.parse(JSON.stringify(divisionsData));
 
   return (
     <div className={styles.projectsPage}>
@@ -16,11 +16,11 @@ const ProjectsPage = async () => {
         description="יאיר ברזל ועץ - פרויקטים"
       />
       <div className={styles.pageHeader}></div>
-      <ProjectsContainer
+      {/* <ProjectsContainer
         projects={projects}
         divisions={divisions}
         link="/projects/"
-      />
+      /> */}
     </div>
   );
 };
