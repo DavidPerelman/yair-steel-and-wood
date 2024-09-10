@@ -16,11 +16,11 @@ const ProjectsPage = async () => {
         description="יאיר ברזל ועץ - פרויקטים"
       />
       <div className={styles.pageHeader}></div>
-      <ProjectsContainer
+      {/* <ProjectsContainer
         projects={projects}
         divisions={divisions}
         link="/projects/"
-      />
+      /> */}
     </div>
   );
 };
