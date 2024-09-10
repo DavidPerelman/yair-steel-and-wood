@@ -45,7 +45,7 @@
   flex-direction: column;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .boxContainer {
     width: 100%;
     display: flex;
