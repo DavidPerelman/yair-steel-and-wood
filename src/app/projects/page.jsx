@@ -6,8 +6,8 @@ import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer"
 const ProjectsPage = async () => {
   const projectsData = await getProjects();
   const projects = JSON.parse(JSON.stringify(projectsData));
-  // const divisionsData = await getDivisions();
-  // const divisions = JSON.parse(JSON.stringify(divisionsData));
+  const divisionsData = await getDivisions();
+  const divisions = JSON.parse(JSON.stringify(divisionsData));
 
   return (
     <div className={styles.projectsPage}>
