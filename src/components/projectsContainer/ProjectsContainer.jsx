@@ -51,8 +51,6 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   }
 
   const filterHandler = () => {
-    console.log(divisionFilters);
-
     if (divisionFilters.length === 0) {
       divisions.map((division) => {
         setDivisionFilters((divisionFilters) => [
