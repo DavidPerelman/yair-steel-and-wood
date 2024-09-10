@@ -13,7 +13,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
 
   const [values, setValues] = useState([MIN, MAX]);
   const [showItems, setShowItems] = useState(6);
-  const [divisionFilters, setDivisionFilters] = useState([]);
+  const [selectedDivisions, setSelectedDivisions] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [open, setOpen] = useState(false);
 
@@ -21,23 +21,29 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
     setOpen((prev) => !prev);
   };
 
-  const updateFilters = (e) => {
-    const selectedDivision = e.target.value;
-    const checked = e.target.checked;
-
-    if (checked && selectedDivision.length > 0) {
-      const inDivisionFilters = divisionFilters.includes(selectedDivision);
-      if (!inDivisionFilters) {
-        setDivisionFilters((divisionFilters) => [
-          ...divisionFilters,
-          selectedDivision,
-        ]);
-      }
+  const handleDivisionChange = (event) => {
+    const { checked, value } = event.target;
+    if (checked) {
+      setSelectedDivisions([...selectedDivisions, value]);
+      console.log(selectedDivisions);
     } else {
-      setDivisionFilters((divisionFilters) =>
-        divisionFilters.filter((value, i) => value !== selectedDivision)
+      setSelectedDivisions(
+        selectedDivisions.filter((division) => division !== value)
       );
+      console.log(selectedDivisions);
     }
+  };
+
+  const filterHandler = () => {
+    const filteredProjects = projects.filter(
+      (project) =>
+        (selectedDivisions.length === 0 ||
+          selectedDivisions.includes(project.division[0])) &&
+        project.price >= values[0] &&
+        project.price <= values[1]
+    );
+
+    setFilteredProjects(filteredProjects);
   };
 
   const handleShowMore = () => {
@@ -46,42 +52,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
     );
   };
 
-  function isInRange(number, valueRange) {
-    return valueRange[0] <= number && number <= valueRange[1];
-  }
-
-  const filterHandler = () => {
-    if (divisionFilters.length === 0) {
-      divisions.map((division) => {
-        setDivisionFilters((divisionFilters) => [
-          ...divisionFilters,
-          division._id,
-        ]);
-      });
-      const divisionFilter = projects.filter((item) => {
-        return divisionFilters.includes(item.division[0]);
-      });
-
-      const priceFilter = divisionFilter.filter((item) => {
-        return isInRange(item.price, values);
-      });
-
-      setFilteredProjects(priceFilter);
-    }
-
-    const divisionFilter = projects.filter((item) => {
-      return divisionFilters.includes(item.division[0]);
-    });
-
-    const priceFilter = divisionFilter.filter((item) => {
-      return isInRange(item.price, values);
-    });
-
-    setFilteredProjects(priceFilter);
-  };
-
   const clearCheckBoxes = () => {
-    setValues([0, 5000]);
     var clist = document.getElementsByTagName("input");
     for (var i = 0; i < clist.length; ++i) {
       clist[i].checked = false;
@@ -91,6 +62,8 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   const clearFilterHandler = () => {
     clearCheckBoxes();
     setFilteredProjects(projects);
+    setSelectedDivisions([]);
+    setValues([0, 5000]);
   };
 
   const filterLogoClick = () => {
@@ -133,7 +106,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
         open={open}
         openFiltersClick={openFiltersClick}
         divisions={divisions}
-        updateFilters={updateFilters}
+        updateFilters={handleDivisionChange}
         values={values}
         setValues={setValues}
         MIN={MIN}

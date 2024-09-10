@@ -1,3 +1,5 @@
+"use client";
+
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./contact.module.css";
 
