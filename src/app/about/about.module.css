@@ -8,13 +8,15 @@
 }
 
 .textContainer {
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   width: 400px;
-  height: 200px !important;
-  gap: 10px;
-  overflow-y: scroll;
+  gap: 15px;
+  text-align: right;
+  line-height: 1.6;
 }
 
 .textContainer::-webkit-scrollbar {
@@ -53,7 +55,6 @@
   }
 
   .textContainer {
-    height: 400px !important;
     width: 350px;
   }
 }
