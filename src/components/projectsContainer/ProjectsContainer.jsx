@@ -3,19 +3,23 @@
 import Link from "next/link";
 import styles from "./projectsContainer.module.css";
 import ProjectCard from "../projectCard/ProjectCard";
-import { useEffect, useState } from "react";
-import Checkbox from "../checkbox/Checkbox";
+import { useState } from "react";
+import Image from "next/image";
+import FiltersContainer from "../filtersContainer/FiltersContainer";
 
 const ProjectsContainer = ({ projects, divisions, link }) => {
+  const MIN = 0;
+  const MAX = 5000;
+
+  const [values, setValues] = useState([MIN, MAX]);
   const [showItems, setShowItems] = useState(6);
   const [divisionFilters, setDivisionFilters] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (filteredProjects.length === 0) {
-      setFilteredProjects(projects);
-    }
-  }, [filteredProjects, projects]);
+  const openFiltersClick = () => {
+    setOpen((prev) => !prev);
+  };
 
   const updateFilters = (e) => {
     const selectedDivision = e.target.value;
@@ -42,13 +46,42 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
     );
   };
 
+  function isInRange(number, valueRange) {
+    return valueRange[0] <= number && number <= valueRange[1];
+  }
+
   const filterHandler = () => {
-    setFilteredProjects(
-      projects.filter((item) => divisionFilters.includes(item.division[0]))
-    );
+    if (divisionFilters.length === 0) {
+      divisions.map((division) => {
+        setDivisionFilters((divisionFilters) => [
+          ...divisionFilters,
+          division._id,
+        ]);
+      });
+      const divisionFilter = projects.filter((item) => {
+        return divisionFilters.includes(item.division[0]);
+      });
+
+      const priceFilter = divisionFilter.filter((item) => {
+        return isInRange(item.price, values);
+      });
+
+      setFilteredProjects(priceFilter);
+    }
+
+    const divisionFilter = projects.filter((item) => {
+      return divisionFilters.includes(item.division[0]);
+    });
+
+    const priceFilter = divisionFilter.filter((item) => {
+      return isInRange(item.price, values);
+    });
+
+    setFilteredProjects(priceFilter);
   };
 
   const clearCheckBoxes = () => {
+    setValues([0, 5000]);
     var clist = document.getElementsByTagName("input");
     for (var i = 0; i < clist.length; ++i) {
       clist[i].checked = false;
@@ -60,6 +93,14 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
     setFilteredProjects(projects);
   };
 
+  const filterLogoClick = () => {
+    setOpen(true);
+  };
+
+  const closeFiltersClick = () => {
+    setOpen(false);
+  };
+
   const displayedItems = filteredProjects.slice(0, showItems).map((project) => (
     <Link href={`${link}${project.slug}`} key={project.slug}>
       <ProjectCard project={project} />
@@ -69,7 +110,20 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   return (
     <div className={styles.projectsContainer}>
       <div className={styles.projectsBoxesContainer}>
-        <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
+        <div className={styles.headers}>
+          <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
+          <div className={styles.filtersShowBtn}>
+            <Image
+              onClick={filterLogoClick}
+              className={styles.filterLogo}
+              src="/filter.svg"
+              width={30}
+              height={30}
+              alt="filter-logo"
+              unoptimized
+            />
+          </div>
+        </div>
         <div className={styles.boxContainer}>{displayedItems}</div>
         {showItems < filteredProjects.length ? (
           <button className={styles.showMoreBtn} onClick={handleShowMore}>
@@ -79,20 +133,18 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
           <></>
         )}
       </div>
-      <div className={styles.filters}>
-        <div className={styles.divisionsFilters}>
-          {divisions.map((division) => (
-            <Checkbox
-              key={division._id}
-              label={division.title}
-              id={division._id}
-              updateFilters={updateFilters}
-            />
-          ))}
-          <button onClick={filterHandler}>סינון</button>
-          <button onClick={clearFilterHandler}>נקה סינון</button>
-        </div>
-      </div>
+      <FiltersContainer
+        open={open}
+        openFiltersClick={openFiltersClick}
+        divisions={divisions}
+        updateFilters={updateFilters}
+        values={values}
+        setValues={setValues}
+        MIN={MIN}
+        MAX={MAX}
+        filterHandler={filterHandler}
+        clearFilterHandler={clearFilterHandler}
+      />
     </div>
   );
 };

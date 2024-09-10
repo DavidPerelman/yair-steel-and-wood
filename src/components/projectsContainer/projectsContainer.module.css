@@ -33,11 +33,12 @@
 .divisionsFilters {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
   height: 100%;
   text-align: right;
-  padding-right: 10%;
+  padding-right: 5%;
   position: fixed;
+  width: 20%;
 }
 
 .projectsBoxesContainer {
@@ -45,6 +46,30 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
+}
+
+.filterBtn {
+  width: 50%;
+  align-self: center;
+  padding: 10px;
+  border: none;
+  background-color: var(--bg);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .filtersShowBtn {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -57,5 +82,17 @@
     place-content: center;
     flex-direction: column;
     align-self: center;
+  }
+
+  .filterBtn {
+    width: 100%;
+  }
+
+  .filters {
+    display: none;
+  }
+
+  .projectsContainer {
+    grid-template-columns: 100%;
   }
 }

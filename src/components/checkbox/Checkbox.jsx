@@ -1,8 +1,8 @@
-import React from "react";
+import styles from "./checkbox.module.css";
 
 const Checkbox = ({ id, label, updateFilters }) => {
   return (
-    <label>
+    <label className={styles.label}>
       <input type="checkbox" value={id} onChange={(e) => updateFilters(e)} />
       <span>{label}</span>
     </label>

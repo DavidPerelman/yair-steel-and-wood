@@ -21,41 +21,6 @@ const Links = ({ open, openMenuClick, scrolled }) => {
     const linksContainer = document.querySelector("#links");
     const menuButton = document.querySelector("#menuButton");
 
-    // const onResize = () => {
-    //   linksContainer.classList.toggle(
-    //     styles.linksContainerGray,
-    //     window.scrollY > 0
-    //   );
-    // };
-
-    // if (pathname === "/") {
-    //   window.addEventListener("scroll", onResize);
-    // }
-
-    // if (pathname !== "/") {
-    //   linksContainer.classList.remove(styles.linksContainerWhite);
-
-    //   linksContainer.classList.add(styles.linksContainerGray);
-    // } else {
-    //   linksContainer.classList.remove(styles.linksContainerGray);
-    // }
-
-    // if (pathname === "/" || pathname === "/about") {
-    //   linksContainer.classList.add(styles.whiteFilter);
-    //   linksContainer.classList.remove(styles.grayFilter);
-    // } else {
-    //   linksContainer.classList.add(styles.grayFilter);
-    //   linksContainer.classList.remove(styles.whiteFilter);
-    // }
-
-    // if (scrolled) {
-    //   linksContainer.classList.add(styles.grayFilter);
-    //   linksContainer.classList.remove(styles.whiteFilter);
-    // } else {
-    //   linksContainer.classList.add(styles.whiteFilter);
-    //   linksContainer.classList.remove(styles.grayFilter);
-    // }
-
     if (pathname === "/" || pathname === "/about") {
       linksContainer.classList.add(styles.whiteFilter);
       linksContainer.classList.remove(styles.grayFilter);
