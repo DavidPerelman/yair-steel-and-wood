@@ -18,6 +18,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   const [open, setOpen] = useState(false);
 
   const openFiltersClick = () => {
+    clearFilterHandler();
     setOpen((prev) => !prev);
   };
 
@@ -51,6 +52,8 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
   }
 
   const filterHandler = () => {
+    console.log(divisionFilters);
+
     if (divisionFilters.length === 0) {
       divisions.map((division) => {
         setDivisionFilters((divisionFilters) => [
@@ -95,10 +98,6 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
 
   const filterLogoClick = () => {
     setOpen(true);
-  };
-
-  const closeFiltersClick = () => {
-    setOpen(false);
   };
 
   const displayedItems = filteredProjects.slice(0, showItems).map((project) => (
