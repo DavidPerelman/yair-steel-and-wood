@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { title: "ראשי", path: "/" },
-  { title: "פרויקטים", path: "/projects" },
+  { title: "חנות", path: "/projects" },
   { title: "אודות", path: "/about" },
   { title: "צור קשר", path: "/contact" },
   { title: "ניהול", path: "/panel" },

@@ -35,12 +35,12 @@ const ProjectsCarousel = ({ projects, link }) => {
 
   return (
     <div className={styles.carousel}>
-      <Link href="/projects" className={styles.pageLink}>
-        <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
-      </Link>
       <Carousel responsive={responsive} className={styles.ltr}>
         {projectsArray}
       </Carousel>
+      <Link href="/projects" className={styles.pageLink}>
+        <h1 className={styles.pageHeader}>מעבר לחנות</h1>
+      </Link>
     </div>
   );
 };

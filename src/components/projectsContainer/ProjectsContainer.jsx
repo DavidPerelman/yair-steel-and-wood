@@ -80,7 +80,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
     <div className={styles.projectsContainer}>
       <div className={styles.projectsBoxesContainer}>
         <div className={styles.headers}>
-          <h1 className={styles.pageHeader}>הפרויקטים שלנו</h1>
+          <h1 className={styles.pageHeader}>חנות</h1>
           <div className={styles.filtersShowBtn}>
             <Image
               onClick={filterLogoClick}

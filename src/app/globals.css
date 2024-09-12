@@ -14,13 +14,26 @@
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.15);
 }
 
+/* h2 {
+  font-size: 1.8em !important;
+}
+
+h2 {
+  font-size: 1.6em !important;
+}
+
+h3 {
+  font-size: 1.4em !important;
+} */
+
 body {
   margin: 0;
   background-color: #f5f5f5;
 }
 
 a {
-  text-decoration: none;
+  color: black !important;
+  text-decoration: none !important;
   color: inherit;
 }
 

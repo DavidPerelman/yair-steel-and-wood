@@ -12,8 +12,8 @@ const ProjectsPage = async () => {
   return (
     <div className={styles.projectsPage}>
       <CustomHead
-        title="יאיר ברזל ועץ - פרויקטים"
-        description="יאיר ברזל ועץ - פרויקטים"
+        title="יאיר ברזל ועץ - חנות"
+        description="יאיר ברזל ועץ - חנות"
       />
       <div className={styles.pageHeader}></div>
       <ProjectsContainer

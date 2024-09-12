@@ -27,6 +27,7 @@
   display: flex;
   justify-content: center;
   height: calc(20% - 0px);
+  margin-top: 10px;
 }
 
 .carouselThumbnails img {
