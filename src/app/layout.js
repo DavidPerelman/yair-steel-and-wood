@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
       <body className={assistant.className} suppressHydrationWarning={true}>
         <AuthProvider>
           <Navbar open={open} setOpen={setOpen} />
+          {/* <Nav open={open} setOpen={setOpen} /> */}
           <div className="container">{children}</div>
         </AuthProvider>
       </body>

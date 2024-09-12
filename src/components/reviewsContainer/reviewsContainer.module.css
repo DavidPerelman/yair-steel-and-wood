@@ -1,3 +1,7 @@
 .reviewsContainer {
   height: 450px;
 }
+
+.pageHeader {
+  font-size: 2rem;
+}

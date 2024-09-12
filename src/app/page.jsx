@@ -4,6 +4,7 @@ import ProjectsCarousel from "@/components/ProjectsCarousel/ProjectsCarousel";
 import ReviewsContainer from "@/components/reviewsContainer/ReviewsContainer";
 import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 import AboutContainer from "@/components/aboutContainer/AboutContainer";
+import styles from "./page.module.css";
 
 const Home = async () => {
   const data = await getProjects();
@@ -11,12 +12,21 @@ const Home = async () => {
 
   return (
     <>
-      {/* <div className={"homePageContainer"}> */}
-      <Video />
-      <ProjectsCarousel projects={projects} link="/projects/" />
+      <section>
+        <Video />
+      </section>
+      <section className={styles.section}>
+        <ProjectsCarousel projects={projects} link="/projects/" />
+      </section>
+      {/* <section className={styles.section} id={styles.banner}> */}
       <FullScreenImage />
-      <AboutContainer />
-      <ReviewsContainer />
+      {/* </section> */}
+      <section className={styles.section}>
+        <AboutContainer />
+      </section>
+      <section className={styles.section}>
+        <ReviewsContainer />
+      </section>
     </>
   );
 };

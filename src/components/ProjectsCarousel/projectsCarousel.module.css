@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
-  border-bottom: inset;
+  /* border-bottom: inset; */
 }
 
 .ltr {
@@ -13,6 +13,7 @@
 .pageHeader {
   width: 200px;
   align-self: center;
+  font-size: 2rem;
 }
 
 .pageHeader:hover {

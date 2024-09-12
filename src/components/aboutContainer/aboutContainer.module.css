@@ -1,12 +1,21 @@
 .row {
   display: flex;
+  /* gap: 60px; */
 }
-/* Create two equal columns that floats next to each other */
-.column {
+
+.right_column {
   float: left;
-  width: 50%;
+  width: 40%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: auto;
+  align-self: center;
+}
+
+.left_column {
+  float: left;
+  width: 60%;
+  padding: 10px;
+  height: auto;
   align-self: center;
 }
 
@@ -19,7 +28,7 @@
 
 .image {
   height: 100%;
-  width: 80%;
+  width: 100%;
 }
 
 .continue {
@@ -29,26 +38,41 @@
   padding: 10px;
 }
 
+.pageHeader {
+  font-size: 2rem;
+}
+
 @media (max-width: 768px) {
   .row {
     flex-direction: column;
   }
 
-  .column {
+  .right_column {
     width: 95%;
-    align-self: center;
     padding: 0;
   }
 
-  .image {
-    display: none;
+  .left_column {
+    width: 100%;
+    padding: 0;
+    margin-top: 30px;
   }
 
-  .imageColumn {
+  /* .column {
+    width: 95%;
+    align-self: center;
+    padding: 0;
+  } */
+
+  /* .image {
+    display: none;
+  } */
+
+  /* .imageColumn {
     background-image: url("https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 400px;
-  }
+  } */
 }

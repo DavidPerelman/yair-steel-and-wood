@@ -1,3 +1,32 @@
+.fullScreenImageContainer {
+  width: 100%;
+}
+
+.banner {
+  position: relative;
+  margin: 0 auto;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+}
+
+/* 
 .image {
   position: relative !important;
+} */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+  }
 }

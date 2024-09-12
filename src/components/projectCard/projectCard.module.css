@@ -16,7 +16,7 @@
 }
 
 .boxImgContainer {
-  height: 350px;
+  height: 450px;
   position: relative;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
@@ -26,4 +26,10 @@
   object-fit: cover;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .boxImgContainer {
+    height: 350px;
+  }
 }

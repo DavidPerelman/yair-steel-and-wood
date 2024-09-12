@@ -14,24 +14,22 @@ const AboutContainer = () => {
   return (
     <div class={styles.row}>
       <div
-        class={styles.column}
+        class={styles.right_column}
         style={{
           textAlign: "right",
           alignContent: "center",
         }}
       >
-        <div style={{ padding: "20px" }}>
-          <h2>אודות</h2>
-          {text.map((item, i) => (
-            <p key={i}>{item}</p>
-          ))}
-          <br />
-          <Link href="/about" className={styles.continue}>
-            המשך לקרוא
-          </Link>
-        </div>
+        <h2 className={styles.pageHeader}>אודות</h2>
+        {text.map((item, i) => (
+          <p key={i}>{item}</p>
+        ))}
+        <br />
+        <Link href="/about" className={styles.continue}>
+          המשך לקרוא
+        </Link>
       </div>
-      <div class={styles.imageColumn}>
+      <div class={styles.left_column}>
         <Image
           className={styles.image}
           src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
