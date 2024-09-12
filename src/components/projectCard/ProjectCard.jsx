@@ -16,6 +16,7 @@ const ProjectCard = ({ project }) => {
         />
       </div>
       <h2>{project.title}</h2>
+      <p className={styles.price_paragraph}>{project.price} ש&quot;ח</p>
     </div>
   );
 };
