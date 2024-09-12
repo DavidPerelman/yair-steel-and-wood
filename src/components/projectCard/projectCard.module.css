@@ -31,7 +31,7 @@
 .cardBody {
   display: flex;
   flex-direction: column;
-  text-align-last: right;
+  text-align-last: left;
   padding: 10px;
 }
 
