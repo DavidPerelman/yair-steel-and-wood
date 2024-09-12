@@ -1,6 +1,6 @@
 import Video from "@/components/video/Video";
 import { getProjects } from "@/lib/data";
-import ProjectsCarousel from "@/components/ProjectsCarousel/ProjectsCarousel";
+import ProjectsCarousel from "@/components/projectsCarousel/ProjectsCarousel";
 import ReviewsContainer from "@/components/reviewsContainer/ReviewsContainer";
 import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 import AboutContainer from "@/components/aboutContainer/AboutContainer";
