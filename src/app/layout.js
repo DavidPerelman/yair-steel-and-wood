@@ -1,6 +1,8 @@
 "use client";
 
 import { Assistant } from "next/font/google";
+import { M_PLUS_1p } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
@@ -8,6 +10,8 @@ import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
 import AuthProvider from "@/components/Provider";
 const assistant = Assistant({ subsets: ["latin"] });
+const m_plus_1p = M_PLUS_1p({ subsets: ["latin"], weight: "400" });
+// const inter = Inter({ subsets: ['latin'], weight: '400' });
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -27,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
-      <body className={assistant.className} suppressHydrationWarning={true}>
+      <body className={m_plus_1p.className} suppressHydrationWarning={true}>
         <AuthProvider>
           <Navbar open={open} setOpen={setOpen} />
           {/* <Nav open={open} setOpen={setOpen} /> */}
