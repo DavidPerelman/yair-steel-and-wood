@@ -10,8 +10,9 @@ const AboutPage = async () => {
   const data = await getPost("about");
   const postData = JSON.parse(JSON.stringify(data));
 
+  const first_paragrah = "שלום וברוכים הבאים למקום בו הברזל והעץ נפגשים.";
+
   const text = [
-    "שלום וברוכים הבאים למקום בו הברזל והעץ נפגשים.",
     "עבודה עם עץ מאז ומעולם הייתה עבורי תחום מרתק. במהלך השנים לקחתי חלק בפרויקטים שונים בתחום, ועם הזמן גיליתי איך העולם הזה מושך לי את תשומת הלב והדמיון.",
     "לתחום הברזל הגעתי רק אחרי השחרור מהצבא, תחום מורכב, הדורש דיוק וסבלנות, במיוחד בעבודת ריתוך עם חומרים קטנים. ",
     "לאחר תקופה ממושכת של פיתוח כישורים והתמקצעות בטכניקות שונות, נולד השילוב הייחודי בין ברזל לעץ. העוצמה והברק של הברזל, יחד עם הגוונים והחום של העץ, יוצרים ביחד עבודות מוקפדות ומדויקות, בעלות אופי ייחודי.",
@@ -84,6 +85,7 @@ const AboutPage = async () => {
           </h1>
           <div className={styles.textContainer}>
             <div className={styles.textContent}>
+              <p className={styles.first_paragrah}>{first_paragrah}</p>
               {text.map((item, i) => (
                 <p key={i} className={styles.paragrah}>
                   {item}
