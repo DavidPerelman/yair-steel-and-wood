@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     setOpen(false);
     const container = document.querySelector(".container");
 
-    if (pathname === "/" || pathname === "/about") {
+    if (pathname === "/") {
       container.classList.add("homePageContainer");
     } else {
       container.classList.remove("homePageContainer");

@@ -57,14 +57,14 @@ const Navbar = ({ open, setOpen }) => {
       body.style.overflow = "";
     }
 
-    if (pathname === "/" || pathname === "/about") {
+    if (pathname === "/") {
       document.getElementById("navbar").style.backgroundColor = "white";
       document.getElementById("navbar").style.borderBottom = "none";
     } else {
       document.getElementById("navbar").style.borderBottom = "inset";
     }
 
-    if (pathname === "/" || pathname === "/about") {
+    if (pathname === "/") {
       document.getElementById("navbar").style.backgroundColor = "transparent";
     } else {
       document.getElementById("navbar").style.backgroundColor = "white";
@@ -83,7 +83,7 @@ const Navbar = ({ open, setOpen }) => {
 
         document.getElementById("navbar").classList.remove(styles.black);
 
-        if (pathname === "/" || pathname === "/about") {
+        if (pathname === "/") {
           document.getElementById("navbar").style.backgroundColor =
             "transparent";
           document.getElementById("navbar").style.borderBottom = "none";

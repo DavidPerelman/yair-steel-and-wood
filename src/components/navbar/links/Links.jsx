@@ -21,7 +21,7 @@ const Links = ({ open, openMenuClick, scrolled }) => {
     const linksContainer = document.querySelector("#links");
     const menuButton = document.querySelector("#menuButton");
 
-    if (pathname === "/" || pathname === "/about") {
+    if (pathname === "/") {
       linksContainer.classList.add(styles.whiteFilter);
       linksContainer.classList.remove(styles.grayFilter);
       menuButton.classList.add(styles.whiteFilter);

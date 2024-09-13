@@ -11,7 +11,7 @@ const ContactLinks = ({ scrolled }) => {
   useEffect(() => {
     const logos = document.querySelectorAll(".logo");
 
-    if (pathname === "/" || pathname === "/about") {
+    if (pathname === "/") {
       logos.forEach((item) => item.classList.add(styles.whiteFilter));
       logos.forEach((item) => item.classList.remove(styles.grayFilter));
     } else {
