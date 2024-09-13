@@ -18,7 +18,7 @@ const FullScreenImage = () => {
               height={0}
               className={styles.image}
             />
-            <h2 className={styles.heading}>ברזל ועץ</h2>
+            <h1 className={styles.heading}>ברזל ועץ</h1>
           </div>
         </div>
       </div>

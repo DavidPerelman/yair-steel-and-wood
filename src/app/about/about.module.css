@@ -18,6 +18,8 @@
   text-align: right;
   line-height: 1.6;
   margin-bottom: 200px;
+  color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px rgb(0 0 0);
 
   /* background-color: white;
   opacity: 0.7;
