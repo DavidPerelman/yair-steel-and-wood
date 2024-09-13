@@ -10,9 +10,9 @@ const AboutContainer = () => {
   ];
 
   return (
-    <div class={styles.row}>
+    <div className={styles.row}>
       <div
-        class={styles.right_column}
+        className={styles.right_column}
         style={{
           textAlign: "right",
           alignContent: "center",
@@ -27,7 +27,7 @@ const AboutContainer = () => {
           המשך לקרוא
         </Link>
       </div>
-      <div class={styles.left_column}>
+      <div className={styles.left_column}>
         <Image
           className={styles.image}
           src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"

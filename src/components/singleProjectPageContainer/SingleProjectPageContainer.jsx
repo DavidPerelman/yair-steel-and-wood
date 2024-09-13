@@ -3,8 +3,8 @@ import styles from "./singleProjectPageContainer.module.css";
 
 const SingleProjectPageContainer = ({ project }) => {
   return (
-    <div class={styles.row}>
-      <div class={styles.textColumn}>
+    <div className={styles.row}>
+      <div className={styles.textColumn}>
         <h1>{project.title}</h1>
         <h3>{project.price} ש״ח</h3>
         <p className={styles.description}>{project.description}</p>
@@ -18,7 +18,7 @@ const SingleProjectPageContainer = ({ project }) => {
           גובה - {project.height} ס״מ
         </div>
       </div>
-      <div class={styles.imagesColumn}>
+      <div className={styles.imagesColumn}>
         <ImagesSlider images={project.images} />
       </div>
     </div>

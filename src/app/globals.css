@@ -1,3 +1,5 @@
+/* @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap"); */
+
 :root {
   --bg: #808080;
   --bgSoft: #2d2b42;
@@ -10,20 +12,76 @@
   direction: rtl;
   margin: 0;
   line-height: 1.6;
-  /* color: #ffffff; */
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.15);
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* h2 {
-  font-size: 1.8em !important;
+/* .m-plus-rounded-1c-thin {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-light {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-regular {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-medium {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-bold {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-extrabold {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.m-plus-rounded-1c-black {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+} */
+
+/* p {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h2 {
-  font-size: 1.6em !important;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h3 {
-  font-size: 1.4em !important;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 } */
 
 body {
