@@ -12,7 +12,10 @@ import CustomHead from "@/components/customHead/CustomHead";
 import AuthProvider from "@/components/Provider";
 const assistant = Assistant({ subsets: ["latin"] });
 const m_plus_1p = M_PLUS_1p({ subsets: ["latin"], weight: "400" });
-const m_plus_rounded_1c = M_PLUS_1p({ subsets: ["latin"], weight: "400" });
+const m_plus_rounded_1c = M_PLUS_Rounded_1c({
+  subsets: ["latin"],
+  weight: "400",
+});
 const alef = Alef({ subsets: ["latin"], weight: "400" });
 
 export default function RootLayout({ children }) {
@@ -33,7 +36,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
-      <body className={m_plus_1p.className} suppressHydrationWarning={true}>
+      <body
+        className={m_plus_rounded_1c.className}
+        suppressHydrationWarning={true}
+      >
         <AuthProvider>
           <Navbar open={open} setOpen={setOpen} />
           {/* <Nav open={open} setOpen={setOpen} /> */}
