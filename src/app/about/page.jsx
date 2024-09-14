@@ -21,97 +21,144 @@ const AboutPage = async () => {
     "יאיר",
   ];
 
+  const backgroundImageStyle = {
+    backgroundImage:
+      "url(https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "bottom",
+    height: "100vh",
+    color: "white",
+    margin: 0,
+    padding: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   return (
     <>
       <CustomHead
         title="יאיר ברזל ועץ - אודות"
         description="יאיר ברזל ועץ - אודות"
       />
-      {/* <div
-      // className={styles.container}
-      // style={{ backgroundImage: `url(${postData.images[0]})` }}
-      // style={{
-      //   backgroundImage: `url(${postData.images[0]})`,
-      //   backgroundSize: "contain",
-      //   backgroundRepeat: "no-repeat",
-      //   width: "100vw",
-      //   height: "100vh",
-      // }}
-      > */}
-      {postData && (
-        <>
-          {/* <Image
-              src={postData.images[0]}
-              width={0}
-              height={0}
-              alt=""
-              style={{ width: "100%", height: "100%" }}
-            /> */}
-          {/* {postData.description.map((post, i) => (
-              <Fragment key={i}>
-                <p key={`${i}-text`}>{post}</p>
-                <br key={`${i}-br`} />
-              </Fragment>
-            ))} */}
-        </>
-      )}
-      {/* </div> */}
-      {/* <PostContainer data={postData} /> */}
-      {/* <FullScreenImage /> */}
-      <>
-        <div
-          style={{
-            zIndex: -1,
-            position: "fixed",
-            width: "100vw",
-            height: "100vh",
-          }}
-        >
-          <Image
-            src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
-            alt="Mountains with snow"
-            layout="fill"
-            objectFit="cover"
-          />
+      {/* <div style={backgroundImageStyle}> */}
+      {/* <div> */}
+      <Image
+        alt=""
+        src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: "100%", height: "auto" }} // optional
+      />
+      <div className={styles.textContainer}>
+        <div className={styles.textContent}>
+          <h1 className={styles.first_paragrah}>אודות</h1>
+          <p
+            className={styles.first_paragrah}
+            // style={{
+            //   color: "#ffffff",
+            //   textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
+            // }}
+          >
+            {first_paragrah}
+          </p>
+          {text.map((item, i) => (
+            <p key={i} className={styles.paragrah}>
+              {item}
+            </p>
+          ))}
         </div>
-        <div>
-          <h1
+      </div>
+      {/* </div> */}
+      {/* <div
+      </div>
+      {/* <div className={styles.AboutPage}>
+        <Image
+          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
+          alt="Mountains with snow"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className={styles.bg_image}
+        />
+        <div className={styles.textContent}>
+          <p
+            className={styles.first_paragrah}
             style={{
-              paddingTop: "25vh",
-              textAlign: "center",
               color: "#ffffff",
               textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
             }}
           >
-            אודות
-          </h1>
-          <div className={styles.textContainer}>
-            <div className={styles.textContent}>
+            {first_paragrah}
+          </p>
+          {text.map((item, i) => (
+            <p
+              key={i}
+              className={styles.paragrah}
+              style={{
+                color: "#ffffff",
+                textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
+              }}
+            >
+              {item}
+            </p>
+          ))}
+        </div>
+      </div> */}
+      {/* <div
+        style={{
+          zIndex: -1,
+          position: "fixed",
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        <Image
+          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
+          alt="Mountains with snow"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+      <div>
+        <h1
+          style={{
+            paddingTop: "25vh",
+            textAlign: "center",
+            color: "#ffffff",
+            textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
+          }}
+        >
+          אודות
+        </h1>
+        <div className={styles.textContainer}>
+          <div className={styles.textContent}>
+            <p
+              className={styles.first_paragrah}
+              style={{
+                color: "#ffffff",
+                textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
+              }}
+            >
+              {first_paragrah}
+            </p>
+            {text.map((item, i) => (
               <p
-                className={styles.first_paragrah}
+                key={i}
+                className={styles.paragrah}
                 style={{
                   color: "#ffffff",
                   textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
                 }}
               >
-                {first_paragrah}
+                {item}
               </p>
-              {text.map((item, i) => (
-                <p
-                  key={i}
-                  className={styles.paragrah}
-                  style={{
-                    color: "#ffffff",
-                    textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
-                  }}
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
-      </>
+      </div> */}
     </>
   );
 };

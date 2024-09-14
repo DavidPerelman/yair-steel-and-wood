@@ -1,4 +1,4 @@
-.container {
+/* .container {
   height: 100%;
   overflow: hidden;
   -webkit-background-size: cover;
@@ -20,37 +20,25 @@
   margin-bottom: 200px;
   color: #ffffff;
   text-shadow: 0.5px 0.5px 1px rgb(0 0 0);
-
-  /* background-color: white;
-  opacity: 0.7;
-  padding: 10px;
-  border-radius: 2px; */
 }
 
 .textContainer::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 .textContainer::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 .textContainer::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 .textContainer::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
 .textContent {
-  /* filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
-    hue-rotate(299deg) brightness(100%) contrast(104%); */
-
-  /* color: #ffffff; */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -58,10 +46,7 @@
   text-align: justify;
 }
 
-.first_paragrah {
-  text-align: center;
-  text-shadow: 0.5px 0.5px 1px rgb(255 255 255);
-}
+
 
 .paragrah {
   text-shadow: 0.5px 0.5px 1px rgb(255 255 255);
@@ -70,8 +55,6 @@
 @media (max-width: 768px) {
   .whiteFilter {
     width: 70% !important;
-    /* padding-right: 20px;
-    padding-left: 20px; */
   }
 
   .textContainer {
@@ -82,4 +65,70 @@
 .paragraph {
   padding-left: 30px;
   padding-right: 30px;
+} */
+
+/* .AboutPage {
+  position: relative;
+  width: 100vh;
+  width: 100vw;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 500px;
+  gap: 15px;
+  text-align: right;
+  line-height: 1.6;
+  margin-bottom: 200px;
+  color: #fff;
+  text-shadow: 0.5px 0.5px 1px #000;
+}
+
+.textContent {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: justify;
+}
+
+.bg_image {
+  object-fit: cover;
+  z-index: -5;
+} */
+
+.textContainer {
+  position: absolute; /* Make text container absolute for overlay */
+  top: 0; /* Position at top of the image */
+  left: 0; /* Position at left of the image */
+  width: 100%; /* Match image width */
+  height: 100%; /* Match image height */
+  display: flex; /* Allow alignment of text elements */
+  flex-direction: column; /* Stack text elements vertically */
+  justify-content: center; /* Center text vertically */
+  align-items: center; /* Center text horizontally */
+}
+
+.textContent {
+  width: 500px;
+  font-size: 1.1rem;
+  margin-top: 20%;
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white; */
+  color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px rgb(0 0 0) !important;
+  text-align: right;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.first_paragrah {
+  text-align: center;
+  /* text-shadow: 0.5px 0.5px 1px rgb(255 255 255); */
 }
