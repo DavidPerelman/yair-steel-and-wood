@@ -1,28 +1,11 @@
 "use client";
 
-import { M_PLUS_Rounded_1c } from "next/font/google";
-import { M_PLUS_1p } from "next/font/google";
-import { Noto_Sans_Warang_Citi } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
 import AuthProvider from "@/components/Provider";
-
-const m_plus_rounded_1c = M_PLUS_Rounded_1c({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  adjustFontFallback: false,
-});
-
-const m_plus_1p = M_PLUS_1p({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  adjustFontFallback: false,
-});
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -42,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
-      <body className={m_plus_1p.className} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <AuthProvider>
           <Navbar open={open} setOpen={setOpen} />
           {/* <Nav open={open} setOpen={setOpen} /> */}
