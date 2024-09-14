@@ -132,3 +132,19 @@
   text-align: center;
   /* text-shadow: 0.5px 0.5px 1px rgb(255 255 255); */
 }
+
+@media (max-width: 768px) {
+  .image {
+    position: absolute;
+    height: 100% !important;
+    width: 100% !important;
+    inset: 0px;
+    object-fit: cover;
+    color: transparent;
+  }
+
+  .textContent {
+    width: 80%;
+    gap: 0;
+  }
+}

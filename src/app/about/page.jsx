@@ -50,7 +50,9 @@ const AboutPage = async () => {
         width={0}
         height={0}
         sizes="100vw"
-        style={{ width: "100%", height: "auto" }} // optional
+        style={{ width: "100%", height: "auto" }}
+        unoptimized
+        className={styles.image}
       />
       <div className={styles.textContainer}>
         <div className={styles.textContent}>
