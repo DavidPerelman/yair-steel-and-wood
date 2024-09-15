@@ -21,10 +21,6 @@
   font-size: 5rem;
 }
 
-/* 
-.image {
-  position: relative !important;
-} */
 @media (max-width: 768px) {
   .heading {
     font-size: 1.5rem;

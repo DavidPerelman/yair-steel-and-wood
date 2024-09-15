@@ -101,8 +101,8 @@ const Navbar = ({ open, setOpen }) => {
       <Link href="/">
         <Image
           src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725533005/yh0u2addb6vxjwdfhvnn.png"
-          width={95}
-          height={95}
+          width={90}
+          height={90}
           alt="logo"
           unoptimized
           priority

@@ -1,59 +1,63 @@
-/* Create two equal columns that floats next to each other */
 .row {
   display: flex;
-  /* max-height: 77vh !important; */
-  /* min-height: 76vh; */
-  justify-content: center;
 }
 
-.textColumn {
+.right_column {
   float: left;
   width: 50%;
-  /* padding: 70px; */
-  height: 100%;
+  padding-right: 40px;
+  height: auto;
   align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: right;
+  height: 77vh;
+  text-align: -webkit-center;
 }
 
-.imagesColumn {
+.left_column {
   float: left;
-  width: 70%;
-  /* padding: 10px; */
-  height: 60%;
+  width: 50%;
+  padding-top: 5px;
+  height: auto;
+  align-self: center;
+  height: calc(100vh - 115px);
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .container {
-    padding-top: 110px;
-  }
+.image {
+  height: 100%;
+  width: 100%;
+}
 
+.continue {
+  float: left;
+  border-radius: 5px;
+  background-color: darkgray;
+  padding: 10px;
+}
+
+.pageHeader {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
   .row {
-    flex-direction: column-reverse;
-    align-items: center;
+    flex-direction: column;
   }
 
-  .column {
+  .right_column {
+    width: 95%;
+    padding: 0;
+    height: auto;
+  }
+
+  .left_column {
     width: 100%;
-  }
-
-  .textColumn {
-    width: 80%;
-    padding: 10px;
-    padding-top: 30px;
-  }
-
-  .imagesColumn {
-    width: 100%;
+    padding: 0;
+    margin-top: 30px;
+    height: auto;
   }
 }

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./fullScreenImage.module.css";
-// import "./fullScreenImage.css";
 
 const FullScreenImage = () => {
   return (

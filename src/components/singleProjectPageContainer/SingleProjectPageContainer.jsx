@@ -1,25 +1,27 @@
-import ImagesSlider from "../imagesSlider/ImagesSlider";
 import styles from "./singleProjectPageContainer.module.css";
+import ProjectDetails from "../projectDetails/ProjectDetails";
+import ResponsiveCarousel from "../responsiveCarousel/ResponsiveCarousel";
+import Image from "next/image";
 
 const SingleProjectPageContainer = ({ project }) => {
+  const item = project.images.map((image, index) => (
+    <Image
+      className={styles.image}
+      key={index}
+      src={image.secure_url}
+      height={300}
+      width={300}
+      alt={image.public_id}
+      unoptimized
+    />
+  ));
   return (
     <div className={styles.row}>
-      <div className={styles.textColumn}>
-        <h1>{project.title}</h1>
-        <h3>{project.price} ש״ח</h3>
-        <p className={styles.description}>{project.description}</p>
-        <div>
-          מידות -
-          <br />
-          אורך - {project.length} ס״מ
-          <br />
-          רוחב - {project.width} ס״מ
-          <br />
-          גובה - {project.height} ס״מ
-        </div>
+      <div className={styles.right_column}>
+        <ProjectDetails project={project} />
       </div>
-      <div className={styles.imagesColumn}>
-        <ImagesSlider images={project.images} />
+      <div className={styles.left_column}>
+        <ResponsiveCarousel>{item}</ResponsiveCarousel>
       </div>
     </div>
   );
