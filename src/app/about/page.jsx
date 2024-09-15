@@ -45,8 +45,8 @@ const AboutPage = async () => {
       {/* <div style={backgroundImageStyle}> */}
       {/* <div> */}
       <Image
-        alt=""
-        src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
+        alt="About page image"
+        src="https://res.cloudinary.com/dflevhwgh/image/upload/v1726405722/udoshrfrk8fxarnrhfea.jpg"
         width={0}
         height={0}
         sizes="100vw"

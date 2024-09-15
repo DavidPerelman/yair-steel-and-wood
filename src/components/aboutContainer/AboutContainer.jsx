@@ -30,8 +30,8 @@ const AboutContainer = () => {
       <div className={styles.left_column}>
         <Image
           className={styles.image}
-          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg"
-          alt=""
+          src="https://res.cloudinary.com/dflevhwgh/image/upload/v1726405587/qyctbe8kwgjjw3qgdifw.jpg"
+          alt="About container image"
           width={0}
           height={0}
         />
