@@ -57,15 +57,7 @@ const AboutPage = async () => {
       <div className={styles.textContainer}>
         <div className={styles.textContent}>
           <h1 className={styles.first_paragrah}>אודות</h1>
-          <p
-            className={styles.first_paragrah}
-            // style={{
-            //   color: "#ffffff",
-            //   textShadow: "0.5px 0.5px 1px rgb(0 0 0)",
-            // }}
-          >
-            {first_paragrah}
-          </p>
+          <p className={styles.first_paragrah}>{first_paragrah}</p>
           {text.map((item, i) => (
             <p key={i} className={styles.paragrah}>
               {item}

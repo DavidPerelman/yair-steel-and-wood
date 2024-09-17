@@ -13,9 +13,9 @@ const ContactPage = () => {
   const [state, formAction] = useFormState(handleSubmit, undefined);
 
   useEffect(() => {
-    console.log(state);
     if (state !== undefined) {
-      alert("הטופס נשלח בהצלחה!");
+      alert("קיבלנו את הודעתך נענה במהירות");
+      document.getElementById("form").reset();
     }
   }, [state]);
 
@@ -52,7 +52,7 @@ const ContactPage = () => {
             <p className={styles.paragraph}>
               מלא את הפרטים למטה ונחזיר לך תשובה במהרה :
             </p>
-            <form action={formAction} className={styles.formContent}>
+            <form action={formAction} className={styles.formContent} id="form">
               <label className={styles.label} htmlFor="name">
                 שם
               </label>
