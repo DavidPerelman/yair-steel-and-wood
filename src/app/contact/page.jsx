@@ -45,7 +45,7 @@ const ContactPage = () => {
               <textarea
                 className={styles.input}
                 cols={30}
-                rows={5}
+                rows={10}
                 name="message"
               />
 
