@@ -18,11 +18,15 @@ const ContactPage = () => {
           <h1>צור קשר</h1>
 
           <div className={styles.subContainer}>
-            <p>שלום! אשמח לעזור ולענות על כל שאלה שיש לך.</p>
+            <p className={styles.paragraph}>
+              שלום! אשמח לעזור ולענות על כל שאלה שיש לך.
+            </p>
           </div>
 
           <div className={styles.subContainer}>
-            <p>מלא את הפרטים למטה ונחזיר לך תשובה במהרה :</p>
+            <p className={styles.paragraph}>
+              מלא את הפרטים למטה ונחזיר לך תשובה במהרה :
+            </p>
             <form action="" className={styles.formContent}>
               <label className={styles.label} htmlFor="name">
                 שם
@@ -68,14 +72,14 @@ const ContactPage = () => {
       <div className={styles.bottom_column}>
         <h2>דרכים נוספות ליצירת קשר</h2>
         <div className={styles.subContainer}>
-          <p>
+          <p className={styles.paragraph}>
             טלפון :
             <Link className={styles.link} href="tel:0584422401">
               0584422401
             </Link>
             (יאיר)
           </p>
-          <p>
+          <p className={styles.paragraph}>
             אימייל :
             <Link
               className={styles.link}
@@ -85,29 +89,35 @@ const ContactPage = () => {
               yair.steelandwood@gmail.com
             </Link>
           </p>
-          <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
+          <p className={styles.paragraph}>
+            (נעשה כמיטב יכולתנו לענות תוך 48 שעות)
+          </p>
         </div>
 
         <h2>ביקור בסטודיו</h2>
         <div className={styles.subContainer}>
-          <p>
+          <p className={styles.paragraph}>
             אתם מוזמנים לבקר בסטודיו ולהתרשם מעבודות שלי מקרוב. זו הזדמנות
             בשבילכם לראות את היצירות שלי ולהתייעץ אישית לגבי אלה שתרצו. נשמח
             לראותכם ולשתף בכל מה שיש לי להציע!
           </p>
-          <p>כתובת הסטודיו: הגפן 3, מושב בני רא&quot;ם</p>
+          <p className={styles.paragraph}>
+            כתובת הסטודיו: הגפן 3, מושב בני רא&quot;ם
+          </p>
         </div>
 
         <h2>מדיה חברתית</h2>
         <div className={styles.subContainer}>
-          <p>מוזמנים לעקוב אחריי ולשתף ברשתות החברתיות :</p>
+          <p className={styles.paragraph}>
+            מוזמנים לעקוב אחריי ולשתף ברשתות החברתיות :
+          </p>
           <div className={styles.contactLinks}>
             <ContactLinks />
           </div>
         </div>
 
         <div className={styles.subContainer}>
-          <p>
+          <p className={styles.paragraph}>
             תודה שבחרתם לפנות אלינו, נשמח לשמוע ממכם ולעזור בכל דרך אפשרית.
             נתראה בקרוב.
           </p>

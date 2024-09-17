@@ -111,6 +111,10 @@
   justify-content: center;
 }
 
+.paragraph {
+  line-height: 1.8;
+}
+
 @media (max-width: 568px) {
   .container {
     padding-right: 20px;
