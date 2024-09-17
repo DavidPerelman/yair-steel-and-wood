@@ -7,6 +7,9 @@ import { Fragment } from "react";
 import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 
 const AboutPage = async () => {
+  console.log(document);
+  // console.log(window);
+
   const data = await getPost("about");
   const postData = JSON.parse(JSON.stringify(data));
 

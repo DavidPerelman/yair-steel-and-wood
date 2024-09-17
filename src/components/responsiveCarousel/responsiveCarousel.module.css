@@ -144,6 +144,24 @@
   height: calc(100vh - 110px);
 }
 
+@media (max-width: 768px) {
+  .slide {
+    height: 80%;
+    width: 100%;
+    /* height: auto; */
+  }
+
+  .App {
+    height: 650px;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .show {
+    /* height: 350px; */
+  }
+}
+
 @media (max-width: 568px) {
   .slide {
     height: 350px;
