@@ -56,17 +56,32 @@ const ContactPage = () => {
               <label className={styles.label} htmlFor="name">
                 שם
               </label>
-              <input className={styles.input} type="text" name="fullname" />
+              <input
+                className={styles.input}
+                type="text"
+                name="fullname"
+                required
+              />
 
               <label className={styles.label} htmlFor="email">
                 אימייל
               </label>
-              <input className={styles.input} type="text" name="email" />
+              <input
+                className={styles.input}
+                type="text"
+                name="email"
+                required
+              />
 
               <label className={styles.label} htmlFor="subject">
                 נושא
               </label>
-              <input className={styles.input} type="text" name="subject" />
+              <input
+                className={styles.input}
+                type="text"
+                name="subject"
+                required
+              />
 
               <label className={styles.label} htmlFor="message">
                 הודעה
@@ -76,6 +91,7 @@ const ContactPage = () => {
                 cols={30}
                 rows={10}
                 name="message"
+                required
               />
 
               <button className={styles.button}>שלח</button>
