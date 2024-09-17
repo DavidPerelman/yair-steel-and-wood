@@ -7,8 +7,39 @@
   margin-bottom: 30px;
 }
 
-.subContainer {
+.row {
+  display: flex;
+}
+
+.right_column {
+  float: left;
   width: 60%;
+  padding: 10px;
+  height: auto;
+  align-self: center;
+}
+
+.left_column {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: auto;
+  align-self: start;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.subContainer {
+  width: 100%;
   align-self: center;
   text-align: right;
 }
@@ -66,4 +97,9 @@
   padding-left: 5px;
   padding-right: 5px;
   color: #3d3df4 !important;
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
 }
