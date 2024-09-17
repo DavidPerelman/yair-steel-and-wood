@@ -45,61 +45,15 @@ const ContactPage = () => {
               <textarea
                 className={styles.input}
                 cols={30}
-                rows={10}
+                rows={5}
                 name="message"
               />
 
               <button className={styles.button}>שלח</button>
             </form>
           </div>
-
-          <h2>דרכים נוספות ליצירת קשר</h2>
-          <div className={styles.subContainer}>
-            <p>
-              טלפון :
-              <Link className={styles.link} href="tel:0584422401">
-                0584422401
-              </Link>
-              (יאיר)
-            </p>
-            <p>
-              אימייל :
-              <Link
-                className={styles.link}
-                target="_blank"
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
-              >
-                yair.steelandwood@gmail.com
-              </Link>
-            </p>
-            <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
-          </div>
-
-          <h2>ביקור בסטודיו</h2>
-          <div className={styles.subContainer}>
-            <p>
-              אתם מוזמנים לבקר בסטודיו ולהתרשם מעבודות שלי מקרוב. זו הזדמנות
-              בשבילכם לראות את היצירות שלי ולהתייעץ אישית לגבי אלה שתרצו. נשמח
-              לראותכם ולשתף בכל מה שיש לי להציע!
-            </p>
-            <p>כתובת הסטודיו: הגפן 3, מושב בני רא&quot;ם</p>
-          </div>
-
-          <h2>מדיה חברתית</h2>
-          <div className={styles.subContainer}>
-            <p>מוזמנים לעקוב אחריי ולשתף ברשתות החברתיות :</p>
-            <div className={styles.contactLinks}>
-              <ContactLinks />
-            </div>
-          </div>
-
-          <div className={styles.subContainer}>
-            <p>
-              תודה שבחרתם לפנות אלינו, נשמח לשמוע ממכם ולעזור בכל דרך אפשרית.
-              נתראה בקרוב.
-            </p>
-          </div>
         </div>
+
         <div className={styles.left_column}>
           <Image
             className={styles.image}
@@ -108,6 +62,55 @@ const ContactPage = () => {
             width={0}
             height={0}
           />
+        </div>
+      </div>
+
+      <div className={styles.bottom_column}>
+        <h2>דרכים נוספות ליצירת קשר</h2>
+        <div className={styles.subContainer}>
+          <p>
+            טלפון :
+            <Link className={styles.link} href="tel:0584422401">
+              0584422401
+            </Link>
+            (יאיר)
+          </p>
+          <p>
+            אימייל :
+            <Link
+              className={styles.link}
+              target="_blank"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
+            >
+              yair.steelandwood@gmail.com
+            </Link>
+          </p>
+          <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
+        </div>
+
+        <h2>ביקור בסטודיו</h2>
+        <div className={styles.subContainer}>
+          <p>
+            אתם מוזמנים לבקר בסטודיו ולהתרשם מעבודות שלי מקרוב. זו הזדמנות
+            בשבילכם לראות את היצירות שלי ולהתייעץ אישית לגבי אלה שתרצו. נשמח
+            לראותכם ולשתף בכל מה שיש לי להציע!
+          </p>
+          <p>כתובת הסטודיו: הגפן 3, מושב בני רא&quot;ם</p>
+        </div>
+
+        <h2>מדיה חברתית</h2>
+        <div className={styles.subContainer}>
+          <p>מוזמנים לעקוב אחריי ולשתף ברשתות החברתיות :</p>
+          <div className={styles.contactLinks}>
+            <ContactLinks />
+          </div>
+        </div>
+
+        <div className={styles.subContainer}>
+          <p>
+            תודה שבחרתם לפנות אלינו, נשמח לשמוע ממכם ולעזור בכל דרך אפשרית.
+            נתראה בקרוב.
+          </p>
         </div>
       </div>
     </div>
