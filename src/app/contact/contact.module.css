@@ -1,4 +1,22 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding-right: 50px;
   padding-left: 50px;
+  margin-bottom: 30px;
+}
+
+.subContainer {
+  width: 60%;
+  align-self: center;
+  text-align: right;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: right;
+  align-self: center;
 }

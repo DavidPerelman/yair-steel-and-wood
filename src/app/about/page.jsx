@@ -1,17 +1,14 @@
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 import { getPost } from "@/lib/data";
-import PostContainer from "@/components/postContainer/PostContainer";
+// import PostContainer from "@/components/postContainer/PostContainer";
 import Image from "next/image";
-import { Fragment } from "react";
-import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
+// import { Fragment } from "react";
+// import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 
 const AboutPage = async () => {
-  console.log(document);
-  // console.log(window);
-
   const data = await getPost("about");
-  const postData = JSON.parse(JSON.stringify(data));
+  // const postData = JSON.parse(JSON.stringify(data));
 
   const first_paragrah = "שלום וברוכים הבאים למקום בו הברזל והעץ נפגשים.";
 
@@ -24,20 +21,20 @@ const AboutPage = async () => {
     "יאיר",
   ];
 
-  const backgroundImageStyle = {
-    backgroundImage:
-      "url(https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg)",
-    backgroundSize: "cover",
-    backgroundPosition: "bottom",
-    height: "100vh",
-    color: "white",
-    margin: 0,
-    padding: 0,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
+  // const backgroundImageStyle = {
+  //   backgroundImage:
+  //     "url(https://res.cloudinary.com/dflevhwgh/image/upload/v1725387382/ve44cvyyuq7acec8six2.jpg)",
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "bottom",
+  //   height: "100vh",
+  //   color: "white",
+  //   margin: 0,
+  //   padding: 0,
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // };
 
   return (
     <>
