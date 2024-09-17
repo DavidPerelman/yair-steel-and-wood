@@ -11,7 +11,6 @@ var Promise = require("es6-promise").Promise;
 import { v2 as cloudinary } from "cloudinary";
 import { Post } from "./models/postModel";
 import { Division } from "./models/divisionModel";
-import { Material } from "./models/materialModel";
 
 export const getDivisions = async () => {
   try {
@@ -283,4 +282,28 @@ export const handleSubmit = async (previousState, formData) => {
   console.log(fullname, email, subject, message);
 
   // return deleted;
+};
+
+export const getReviews = async () => {
+  try {
+    const reviews = fetch("http://localhost:3000/api/reviews")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((responseJson) => {
+        // Do something with the response
+        return responseJson;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    return reviews;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch Reviews");
+  }
 };

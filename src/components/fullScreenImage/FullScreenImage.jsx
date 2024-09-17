@@ -15,6 +15,7 @@ const FullScreenImage = () => {
               width={0}
               height={0}
               className={styles.image}
+              unoptimized
             />
             <h1 className={styles.heading}>ברזל ועץ</h1>
           </div>

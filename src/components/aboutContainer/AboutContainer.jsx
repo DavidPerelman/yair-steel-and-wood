@@ -34,6 +34,7 @@ const AboutContainer = () => {
           alt="About container image"
           width={0}
           height={0}
+          unoptimized
         />
       </div>
     </div>
