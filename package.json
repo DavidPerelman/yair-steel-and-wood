@@ -23,6 +23,7 @@
     "next-auth": "^4.24.7",
     "next-cloudinary": "^6.10.1",
     "next-video": "^1.1.4",
+    "nodemailer": "^6.9.15",
     "prop-types": "^15.8.1",
     "react": "^18",
     "react-dom": "^18",

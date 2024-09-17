@@ -3,7 +3,9 @@
 // import { revalidatePath } from "next/cache";
 import { connectToDb } from "./connectToDb";
 import axios from "axios";
+import nodemailer from "nodemailer";
 import { Project } from "./models/projectModel";
+
 var Promise = require("es6-promise").Promise;
 
 import { v2 as cloudinary } from "cloudinary";
@@ -238,3 +240,47 @@ export async function deleteImageAction(id) {
 
   return deleted;
 }
+
+export const handleSubmit = async (previousState, formData) => {
+  const { fullname, email, subject, message } = Object.fromEntries(formData);
+
+  // const deleted = await cloudinary.uploader.destroy(id, function (result) {
+  //   return result;
+  // });
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SITE_EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    const mailOption = {
+      from: process.env.SITE_EMAIL,
+      to: process.env.SITE_EMAIL,
+    };
+
+    const mail = await transporter.sendMail({
+      ...mailOption,
+      subject: "קיבלת מייל מהאתר!",
+      html: `
+        <div style="direction: rtl;">
+            <p>שם: ${fullname} </p>
+            <p>אימייל: ${email} </p>
+            <p>נושא: ${subject} </p>
+            <p>הודעה: ${message} </p>
+        </div>
+            `,
+    });
+
+    return { sucsses: true };
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log(fullname, email, subject, message);
+
+  // return deleted;
+};

@@ -5,8 +5,33 @@ import styles from "./contact.module.css";
 import Link from "next/link";
 import ContactLinks from "@/components/navbar/links/contactLinks/ContactLinks";
 import Image from "next/image";
+import { useFormState } from "react-dom";
+import { handleSubmit } from "@/lib/action";
+import { useEffect } from "react";
 
 const ContactPage = () => {
+  const [state, formAction] = useFormState(handleSubmit, undefined);
+
+  useEffect(() => {
+    console.log(state);
+    if (state !== undefined) {
+      alert("הטופס נשלח בהצלחה!");
+    }
+  }, [state]);
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   const formData = new FormData(event.target);
+
+  //   console.log(formData.getAll());
+
+  //   const response = await fetch("/api/contact", {
+  //     method: "post",
+  //     body: formData,
+  //   });
+  // }
+
   return (
     <div className={styles.container}>
       <CustomHead
@@ -27,21 +52,21 @@ const ContactPage = () => {
             <p className={styles.paragraph}>
               מלא את הפרטים למטה ונחזיר לך תשובה במהרה :
             </p>
-            <form action="" className={styles.formContent}>
+            <form action={formAction} className={styles.formContent}>
               <label className={styles.label} htmlFor="name">
                 שם
               </label>
-              <input className={styles.input} type="text" />
+              <input className={styles.input} type="text" name="fullname" />
 
               <label className={styles.label} htmlFor="email">
                 אימייל
               </label>
-              <input className={styles.input} type="text" />
+              <input className={styles.input} type="text" name="email" />
 
               <label className={styles.label} htmlFor="subject">
                 נושא
               </label>
-              <input className={styles.input} type="text" />
+              <input className={styles.input} type="text" name="subject" />
 
               <label className={styles.label} htmlFor="message">
                 הודעה
@@ -65,6 +90,7 @@ const ContactPage = () => {
             alt="About container image"
             width={0}
             height={0}
+            unoptimized
           />
         </div>
       </div>
