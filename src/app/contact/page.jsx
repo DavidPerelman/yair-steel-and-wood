@@ -24,22 +24,35 @@ const ContactPage = () => {
         <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
       </div>
 
-      <h2>----טופס יצירת קשר----</h2>
       <div className={styles.subContainer}>
         <p>מלא את הפרטים למטה ונחזיר לך תשובה במהרה :</p>
         <form action="" className={styles.formContent}>
-          <label htmlFor="name">שם</label>
-          <input type="text" placeholder="שם" />
+          <label className={styles.label} htmlFor="name">
+            שם
+          </label>
+          <input className={styles.input} type="text" placeholder="שם" />
 
-          <label htmlFor="email">אימייל</label>
-          <input type="text" placeholder="אימייל" />
+          <label className={styles.label} htmlFor="email">
+            אימייל
+          </label>
+          <input className={styles.input} type="text" placeholder="אימייל" />
 
-          <label htmlFor="subject">נושא</label>
-          <input type="text" placeholder="נושא" />
+          <label className={styles.label} htmlFor="subject">
+            נושא
+          </label>
+          <input className={styles.input} type="text" placeholder="נושא" />
 
-          <label htmlFor="message">הודעה</label>
-          <textarea cols={30} rows={10} name="message" placeholder="הודעה" />
-          <button>שלח</button>
+          <label className={styles.label} htmlFor="message">
+            הודעה
+          </label>
+          <textarea
+            className={styles.input}
+            cols={30}
+            rows={10}
+            name="message"
+            placeholder="הודעה"
+          />
+          <button className={styles.button}>שלח</button>
         </form>
       </div>
 
