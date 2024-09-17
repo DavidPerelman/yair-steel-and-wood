@@ -30,17 +30,17 @@ const ContactPage = () => {
           <label className={styles.label} htmlFor="name">
             שם
           </label>
-          <input className={styles.input} type="text" placeholder="שם" />
+          <input className={styles.input} type="text" />
 
           <label className={styles.label} htmlFor="email">
             אימייל
           </label>
-          <input className={styles.input} type="text" placeholder="אימייל" />
+          <input className={styles.input} type="text" />
 
           <label className={styles.label} htmlFor="subject">
             נושא
           </label>
-          <input className={styles.input} type="text" placeholder="נושא" />
+          <input className={styles.input} type="text" />
 
           <label className={styles.label} htmlFor="message">
             הודעה
@@ -50,8 +50,8 @@ const ContactPage = () => {
             cols={30}
             rows={10}
             name="message"
-            placeholder="הודעה"
           />
+
           <button className={styles.button}>שלח</button>
         </form>
       </div>
