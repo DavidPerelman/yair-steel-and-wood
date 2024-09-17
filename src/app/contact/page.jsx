@@ -2,6 +2,7 @@
 
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./contact.module.css";
+import Link from "next/link";
 
 const ContactPage = () => {
   return (
@@ -13,15 +14,7 @@ const ContactPage = () => {
       <h1>צור קשר</h1>
 
       <div className={styles.subContainer}>
-        <p>איך אפשר לעזור?</p>
         <p>שלום! אשמח לעזור ולענות על כל שאלה שיש לך.</p>
-      </div>
-
-      <h2>דרכי יצירת קשר -</h2>
-      <div className={styles.subContainer}>
-        <p>טלפון : 0584422401 (יאיר)</p>
-        <p>אימייל : yair.steelandwood@gmail.com</p>
-        <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
       </div>
 
       <div className={styles.subContainer}>
@@ -56,6 +49,28 @@ const ContactPage = () => {
         </form>
       </div>
 
+      <h2>דרכים נוספות ליצירת קשר</h2>
+      <div className={styles.subContainer}>
+        <p>
+          טלפון :
+          <Link className={styles.link} href="tel:0584422401">
+            0584422401
+          </Link>
+          (יאיר)
+        </p>
+        <p>
+          אימייל :
+          <Link
+            className={styles.link}
+            target="_blank"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=yair.steelandwood@gmail.com"
+          >
+            yair.steelandwood@gmail.com
+          </Link>
+        </p>
+        <p>(נעשה כמיטב יכולתנו לענות תוך 48 שעות)</p>
+      </div>
+
       <h2>ביקור בסטודיו</h2>
       <div className={styles.subContainer}>
         <p>
@@ -74,7 +89,7 @@ const ContactPage = () => {
 
       <div className={styles.subContainer}>
         <p>
-          תודה שבחרתם לפנות אלינו. נשמח לשמוע ממכם ולעזור בכל דרך אפשרית. נתראה
+          תודה שבחרתם לפנות אלינו, נשמח לשמוע ממכם ולעזור בכל דרך אפשרית. נתראה
           בקרוב.
         </p>
       </div>
