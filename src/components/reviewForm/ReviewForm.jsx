@@ -57,11 +57,11 @@ const ReviewForm = ({ toggleReviewForm }) => {
       </div>
       <div>
         <label className={styles.label} htmlFor="fullname">
-          שם מלא
+          שם מלא:
         </label>
         <input className={styles.input} type="text" name="fullname" required />
         <label className={styles.label} htmlFor="email">
-          אימייל (לא יוצג באתר)
+          אימייל (לא יוצג באתר):
         </label>
         <input className={styles.input} type="text" name="email" required />
         <label className={styles.label} htmlFor="review">
