@@ -18,3 +18,9 @@
 .content {
   text-align: justify;
 }
+
+@media (max-width: 568px) {
+  .reviewComponent {
+    width: 90%;
+  }
+}

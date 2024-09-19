@@ -25,3 +25,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .reviewComponent {
+    width: 90%;
+  }
+
+  .button {
+    width: 20%;
+  }
+}
