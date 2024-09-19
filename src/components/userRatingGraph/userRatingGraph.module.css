@@ -39,7 +39,7 @@
 }
 
 .sideRight {
-  width: 10%;
+  width: 5%;
   display: flex;
   align-content: center;
 }
@@ -47,6 +47,7 @@
 .sideLeft {
   display: flex;
   flex-direction: row-reverse;
+  /* width: 25%; */
   width: 25%;
   align-content: center;
 }
@@ -54,7 +55,8 @@
 .middle {
   /* margin-top: 10px; */
   float: left;
-  width: 65%;
+  /* width: 55%; */
+  width: 68%;
   align-content: center;
 }
 
@@ -103,6 +105,16 @@
   }
 }
 
+@media (max-width: 5680px) {
+  .ratingDiv {
+    width: 100%;
+  }
+
+  .middle {
+    width: 68%;
+  }
+}
+
 @media (max-width: 500px) {
   .ratingDiv {
     width: 95%;
@@ -113,6 +125,6 @@
   }
 
   .middle {
-    width: 55%;
+    width: 68%;
   }
 }

@@ -18,12 +18,12 @@ const UserRatingGraph = ({ totalRatings, starsRatings }) => {
     const twoStarsPrecents = (starsRatings.twoStars / totalRatings) * 100;
     const oneStarsPrecents = (starsRatings.oneStars / totalRatings) * 100;
 
-    bar5div.style.width = `${fiveStarsPrecents}%`;
-    bar4div.style.width = `${fourStarsPrecents}%`;
-    bar3div.style.width = `${threeStarsPrecents}%`;
-    bar2div.style.width = `${twoStarsPrecents}%`;
-    bar1div.style.width = `${oneStarsPrecents}%`;
-  }, []);
+    if (bar5div) bar5div.style.width = `${fiveStarsPrecents}%`;
+    if (bar4div) bar4div.style.width = `${fourStarsPrecents}%`;
+    if (bar3div) bar3div.style.width = `${threeStarsPrecents}%`;
+    if (bar2div) bar2div.style.width = `${twoStarsPrecents}%`;
+    if (bar1div) bar1div.style.width = `${oneStarsPrecents}%`;
+  }, [starsRatings, totalRatings]);
 
   return (
     <>

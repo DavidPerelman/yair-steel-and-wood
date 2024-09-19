@@ -1,34 +1,44 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import styles from "./userRatingAverage.module.css";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa6";
 
 const UserRatingAverage = ({ totalRatings, starsRatings }) => {
-  const [ratingAverage, setRatingAverage] = useState();
+  const [ratingAverage, setRatingAverage] = useState(0);
 
   function isDecimal(num) {
     return num % 1 !== 0;
   }
 
   useEffect(() => {
+    const totalStars =
+      starsRatings.fiveStars +
+      starsRatings.fourStars +
+      starsRatings.threeStars +
+      starsRatings.twoStars +
+      starsRatings.oneStars;
+
+    if (totalStars === 0) {
+      setRatingAverage(0); // Set to 0 if no ratings are available
+      return;
+    }
+
     const average =
       (5 * starsRatings.fiveStars +
         4 * starsRatings.fourStars +
         3 * starsRatings.threeStars +
         2 * starsRatings.twoStars +
         1 * starsRatings.oneStars) /
-      (starsRatings.fiveStars +
-        starsRatings.fourStars +
-        starsRatings.threeStars +
-        starsRatings.twoStars +
-        starsRatings.oneStars);
+      totalStars;
 
     if (isDecimal(average)) {
       setRatingAverage(average.toFixed(2));
     } else {
       setRatingAverage(average);
     }
-  }, []);
+  }, [starsRatings]);
 
   return (
     <div>
@@ -36,9 +46,6 @@ const UserRatingAverage = ({ totalRatings, starsRatings }) => {
         <p className={styles.heading}>{ratingAverage} מתוך 5</p>
         <div className={styles.starsRatings}>
           {[...Array(5)].map((star, i) => {
-            console.log(i + 1 <= ratingAverage);
-            console.log(isDecimal(ratingAverage));
-
             if (isDecimal(ratingAverage)) {
               if (i + 1 <= ratingAverage) {
                 return (

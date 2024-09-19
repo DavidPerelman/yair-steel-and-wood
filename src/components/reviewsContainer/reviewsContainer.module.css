@@ -1,12 +1,21 @@
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .top {
-  width: 97%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   place-content: center;
+  gap: 20px;
 }
 
 .userRatingAverage {
+  display: flex;
+  justify-content: center;
   width: 30%;
   text-align: right;
 }
@@ -25,10 +34,6 @@
   clear: both;
 }
 
-.buttonDiv {
-  width: 10%;
-}
-
 .reviewsContainer {
   height: auto;
   padding-bottom: 20px;
@@ -36,7 +41,6 @@
 
 .reviewComponent {
   margin-top: 20px;
-  /* padding-bottom: 20px; */
 }
 
 .pageHeader {
@@ -47,7 +51,6 @@
   margin-top: 20px;
   align-self: center;
   padding: 5px;
-  width: 100%;
   align-self: center;
   border: none;
   background-color: var(--bg);
@@ -57,11 +60,6 @@
 }
 
 @media (max-width: 1440px) {
-  .userRatingAverage {
-    width: 30%;
-    text-align: right;
-  }
-
   .userRatingGraph {
     display: flex;
     flex-direction: column;
@@ -77,27 +75,28 @@
   }
 
   .buttonDiv {
-    width: 10%;
+    width: 20%;
   }
 }
 
 @media (max-width: 768px) {
+  .userRatingAverage {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    text-align: right;
+  }
+
+  .userRatingGraph {
+    width: 55%;
+  }
+
   .buttonDiv {
-    width: 15%;
-  }
-
-  .button {
-    width: 80%;
+    width: 20%;
   }
 }
 
-@media (max-width: 568px) {
-  .button {
-    width: 30%;
-  }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 567px) {
   .top {
     width: 100%;
     flex-direction: column;
