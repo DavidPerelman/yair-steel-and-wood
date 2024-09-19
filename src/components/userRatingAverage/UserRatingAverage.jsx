@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import styles from "./userRatingAverage.module.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa6";
 
 const UserRatingAverage = ({ totalRatings, starsRatings }) => {
   const [ratingAverage, setRatingAverage] = useState();
+
+  function isDecimal(num) {
+    return num % 1 !== 0;
+  }
 
   useEffect(() => {
     const average =
@@ -18,10 +23,6 @@ const UserRatingAverage = ({ totalRatings, starsRatings }) => {
         starsRatings.twoStars +
         starsRatings.oneStars);
 
-    function isDecimal(num) {
-      return num % 1 !== 0;
-    }
-
     if (isDecimal(average)) {
       setRatingAverage(average.toFixed(2));
     } else {
@@ -33,15 +34,64 @@ const UserRatingAverage = ({ totalRatings, starsRatings }) => {
     <div>
       <div className={styles.top}>
         <p className={styles.heading}>{ratingAverage} מתוך 5</p>
-        <div>
-          {[...Array(5)].map((star, i) => (
-            <FaStar
-              key={i}
-              className={styles.star}
-              size={20}
-              color={i + 1 <= ratingAverage ? "#ffc107" : "#e4e5e9"}
-            />
-          ))}
+        <div className={styles.starsRatings}>
+          {[...Array(5)].map((star, i) => {
+            console.log(i + 1 <= ratingAverage);
+            console.log(isDecimal(ratingAverage));
+
+            if (isDecimal(ratingAverage)) {
+              if (i + 1 <= ratingAverage) {
+                return (
+                  <FaStar
+                    key={i}
+                    className={styles.star}
+                    size={20}
+                    color="#ffc107"
+                  />
+                );
+              } else {
+                if (i < ratingAverage) {
+                  return (
+                    <FaStarHalfAlt
+                      key={i}
+                      className={styles.star}
+                      size={20}
+                      color="#ffc107"
+                    />
+                  );
+                } else {
+                  return (
+                    <FaRegStar
+                      key={i}
+                      className={styles.star}
+                      size={20}
+                      color="#ffc107"
+                    />
+                  );
+                }
+              }
+            } else {
+              if (i + 1 <= ratingAverage) {
+                return (
+                  <FaStar
+                    key={i}
+                    className={styles.star}
+                    size={20}
+                    color="#ffc107"
+                  />
+                );
+              } else {
+                return (
+                  <FaRegStar
+                    key={i}
+                    className={styles.star}
+                    size={20}
+                    color="#ffc107"
+                  />
+                );
+              }
+            }
+          })}
         </div>
       </div>
       <p>מבוסס על {totalRatings} ביקורות</p>

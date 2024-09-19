@@ -2,3 +2,9 @@
   width: 30%;
   text-align: right;
 }
+
+.starsRatings {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+}
