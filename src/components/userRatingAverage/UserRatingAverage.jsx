@@ -1,7 +1,7 @@
 import styles from "./userRatingAverage.module.css";
 import { FaStar } from "react-icons/fa";
 
-const UserRatingAverage = () => {
+const UserRatingAverage = ({ totalRatings }) => {
   return (
     <div>
       <div className={styles.top}>
@@ -14,7 +14,7 @@ const UserRatingAverage = () => {
           <FaStar className={styles.star} size={30} color={"#ffc107"} />
         </div>
       </div>
-      <p>מבוסס על 254 ביקורות</p>
+      <p>מבוסס על {totalRatings} ביקורות</p>
       <hr style={{ border: "3px solid #f1f1f1" }} />
     </div>
   );

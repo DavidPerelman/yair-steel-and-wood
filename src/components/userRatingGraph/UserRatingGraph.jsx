@@ -1,8 +1,30 @@
-import { FaStar } from "react-icons/fa";
+"use client";
+
 import styles from "./userRatingGraph.module.css";
 import StarsRatingComponent from "../starsRatingComponent/StarsRatingComponent";
+import { useEffect } from "react";
 
-const UserRatingGraph = () => {
+const UserRatingGraph = ({ totalRatings, starsRatings }) => {
+  useEffect(() => {
+    const bar5div = document.querySelector(`.${styles.bar5}`);
+    const bar4div = document.querySelector(`.${styles.bar4}`);
+    const bar3div = document.querySelector(`.${styles.bar3}`);
+    const bar2div = document.querySelector(`.${styles.bar2}`);
+    const bar1div = document.querySelector(`.${styles.bar1}`);
+
+    const fiveStarsPrecents = (starsRatings.fiveStars / totalRatings) * 100;
+    const fourStarsPrecents = (starsRatings.fourStars / totalRatings) * 100;
+    const threeStarsPrecents = (starsRatings.threeStars / totalRatings) * 100;
+    const twoStarsPrecents = (starsRatings.twoStars / totalRatings) * 100;
+    const oneStarsPrecents = (starsRatings.oneStars / totalRatings) * 100;
+
+    bar5div.style.width = `${fiveStarsPrecents}%`;
+    bar4div.style.width = `${fourStarsPrecents}%`;
+    bar3div.style.width = `${threeStarsPrecents}%`;
+    bar2div.style.width = `${twoStarsPrecents}%`;
+    bar1div.style.width = `${oneStarsPrecents}%`;
+  }, []);
+
   return (
     <>
       <div className={styles.ratingDiv}>
@@ -15,7 +37,7 @@ const UserRatingGraph = () => {
           </div>
         </div>
         <div className={styles.sideRight}>
-          <div>150</div>
+          <div>{starsRatings.fiveStars}</div>
         </div>
       </div>
 
@@ -29,7 +51,7 @@ const UserRatingGraph = () => {
           </div>
         </div>
         <div className={styles.sideRight}>
-          <div>63</div>
+          <div>{starsRatings.fourStars}</div>
         </div>
       </div>
 
@@ -43,7 +65,7 @@ const UserRatingGraph = () => {
           </div>
         </div>
         <div className={styles.sideRight}>
-          <div>15</div>
+          <div>{starsRatings.threeStars}</div>
         </div>
       </div>
 
@@ -57,7 +79,7 @@ const UserRatingGraph = () => {
           </div>
         </div>
         <div className={styles.sideRight}>
-          <div>6</div>
+          <div>{starsRatings.twoStars}</div>
         </div>
       </div>
 
@@ -71,7 +93,7 @@ const UserRatingGraph = () => {
           </div>
         </div>
         <div className={styles.sideRight}>
-          <div>20</div>
+          <div>{starsRatings.oneStars}</div>
         </div>
       </div>
     </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./reviewsContainer.module.css";
 import ReviewForm from "../reviewForm/ReviewForm";
 import ReviewComponent from "../reviewComponent/ReviewComponent";
@@ -34,6 +34,14 @@ const ReviewsContainer = () => {
   ]);
   const [review, setReview] = useState({});
   const [updateReviews, setUpdateReviews] = useState(false);
+  const [totalRatings, setTotalRatings] = useState(254);
+  const [starsRatings, setStarsRatings] = useState({
+    oneStars: 20,
+    twoStars: 6,
+    threeStars: 15,
+    fourStars: 63,
+    fiveStars: 150,
+  });
   const [isReviewAdded, setIsReviewAdded] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false);
 
@@ -42,17 +50,24 @@ const ReviewsContainer = () => {
     setReview({});
   }
 
+  useEffect(() => {
+    setTotalRatings(254);
+  }, []);
+
   return (
     <div className={styles.reviewsContainer}>
       <h1 className={styles.pageHeader}>ביקורת לקוחות</h1>
 
       <div className={styles.top}>
         <div className={styles.userRatingAverage}>
-          <UserRatingAverage />
+          <UserRatingAverage totalRatings={totalRatings} />
         </div>
 
         <div className={styles.userRatingGraph}>
-          <UserRatingGraph />
+          <UserRatingGraph
+            totalRatings={totalRatings}
+            starsRatings={starsRatings}
+          />
         </div>
 
         <div className={styles.buttonDiv}>
