@@ -14,9 +14,9 @@ const Home = async () => {
 
   return (
     <>
-      {/* <section>
+      <section>
         <Video />
-      </section> */}
+      </section>
       <section className={styles.carouselSection}>
         <ProjectsCarousel projects={projects} link="/projects/" />
       </section>
