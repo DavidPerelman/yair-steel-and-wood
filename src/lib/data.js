@@ -167,7 +167,7 @@ export const getUser = async (id) => {
 
 export const addProject = async (data) => {
   try {
-    const materials = fetch("http://localhost:3000/api/projects", {
+    const newProject = fetch("http://localhost:3000/api/projects", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -182,19 +182,43 @@ export const addProject = async (data) => {
         throw new Error("Something went wrong");
       })
       .then((responseJson) => {
-        // Do something with the response
         return responseJson;
       })
       .catch((error) => {
         console.log(error);
       });
-    // connectToDb();
-
-    // const materials = await Material.find();
-
-    return materials;
+    return newProject;
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to fetch Materials");
+    throw new Error("Failed to add Project");
+  }
+};
+
+export const addReview = async (data) => {
+  try {
+    const newReview = fetch("http://localhost:3000/api/reviews", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((responseJson) => {
+        return responseJson;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return newReview;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to add Review");
   }
 };

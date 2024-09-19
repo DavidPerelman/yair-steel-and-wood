@@ -14,6 +14,5 @@ export const getDate = () => {
   }
   today = dd + "/" + mm + "/" + yyyy;
 
-  console.log(today);
   return today;
 };

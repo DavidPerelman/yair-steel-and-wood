@@ -21,21 +21,9 @@ export const POST = async (req) => {
   const width = parseInt(body.width);
   const length = parseInt(body.length);
 
-  console.log(height);
-
   try {
-    const {
-      title,
-      description,
-      thumbnail,
-      images,
-      price,
-      // height,
-      // width,
-      // length,
-      division,
-      material,
-    } = body;
+    const { title, description, thumbnail, images, price, division, material } =
+      body;
 
     const newProject = Project({
       title,
@@ -53,17 +41,6 @@ export const POST = async (req) => {
 
     await newProject.save();
     console.log("saved to db");
-    // console.log({
-    //   title,
-    //   description,
-    //   thumbnail,
-    //   images,
-    //   price,
-    //   size,
-    //   division,
-    //   material,
-    //   slug,
-    // });
 
     return NextResponse.json({ newProject: "" });
   } catch (error) {

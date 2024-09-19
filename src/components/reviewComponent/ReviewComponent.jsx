@@ -28,7 +28,7 @@ const ReviewComponent = ({ reviews }) => {
                 />
               ))}
             </div>
-            <p>01/01/2024</p>
+            <p>{review.publishedData}</p>
           </div>
           <div className={styles.profile}>{review.fullname}</div>
         </div>

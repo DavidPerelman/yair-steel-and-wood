@@ -15,6 +15,7 @@ const ReviewsContainer = () => {
       rating: 5,
       review:
         "פרגולה מדהימה מעשה ידי האמן יאיר! השירות שלו מעל ומעבר, והתוצאה מדברת בעד עצמה. ממליצה בחום!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "יעל",
@@ -22,6 +23,7 @@ const ReviewsContainer = () => {
       rating: 5,
       review:
         "פרגולה מדהימה מעשה ידי האמן יאיר! השירות שלו מעל ומעבר, והתוצאה מדברת בעד עצמה. ממליצה בחום!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "רחל",
@@ -29,6 +31,7 @@ const ReviewsContainer = () => {
       rating: 4,
       review:
         "יאיר איש מקצוע מדהים! הזמנתי ממנו פרגולה והתוצאה מעבר לכל ציפייה. השירות שלו אדיב, זמין ומקצועי, והוא תמיד עומד בזמנים. ממליצה בחום!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "רחל",
@@ -36,6 +39,7 @@ const ReviewsContainer = () => {
       rating: 4,
       review:
         "יאיר איש מקצוע מדהים! הזמנתי ממנו פרגולה והתוצאה מעבר לכל ציפייה. השירות שלו אדיב, זמין ומקצועי, והוא תמיד עומד בזמנים. ממליצה בחום!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "משה",
@@ -43,6 +47,7 @@ const ReviewsContainer = () => {
       rating: 5,
       review:
         "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "משה",
@@ -50,6 +55,7 @@ const ReviewsContainer = () => {
       rating: 3,
       review:
         "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "משה",
@@ -57,6 +63,7 @@ const ReviewsContainer = () => {
       rating: 2,
       review:
         "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
+      publishedData: "01/01/2024",
     },
     {
       fullname: "משה",
@@ -64,6 +71,7 @@ const ReviewsContainer = () => {
       rating: 1,
       review:
         "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
+      publishedData: "01/01/2024",
     },
   ]);
   const [review, setReview] = useState({});
@@ -143,7 +151,11 @@ const ReviewsContainer = () => {
 
       {showReviewForm ? (
         <div className={styles.reviewComponent}>
-          <ReviewForm toggleReviewForm={toggleReviewForm} />
+          <ReviewForm
+            setReview={setReview}
+            setShowReviewForm={setShowReviewForm}
+            showReviewForm={showReviewForm}
+          />
         </div>
       ) : (
         <></>
