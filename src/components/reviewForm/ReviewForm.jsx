@@ -76,9 +76,7 @@ const ReviewForm = ({ toggleReviewForm }) => {
           required
         ></textarea>
       </div>
-      <button className={styles.button} onClick={toggleReviewForm}>
-        שלח
-      </button>
+      <button className={styles.button}>שלח</button>
     </form>
   );
 };
