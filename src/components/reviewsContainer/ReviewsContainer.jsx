@@ -7,73 +7,8 @@ import ReviewComponent from "../reviewComponent/ReviewComponent";
 import UserRatingAverage from "../userRatingAverage/UserRatingAverage";
 import UserRatingGraph from "../userRatingGraph/UserRatingGraph";
 
-const ReviewsContainer = () => {
-  const [reviews, setReviews] = useState([
-    {
-      fullname: "יעל",
-      email: "dperelman3@gmail.com",
-      rating: 5,
-      review:
-        "פרגולה מדהימה מעשה ידי האמן יאיר! השירות שלו מעל ומעבר, והתוצאה מדברת בעד עצמה. ממליצה בחום!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "יעל",
-      email: "dperelman3@gmail.com",
-      rating: 5,
-      review:
-        "פרגולה מדהימה מעשה ידי האמן יאיר! השירות שלו מעל ומעבר, והתוצאה מדברת בעד עצמה. ממליצה בחום!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "רחל",
-      email: "yair@gmail.com",
-      rating: 4,
-      review:
-        "יאיר איש מקצוע מדהים! הזמנתי ממנו פרגולה והתוצאה מעבר לכל ציפייה. השירות שלו אדיב, זמין ומקצועי, והוא תמיד עומד בזמנים. ממליצה בחום!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "רחל",
-      email: "yair@gmail.com",
-      rating: 4,
-      review:
-        "יאיר איש מקצוע מדהים! הזמנתי ממנו פרגולה והתוצאה מעבר לכל ציפייה. השירות שלו אדיב, זמין ומקצועי, והוא תמיד עומד בזמנים. ממליצה בחום!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "משה",
-      email: "yair@gmail.com",
-      rating: 5,
-      review:
-        "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "משה",
-      email: "yair@gmail.com",
-      rating: 3,
-      review:
-        "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "משה",
-      email: "yair@gmail.com",
-      rating: 2,
-      review:
-        "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
-      publishedData: "01/01/2024",
-    },
-    {
-      fullname: "משה",
-      email: "yair@gmail.com",
-      rating: 1,
-      review:
-        "עץ וברזל שהזמנתי מיאיר היא יצירת מופת! איכות הבנייה והעיצוב פשוט מושלמים. היא הוסיפה המון לחצר שלנו. תודה יאיר!",
-      publishedData: "01/01/2024",
-    },
-  ]);
+const ReviewsContainer = ({ reviewsData }) => {
+  const [reviews, setReviews] = useState(reviewsData);
   const [review, setReview] = useState({});
   const [totalRatings, setTotalRatings] = useState(0);
   const [starsRatings, setStarsRatings] = useState({
@@ -91,8 +26,6 @@ const ReviewsContainer = () => {
   }
 
   useEffect(() => {
-    console.log(reviews);
-
     // Loop through the reviews array and count each rating
     const ratingsCount = reviews.reduce(
       (acc, review) => {

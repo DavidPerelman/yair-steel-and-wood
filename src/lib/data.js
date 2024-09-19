@@ -5,6 +5,7 @@ import { Post } from "./models/postModel";
 import { Division } from "./models/divisionModel";
 import { Material } from "./models/materialModel";
 import { Project } from "./models/projectModel";
+import { Review } from "./models/reviewModel";
 
 // TEMPORARY DATA
 // const users = [
@@ -220,5 +221,17 @@ export const addReview = async (data) => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to add Review");
+  }
+};
+
+export const getReviews = async () => {
+  try {
+    connectToDb();
+    const Reviews = await Review.find({});
+
+    return Reviews;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch Reviews");
   }
 };
