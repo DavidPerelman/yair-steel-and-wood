@@ -60,7 +60,10 @@ const ReviewsContainer = () => {
 
       <div className={styles.top}>
         <div className={styles.userRatingAverage}>
-          <UserRatingAverage totalRatings={totalRatings} />
+          <UserRatingAverage
+            totalRatings={totalRatings}
+            starsRatings={starsRatings}
+          />
         </div>
 
         <div className={styles.userRatingGraph}>
