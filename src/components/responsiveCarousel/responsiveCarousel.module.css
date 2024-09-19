@@ -67,6 +67,7 @@
 }
 
 .prev {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 1px;
@@ -74,6 +75,7 @@
 }
 
 .next {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   right: 1px;
