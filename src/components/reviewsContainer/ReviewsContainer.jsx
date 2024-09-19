@@ -91,6 +91,8 @@ const ReviewsContainer = () => {
   }
 
   useEffect(() => {
+    console.log(reviews);
+
     // Loop through the reviews array and count each rating
     const ratingsCount = reviews.reduce(
       (acc, review) => {
@@ -155,6 +157,7 @@ const ReviewsContainer = () => {
             setReview={setReview}
             setShowReviewForm={setShowReviewForm}
             showReviewForm={showReviewForm}
+            setReviews={setReviews}
           />
         </div>
       ) : (

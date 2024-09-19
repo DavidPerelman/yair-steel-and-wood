@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { getDate } from "@/lib/utils";
 import { addReview } from "@/lib/data";
 
-const ReviewForm = ({ setReview, setShowReviewForm }) => {
+const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const formRef = useRef();
@@ -29,6 +29,8 @@ const ReviewForm = ({ setReview, setShowReviewForm }) => {
       } else {
         const newReview = await addReview(reviewData);
         setShowReviewForm(false);
+
+        setReviews((oldArray) => [...oldArray, newReview.newReview]);
         return newReview;
       }
     } catch (error) {
