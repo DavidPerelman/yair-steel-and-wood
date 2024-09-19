@@ -109,7 +109,11 @@
     width: 95%;
   }
 
+  .sideLeft {
+    width: 30%;
+  }
+
   .middle {
-    width: 60%;
+    width: 50%;
   }
 }
