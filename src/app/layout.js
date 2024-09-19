@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
 import AuthProvider from "@/components/Provider";
+import Script from "next/script";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -24,6 +25,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <Script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></Script>
+      </head>
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
       <body suppressHydrationWarning={true}>
         <AuthProvider>

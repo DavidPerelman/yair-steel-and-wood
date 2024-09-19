@@ -1,7 +1,27 @@
 .reviewsContainer {
-  height: 450px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.reviewComponent {
+  margin-top: 20px;
+  /* padding-bottom: 20px; */
 }
 
 .pageHeader {
   font-size: 2rem;
+}
+
+.button {
+  margin-top: 20px;
+  width: 20%;
+  align-self: center;
+  padding: 5px;
+  width: 15%;
+  align-self: center;
+  border: none;
+  background-color: var(--bg);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }

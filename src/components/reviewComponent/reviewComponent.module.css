@@ -1,0 +1,20 @@
+.reviewComponent {
+  width: 70%;
+}
+
+.reviewContainer {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile {
+  font-weight: 600;
+  text-align: right;
+}
+
+.content {
+  text-align: justify;
+}

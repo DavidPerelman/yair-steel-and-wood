@@ -243,10 +243,6 @@ export async function deleteImageAction(id) {
 export const handleSubmit = async (previousState, formData) => {
   const { fullname, email, subject, message } = Object.fromEntries(formData);
 
-  // const deleted = await cloudinary.uploader.destroy(id, function (result) {
-  //   return result;
-  // });
-
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -278,10 +274,6 @@ export const handleSubmit = async (previousState, formData) => {
   } catch (error) {
     console.log(error);
   }
-
-  console.log(fullname, email, subject, message);
-
-  // return deleted;
 };
 
 export const getReviews = async () => {
