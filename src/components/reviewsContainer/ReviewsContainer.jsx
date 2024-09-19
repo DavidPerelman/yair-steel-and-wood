@@ -47,7 +47,7 @@ const ReviewsContainer = () => {
       </button>
       {showReviewForm ? (
         <div className={styles.reviewComponent}>
-          <ReviewForm />
+          <ReviewForm toggleReviewForm={toggleReviewForm} />
         </div>
       ) : (
         <></>

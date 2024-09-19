@@ -23,14 +23,10 @@ export const reviewFormHandleSubmit = async (previousState, formData) => {
   }
 };
 
-const ReviewForm = () => {
+const ReviewForm = ({ toggleReviewForm }) => {
   const [state, formAction] = useFormState(reviewFormHandleSubmit, undefined);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-
-  const starClick = () => {
-    console.log(typeof rating);
-  };
 
   return (
     <form action={formAction} className={styles.reviewForm}>
@@ -45,7 +41,6 @@ const ReviewForm = () => {
                 type="radio"
                 name="rating"
                 value={parseInt(currentRating)}
-                onClick={() => starClick(index)}
               />
               <FaStar
                 className={styles.star}
@@ -81,7 +76,9 @@ const ReviewForm = () => {
           required
         ></textarea>
       </div>
-      <button className={styles.button}>שלח</button>
+      <button className={styles.button} onClick={toggleReviewForm}>
+        שלח
+      </button>
     </form>
   );
 };
