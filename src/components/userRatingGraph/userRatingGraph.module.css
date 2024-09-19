@@ -1,0 +1,115 @@
+.top {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.ratingDiv {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  width: 85%;
+}
+
+.left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.heading {
+  font-size: 20px;
+  /* margin-right: 25px; */
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 20%;
+  margin-top: 10px;
+}
+
+.sideRight {
+  width: 10%;
+  display: flex;
+  align-content: center;
+}
+
+.sideLeft {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 25%;
+  align-content: center;
+}
+
+.middle {
+  /* margin-top: 10px; */
+  float: left;
+  width: 65%;
+  align-content: center;
+}
+
+/* The bar container */
+.barContainer {
+  width: 100%;
+  background-color: #aba9a9;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar5 {
+  width: 60%;
+  height: 18px;
+  background-color: #04aa6d;
+}
+.bar4 {
+  width: 30%;
+  height: 18px;
+  background-color: #2196f3;
+}
+.bar3 {
+  width: 10%;
+  height: 18px;
+  background-color: #00bcd4;
+}
+.bar2 {
+  width: 4%;
+  height: 18px;
+  background-color: #ff9800;
+}
+.bar1 {
+  width: 15%;
+  height: 18px;
+  background-color: #f44336;
+}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+
+@media (max-width: 1440px) {
+  .sideRight {
+    width: 7%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .ratingDiv {
+    width: 95%;
+  }
+
+  .middle {
+    width: 60%;
+  }
+}

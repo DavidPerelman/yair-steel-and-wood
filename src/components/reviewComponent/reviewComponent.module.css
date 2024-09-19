@@ -1,5 +1,9 @@
-.reviewComponent {
-  width: 70%;
+.header {
+  width: 100%;
+}
+
+.rating {
+  margin-left: auto;
 }
 
 .reviewContainer {
@@ -8,6 +12,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .profile {

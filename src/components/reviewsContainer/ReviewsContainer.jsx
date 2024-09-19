@@ -4,6 +4,9 @@ import { useState } from "react";
 import styles from "./reviewsContainer.module.css";
 import ReviewForm from "../reviewForm/ReviewForm";
 import ReviewComponent from "../reviewComponent/ReviewComponent";
+import UserRating from "../userRatingGraph/UserRatingGraph";
+import UserRatingAverage from "../userRatingAverage/UserRatingAverage";
+import UserRatingGraph from "../userRatingGraph/UserRatingGraph";
 
 const ReviewsContainer = () => {
   const [reviews, setReviews] = useState([
@@ -41,10 +44,24 @@ const ReviewsContainer = () => {
 
   return (
     <div className={styles.reviewsContainer}>
-      <h1 className={styles.pageHeader}>ביקורות</h1>
-      <button className={styles.button} onClick={toggleReviewForm}>
-        {showReviewForm ? "ביטול" : "כתוב ביקורת"}
-      </button>
+      <h1 className={styles.pageHeader}>ביקורת לקוחות</h1>
+
+      <div className={styles.top}>
+        <div className={styles.userRatingAverage}>
+          <UserRatingAverage />
+        </div>
+
+        <div className={styles.userRatingGraph}>
+          <UserRatingGraph />
+        </div>
+
+        <div className={styles.buttonDiv}>
+          <button className={styles.button} onClick={toggleReviewForm}>
+            {showReviewForm ? "ביטול" : "כתוב ביקורת"}
+          </button>
+        </div>
+      </div>
+
       {showReviewForm ? (
         <div className={styles.reviewComponent}>
           <ReviewForm toggleReviewForm={toggleReviewForm} />

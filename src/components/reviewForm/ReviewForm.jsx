@@ -1,4 +1,3 @@
-// import "boxicons";
 import { useFormState } from "react-dom";
 import styles from "./reviewForm.module.css";
 import { FaStar } from "react-icons/fa";
