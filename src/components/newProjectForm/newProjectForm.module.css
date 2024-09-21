@@ -3,4 +3,26 @@
   gap: 1rem 0.5rem;
   justify-content: flex-start;
   grid-template-columns: auto minmax(auto, 400px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.descriptionParagraph {
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionParagraphHeader {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
 }

@@ -1,4 +1,7 @@
 .loading {
+  margin-top: 110px;
+  padding-top: 30px;
+  height: 75vh;
   padding-right: 50px;
   padding-left: 50px;
   display: flex;

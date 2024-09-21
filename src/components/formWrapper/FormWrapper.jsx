@@ -13,7 +13,7 @@ const FormWrapper = ({ divisions, materials }) => {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     title: "",
-    description: "",
+    description: [""],
     images: [],
     thumbnail: "",
     price: "",

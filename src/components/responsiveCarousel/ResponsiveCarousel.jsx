@@ -83,6 +83,7 @@ const Carousel = ({ children }) => {
             alt={content[index].props.alt}
             width={85}
             height={85}
+            unoptimized
           />
         ))}
       </div>

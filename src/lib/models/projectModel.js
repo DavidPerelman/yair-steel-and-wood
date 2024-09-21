@@ -9,7 +9,7 @@ const imageSchema = new mongoose.Schema({
 
 const projectSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  description: { type: String, required: true },
+  description: [{ type: String, required: true }],
   images: { type: [imageSchema], required: true },
   thumbnail: { type: imageSchema, required: true },
   slug: { type: String, required: true, unique: true },

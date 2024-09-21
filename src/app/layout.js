@@ -7,12 +7,16 @@ import { usePathname } from "next/navigation";
 import CustomHead from "@/components/customHead/CustomHead";
 import AuthProvider from "@/components/Provider";
 import Script from "next/script";
+import Footer from "@/components/footer/Footer";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [aboutPage, setAboutPage] = useState(pathname === "/about");
 
   useEffect(() => {
+    console.log(aboutPage);
+
     setOpen(false);
     const container = document.querySelector(".container");
 
@@ -30,11 +34,14 @@ export default function RootLayout({ children }) {
       </head>
       <CustomHead title="יאיר ברזל ועץ" description="יאיר ברזל ועץ" />
       <body suppressHydrationWarning={true}>
-        <AuthProvider>
-          <Navbar open={open} setOpen={setOpen} />
-          {/* <Nav open={open} setOpen={setOpen} /> */}
-          <div className="container">{children}</div>
-        </AuthProvider>
+        <div>
+          <AuthProvider>
+            <Navbar open={open} setOpen={setOpen} />
+            {/* <Nav open={open} setOpen={setOpen} /> */}
+            <div className="container">{children}</div>
+            {!aboutPage && <Footer />}
+          </AuthProvider>
+        </div>
       </body>
     </html>
   );

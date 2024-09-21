@@ -3,6 +3,7 @@ import styles from "./about.module.css";
 import { getPost } from "@/lib/data";
 // import PostContainer from "@/components/postContainer/PostContainer";
 import Image from "next/image";
+import Footer from "@/components/footer/Footer";
 // import { Fragment } from "react";
 // import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 
@@ -42,8 +43,6 @@ const AboutPage = async () => {
         title="יאיר ברזל ועץ - אודות"
         description="יאיר ברזל ועץ - אודות"
       />
-      {/* <div style={backgroundImageStyle}> */}
-      {/* <div> */}
       <Image
         alt="About page image"
         src="https://res.cloudinary.com/dflevhwgh/image/upload/v1726405722/udoshrfrk8fxarnrhfea.jpg"
@@ -63,6 +62,9 @@ const AboutPage = async () => {
               {item}
             </p>
           ))}
+        </div>
+        <div className={styles.footer}>
+          <Footer />
         </div>
       </div>
       {/* </div> */}

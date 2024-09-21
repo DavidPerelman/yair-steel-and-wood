@@ -36,6 +36,7 @@ a {
   flex-direction: column;
   /* gap: 30px; */
   text-align: -webkit-center;
+  min-height: 77vh;
 }
 
 .home {

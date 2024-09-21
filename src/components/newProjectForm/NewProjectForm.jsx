@@ -3,6 +3,29 @@
 import styles from "./newProjectForm.module.css";
 
 const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
+  const handleDescriptionChange = (index, value) => {
+    const newDescription = [...formData.description];
+    newDescription[index] = value;
+    setFormData((prevState) => ({
+      ...prevState,
+      description: newDescription,
+    }));
+  };
+
+  const addDescriptionParagraph = () => {
+    setFormData((prevState) => ({
+      ...prevState,
+      description: [...prevState.description, ""],
+    }));
+  };
+
+  const removeDescriptionParagraph = (index) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      description: prevState.description.filter((_, i) => i !== index),
+    }));
+  };
+
   const onOptionDivisionChangeHandler = (e) => {
     setFormData({ ...formData, division: e.target.value });
   };
@@ -22,15 +45,49 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
       />
 
-      <label>תיאור:</label>
-      <input
+      <div className={styles.descriptions}>
+        <label>תיאור הפרויקט:</label>
+        {formData.description.map((paragraph, index) => (
+          <div key={index} className={styles.descriptionParagraph}>
+            <label
+              htmlFor={`description-${index}`}
+              className={styles.descriptionParagraphHeader}
+            >
+              פסקה {index + 1}
+              <button
+                onClick={() => removeDescriptionParagraph(index)}
+                className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                disabled={formData.description.length === 1}
+              >
+                מחק
+              </button>
+            </label>
+            <textarea
+              id={`description-${index}`}
+              value={paragraph}
+              onChange={(e) => handleDescriptionChange(index, e.target.value)}
+              required
+              rows={3}
+            />
+          </div>
+        ))}
+        <button
+          type="button"
+          onClick={addDescriptionParagraph}
+          className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+        >
+          הוסף פסקה
+        </button>
+      </div>
+
+      {/* <input
         // required
         type="text"
         value={formData.description}
         onChange={(e) =>
           setFormData({ ...formData, description: e.target.value })
         }
-      />
+      /> */}
 
       <label>מחיר:</label>
       <input
@@ -74,7 +131,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="division"
         onChange={onOptionDivisionChangeHandler}
       >
-        <option value="division" disabled selected>
+        <option value="division" disabled defaultValue="בחר מחלקה">
           בחר מחלקה
         </option>
         {divisions &&
@@ -92,7 +149,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         id="material"
         onChange={onOptionMaterialChangeHandler}
       >
-        <option value="division" disabled selected>
+        <option value="division" disabled defaultValue="">
           בחר חומר
         </option>
         {materials &&

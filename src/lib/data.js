@@ -42,22 +42,22 @@ import { Review } from "./models/reviewModel";
 
 export const getDivisions = async () => {
   try {
-    // const divisions = fetch("http://localhost:3000/api/divisions")
-    //   .then((response) => {
-    //     if (response.ok) {
-    //       return response.json();
-    //     }
-    //     throw new Error("Something went wrong");
-    //   })
-    //   .then((responseJson) => {
-    //     return responseJson;
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    const divisions = fetch("http://localhost:3000/api/divisions")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((responseJson) => {
+        return responseJson;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    connectToDb();
-    const divisions = await Division.find({});
+    // connectToDb();
+    // const divisions = await Division.find({});
 
     return divisions;
   } catch (error) {
