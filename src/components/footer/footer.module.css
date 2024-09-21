@@ -5,21 +5,12 @@
   padding-bottom: 10px !important;
 }
 
-.footerRight {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-left: auto;
-}
-
 .span {
   border-left: 1.5px solid;
   height: 80%;
 }
 
-.footerLeft {
+.copyright {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  /* margin-right: auto; */
+  align-items: center;
 }
