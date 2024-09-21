@@ -35,6 +35,10 @@
   padding: 10px;
 }
 
+.price_paragraph {
+  font-size: 15px;
+}
+
 @media (max-width: 768px) {
   .boxImgContainer {
     height: 350px;
