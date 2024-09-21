@@ -2,10 +2,24 @@
   display: flex;
   gap: 10px;
   place-content: center;
-  bottom: 0;
+  padding-bottom: 10px !important;
+}
+
+.footerRight {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: auto;
 }
 
 .span {
   border-left: 1.5px solid;
   height: 80%;
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* margin-right: auto; */
 }

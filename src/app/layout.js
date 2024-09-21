@@ -36,7 +36,8 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             <Navbar open={open} setOpen={setOpen} />
             <div className="container">{children}</div>
-            {!aboutPage && <Footer />}
+            {/* {!aboutPage && <Footer />} */}
+            <Footer />
           </AuthProvider>
         </div>
       </body>

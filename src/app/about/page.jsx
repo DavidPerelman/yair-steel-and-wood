@@ -63,9 +63,9 @@ const AboutPage = async () => {
             </p>
           ))}
         </div>
-        <div className={styles.footer}>
+        {/* <div className={styles.footer}>
           <Footer />
-        </div>
+        </div> */}
       </div>
       {/* </div> */}
       {/* <div

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 70% 30%;
   padding-bottom: 20px;
-  border-bottom: inset;
+  /* border-bottom: inset; */
 }
 
 .boxContainer {

@@ -5,6 +5,7 @@ import styles from "./projectsCarousel.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProjectCard from "../projectCard/ProjectCard";
+import CustomArrow from "../customArrow/CustomArrow";
 
 const ProjectsCarousel = ({ projects, link }) => {
   const responsive = {
@@ -35,7 +36,12 @@ const ProjectsCarousel = ({ projects, link }) => {
 
   return (
     <div className={styles.carousel}>
-      <Carousel responsive={responsive} className={styles.ltr}>
+      <Carousel
+        responsive={responsive}
+        className={styles.ltr}
+        customLeftArrow={<CustomArrow direction="left" />}
+        customRightArrow={<CustomArrow direction="right" />}
+      >
         {projectsArray}
       </Carousel>
       <Link href="/projects" className={styles.pageLink}>

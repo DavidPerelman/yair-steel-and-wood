@@ -5,22 +5,29 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <div className={styles.footer}>
-      <span>&copy;</span>
-      <span>יאיר פרלמן</span>
-      <div>
-        <span className={styles.span}></span>
+      <div className={styles.footerRight}>
+        <span>&copy;</span>
+        <span>יאיר פרלמן</span>
+        <div>
+          <span className={styles.span}></span>
+        </div>
+        <span>{year}</span>
+        <div>
+          <span className={styles.span}></span>
+        </div>
+        <span>
+          <Link href="/privacy-policy">תנאי שימוש ומדיניות פרטיות</Link>
+        </span>
       </div>
-      <span className={styles.yearSpan}>{year}</span>
-      <span>-</span>
-      <span>עיצוב ופיתוח האתר</span>
-      <div>
-        <span className={styles.span}></span>
+      {/* <span>-</span> */}
+      <div className={styles.footerLeft}>
+        <span>
+          עיצוב ופיתוח האתר <span>:</span>
+          <Link target="_blank" href="https://wa.me/972584455456">
+            &nbsp;דוד פרלמן
+          </Link>
+        </span>
       </div>
-      <span className={styles.yearSpan}>
-        <Link target="_blank" href="https://wa.me/972584455456">
-          דוד פרלמן
-        </Link>
-      </span>
     </div>
   );
 };
