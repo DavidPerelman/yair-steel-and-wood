@@ -9,6 +9,8 @@ const AdminProjectsPage = async () => {
   const divisionsData = await getDivisions();
   const divisions = JSON.parse(JSON.stringify(divisionsData));
 
+  console.log(divisions);
+
   return (
     <div className={styles.container}>
       <CustomHead

@@ -15,8 +15,6 @@ export default function RootLayout({ children }) {
   const [aboutPage, setAboutPage] = useState(pathname === "/about");
 
   useEffect(() => {
-    console.log(aboutPage);
-
     setOpen(false);
     const container = document.querySelector(".container");
 
