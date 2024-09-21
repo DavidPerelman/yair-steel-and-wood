@@ -42,32 +42,6 @@ import { Review } from "./models/reviewModel";
 
 export const getDivisions = async () => {
   try {
-    const divisions = fetch("http://localhost:3000/api/divisions")
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Something went wrong");
-      })
-      .then((responseJson) => {
-        return responseJson;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    // connectToDb();
-    // const divisions = await Division.find({});
-
-    return divisions;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch divisions");
-  }
-};
-
-export const getDivisions_1 = async () => {
-  try {
     connectToDb();
     const divisions = await Division.find({});
 
@@ -78,7 +52,7 @@ export const getDivisions_1 = async () => {
   }
 };
 
-export const getMaterials_1 = async () => {
+export const getMaterials = async () => {
   try {
     connectToDb();
     const materials = await Material.find({});
@@ -87,30 +61,6 @@ export const getMaterials_1 = async () => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch materials");
-  }
-};
-
-export const getMaterials = async () => {
-  try {
-    const materials = fetch("http://localhost:3000/api/materials")
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Something went wrong");
-      })
-      .then((responseJson) => {
-        return responseJson;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // const materials = await Material.find();
-
-    return materials;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch Materials");
   }
 };
 
