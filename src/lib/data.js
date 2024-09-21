@@ -66,6 +66,30 @@ export const getDivisions = async () => {
   }
 };
 
+export const getDivisions_1 = async () => {
+  try {
+    connectToDb();
+    const divisions = await Division.find({});
+
+    return divisions;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch divisions");
+  }
+};
+
+export const getMaterials_1 = async () => {
+  try {
+    connectToDb();
+    const materials = await Material.find({});
+
+    return materials;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch materials");
+  }
+};
+
 export const getMaterials = async () => {
   try {
     const materials = fetch("http://localhost:3000/api/materials")
@@ -76,14 +100,11 @@ export const getMaterials = async () => {
         throw new Error("Something went wrong");
       })
       .then((responseJson) => {
-        // Do something with the response
         return responseJson;
       })
       .catch((error) => {
         console.log(error);
       });
-    // connectToDb();
-
     // const materials = await Material.find();
 
     return materials;

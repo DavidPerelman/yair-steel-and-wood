@@ -1,12 +1,12 @@
 import styles from "./projects.module.css";
-import { getDivisions, getProjects } from "@/lib/data";
+import { getDivisions, getDivisions_1, getProjects } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 
 const ProjectsPage = async () => {
   const projectsData = await getProjects();
   const projects = JSON.parse(JSON.stringify(projectsData));
-  const divisionsData = await getDivisions();
+  const divisionsData = await getDivisions_1();
   const divisions = JSON.parse(JSON.stringify(divisionsData));
 
   return (
