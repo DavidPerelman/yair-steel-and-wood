@@ -1,13 +1,17 @@
 import styles from "./projects.module.css";
-import { getDivisions, getProjects } from "@/lib/data";
 import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 
 const ProjectsPage = async () => {
-  const projectsData = await getProjects();
-  const projects = JSON.parse(JSON.stringify(projectsData));
-  const divisionsData = await getDivisions();
-  const divisions = JSON.parse(JSON.stringify(divisionsData));
+  const resProjects = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/projects`
+  );
+  const projects = await resProjects.json();
+
+  const resDivisions = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
+  );
+  const divisions = await resDivisions.json();
 
   return (
     <div className={styles.projectsPage}>
@@ -15,10 +19,10 @@ const ProjectsPage = async () => {
         title="יאיר ברזל ועץ - חנות"
         description="יאיר ברזל ועץ - חנות"
       />
-      <div className={styles.pageHeader}></div>
+      {/* <div className={styles.pageHeader}>חנות</div> */}
       <ProjectsContainer
-        projects={projects}
-        divisions={divisions}
+        projects={projects.projects}
+        divisions={divisions.divisions}
         link="/projects/"
       />
     </div>

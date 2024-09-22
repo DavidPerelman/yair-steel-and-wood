@@ -1,13 +1,17 @@
 import styles from "./projectsPanel.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
-import { getDivisions, getProjects } from "@/lib/data";
 
 const AdminProjectsPage = async () => {
-  const projectsData = await getProjects();
-  const projects = JSON.parse(JSON.stringify(projectsData));
-  const divisionsData = await getDivisions();
-  const divisions = JSON.parse(JSON.stringify(divisionsData));
+  const resProjects = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/projects`
+  );
+  const projects = await resProjects.json();
+
+  const resDivisions = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
+  );
+  const divisions = await resDivisions.json();
 
   return (
     <div className={styles.container}>
@@ -19,8 +23,8 @@ const AdminProjectsPage = async () => {
       <div className={styles.pageHeader}></div>
 
       <ProjectsContainer
-        projects={projects}
-        divisions={divisions}
+        projects={projects.projects}
+        divisions={divisions.divisions}
         link="/panel/projectsPanel/"
       />
     </div>

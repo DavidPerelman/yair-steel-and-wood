@@ -1,6 +1,5 @@
 "use server";
 
-// import { revalidatePath } from "next/cache";
 import { connectToDb } from "./connectToDb";
 import axios from "axios";
 import nodemailer from "nodemailer";
@@ -29,22 +28,6 @@ export const getDivisions = async () => {
     console.log(error);
   }
 };
-
-// export const getUsers = async () => {
-//   try {
-//     connectToDb();
-
-//     const users = await User.find();
-//     return users;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const getImages = async () => {
-//   const res = await backendClient.myPublicImages.listFiles();
-//   console.log(res.data);
-// };
 
 export const addProject = async (previousState, formData) => {
   const {
@@ -273,29 +256,5 @@ export const handleSubmit = async (previousState, formData) => {
     return { sucsses: true };
   } catch (error) {
     console.log(error);
-  }
-};
-
-export const getReviews = async () => {
-  try {
-    const reviews = fetch("http://localhost:3000/api/reviews")
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Something went wrong");
-      })
-      .then((responseJson) => {
-        // Do something with the response
-        return responseJson;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    return reviews;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch Reviews");
   }
 };

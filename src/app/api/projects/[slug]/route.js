@@ -1,31 +1,31 @@
-import { connectToDb } from "@/lib/connectToDb";
-import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
+import { connectToDb } from "@/lib/mongodb";
+import { Project } from "@/lib/models/projectModel";
 
 export const GET = async (request, { params }) => {
   const { slug } = params;
 
   try {
-    connectToDb();
+    console.log(`Attempting to fetch project with slug: ${slug}`);
 
-    const post = await Project.findOne({ slug });
-    return NextResponse.json(post);
+    await connectToDb();
+
+    const project = await Project.findOne({ slug });
+
+    if (!project) {
+      console.log(`No project found with slug: ${slug}`);
+      return NextResponse.json(
+        { message: "Project not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({ project });
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch post");
-  }
-};
-
-export const DELETE = async (request, { params }) => {
-  const { slug } = params;
-
-  try {
-    connectToDb();
-
-    await Project.deleteOne({ slug });
-    return NextResponse.json("Post deleted");
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to delete post");
+    console.error("Error fetching project:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch project", error: error.message },
+      { status: 500 }
+    );
   }
 };

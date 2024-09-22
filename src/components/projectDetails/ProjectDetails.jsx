@@ -9,11 +9,11 @@ const ProjectDetails = ({ project }) => {
       <div>
         מידות -
         <br />
-        אורך - {project.size.length} ס״מ
+        אורך - {project.length} ס״מ
         <br />
-        רוחב - {project.size.width} ס״מ
+        רוחב - {project.width} ס״מ
         <br />
-        גובה - {project.size.height} ס״מ
+        גובה - {project.height} ס״מ
       </div>
     </div>
   );

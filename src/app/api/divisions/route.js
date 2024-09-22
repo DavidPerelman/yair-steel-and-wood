@@ -1,16 +1,18 @@
-import { connectToDb } from "@/lib/connectToDb";
-import { Division } from "@/lib/models/divisionModel";
+import { connectToDb } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
+import { Division } from "@/lib/models/divisionModel";
 
 connectToDb();
 
-export const GET = async (request) => {
+export const GET = async () => {
   try {
+    await connectToDb();
+
     const divisions = await Division.find({});
 
-    return NextResponse.json(divisions);
+    return NextResponse.json({ divisions });
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch post");
+    console.error("Error fetching divisions:", error.message);
+    return NextResponse.json({ message: "Failed to fetch divisions" });
   }
 };

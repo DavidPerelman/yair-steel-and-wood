@@ -1,108 +1,6 @@
-import { connectToDb } from "./connectToDb";
 import { unstable_noStore as noStore } from "next/cache";
 import { User } from "./models/userModel";
-import { Post } from "./models/postModel";
-import { Division } from "./models/divisionModel";
-import { Material } from "./models/materialModel";
-import { Project } from "./models/projectModel";
-import { Review } from "./models/reviewModel";
-
-// TEMPORARY DATA
-// const users = [
-//   { id: 1, username: "John" },
-//   { id: 2, username: "Jane" },
-// ];
-
-// const projects = [
-//   {
-//     id: 1,
-//     title: "Post 1",
-//     body: "      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni est explicabo animi eligendi aperiam illo praesentium impedit nemo minima nihil hic, eos commodi voluptatibus. Delectus eos labore repellat dolorum voluptas?",
-//     userId: 1,
-//   },
-//   {
-//     id: 2,
-//     title: "Post 2",
-//     body: "      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni est explicabo animi eligendi aperiam illo praesentium impedit nemo minima nihil hic, eos commodi voluptatibus. Delectus eos labore repellat dolorum voluptas?",
-//     userId: 1,
-//   },
-//   {
-//     id: 3,
-//     title: "Post 3",
-//     body: "      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni est explicabo animi eligendi aperiam illo praesentium impedit nemo minima nihil hic, eos commodi voluptatibus. Delectus eos labore repellat dolorum voluptas?",
-//     userId: 2,
-//   },
-//   {
-//     id: 4,
-//     title: "Post 4",
-//     body: "      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni est explicabo animi eligendi aperiam illo praesentium impedit nemo minima nihil hic, eos commodi voluptatibus. Delectus eos labore repellat dolorum voluptas?",
-//     userId: 2,
-//   },
-// ];
-
-export const getDivisions = async () => {
-  try {
-    connectToDb();
-    const divisions = await Division.find({});
-
-    return divisions;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch divisions");
-  }
-};
-
-export const getMaterials = async () => {
-  try {
-    connectToDb();
-    const materials = await Material.find({});
-
-    return materials;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch materials");
-  }
-};
-
-export const getProjects = async () => {
-  try {
-    connectToDb();
-    const projects = await Project.find({});
-
-    return projects;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch projects");
-  }
-};
-
-export const getProject = async (slug) => {
-  try {
-    connectToDb();
-
-    const project = await Project.findOne({ slug })
-      .populate("division")
-      .populate("material");
-
-    return project;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch project");
-  }
-};
-
-export const getPost = async (slug) => {
-  try {
-    connectToDb();
-
-    const post = await Post.findOne({ slug });
-
-    return post;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to fetch project");
-  }
-};
+import connectToDb from "./connectToDb";
 
 export async function fetchData() {
   try {
@@ -192,17 +90,5 @@ export const addReview = async (data) => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to add Review");
-  }
-};
-
-export const getReviews = async () => {
-  try {
-    connectToDb();
-    const Reviews = await Review.find({});
-
-    return Reviews;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch Reviews");
   }
 };

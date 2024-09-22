@@ -44,7 +44,7 @@ const ContactPage = () => {
 
           <div className={styles.subContainer}>
             <p className={styles.paragraph}>
-              שלום! אשמח לעזור ולענות על כל שאלה שיש לך.
+              שלום! נשמח לעזור ולענות על כל שאלה,
             </p>
           </div>
 
@@ -159,7 +159,7 @@ const ContactPage = () => {
         </div>
 
         <div className={styles.subContainer}>
-          <p className={styles.paragraph}>
+          <p className={styles.paragraph} style={{ marginTop: "20px" }}>
             תודה שבחרתם לפנות אלינו, נשמח לשמוע ממכם ולעזור בכל דרך אפשרית.
             נתראה בקרוב.
           </p>

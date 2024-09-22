@@ -1,4 +1,4 @@
-import { connectToDb } from "@/lib/connectToDb";
+import { connectToDb } from "@/lib/mongodb";
 import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
 
@@ -6,11 +6,15 @@ connectToDb();
 
 export const GET = async () => {
   try {
-    const posts = await Project.find();
-    return NextResponse.json(posts);
+    await connectToDb();
+
+    const projects = await Project.find({});
+    console.log(projects);
+
+    return NextResponse.json({ projects });
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch posts");
+    console.error("Error fetching projects:", error.message);
+    return NextResponse.json({ message: "Failed to fetch projects" });
   }
 };
 

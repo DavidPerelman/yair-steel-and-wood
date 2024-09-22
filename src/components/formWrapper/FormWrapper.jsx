@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";

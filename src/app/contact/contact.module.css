@@ -46,6 +46,7 @@
 }
 
 .subContainer {
+  margin-top: 10px;
   width: 100%;
   align-self: center;
   text-align: right;

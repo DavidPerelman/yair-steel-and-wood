@@ -20,7 +20,7 @@
     "es6-promise": "^4.2.8",
     "lucide-react": "^0.445.0",
     "mongodb-client-encryption": "^6.1.0",
-    "mongoose": "^8.6.1",
+    "mongoose": "^8.6.3",
     "next": "14.0.4",
     "next-auth": "^4.24.7",
     "next-cloudinary": "^6.10.1",

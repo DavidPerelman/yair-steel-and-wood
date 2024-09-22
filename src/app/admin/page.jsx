@@ -3,7 +3,6 @@
 import LoginForm from "@/components/loginForm/LoginForm";
 import styles from "./admin.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
-// import { register } from "@/lib/action";
 
 const AdminPage = () => {
   return (
@@ -16,9 +15,6 @@ const AdminPage = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <LoginForm />
-          {/* <form action={register}>
-            <button>Register</button>
-          </form> */}
         </div>
       </div>
     </div>
