@@ -22,14 +22,16 @@ const Home = async () => {
         <Video />
       </section>
       <section className={styles.carouselSection}>
-        <ProjectsCarousel projects={projects.projects} link="/projects/" />
+        {projects && (
+          <ProjectsCarousel projects={projects.projects} link="/projects/" />
+        )}
       </section>
       <FullScreenImage />
       <section className={styles.section}>
         <AboutContainer />
       </section>
       <section className={styles.section}>
-        <ReviewsContainer reviewsData={reviews.reviews} />
+        {reviews && <ReviewsContainer reviewsData={reviews.reviews} />}
       </section>
     </>
   );
