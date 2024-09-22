@@ -3,6 +3,7 @@
 import { FaStar } from "react-icons/fa";
 import styles from "./reviewComponent.module.css";
 import { useState } from "react";
+import Loading from "@/app/loading";
 
 const ReviewComponent = ({ reviews = [] }) => {
   const [showItems, setShowItems] = useState(4);
@@ -47,7 +48,10 @@ const ReviewComponent = ({ reviews = [] }) => {
           <h2>טען עוד</h2>
         </button>
       ) : (
-        <></>
+        <>
+          {" "}
+          <Loading />
+        </>
       )}
     </div>
   );

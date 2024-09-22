@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import styles from "./projectsPanel.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
@@ -60,14 +61,10 @@ const AdminProjectsPage = () => {
           link="/panel/projectsPanel/"
         />
       ) : (
-        <></>
+        <>
+          <Loading />
+        </>
       )}
-
-      {/* <ProjectsContainer
-        projects={projects.projects}
-        divisions={divisions.divisions}
-        link="/panel/projectsPanel/"
-      /> */}
     </div>
   );
 };

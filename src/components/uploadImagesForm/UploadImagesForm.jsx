@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/loading";
 import { deleteImageAction, uploadToCloudinary } from "@/lib/action";
 import Image from "next/image";
 import { useEffect } from "react";
@@ -72,7 +73,10 @@ const UploadImageForm = ({ formData, setFormData }) => {
           ))}
         </div>
       ) : (
-        <></>
+        <>
+          {" "}
+          <Loading />
+        </>
       )}
     </div>
   );

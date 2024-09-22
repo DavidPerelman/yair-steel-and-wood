@@ -6,6 +6,7 @@ import ReviewForm from "../reviewForm/ReviewForm";
 import ReviewComponent from "../reviewComponent/ReviewComponent";
 import UserRatingAverage from "../userRatingAverage/UserRatingAverage";
 import UserRatingGraph from "../userRatingGraph/UserRatingGraph";
+import Loading from "@/app/loading";
 
 const ReviewsContainer = ({ reviews = [] }) => {
   // const [reviews, setReviews] = useState(reviewsData);
@@ -97,7 +98,10 @@ const ReviewsContainer = ({ reviews = [] }) => {
           />
         </div>
       ) : (
-        <></>
+        <>
+          {" "}
+          <Loading />
+        </>
       )}
 
       <>

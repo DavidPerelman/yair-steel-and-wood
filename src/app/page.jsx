@@ -7,6 +7,7 @@ import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 import AboutContainer from "@/components/aboutContainer/AboutContainer";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
+import Loading from "./loading";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
@@ -56,7 +57,9 @@ const Home = () => {
         {reviews.length > 0 ? (
           <ProjectsCarousel projects={projects} link="/projects/" />
         ) : (
-          <></>
+          <>
+            <Loading />
+          </>
         )}
       </section>
       <FullScreenImage />
@@ -64,7 +67,13 @@ const Home = () => {
         <AboutContainer />
       </section>
       <section className={styles.section}>
-        {reviews.length > 0 ? <ReviewsContainer reviews={reviews} /> : <></>}
+        {reviews.length > 0 ? (
+          <ReviewsContainer reviews={reviews} />
+        ) : (
+          <>
+            <Loading />
+          </>
+        )}
       </section>
     </>
   );

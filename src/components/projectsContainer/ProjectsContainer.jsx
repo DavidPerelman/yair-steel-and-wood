@@ -6,6 +6,7 @@ import ProjectCard from "../projectCard/ProjectCard";
 import { useState } from "react";
 import Image from "next/image";
 import FiltersContainer from "../filtersContainer/FiltersContainer";
+import Loading from "@/app/loading";
 
 const ProjectsContainer = ({ projects, divisions, link }) => {
   const MIN = 0;
@@ -99,7 +100,10 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
             <h2>טען עוד</h2>
           </button>
         ) : (
-          <></>
+          <>
+            {" "}
+            <Loading />
+          </>
         )}
       </div>
       <FiltersContainer

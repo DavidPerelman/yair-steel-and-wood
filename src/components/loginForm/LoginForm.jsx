@@ -3,6 +3,7 @@
 import { useFormState } from "react-dom";
 import { useState, useEffect } from "react";
 import { login } from "@/lib/actions/login";
+import Loading from "@/app/loading";
 
 const LoginForm = () => {
   const [state, formAction] = useFormState(login, undefined);
@@ -23,7 +24,10 @@ const LoginForm = () => {
           </form>
         </>
       ) : (
-        <></>
+        <>
+          {" "}
+          <Loading />
+        </>
       )}
     </>
   );
