@@ -54,7 +54,7 @@ const Home = () => {
         <Video />
       </section>
       <section className={styles.carouselSection}>
-        {reviews.length > 0 ? (
+        {projects.length > 0 ? (
           <ProjectsCarousel projects={projects} link="/projects/" />
         ) : (
           <>
@@ -67,7 +67,13 @@ const Home = () => {
         <AboutContainer />
       </section>
       <section className={styles.section}>
-        <ReviewsContainer reviews={reviews} />
+        {reviews.length > 0 ? (
+          <ReviewsContainer reviews={reviews} />
+        ) : (
+          <>
+            <Loading />
+          </>
+        )}
       </section>
     </>
   );
