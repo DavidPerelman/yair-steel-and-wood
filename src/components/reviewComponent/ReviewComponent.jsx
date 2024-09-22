@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import styles from "./reviewComponent.module.css";
 import { useState } from "react";
 
-const ReviewComponent = ({ reviews }) => {
+const ReviewComponent = ({ reviews = [] }) => {
   const [showItems, setShowItems] = useState(4);
 
   const handleShowMore = () => {
@@ -13,31 +13,31 @@ const ReviewComponent = ({ reviews }) => {
     );
   };
 
-  const displayedItems =
-    reviews &&
-    reviews.slice(0, showItems).map((review, i) => (
-      <div key={i}>
-        <div className={styles.reviewContainer}>
-          <div className={styles.header}>
-            <div className={styles.top}>
-              <div className={styles.rating}>
-                {[...Array(review.rating)].map((star, i) => (
-                  <FaStar
-                    key={i}
-                    className={styles.star}
-                    size={20}
-                    color="#ffc107"
-                  />
-                ))}
+  const displayedItems = Array.isArray(reviews)
+    ? reviews.slice(0, showItems).map((review, i) => (
+        <div key={i}>
+          <div className={styles.reviewContainer}>
+            <div className={styles.header}>
+              <div className={styles.top}>
+                <div className={styles.rating}>
+                  {[...Array(review.rating)].map((star, i) => (
+                    <FaStar
+                      key={i}
+                      className={styles.star}
+                      size={20}
+                      color="#ffc107"
+                    />
+                  ))}
+                </div>
+                <p>{review.publishedData}</p>
               </div>
-              <p>{review.publishedData}</p>
+              <div className={styles.profile}>{review.fullname}</div>
             </div>
-            <div className={styles.profile}>{review.fullname}</div>
+            <div className={styles.content}>{review.review}</div>
           </div>
-          <div className={styles.content}>{review.review}</div>
         </div>
-      </div>
-    ));
+      ))
+    : null;
 
   return (
     <div className={styles.reviewComponent}>

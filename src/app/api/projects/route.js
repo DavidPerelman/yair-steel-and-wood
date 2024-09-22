@@ -9,7 +9,6 @@ export const GET = async () => {
     await connectToDb();
 
     const projects = await Project.find({});
-    console.log(projects);
 
     return NextResponse.json({ projects });
   } catch (error) {

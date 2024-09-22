@@ -4,11 +4,10 @@ import { connectToDb } from "./connectToDb";
 import axios from "axios";
 import nodemailer from "nodemailer";
 import { Project } from "./models/projectModel";
-
-var Promise = require("es6-promise").Promise;
-
 import { v2 as cloudinary } from "cloudinary";
 import { Post } from "./models/postModel";
+
+var Promise = require("es6-promise").Promise;
 
 export const addProject = async (previousState, formData) => {
   const {
@@ -69,27 +68,6 @@ export const addPost = async (previousState, formData) => {
   }
 };
 
-// export const deleteUser = async (formData) => {
-//   const { id } = Object.fromEntries(formData);
-
-//   try {
-//     connectToDb();
-
-//     await Post.deleteMany({ userId: id });
-//     await User.findByIdAndDelete(id);
-//     console.log("deleted from db");
-//     revalidatePath("/admin");
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong!" };
-//   }
-// };
-
-// export const handleGithubLogin = async () => {
-//   "use server";
-//   await signIn("github");
-// };
-
 export const register = async () => {
   try {
     const res = await axios.post("http://localhost:3000/api/register", {});
@@ -104,37 +82,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// export async function createUpload(previousState, formData) {
-//   "use server";
-
-//   const { image } = Object.fromEntries(formData);
-
-//   const arrayBuffer = await image.arrayBuffer();
-//   const buffer = Buffer.from(arrayBuffer);
-
-//   const uploaded = await new Promise((resolve, reject) => {
-//     cloudinary.uploader
-//       .upload_stream(
-//         {
-//           // tags: ["nextjs-server-actions-upload-sneakers"],
-//           upload_preset: process.env.UPLOAD_PRESET,
-//         },
-//         function (error, result) {
-//           if (error) {
-//             reject(error);
-//             return;
-//           }
-//           resolve(result);
-//         }
-//       )
-//       .end(buffer);
-//   });
-
-//   return uploaded;
-
-//   // revalidatePath("/");
-// }
-
 export async function uploadToCloudinary(previousState, formData) {
   "use server";
 
@@ -147,7 +94,6 @@ export async function uploadToCloudinary(previousState, formData) {
     cloudinary.uploader
       .upload_stream(
         {
-          // tags: ["nextjs-server-actions-upload-sneakers"],
           upload_preset: process.env.UPLOAD_PRESET,
         },
         function (error, result) {

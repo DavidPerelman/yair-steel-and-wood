@@ -1,4 +1,3 @@
-import { getUser } from "@/lib/data";
 import styles from "./postUser.module.css";
 
 // FETCH DATA WITH AN API
@@ -15,17 +14,15 @@ import styles from "./postUser.module.css";
 //   return res.json();
 // };
 
-const PostUser = async ({ userId }) => {
+const PostUser = async () => {
   // FETCH DATA WITH AN API
   //   const user = await getData(userId);
 
   // FETCH DATA WITHOUT AN API
-  const user = await getUser(userId);
 
   return (
     <div className={styles.container}>
       <span className={styles.title}>Author</span>
-      <span className={styles.username}>{user.username}</span>
     </div>
   );
 };
