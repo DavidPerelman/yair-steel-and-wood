@@ -68,7 +68,7 @@ const Home = () => {
       </section>
       <section className={styles.section}>
         {reviews.length > 0 ? (
-          <ReviewsContainer reviews={reviews} />
+          <ReviewsContainer reviews={reviews} setReviews={setReviews} />
         ) : (
           <>
             <Loading />

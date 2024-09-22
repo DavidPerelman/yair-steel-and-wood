@@ -30,7 +30,7 @@ const ReviewComponent = ({ reviews = [] }) => {
                     />
                   ))}
                 </div>
-                <p>{review.publishedData}</p>
+                <p>{review.publishedDate}</p>
               </div>
               <div className={styles.profile}>{review.fullname}</div>
             </div>

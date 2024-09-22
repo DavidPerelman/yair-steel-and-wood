@@ -16,3 +16,27 @@ export const GET = async () => {
     return NextResponse.json({ message: "Failed to fetch reviews" });
   }
 };
+
+export const POST = async (req) => {
+  const body = await req.json();
+
+  try {
+    const { fullname, email, rating, review, publishedDate } = body;
+
+    const newProject = Review({
+      fullname,
+      email,
+      rating,
+      review,
+      publishedDate,
+    });
+
+    await newProject.save();
+    console.log("saved to db");
+
+    return NextResponse.json({ newReview: newProject });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch posts");
+  }
+};

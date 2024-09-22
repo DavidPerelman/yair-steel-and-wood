@@ -13,7 +13,7 @@ const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
   const reviewFormHandleSubmit = async (previousState, formData) => {
     const { fullname, email, rating, review } = Object.fromEntries(formData);
 
-    const publishedData = getDate();
+    const publishedDate = getDate();
 
     try {
       const reviewData = {
@@ -21,7 +21,7 @@ const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
         email,
         rating,
         review,
-        publishedData,
+        publishedDate,
       };
 
       if (reviewData.rating === "") {
@@ -31,6 +31,8 @@ const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
         setShowReviewForm(false);
 
         setReviews((oldArray) => [...oldArray, newReview.newReview]);
+        console.log(newReview);
+
         return newReview;
       }
     } catch (error) {
@@ -40,16 +42,16 @@ const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
 
   const [state, formAction] = useFormState(reviewFormHandleSubmit, undefined);
 
-  const clearForm = () => {
-    setReview({});
-    setRating(null);
-    setHover(null);
-    formRef.current.reset();
-  };
-
   useEffect(() => {
+    const clearForm = () => {
+      setReview({});
+      setRating(null);
+      setHover(null);
+      formRef.current.reset();
+    };
+
     clearForm();
-  }, [state]);
+  }, [state, setReview]);
 
   return (
     <form ref={formRef} action={formAction} className={styles.reviewForm}>

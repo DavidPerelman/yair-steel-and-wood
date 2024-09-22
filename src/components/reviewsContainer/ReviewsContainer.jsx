@@ -6,10 +6,8 @@ import ReviewForm from "../reviewForm/ReviewForm";
 import ReviewComponent from "../reviewComponent/ReviewComponent";
 import UserRatingAverage from "../userRatingAverage/UserRatingAverage";
 import UserRatingGraph from "../userRatingGraph/UserRatingGraph";
-import Loading from "@/app/loading";
 
-const ReviewsContainer = ({ reviews = [] }) => {
-  // const [reviews, setReviews] = useState(reviewsData);
+const ReviewsContainer = ({ reviews = [], setReviews }) => {
   const [review, setReview] = useState({});
   const [totalRatings, setTotalRatings] = useState(0);
   const [starsRatings, setStarsRatings] = useState({
@@ -28,8 +26,6 @@ const ReviewsContainer = ({ reviews = [] }) => {
 
   useEffect(() => {
     if (reviews.length > 0) {
-      // Ensure reviews is an array and has data
-      // Loop through the reviews array and count each rating
       const ratingsCount = reviews.reduce(
         (acc, review) => {
           switch (review.rating) {
@@ -94,7 +90,7 @@ const ReviewsContainer = ({ reviews = [] }) => {
             setReview={setReview}
             setShowReviewForm={setShowReviewForm}
             showReviewForm={showReviewForm}
-            // setReviews={setReviews}
+            setReviews={setReviews}
           />
         </div>
       ) : (

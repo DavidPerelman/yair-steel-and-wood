@@ -5,7 +5,7 @@ const reviewSchema = new mongoose.Schema({
   email: { type: String, required: true, max: 50 },
   rating: { type: Number, required: true },
   review: { type: String, required: true },
-  publishedData: { type: String, required: true },
+  publishedDate: { type: String, required: true },
 });
 
 export const Review =
