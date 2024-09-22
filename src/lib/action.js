@@ -9,25 +9,6 @@ var Promise = require("es6-promise").Promise;
 
 import { v2 as cloudinary } from "cloudinary";
 import { Post } from "./models/postModel";
-import { Division } from "./models/divisionModel";
-
-export const getDivisions = async () => {
-  try {
-    connectToDb();
-
-    const divisions = await Division.find();
-    const divisionsWithSimpleIds = divisions.map((division) => ({
-      ...division,
-      id: division._id.toString(), // Convert _id to a string
-    }));
-    return divisionsWithSimpleIds;
-
-    // const divisions = await Division.find();
-    // return divisions;
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const addProject = async (previousState, formData) => {
   const {
@@ -87,38 +68,6 @@ export const addPost = async (previousState, formData) => {
     return { error: "Something went wrong!" };
   }
 };
-
-// export const deletePost = async (formData) => {
-//   const { id } = Object.fromEntries(formData);
-
-//   try {
-//     connectToDb();
-
-//     await Post.findByIdAndDelete(id);
-//     console.log("deleted from db");
-//     revalidatePath("/blog");
-//     revalidatePath("/admin");
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong!" };
-//   }
-// };
-
-// export const addUser = async (previousState, formData) => {
-//   const { username, email, password, img } = Object.fromEntries(formData);
-
-//   try {
-//     connectToDb();
-//     const newUser = User({ username, email, password, img });
-
-//     await newUser.save();
-//     console.log("saved to db");
-//     revalidatePath("/admin");
-//   } catch (error) {
-//     console.log(error);
-//     return { error: "Something went wrong!" };
-//   }
-// };
 
 // export const deleteUser = async (formData) => {
 //   const { id } = Object.fromEntries(formData);
