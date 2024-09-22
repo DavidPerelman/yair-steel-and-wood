@@ -48,10 +48,7 @@ const ReviewComponent = ({ reviews = [] }) => {
           <h2>טען עוד</h2>
         </button>
       ) : (
-        <>
-          {" "}
-          <Loading />
-        </>
+        <></>
       )}
     </div>
   );

@@ -100,9 +100,7 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
             <h2>טען עוד</h2>
           </button>
         ) : (
-          <>
-            <Loading />
-          </>
+          <></>
         )}
       </div>
       <FiltersContainer

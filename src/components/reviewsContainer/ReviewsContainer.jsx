@@ -98,10 +98,7 @@ const ReviewsContainer = ({ reviews = [] }) => {
           />
         </div>
       ) : (
-        <>
-          {" "}
-          <Loading />
-        </>
+        <></>
       )}
 
       <>

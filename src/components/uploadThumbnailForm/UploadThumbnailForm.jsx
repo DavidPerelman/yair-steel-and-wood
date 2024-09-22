@@ -72,9 +72,7 @@ const UploadThumbnailForm = ({ formData, setFormData }) => {
           </div>
         </div>
       ) : (
-        <>
-          <Loading />
-        </>
+        <></>
       )}
     </div>
   );

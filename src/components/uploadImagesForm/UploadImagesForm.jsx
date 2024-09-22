@@ -73,10 +73,7 @@ const UploadImageForm = ({ formData, setFormData }) => {
           ))}
         </div>
       ) : (
-        <>
-          {" "}
-          <Loading />
-        </>
+        <></>
       )}
     </div>
   );
