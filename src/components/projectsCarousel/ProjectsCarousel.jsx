@@ -7,7 +7,7 @@ import "react-multi-carousel/lib/styles.css";
 import ProjectCard from "../projectCard/ProjectCard";
 import CustomArrow from "../customArrow/CustomArrow";
 
-const ProjectsCarousel = ({ projects, link, reviews }) => {
+const ProjectsCarousel = ({ projects, link }) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -28,11 +28,13 @@ const ProjectsCarousel = ({ projects, link, reviews }) => {
     },
   };
 
-  const projectsArray = projects.slice(0, 6).map((project) => (
-    <Link href={`${link}${project.slug}`} key={project.slug}>
-      <ProjectCard project={project} />
-    </Link>
-  ));
+  const projectsArray =
+    projects &&
+    projects.slice(0, 6).map((project) => (
+      <Link href={`${link}${project.slug}`} key={project.slug}>
+        <ProjectCard project={project} />
+      </Link>
+    ));
 
   return (
     <div className={styles.carousel}>
