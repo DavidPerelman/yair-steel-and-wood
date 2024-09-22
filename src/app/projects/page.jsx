@@ -19,12 +19,13 @@ const ProjectsPage = async () => {
         title="יאיר ברזל ועץ - חנות"
         description="יאיר ברזל ועץ - חנות"
       />
-      {/* <div className={styles.pageHeader}>חנות</div> */}
-      <ProjectsContainer
-        projects={projects.projects}
-        divisions={divisions.divisions}
-        link="/projects/"
-      />
+      {projects && divisions && (
+        <ProjectsContainer
+          projects={projects.projects}
+          divisions={divisions.divisions}
+          link="/projects/"
+        />
+      )}
     </div>
   );
 };

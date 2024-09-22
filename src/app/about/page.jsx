@@ -1,13 +1,8 @@
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
-// import PostContainer from "@/components/postContainer/PostContainer";
 import Image from "next/image";
-// import { Fragment } from "react";
-// import FullScreenImage from "@/components/fullScreenImage/FullScreenImage";
 
 const AboutPage = async () => {
-  // const postData = JSON.parse(JSON.stringify(data));
-
   const first_paragrah = "שלום וברוכים הבאים למקום בו הברזל והעץ נפגשים";
 
   const text = [

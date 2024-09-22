@@ -14,7 +14,9 @@ const NewProjectPage = async () => {
   return (
     <div className={styles.container}>
       <div className={styles.NewProjectPage}>
-        <MultistepsForm divisions={divisions} materials={materials} />
+        {divisions && materials && (
+          <MultistepsForm divisions={divisions} materials={materials} />
+        )}
       </div>
     </div>
   );
