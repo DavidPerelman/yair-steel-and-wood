@@ -101,7 +101,6 @@ const ProjectsContainer = ({ projects, divisions, link }) => {
           </button>
         ) : (
           <>
-            {" "}
             <Loading />
           </>
         )}
