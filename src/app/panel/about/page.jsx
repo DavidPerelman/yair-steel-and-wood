@@ -61,7 +61,12 @@ const AboutPage = () => {
     try {
       const newImage = await callApiPtach(
         `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
-        { id: pageContent._id, type: "backgroundImage", data: newImageUrl }
+        {
+          id: pageContent._id,
+          updateFields: {
+            backgroundImage: newImageUrl,
+          },
+        }
       );
 
       if (newImage) {
