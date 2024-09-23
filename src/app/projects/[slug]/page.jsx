@@ -2,6 +2,7 @@
 
 import CustomHead from "@/components/customHead/CustomHead";
 import SingleProjectPageContainer from "@/components/singleProjectPageContainer/SingleProjectPageContainer";
+import { callApiGet } from "@/lib/action";
 import { useEffect, useState } from "react";
 
 const SingleProjectPage = ({ params }) => {
@@ -11,20 +12,9 @@ const SingleProjectPage = ({ params }) => {
   useEffect(() => {
     const getProject = async () => {
       try {
-        const resProject = await fetch(
+        const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/projects/${slug}`
         );
-
-        if (!resProject.ok) {
-          throw new Error(`HTTP error! status: ${resProject.status}`);
-        }
-
-        const data = await resProject.json();
-
-        if (data.message === "Failed to fetch project") {
-          console.error("Server error:", data.error);
-          throw new Error(data.error || "Unknown server error");
-        }
 
         const project = data.project;
 

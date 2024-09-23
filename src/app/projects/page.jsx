@@ -28,7 +28,6 @@ const ProjectsPage = () => {
         const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
         );
-        if (data.projects) setProjects(data.projects);
         if (data.divisions) setDivisions(data.divisions);
       } catch (error) {
         console.error("Error fetching divisions:", error);
