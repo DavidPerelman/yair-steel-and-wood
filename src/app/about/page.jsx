@@ -24,7 +24,8 @@ const AboutPage = () => {
     };
 
     getPageContent();
-  }, []);
+    console.log(pageContent);
+  }, [pageContent]);
 
   return (
     <>
@@ -32,16 +33,20 @@ const AboutPage = () => {
         title="יאיר ברזל ועץ - אודות"
         description="יאיר ברזל ועץ - אודות"
       />
-      <Image
-        alt="About page image"
-        src="https://res.cloudinary.com/dflevhwgh/image/upload/v1726405722/udoshrfrk8fxarnrhfea.jpg"
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: "100%", height: "auto" }}
-        unoptimized
-        className={styles.image}
-      />
+      {pageContent !== null ? (
+        <Image
+          alt="About page image"
+          src={pageContent.backgroundImage}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+          unoptimized
+          className={styles.image}
+        />
+      ) : (
+        <></>
+      )}
       <div className={styles.textContainer}>
         <div className={styles.textContent}>
           {pageContent !== null ? (

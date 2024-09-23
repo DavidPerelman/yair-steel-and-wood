@@ -20,21 +20,29 @@ export const GET = async () => {
   }
 };
 
-export const POST = async (req) => {
+export const PATCH = async (req) => {
   const body = await req.json();
+  const { id, type, data } = body;
 
   try {
-    const { header, content } = body;
+    if (type === "backgroundImage") {
+      const filter = { _id: id };
+      const update = { backgroundImage: data };
 
-    const newContent = AboutPageContent({
-      header,
-      content,
-    });
+      const newImageAdded = await AboutPageContent.findOneAndUpdate(
+        filter,
+        update,
+        {
+          new: true,
+        }
+      );
 
-    const newContentAdded = await newContent.save();
-    console.log("saved to db");
+      console.log("saved to db");
 
-    return NextResponse.json({ newContentAdded });
+      return NextResponse.json({ newImageAdded: newImageAdded });
+    }
+
+    return NextResponse.json({ res: "newContentAdded" });
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts");

@@ -1,0 +1,100 @@
+.textContainer {
+  position: absolute; /* Make text container absolute for overlay */
+  top: 0; /* Position at top of the image */
+  left: 0; /* Position at left of the image */
+  width: 100%; /* Match image width */
+  height: 100%; /* Match image height */
+  display: flex; /* Allow alignment of text elements */
+  flex-direction: column; /* Stack text elements vertically */
+  justify-content: center; /* Center text vertically */
+  align-items: center; /* Center text horizontally */
+  padding-top: 150px;
+}
+
+.textContent {
+  width: 80%;
+  font-size: 1.1rem;
+  /* margin-top: 20%; */
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white; */
+  color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px rgb(0 0 0) !important;
+  text-align: right;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* padding-top: 180px; */
+  overflow-x: hidden;
+}
+
+.first_paragrah {
+  text-align: center;
+  /* text-shadow: 0.5px 0.5px 1px rgb(255 255 255); */
+}
+
+@media (max-width: 768px) {
+  .image {
+    position: absolute;
+    height: 100% !important;
+    width: 100% !important;
+    inset: 0px;
+    object-fit: cover;
+    color: transparent;
+  }
+
+  .textContent {
+    width: 80%;
+    gap: 0;
+    overflow: scroll;
+    scrollbar-width: none;
+    margin-top: 40%;
+    margin-bottom: 20%;
+  }
+}
+
+/* .footer {
+  color: #ffffff;
+  text-shadow: 0.5px 0.5px 1px rgb(0 0 0) !important;
+} */
+
+.textarea {
+  width: 100%;
+}
+
+.header {
+  color: black;
+  width: 99%;
+}
+
+.contentParagraph {
+  width: 99%;
+}
+
+.contentParagraphHeader {
+  width: 40%;
+}
+
+.imagePageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.changeImageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  align-self: center;
+}
+
+.changeImageDiv {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 5px;
+}
+
+.changeImageDiv input {
+  text-align-last: center;
+}

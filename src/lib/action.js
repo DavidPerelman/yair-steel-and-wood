@@ -38,6 +38,27 @@ export const callApiPost = async (url, formData) => {
   }
 };
 
+export const callApiPtach = async (url, formData) => {
+  try {
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+    const data = await res.json();
+    if (data) {
+      return data;
+    }
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+  }
+};
+
 export const register = async () => {
   try {
     const res = await axios.post("http://localhost:3000/api/register", {});
