@@ -25,6 +25,7 @@ const AboutPage = () => {
     const newContent = [...formData];
     newContent[index] = value;
     setFormData(newContent);
+    console.log(formData);
   };
 
   const addDescriptionParagraph = () => {
@@ -33,8 +34,21 @@ const AboutPage = () => {
     setFormData(newContent);
   };
 
-  const updatePageContent = () => {
-    console.log(formData);
+  const updatePageContent = async () => {
+    try {
+      const newContent = await callApiPtach(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
+        { id: pageContent._id, type: "content", data: formData }
+      );
+
+      if (newContent) {
+        alert("העמוד עודכן בהצלחה!");
+        console.log(newContent);
+        setPageContent(newContent);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const changeImageHandler = async () => {
@@ -142,7 +156,6 @@ const AboutPage = () => {
                     htmlFor={`content-${index}`}
                     className={styles.contentParagraphHeader}
                   >
-                    {/* פסקה {index + 1} */}
                     <button
                       onClick={() => removeContentParagraph(index)}
                       className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"

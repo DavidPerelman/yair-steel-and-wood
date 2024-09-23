@@ -25,24 +25,19 @@ export const PATCH = async (req) => {
   const { id, type, data } = body;
 
   try {
-    if (type === "backgroundImage") {
-      const filter = { _id: id };
-      const update = { backgroundImage: data };
+    const filter = { _id: id };
+    const update = { [type]: data };
+    const newImageAdded = await AboutPageContent.findOneAndUpdate(
+      filter,
+      update,
+      {
+        new: true,
+      }
+    );
 
-      const newImageAdded = await AboutPageContent.findOneAndUpdate(
-        filter,
-        update,
-        {
-          new: true,
-        }
-      );
+    console.log("saved to db");
 
-      console.log("saved to db");
-
-      return NextResponse.json({ newImageAdded: newImageAdded });
-    }
-
-    return NextResponse.json({ res: "newContentAdded" });
+    return NextResponse.json({ newImageAdded: newImageAdded });
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts");
