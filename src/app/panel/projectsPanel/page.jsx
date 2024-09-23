@@ -5,6 +5,7 @@ import styles from "./projectsPanel.module.css";
 import CustomHead from "@/components/customHead/CustomHead";
 import ProjectsContainer from "@/components/projectsContainer/ProjectsContainer";
 import { useEffect, useState } from "react";
+import { callApiGet } from "@/lib/action";
 
 const AdminProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -13,13 +14,10 @@ const AdminProjectsPage = () => {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const resProjects = await fetch(
+        const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/projects`
         );
-        if (!resProjects.ok)
-          throw new Error(`HTTP error! status: ${resProjects.status}`);
 
-        const data = await resProjects.json();
         if (data.projects) setProjects(data.projects);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -28,13 +26,10 @@ const AdminProjectsPage = () => {
 
     const getDivisions = async () => {
       try {
-        const resDivisions = await fetch(
+        const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
         );
-        if (!resDivisions.ok)
-          throw new Error(`HTTP error! status: ${resDivisions.status}`);
 
-        const data = await resDivisions.json();
         if (data.divisions) setDivisions(data.divisions);
       } catch (error) {
         console.error("Error fetching divisions:", error);
