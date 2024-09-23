@@ -5,36 +5,12 @@ import styles from "./reviewForm.module.css";
 import { FaStar } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { getDate } from "@/lib/utils";
+import { callApiPost } from "@/lib/action";
 
 const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const formRef = useRef();
-
-  const addReview = async (formData) => {
-    try {
-      const resProjects = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/reviews`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-      if (!resProjects.ok)
-        throw new Error(`HTTP error! status: ${resProjects.status}`);
-
-      const data = await resProjects.json();
-      if (data.newReview) {
-        return data;
-      }
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-    }
-  };
 
   const reviewFormHandleSubmit = async (previousState, formData) => {
     const { fullname, email, rating, review } = Object.fromEntries(formData);
@@ -53,7 +29,10 @@ const ReviewForm = ({ setReview, setShowReviewForm, setReviews }) => {
       if (reviewData.rating === "") {
         alert("נא לתת דירוג!");
       } else {
-        const newReview = await addReview(reviewData);
+        const newReview = await callApiPost(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/reviews`,
+          reviewData
+        );
         setShowReviewForm(false);
 
         setReviews((oldArray) => [...oldArray, newReview.newReview]);
