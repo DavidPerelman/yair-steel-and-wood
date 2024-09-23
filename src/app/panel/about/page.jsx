@@ -7,8 +7,10 @@ import { callApiGet, callApiPtach } from "@/lib/action";
 import { useEffect, useState } from "react";
 import Loading from "@/app/loading";
 import UploadAboutImageForm from "@/components/uploadAboutImageForm/UploadAboutImageForm";
+import { useRouter } from "next/navigation";
 
 const AboutPage = () => {
+  const router = useRouter();
   const [pageContent, setPageContent] = useState(null);
   const [formData, setFormData] = useState(null);
   const [changeImage, setChangeImage] = useState(false);
@@ -47,8 +49,8 @@ const AboutPage = () => {
 
       if (newContent) {
         alert("העמוד עודכן בהצלחה!");
-        console.log(newContent);
         setPageContent(newContent);
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
@@ -64,6 +66,7 @@ const AboutPage = () => {
 
       if (newImage) {
         alert("התמונה עודכנה בהצלחה!");
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
