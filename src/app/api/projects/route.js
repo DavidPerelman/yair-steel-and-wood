@@ -2,10 +2,13 @@ import { connectToDb } from "@/lib/mongodb";
 import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
 import { uuid } from "uuidv4";
+import { unstable_noStore as noStore } from "next/cache";
 
 connectToDb();
 
 export const GET = async () => {
+  noStore();
+
   try {
     await connectToDb();
 

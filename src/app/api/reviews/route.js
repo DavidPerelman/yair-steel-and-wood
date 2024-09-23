@@ -1,10 +1,13 @@
 import { connectToDb } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { Review } from "@/lib/models/reviewModel";
+import { unstable_noStore as noStore } from "next/cache";
 
 connectToDb();
 
 export const GET = async () => {
+  noStore();
+
   try {
     await connectToDb();
 

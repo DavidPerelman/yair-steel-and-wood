@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { connectToDb } from "@/lib/mongodb";
 import { Project } from "@/lib/models/projectModel";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const GET = async (request, { params }) => {
   const { slug } = params;
+  noStore();
 
   try {
-    console.log(`Attempting to fetch project with slug: ${slug}`);
-
     await connectToDb();
 
     const project = await Project.findOne({ slug });

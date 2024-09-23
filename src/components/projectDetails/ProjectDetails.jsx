@@ -5,7 +5,11 @@ const ProjectDetails = ({ project }) => {
     <div className={styles.textColumn}>
       <h1>{project.title}</h1>
       <h3>{project.price} ש״ח</h3>
-      <p className={styles.description}>{project.description}</p>
+      {project.description.map((paragrah, i) => (
+        <p key={i} className={styles.description}>
+          {paragrah}
+        </p>
+      ))}
       <div>
         מידות -
         <br />

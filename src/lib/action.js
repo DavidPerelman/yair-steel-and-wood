@@ -1,17 +1,14 @@
 "use server";
 
-import { connectToDb } from "./connectToDb";
 import axios from "axios";
 import nodemailer from "nodemailer";
-import { Project } from "./models/projectModel";
 import { v2 as cloudinary } from "cloudinary";
-import { Post } from "./models/postModel";
 
 var Promise = require("es6-promise").Promise;
 
 export const callApiGet = async (url) => {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     const data = await res.json();
     return data;
@@ -38,65 +35,6 @@ export const callApiPost = async (url, formData) => {
     }
   } catch (error) {
     console.error("Error fetching projects:", error);
-  }
-};
-
-export const addProject = async (previousState, formData) => {
-  const {
-    title,
-    description,
-    thumbnail,
-    images,
-    price,
-    size,
-    division,
-    material,
-    slug,
-  } = Object.fromEntries(formData);
-
-  try {
-    connectToDb();
-    const newProject = Project({
-      title,
-      description,
-      thumbnail,
-      images,
-      price,
-      size,
-      division,
-      material,
-      slug,
-    });
-
-    await newProject.save();
-    console.log("saved to db");
-    // revalidatePath("/projects");
-    return newProject;
-  } catch (error) {
-    console.log(error);
-    return { error: "Something went wrong!" };
-  }
-};
-
-export const addPost = async (previousState, formData) => {
-  const { title, description, images, slug } = Object.fromEntries(formData);
-
-  try {
-    connectToDb();
-    const newPost = Post({
-      title,
-      description,
-      images,
-      slug,
-    });
-
-    await newPost.save();
-    console.log("saved to db");
-    // revalidatePath("/projects");
-    return newPost;
-  } catch (error) {
-    console.log(error);
-    return { error: "Something went wrong!" };
   }
 };
 

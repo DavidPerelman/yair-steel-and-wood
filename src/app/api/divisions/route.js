@@ -1,10 +1,13 @@
 import { connectToDb } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { Division } from "@/lib/models/divisionModel";
+import { unstable_noStore as noStore } from "next/cache";
 
 connectToDb();
 
 export const GET = async () => {
+  noStore();
+
   try {
     await connectToDb();
 
