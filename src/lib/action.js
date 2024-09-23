@@ -4,8 +4,6 @@ import axios from "axios";
 import nodemailer from "nodemailer";
 import { v2 as cloudinary } from "cloudinary";
 
-var Promise = require("es6-promise").Promise;
-
 export const callApiGet = async (url) => {
   try {
     const res = await fetch(url, { cache: "no-store" });
@@ -74,37 +72,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// export async function uploadToCloudinary(previousState, formData) {
-//   "use server";
-
-//   const { image } = Object.fromEntries(formData);
-
-//   const arrayBuffer = await image.arrayBuffer();
-//   const buffer = Buffer.from(arrayBuffer);
-
-//   const uploaded = await new Promise((resolve, reject) => {
-//     cloudinary.uploader
-//       .upload_stream(
-//         {
-//           upload_preset: process.env.UPLOAD_PRESET,
-//         },
-//         function (error, result) {
-//           if (error) {
-//             reject(error);
-//             return;
-//           }
-//           resolve(result);
-//         }
-//       )
-//       .end(buffer);
-//   });
-
-//   return uploaded;
-// }
-
 export async function uploadToCloudinary(previousState, formData) {
-  "use server";
-
   const { image } = Object.fromEntries(formData);
 
   const data = new FormData();

@@ -1,12 +1,13 @@
 import { connectToDb } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
-import { unstable_noStore as noStore } from "next/cache";
+// import { unstable_noStore as noStore } from "next/cache";
 import { AboutPageContent } from "@/lib/models/aboutPageModel";
+import mongoose from "mongoose";
 
 connectToDb();
 
 export const GET = async () => {
-  noStore();
+  // noStore();
 
   try {
     await connectToDb();
@@ -47,28 +48,20 @@ export const GET = async () => {
 
 export const PATCH = async (req) => {
   try {
-    // Parse the request body
     const body = await req.json();
-    const { id, updateFields } = body;
+    const { id, type, data } = body;
 
-    if (!id || !updateFields || typeof updateFields !== "object") {
-      return NextResponse.json({ message: "Invalid request" }, { status: 400 });
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ message: "Invalid ID" }, { status: 400 });
     }
 
-    // Construct the dynamic update object based on fields provided
-    const update = {};
-    for (const key in updateFields) {
-      if (Object.prototype.hasOwnProperty.call(updateFields, key)) {
-        //+
-        update[key] = updateFields[key]; // Dynamically add fields to the update object
-      }
-    }
+    const filter = { _id: id };
+    const update = { [type]: data };
 
-    // Find the document by ID and update it with dynamic fields
     const updatedDocument = await AboutPageContent.findOneAndUpdate(
-      { _id: id },
-      { $set: update }, // $set to update only the fields provided
-      { new: true } // Return the updated document
+      filter,
+      update,
+      { new: true }
     );
 
     if (!updatedDocument) {
@@ -78,7 +71,6 @@ export const PATCH = async (req) => {
       );
     }
 
-    // Return the updated document
     return NextResponse.json({ updatedDocument });
   } catch (error) {
     console.error("Error updating document:", error);

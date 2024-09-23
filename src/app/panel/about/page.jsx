@@ -35,20 +35,18 @@ const AboutPage = () => {
 
   const updatePageContent = async () => {
     try {
-      const newContent = await callApiPtach(
+      const response = await callApiPtach(
         `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
         {
           id: pageContent._id,
-          updateFields: {
-            content: formData,
-          },
+          type: "content",
+          data: formData,
         }
       );
 
-      if (newContent) {
+      if (response.updatedDocument) {
         alert("העמוד עודכן בהצלחה!");
-        setPageContent(newContent);
-        window.location.reload();
+        setPageContent(response.updatedDocument); // Set the updated document directly
       }
     } catch (error) {
       console.log(error);
@@ -57,19 +55,18 @@ const AboutPage = () => {
 
   const changeImageHandler = async () => {
     try {
-      const newImage = await callApiPtach(
+      const response = await callApiPtach(
         `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
         {
           id: pageContent._id,
-          updateFields: {
-            backgroundImage: newImageUrl,
-          },
+          type: "backgroundImage",
+          data: newImageUrl,
         }
       );
 
-      if (newImage) {
+      if (response.updatedDocument) {
         alert("התמונה עודכנה בהצלחה!");
-        window.location.reload();
+        setPageContent(response.updatedDocument); // Update page content after successful API call
       }
     } catch (error) {
       console.log(error);
