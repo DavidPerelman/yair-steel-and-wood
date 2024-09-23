@@ -1,18 +1,30 @@
+"use client";
+
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 import Image from "next/image";
+import { callApiGet } from "@/lib/action";
+import { useEffect, useState } from "react";
+import Loading from "../loading";
 
-const AboutPage = async () => {
-  const first_paragrah = "שלום וברוכים הבאים למקום בו הברזל והעץ נפגשים";
+const AboutPage = () => {
+  const [pageContent, setPageContent] = useState(null);
 
-  const text = [
-    "עבודה עם עץ מאז ומעולם הייתה עבורי תחום מרתק. במהלך השנים לקחתי חלק בפרויקטים שונים בתחום, ועם הזמן גיליתי איך העולם הזה מושך לי את תשומת הלב והדמיון.",
-    "לתחום הברזל הגעתי רק אחרי השחרור מהצבא, תחום מורכב, הדורש דיוק וסבלנות, במיוחד בעבודת ריתוך עם חומרים קטנים. ",
-    "לאחר תקופה ממושכת של פיתוח כישורים והתמקצעות בטכניקות שונות, נולד השילוב הייחודי בין ברזל לעץ. העוצמה והברק של הברזל, יחד עם הגוונים והחום של העץ, יוצרים ביחד עבודות מוקפדות ומדויקות, בעלות אופי ייחודי.",
-    "האתר הזה מציג יצירות שנעשו בקפידה ותוך תשומת לב לפרטים, במטרה להציע פתרונות ייחודיים ומעוצבים. מוזמנים לעיין בעבודות ולהתרשם בכל פרויקט שעשוי להתאים לכם. כמובן, אני כאן כדי לענות על כל שאלה או לסייע בפרויקטים בהתאמה אישית.",
-    "מקווה שתהנו מהחומרים ושתמצאו בהם את ההשראה שאתם מחפשים",
-    "יאיר",
-  ];
+  useEffect(() => {
+    const getPageContent = async () => {
+      try {
+        const data = await callApiGet(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/about`
+        );
+
+        if (data.data) setPageContent(data.data[0]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    getPageContent();
+  }, []);
 
   return (
     <>
@@ -32,17 +44,22 @@ const AboutPage = async () => {
       />
       <div className={styles.textContainer}>
         <div className={styles.textContent}>
-          <h1 className={styles.first_paragrah}>אודות</h1>
-          <p className={styles.first_paragrah}>{first_paragrah}</p>
-          {text.map((item, i) => (
-            <p key={i} className={styles.paragrah}>
-              {item}
-            </p>
-          ))}
+          {pageContent !== null ? (
+            <>
+              <h1 className={styles.first_paragrah}>{pageContent.header}</h1>
+              <p className={styles.first_paragrah}>{pageContent.content[0]}</p>
+              {pageContent.content.slice(1).map((item, i) => (
+                <p key={i} className={styles.paragrah}>
+                  {item}
+                </p>
+              ))}
+            </>
+          ) : (
+            <>
+              <Loading />
+            </>
+          )}
         </div>
-        {/* <div className={styles.footer}>
-          <Footer />
-        </div> */}
       </div>
     </>
   );
