@@ -7,7 +7,7 @@ import { callApiGet, callApiPtach } from "@/lib/action";
 import { useEffect, useState } from "react";
 import Loading from "@/app/loading";
 import UploadAboutImageForm from "@/components/uploadAboutImageForm/UploadAboutImageForm";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const AboutPage = () => {
   const router = useRouter();
