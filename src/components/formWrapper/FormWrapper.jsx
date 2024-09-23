@@ -10,14 +10,46 @@ import { redirect } from "next/navigation";
 const FormWrapper = ({ divisions, materials }) => {
   const [newProjectAdded, setNewProjectAdded] = useState(false);
 
-  const addProjectClick = async () => {
-    const newProject = await callApiPost(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
-      formData
-    );
+  const nextPageClick = () => {
+    if (page === 0) {
+      if (
+        formData.title === "" ||
+        formData.description[0] === "" ||
+        formData.price === "" ||
+        formData.height === "" ||
+        formData.width === "" ||
+        formData.length === "" ||
+        formData.division.length === 0 ||
+        formData.material.length === 0
+      ) {
+        alert("נא למלא את הטופס!");
+        return;
+      } else {
+        setPage((currPage) => currPage + 1);
+      }
+    } else if (page === 1) {
+      if (formData.thumbnail === "") {
+        alert("נא להוסיף תמונה!");
+        return;
+      } else {
+        setPage((currPage) => currPage + 1);
+      }
+    }
+  };
 
-    if (newProject) {
-      setNewProjectAdded(true);
+  const addProjectClick = async () => {
+    if (formData.images.length === 0) {
+      alert("נא להוסיף תמונות!");
+      return;
+    } else {
+      const newProject = await callApiPost(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
+        formData
+      );
+
+      if (newProject) {
+        setNewProjectAdded(true);
+      }
     }
   };
 
@@ -89,7 +121,7 @@ const FormWrapper = ({ divisions, materials }) => {
               if (page === formTitle.length - 1) {
                 addProjectClick();
               } else {
-                setPage((currPage) => currPage + 1);
+                nextPageClick();
               }
             }}
           >

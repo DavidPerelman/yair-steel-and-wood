@@ -39,7 +39,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
       <label>שם הפרויקט:</label>
       <input
         autoFocus
-        // required
+        required
         type="text"
         value={formData.title}
         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -80,18 +80,9 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         </button>
       </div>
 
-      {/* <input
-        // required
-        type="text"
-        value={formData.description}
-        onChange={(e) =>
-          setFormData({ ...formData, description: e.target.value })
-        }
-      /> */}
-
       <label>מחיר:</label>
       <input
-        // required
+        required
         min={1}
         type="number"
         value={formData.price}
@@ -100,7 +91,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
 
       <label>גובה:</label>
       <input
-        // required
+        required
         min={1}
         type="number"
         value={formData.height}
@@ -109,7 +100,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
 
       <label>רוחב:</label>
       <input
-        // required
+        required
         min={1}
         type="number"
         value={formData.width}
@@ -118,7 +109,7 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
 
       <label>אורך:</label>
       <input
-        // required
+        required
         min={1}
         type="number"
         value={formData.length}
