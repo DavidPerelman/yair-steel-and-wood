@@ -1,18 +1,52 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./newProject.module.css";
 import MultistepsForm from "@/components/multistepsForm/MultistepsForm";
+import { callApiGet } from "@/lib/action";
 
-const NewProjectPage = async () => {
-  const resDivisions = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
-  );
+const NewProjectPage = () => {
+  const [materials, setMaterials] = useState([]);
+  const [divisions, setDivisions] = useState([]);
 
-  const divisions = await resDivisions.json();
+  // const resDivisions = await fetch(
+  //   `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
+  // );
 
-  const resMaterials = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/materials`
-  );
+  // const divisions = await resDivisions.json();
 
-  const materials = await resMaterials.json();
+  // const resMaterials = await fetch(
+  //   `${process.env.NEXT_PUBLIC_API_URL}/api/materials`
+  // );
+
+  // const materials = await resMaterials.json();
+
+  useEffect(() => {
+    const getMaterials = async () => {
+      try {
+        const data = await callApiGet(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/materials`
+        );
+        if (data.materials) setMaterials(data.materials);
+      } catch (error) {
+        console.error("Error fetching materials:", error);
+      }
+    };
+
+    const getDivisions = async () => {
+      try {
+        const data = await callApiGet(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
+        );
+        if (data.divisions) setDivisions(data.divisions);
+      } catch (error) {
+        console.error("Error fetching divisions:", error);
+      }
+    };
+
+    getMaterials();
+    getDivisions();
+  }, []);
 
   return (
     <div className={styles.container}>

@@ -33,7 +33,9 @@
     "react-multi-carousel": "^2.8.5",
     "react-responsive-carousel": "^3.2.23",
     "react-slider": "^2.0.6",
-    "swiper": "^11.1.11"
+    "swiper": "^11.1.11",
+    "uuid": "^10.0.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "eslint": "^8",

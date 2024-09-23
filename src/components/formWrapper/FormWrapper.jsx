@@ -4,12 +4,28 @@ import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
-import { addProject } from "@/lib/data";
+import { callApiPost } from "@/lib/action";
+import { redirect } from "next/navigation";
 
 const FormWrapper = ({ divisions, materials }) => {
+  const [newProjectAdded, setNewProjectAdded] = useState(false);
+
   const addProjectClick = async () => {
-    const newProject = await addProject(formData);
+    const newProject = await callApiPost(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
+      formData
+    );
+
+    if (newProject) {
+      setNewProjectAdded(true);
+    }
   };
+
+  useEffect(() => {
+    if (newProjectAdded) {
+      redirect("/panel/projectsPanel");
+    }
+  }, [newProjectAdded]);
 
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
@@ -70,8 +86,6 @@ const FormWrapper = ({ divisions, materials }) => {
           </button>
           <button
             onClick={() => {
-              console.log("addProjectClick");
-
               if (page === formTitle.length - 1) {
                 addProjectClick();
               } else {

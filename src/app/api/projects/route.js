@@ -1,6 +1,7 @@
 import { connectToDb } from "@/lib/mongodb";
 import { Project } from "@/lib/models/projectModel";
 import { NextResponse } from "next/server";
+import { uuid } from "uuidv4";
 
 connectToDb();
 
@@ -19,7 +20,7 @@ export const GET = async () => {
 
 export const POST = async (req) => {
   const body = await req.json();
-  const slug = "slug";
+  const slug = uuid();
   const height = parseInt(body.height);
   const width = parseInt(body.width);
   const length = parseInt(body.length);
@@ -42,10 +43,10 @@ export const POST = async (req) => {
       slug,
     });
 
-    await newProject.save();
+    const newProjectAdded = await newProject.save();
     console.log("saved to db");
 
-    return NextResponse.json({ newProject: "" });
+    return NextResponse.json({ newProjectAdded });
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts");
