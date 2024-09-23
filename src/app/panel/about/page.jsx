@@ -3,13 +3,12 @@
 import CustomHead from "@/components/customHead/CustomHead";
 import styles from "./about.module.css";
 import Image from "next/image";
-import { callApiGet, callApiPtach, uploadToCloudinary } from "@/lib/action";
+import { callApiGet, callApiPtach } from "@/lib/action";
 import { useEffect, useState } from "react";
 import Loading from "@/app/loading";
-import { useFormState } from "react-dom";
+import UploadAboutImageForm from "@/components/uploadAboutImageForm/UploadAboutImageForm";
 
 const AboutPage = () => {
-  const [state, formAction] = useFormState(uploadToCloudinary, undefined);
   const [pageContent, setPageContent] = useState(null);
   const [formData, setFormData] = useState(null);
   const [changeImage, setChangeImage] = useState(false);
@@ -83,13 +82,8 @@ const AboutPage = () => {
       }
     };
 
-    if (state !== undefined) {
-      setNewImageUrl(state.secure_url);
-      setImageThumbnail(state.secure_url);
-    } else {
-      getPageContent();
-    }
-  }, [state]);
+    getPageContent();
+  }, []);
 
   return (
     <>
@@ -120,27 +114,20 @@ const AboutPage = () => {
         </button>
         {changeImage && (
           <>
-            <form action={formAction}>
+            {/* <form action={formAction}>
               <div className={styles.changeImageDiv}>
                 <p className="mb-6">
-                  <label
-                    htmlFor="image"
-                    className="block font-semibold text-sm mb-2"
-                  >
-                    בחר תמונת תצוגה:
-                  </label>
+                  <label htmlFor="image">בחר תמונת תצוגה:</label>
                   <br />
                 </p>
-                <input
-                  id="image"
-                  className="block w-full border-slate-400 rounded focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  type="file"
-                  name="image"
-                  required
-                />
+                <input id="image" type="file" name="image" required />
               </div>
               <button>העלאת תמונה לשרת</button>
-            </form>
+            </form> */}
+            <UploadAboutImageForm
+              setImageThumbnail={setImageThumbnail}
+              setNewImageUrl={setNewImageUrl}
+            />
             <button onClick={changeImageHandler}>שנה תמונה</button>
           </>
         )}
@@ -158,7 +145,6 @@ const AboutPage = () => {
                   >
                     <button
                       onClick={() => removeContentParagraph(index)}
-                      className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                       disabled={formData.length === 1}
                     >
                       מחק
@@ -174,18 +160,10 @@ const AboutPage = () => {
                   />
                 </div>
               ))}
-              <button
-                type="button"
-                onClick={addDescriptionParagraph}
-                className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-              >
+              <button type="button" onClick={addDescriptionParagraph}>
                 הוסף פסקה
               </button>
-              <button
-                type="button"
-                onClick={updatePageContent}
-                className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-              >
+              <button type="button" onClick={updatePageContent}>
                 שמור
               </button>
             </>
