@@ -37,7 +37,12 @@ const AboutPage = () => {
     try {
       const newContent = await callApiPtach(
         `${process.env.NEXT_PUBLIC_API_URL}/api/about`,
-        { id: pageContent._id, type: "content", data: formData }
+        {
+          id: pageContent._id,
+          updateFields: {
+            content: formData,
+          },
+        }
       );
 
       if (newContent) {
