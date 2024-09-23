@@ -5,10 +5,13 @@ const NewProjectPage = async () => {
   const resDivisions = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/divisions`
   );
+
   const divisions = await resDivisions.json();
+
   const resMaterials = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/materials`
   );
+
   const materials = await resMaterials.json();
 
   return (

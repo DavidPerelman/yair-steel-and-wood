@@ -19,19 +19,6 @@ const ContactPage = () => {
     }
   }, [state]);
 
-  // async function handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   const formData = new FormData(event.target);
-
-  //   console.log(formData.getAll());
-
-  //   const response = await fetch("/api/contact", {
-  //     method: "post",
-  //     body: formData,
-  //   });
-  // }
-
   return (
     <div className={styles.container}>
       <CustomHead
