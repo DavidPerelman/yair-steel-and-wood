@@ -50,7 +50,7 @@ const AboutPage = () => {
       if (newContent) {
         alert("העמוד עודכן בהצלחה!");
         setPageContent(newContent);
-        router.reload();
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
@@ -71,7 +71,7 @@ const AboutPage = () => {
 
       if (newImage) {
         alert("התמונה עודכנה בהצלחה!");
-        router.reload();
+        router.refresh();
       }
     } catch (error) {
       console.log(error);
