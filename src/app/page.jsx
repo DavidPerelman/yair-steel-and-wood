@@ -8,6 +8,7 @@ import AboutContainer from "@/components/aboutContainer/AboutContainer";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import Loading from "./loading";
+import { callApiGet } from "@/lib/action";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
@@ -16,13 +17,9 @@ const Home = () => {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const resProjects = await fetch(
+        const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/projects`
         );
-        if (!resProjects.ok)
-          throw new Error(`HTTP error! status: ${resProjects.status}`);
-
-        const data = await resProjects.json();
         if (data.projects) setProjects(data.projects);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -31,13 +28,9 @@ const Home = () => {
 
     const getReviews = async () => {
       try {
-        const resReviews = await fetch(
+        const data = await callApiGet(
           `${process.env.NEXT_PUBLIC_API_URL}/api/reviews`
         );
-        if (!resReviews.ok)
-          throw new Error(`HTTP error! status: ${resReviews.status}`);
-
-        const data = await resReviews.json();
         if (data.reviews) setReviews(data.reviews);
       } catch (error) {
         console.error("Error fetching reviews:", error);
