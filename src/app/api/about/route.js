@@ -40,6 +40,7 @@ export const PATCH = async (req) => {
     return NextResponse.json({ newImageAdded: newImageAdded });
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to fetch posts");
+    // throw new Error("Failed to fetch posts");
+    return NextResponse.json({ error: error });
   }
 };
