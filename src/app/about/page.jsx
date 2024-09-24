@@ -36,10 +36,6 @@ const AboutPage = () => {
     getPage();
   }, [pathname]);
 
-  if (pageContent !== null) {
-    console.log(pageContent.sections[0].title);
-  }
-
   return (
     <>
       <CustomHead

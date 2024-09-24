@@ -27,13 +27,13 @@ export const GET = async (request, { params }) => {
 
 export async function PUT(request, { params }) {
   await connectToDb();
-  const { title, sections, images } = await request.json();
+  const { _id, title, sections, images } = await request.json();
 
   try {
     // Validate sections structure
     if (
       !Array.isArray(sections) ||
-      sections.some((para) => typeof para !== "string")
+      sections[0].paragraphs.some((para) => typeof para !== "string")
     ) {
       return NextResponse.json(
         { error: "Invalid sections structure" },
@@ -41,22 +41,21 @@ export async function PUT(request, { params }) {
       );
     }
 
-    const existingPage = await Page.findById(params.id);
+    const existingPage = await Page.findById(_id);
     if (!existingPage) {
       return NextResponse.json({ error: "Page not found" }, { status: 404 });
     }
 
     // Handle image deletions
     for (const oldImage of existingPage.images) {
-      if (!images.includes(oldImage)) {
-        const publicId = oldImage.split("/").pop().split(".")[0];
-        await cloudinary.uploader.destroy(publicId);
+      if (!images.includes(oldImage.public_id)) {
+        await cloudinary.uploader.destroy(oldImage.public_id);
       }
     }
 
     // Update the post
     const updatedPage = await Page.findByIdAndUpdate(
-      params.id,
+      _id,
       { title, sections, images },
       { new: true, runValidators: true }
     );
