@@ -41,14 +41,12 @@ const CreateAboutPage = () => {
     }
   };
 
-  // Handle changes to sections titles
   const handleSectionTitleChange = (index, value) => {
     const newSection = [...sections];
     newSection[index].title = value; // Update the title of the specific sections
     setSections(newSection);
   };
 
-  // Handle sections changes for a specific sections and paragraph
   const handleSectionChange = (sectionIndex, paragraphIndex, value) => {
     const newSection = [...sections];
     newSection[sectionIndex].paragraphs[paragraphIndex] = value; // Update specific paragraph in a sections
