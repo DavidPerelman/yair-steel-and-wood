@@ -27,7 +27,7 @@ const AdminPage = () => {
         <Link className={styles.logoutBtn} href={"/panel/projectsPanel"}>
           <h2 className={styles.linkHeader}>עריכת פרויקטים</h2>
         </Link>
-        <Link className={styles.logoutBtn} href={"/panel/about"}>
+        <Link className={styles.logoutBtn} href={"/panel/pages/about/edit"}>
           <h2 className={styles.linkHeader}>עריכת אודות</h2>
         </Link>
         <Link className={styles.logoutBtn} href={"/panel/contact"}>

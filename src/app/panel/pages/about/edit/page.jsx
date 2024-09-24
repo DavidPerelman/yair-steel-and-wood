@@ -21,10 +21,6 @@ const EditAboutPage = () => {
   const segments = pathname.split("/").filter(Boolean);
   const targetSegment = segments[2];
 
-  // useEffect(() => {
-  //   console.log({ title, sections, images });
-  // }, [title, sections, images]);
-
   useEffect(() => {
     const fetchPost = async () => {
       const res = await fetch(
@@ -44,37 +40,12 @@ const EditAboutPage = () => {
     if (targetSegment) {
       fetchPost();
     }
-
-    // const getPage = async () => {
-    //   try {
-    //     const data = await callApiGet(
-    //       `${process.env.NEXT_PUBLIC_API_URL}/api/pages/${targetSegment}`
-    //     );
-
-    //     const page = data.page;
-
-    //     if (!page) {
-    //       console.log("Page not found");
-    //     } else {
-    //       setPageContent(page);
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching project:", error);
-    //   }
-    // };
-
-    // getPage();
   }, [pathname, targetSegment]);
-
-  if (pageContent !== null) {
-    console.log(pageContent);
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const _id = pageContent._id;
-    console.log({ _id, title, sections, images });
 
     try {
       const res = await fetch(
@@ -101,7 +72,6 @@ const EditAboutPage = () => {
     const newContent = [...sections];
     newContent[0].paragraphs[index] = value;
     setSections(newContent);
-    console.log(newContent);
   };
 
   const addParagraph = () => {
@@ -171,98 +141,12 @@ const EditAboutPage = () => {
     }
   };
 
-  const removeImage = (index) => {
-    const newImages = images.filter((_, i) => i !== index);
-    setImages(newImages);
-  };
-
   if (isLoading) return <Loading />;
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log({ title, sections, images });
-
-  //   try {
-  //     const res = await fetch("/api/pages", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ title, sections, images }),
-  //     });
-  //     if (res.ok) {
-  //       router.push("/");
-  //     } else {
-  //       const errorData = await res.json();
-  //       throw new Error(errorData.error || "Failed to edit post");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
-
-  // // Handle changes to sections titles
-  // const handleSectionTitleChange = (index, value) => {
-  //   const newSection = [...sections];
-  //   newSection[index].title = value; // Update the title of the specific sections
-  //   setSections(newSection);
-  // };
-
-  // // Handle sections changes for a specific sections and paragraph
-  // const handleSectionChange = (sectionIndex, paragraphIndex, value) => {
-  //   const newSection = [...sections];
-  //   newSection[sectionIndex].paragraphs[paragraphIndex] = value; // Update specific paragraph in a sections
-  //   setSections(newSection);
-  // };
-
-  // // Add a new paragraph to the last sections
-  // const addParagraph = (sectionIndex) => {
-  //   const newSection = [...sections];
-  //   newSection[sectionIndex].paragraphs.push(""); // Add new paragraph to the sections
-  //   setSections(newSection);
-  // };
-
-  // // Add a new sections
-  // const addSection = () => {
-  //   setSections([...sections, { title: "", paragraphs: [""] }]); // Add a new section with one paragraph
-  // };
-
-  // const handleImageUpload = async (e) => {
-  //   const file = e.target.files[0];
-  //   if (!file) return;
-
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-  //   formData.append("upload_preset", "xexjtgmt");
-
-  //   try {
-  //     const res = await fetch(
-  //       `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
-  //       {
-  //         method: "POST",
-  //         body: formData,
-  //       }
-  //     );
-  //     const data = await res.json();
-  //     setImages([
-  //       ...images,
-  //       { secure_url: data.secure_url, public_id: data.public_id },
-  //     ]);
-  //   } catch (error) {
-  //     console.error("Error uploading image:", error);
-  //   }
-  // };
 
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-          required
-        />
+        <h1>{title}</h1>
         {Array.isArray(sections) && sections.length > 0 ? (
           sections.map((sec, sectionIndex) => (
             <div key={sectionIndex} className={styles.sections}>
