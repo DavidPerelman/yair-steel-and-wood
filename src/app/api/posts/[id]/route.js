@@ -24,7 +24,6 @@ export async function PUT(request, { params }) {
   const { title, content, images } = await request.json();
 
   try {
-    // Validate content structure
     if (
       !Array.isArray(content) ||
       content.some((para) => typeof para !== "string")
