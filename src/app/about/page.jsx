@@ -6,26 +6,39 @@ import Image from "next/image";
 import { callApiGet } from "@/lib/action";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
+import { usePathname } from "next/navigation";
 
 const AboutPage = () => {
+  const pathname = usePathname();
   const [pageContent, setPageContent] = useState(null);
 
   useEffect(() => {
-    const getPageContent = async () => {
+    const getPage = async () => {
       try {
         const data = await callApiGet(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/about`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/pages/${pathname.substring(
+            1
+          )}`
         );
 
-        if (data.data) setPageContent(data.data[0]);
+        const page = data.page;
+
+        if (!page) {
+          console.log("Page not found");
+        } else {
+          setPageContent(page);
+        }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching project:", error);
       }
     };
 
-    getPageContent();
-    console.log(pageContent);
-  }, [pageContent]);
+    getPage();
+  }, [pathname]);
+
+  if (pageContent !== null) {
+    console.log(pageContent.sections[0].title);
+  }
 
   return (
     <>
@@ -34,16 +47,19 @@ const AboutPage = () => {
         description="יאיר ברזל ועץ - אודות"
       />
       {pageContent !== null ? (
-        <Image
-          alt="About page image"
-          src={pageContent.backgroundImage}
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-          unoptimized
-          className={styles.image}
-        />
+        <>
+          <Image
+            alt="About page image"
+            src={pageContent.images[0].secure_url}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+            unoptimized
+            className={styles.image}
+            priority
+          />
+        </>
       ) : (
         <></>
       )}
@@ -51,9 +67,10 @@ const AboutPage = () => {
         <div className={styles.textContent}>
           {pageContent !== null ? (
             <>
-              <h1 className={styles.first_paragrah}>{pageContent.header}</h1>
-              <p className={styles.first_paragrah}>{pageContent.content[0]}</p>
-              {pageContent.content.slice(1).map((item, i) => (
+              <h1 className={styles.first_paragrah}>
+                {pageContent.sections[0].title}
+              </h1>
+              {pageContent.sections[0].paragraphs.map((item, i) => (
                 <p key={i} className={styles.paragrah}>
                   {item}
                 </p>

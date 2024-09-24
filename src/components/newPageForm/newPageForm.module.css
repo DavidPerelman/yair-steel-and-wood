@@ -1,0 +1,28 @@
+.formContainer form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  width: 80px;
+  width: 30%;
+  align-self: center;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.image input {
+  text-align-last: center;
+}
