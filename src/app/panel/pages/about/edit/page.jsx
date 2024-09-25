@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./editPage.module.css";
-import NewPageForm from "@/components/newPageForm/NewPageForm";
 import Loading from "@/app/loading";
 
 const EditAboutPage = () => {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
-  // const [content, setContent] = useState([]);
   const [editingParagraph, setEditingParagraph] = useState(null);
   const [pageContent, setPageContent] = useState(null);
   const [title, setTitle] = useState("");
@@ -200,7 +198,7 @@ const EditAboutPage = () => {
             </div>
           ))
         ) : (
-          <p>No sections available</p>
+          <p>אין פסקאות</p>
         )}
 
         <div className={styles.imageContainer}>

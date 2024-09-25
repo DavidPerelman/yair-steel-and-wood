@@ -3,61 +3,68 @@
 import Loading from "@/app/loading";
 import { deleteImageAction, uploadToCloudinary } from "@/lib/action";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
-const UploadImageForm = ({ formData, setFormData }) => {
-  const [state, formAction] = useFormState(uploadToCloudinary, undefined);
+const UploadImageForm = ({
+  projectImages,
+  setProjectImages,
+  handleImageUpload,
+}) => {
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploadedImage(file);
+  };
 
   const deleteImage = async (imageIndex, imageObj) => {
     const deleted = await deleteImageAction(imageObj.public_id);
 
     if (deleted.result === "ok") {
-      setFormData((prevState) => ({
-        ...prevState,
-        images: prevState.images.filter((_, index) => index !== imageIndex),
-      }));
+      const newContent = [...projectImages.filter((_, i) => i !== imageIndex)];
+      setProjectImages(newContent);
     }
   };
 
-  useEffect(() => {
-    if (state !== undefined) {
-      const newImageObject = {
-        public_id: state.public_id,
-        secure_url: state.secure_url,
-      };
+  // useEffect(() => {
+  //   if (state !== undefined) {
+  //     const newImageObject = {
+  //       public_id: state.public_id,
+  //       secure_url: state.secure_url,
+  //     };
 
-      setFormData((prevState) => ({
-        ...prevState,
-        images: [...prevState.images, newImageObject],
-      }));
-    }
-  }, [state, setFormData]);
+  //     setFormData((prevState) => ({
+  //       ...prevState,
+  //       images: [...prevState.images, newImageObject],
+  //     }));
+  //   }
+  // }, [state, setFormData]);
 
   return (
     <div>
-      <form
-        action={formAction}
-        className="bg-white border border-slate-200 dark:border-slate-500 rounded p-6 mb-6"
-      >
+      <div>
         <p className="mb-6">
-          <label htmlFor="image" className="block font-semibold text-sm mb-2">
-            בחר תמונות:
-          </label>
+          <label htmlFor="image">בחר תמונות:</label>
           <br />
         </p>
         <input
+          onChange={handleImageChange}
           id="image"
-          className="block w-full border-slate-400 rounded focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           type="file"
           name="image"
+          accept="image/*"
           required
         />
-        <button>הוסף תמונה</button>
-      </form>
-      {formData.images.length !== 0 ? (
+        <button onClick={() => handleImageUpload(uploadedImage, "images")}>
+          הוסף תמונה
+        </button>
+      </div>
+      {projectImages.length !== 0 ? (
         <div key={""}>
-          {formData.images.map((image, imageIndex) => (
+          {projectImages.map((image, imageIndex) => (
             <div key={imageIndex}>
               <button onClick={() => deleteImage(imageIndex, image)}>
                 מחק תמונה
@@ -68,6 +75,7 @@ const UploadImageForm = ({ formData, setFormData }) => {
                 height={100}
                 width={100}
                 alt=""
+                unoptimized
               />
             </div>
           ))}

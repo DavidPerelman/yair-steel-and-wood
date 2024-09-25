@@ -2,36 +2,49 @@
 
 import styles from "./newProjectForm.module.css";
 
-const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
-  const handleDescriptionChange = (index, value) => {
-    const newDescription = [...formData.description];
-    newDescription[index] = value;
-    setFormData((prevState) => ({
-      ...prevState,
-      description: newDescription,
-    }));
+const NewProjectForm = ({
+  divisions,
+  materials,
+  projectTitle,
+  setProjectTitle,
+  projectDescription,
+  setProjectDescription,
+  projectPrice,
+  setProjectPrice,
+  projectHeight,
+  setProjectHeight,
+  projectWidth,
+  setProjectWidth,
+  projectLength,
+  setProjectLength,
+  projectDivision,
+  setProjectDivision,
+  projectMaterial,
+  setProjectMaterial,
+}) => {
+  const addDescriptionParagraph = () => {
+    const newParagraph = [...projectDescription];
+    newParagraph.push("");
+    setProjectDescription(newParagraph);
   };
 
-  const addDescriptionParagraph = () => {
-    setFormData((prevState) => ({
-      ...prevState,
-      description: [...prevState.description, ""],
-    }));
+  const handleDescriptionParagraph = (paragraphIndex, value) => {
+    const newSection = [...projectDescription];
+    newSection[paragraphIndex] = value;
+    setProjectDescription(newSection);
   };
 
   const removeDescriptionParagraph = (index) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      description: prevState.description.filter((_, i) => i !== index),
-    }));
+    const newContent = [...projectDescription.filter((_, i) => i !== index)];
+    setProjectDescription(newContent);
   };
 
   const onOptionDivisionChangeHandler = (e) => {
-    setFormData({ ...formData, division: e.target.value });
+    setProjectDivision(e.target.value);
   };
 
   const onOptionMaterialChangeHandler = (e) => {
-    setFormData({ ...formData, material: e.target.value });
+    setProjectMaterial(e.target.value);
   };
 
   return (
@@ -41,36 +54,32 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         autoFocus
         required
         type="text"
-        value={formData.title}
-        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        value={projectTitle}
+        onChange={(e) => setProjectTitle(e.target.value)}
       />
 
       <div className={styles.descriptions}>
         <label>תיאור הפרויקט:</label>
-        {formData.description.map((paragraph, index) => (
-          <div key={index} className={styles.descriptionParagraph}>
-            <label
-              htmlFor={`description-${index}`}
-              className={styles.descriptionParagraphHeader}
-            >
-              פסקה {index + 1}
-              <button
-                onClick={() => removeDescriptionParagraph(index)}
-                className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                disabled={formData.description.length === 1}
-              >
-                מחק
-              </button>
-            </label>
+        {projectDescription.map((paragraph, paragraphIndex) => (
+          <div key={paragraphIndex} className={styles.descriptionParagraph}>
             <textarea
-              id={`description-${index}`}
               value={paragraph}
-              onChange={(e) => handleDescriptionChange(index, e.target.value)}
+              onChange={(e) =>
+                handleDescriptionParagraph(paragraphIndex, e.target.value)
+              }
+              placeholder={`פסקה ${paragraphIndex + 1}`}
               required
-              rows={3}
             />
+            <button
+              onClick={() => removeDescriptionParagraph(paragraphIndex)}
+              className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+              disabled={projectDescription.length === 1}
+            >
+              מחק פסקה {paragraphIndex + 1}
+            </button>
           </div>
         ))}
+
         <button
           type="button"
           onClick={addDescriptionParagraph}
@@ -85,8 +94,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         required
         min={1}
         type="number"
-        value={formData.price}
-        onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+        value={projectPrice}
+        onChange={(e) => setProjectPrice(e.target.value)}
       />
 
       <label>גובה:</label>
@@ -94,8 +103,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         required
         min={1}
         type="number"
-        value={formData.height}
-        onChange={(e) => setFormData({ ...formData, height: e.target.value })}
+        value={projectHeight}
+        onChange={(e) => setProjectHeight(e.target.value)}
       />
 
       <label>רוחב:</label>
@@ -103,8 +112,8 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         required
         min={1}
         type="number"
-        value={formData.width}
-        onChange={(e) => setFormData({ ...formData, width: e.target.value })}
+        value={projectWidth}
+        onChange={(e) => setProjectWidth(e.target.value)}
       />
 
       <label>אורך:</label>
@@ -112,17 +121,17 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
         required
         min={1}
         type="number"
-        value={formData.length}
-        onChange={(e) => setFormData({ ...formData, length: e.target.value })}
+        value={projectLength}
+        onChange={(e) => setProjectLength(e.target.value)}
       />
 
-      <label htmlFor="division">מחלקה:</label>
       <select
+        value={""}
+        onChange={onOptionDivisionChangeHandler}
         name="division"
         id="division"
-        onChange={onOptionDivisionChangeHandler}
       >
-        <option value="division" disabled defaultValue="בחר מחלקה">
+        <option value="" disabled>
           בחר מחלקה
         </option>
         {divisions &&
@@ -136,11 +145,12 @@ const NewProjectForm = ({ formData, setFormData, divisions, materials }) => {
 
       <label htmlFor="material">חומר:</label>
       <select
+        value={""}
+        onChange={onOptionMaterialChangeHandler}
         name="material"
         id="material"
-        onChange={onOptionMaterialChangeHandler}
       >
-        <option value="division" disabled defaultValue="">
+        <option value="" disabled>
           בחר חומר
         </option>
         {materials &&

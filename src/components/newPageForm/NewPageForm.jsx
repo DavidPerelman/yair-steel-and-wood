@@ -13,8 +13,6 @@ const NewPageForm = ({
   handleImageUpload,
   images,
 }) => {
-  console.log(images);
-
   return (
     <form onSubmit={handleSubmit}>
       <input

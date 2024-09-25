@@ -49,7 +49,7 @@ const CreateAboutPage = () => {
 
   const handleSectionChange = (sectionIndex, paragraphIndex, value) => {
     const newSection = [...sections];
-    newSection[sectionIndex].paragraphs[paragraphIndex] = value; // Update specific paragraph in a sections
+    newSection[sectionIndex].paragraphs[paragraphIndex] = value;
     setSections(newSection);
   };
 

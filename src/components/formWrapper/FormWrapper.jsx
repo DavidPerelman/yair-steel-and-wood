@@ -4,33 +4,184 @@ import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
-import { callApiPost } from "@/lib/action";
-import { redirect } from "next/navigation";
+// import { callApiPost } from "@/lib/action";
+import { useRouter } from "next/navigation";
+
+const data = {
+  title: "dddd",
+  description: ["dsds", "dsd"],
+  images: [
+    {
+      secure_url:
+        "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290523/ed6ggfuanfv9q2uioxls.jpg",
+      public_id: "ed6ggfuanfv9q2uioxls",
+    },
+    {
+      secure_url:
+        "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290533/mklx2r0wyqb1mxqzdadz.jpg",
+      public_id: "mklx2r0wyqb1mxqzdadz",
+    },
+  ],
+  thumbnail: {
+    secure_url:
+      "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290154/ntnlojvblqecf0onvkv2.jpg",
+    public_id: "ntnlojvblqecf0onvkv2",
+  },
+  price: "332",
+  height: "3232",
+  width: "323",
+  length: "323",
+  division: "66d4a271d513497c1b5c1a03",
+  material: "66d4a41bd513497c1b5c1a09",
+};
 
 const FormWrapper = ({ divisions, materials }) => {
+  const [page, setPage] = useState(0);
+  const [projectTitle, setProjectTitle] = useState("");
+  const [projectDescription, setProjectDescription] = useState([""]);
+  const [projectImages, setProjectImages] = useState([]);
+  const [projectThumbnail, setProjectThumbnail] = useState({});
+  const [projectPrice, setProjectPrice] = useState("");
+  const [projectHeight, setProjectHeight] = useState("");
+  const [projectWidth, setProjectWidth] = useState("");
+  const [projectLength, setProjectLength] = useState("");
+  const [projectDivision, setProjectDivision] = useState("");
+  const [projectMaterial, setProjectMaterial] = useState("");
+
+  const [newProjectData, setNewProjectData] = useState({
+    title: data.title,
+    description: data.description,
+    images: data.images,
+    thumbnail: data.thumbnail,
+    price: data.price,
+    height: data.height,
+    width: data.width,
+    length: data.length,
+    division: data.division,
+    material: data.material,
+  });
+
+  const formTitle = ["פרטי הפרויקט", "תמונת תצוגה", "תמונות"];
+  const router = useRouter();
+
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch("/api/projects", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        // body: JSON.stringify({
+        //   title: projectTitle,
+        //   description: projectDescription,
+        //   images: projectImages,
+        //   thumbnail: projectThumbnail,
+        //   price: projectPrice,
+        //   height: projectHeight,
+        //   width: projectWidth,
+        //   length: projectLength,
+        //   division: projectDivision,
+        //   material: projectMaterial,
+        // }),
+      });
+      if (res.ok) {
+        router.push("/panel/projectsPanel");
+        console.log(res.json());
+      } else {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Failed to create post");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleImageUpload = async (uploadedImage, type) => {
+    const formData = new FormData();
+    formData.append("file", uploadedImage);
+    formData.append("upload_preset", "xexjtgmt");
+    try {
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await res.json();
+
+      const newImageObject = {
+        secure_url: data.secure_url,
+        public_id: data.public_id,
+      };
+
+      if (type === "thumbnail") {
+        setProjectThumbnail(newImageObject);
+      } else if (type === "images") {
+        const newImage = [...projectImages];
+        newImage.push(newImageObject);
+        setProjectImages(newImage);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  ///////////////////////////
   const [newProjectAdded, setNewProjectAdded] = useState(false);
 
   const nextPageClick = () => {
+    setNewProjectData({
+      title: data.title,
+      description: data.description,
+      images: data.images,
+      thumbnail: data.thumbnail,
+      price: data.price,
+      height: data.height,
+      width: data.width,
+      length: data.length,
+      division: data.division,
+      material: data.material,
+    });
+
     if (page === 0) {
       if (
-        formData.title === "" ||
-        formData.description[0] === "" ||
-        formData.price === "" ||
-        formData.height === "" ||
-        formData.width === "" ||
-        formData.length === "" ||
-        formData.division.length === 0 ||
-        formData.material.length === 0
+        projectTitle === "" ||
+        projectDescription[0] === "" ||
+        projectPrice === "" ||
+        projectHeight === "" ||
+        projectWidth === "" ||
+        projectLength === "" ||
+        projectDivision.length === 0 ||
+        projectMaterial.length === 0
       ) {
-        alert("נא למלא את הטופס!");
-        return;
+        setPage((currPage) => currPage + 1);
+
+        // alert("נא למלא את הטופס!");
+        // return;
       } else {
         setPage((currPage) => currPage + 1);
       }
     } else if (page === 1) {
-      if (formData.thumbnail === "") {
-        alert("נא להוסיף תמונה!");
-        return;
+      setNewProjectData({
+        title: data.title,
+        description: data.description,
+        images: data.images,
+        thumbnail: data.thumbnail,
+        price: data.price,
+        height: data.height,
+        width: data.width,
+        length: data.length,
+        division: data.division,
+        material: data.material,
+      });
+
+      if (!projectThumbnail) {
+        setPage((currPage) => currPage + 1);
+
+        // alert("נא להוסיף תמונה!");
+        // return;
       } else {
         setPage((currPage) => currPage + 1);
       }
@@ -38,14 +189,30 @@ const FormWrapper = ({ divisions, materials }) => {
   };
 
   const addProjectClick = async () => {
-    if (formData.images.length === 0) {
-      alert("נא להוסיף תמונות!");
-      return;
+    setNewProjectData({
+      title: projectTitle,
+      description: projectDescription,
+      images: projectImages,
+      thumbnail: projectThumbnail,
+      price: projectPrice,
+      height: projectHeight,
+      width: projectWidth,
+      length: projectLength,
+      division: projectDivision,
+      material: projectMaterial,
+    });
+
+    if (projectImages.length === 0) {
+      const newProject = await handleSubmit();
+
+      // alert("נא להוסיף תמונות!");
+      // return;
     } else {
-      const newProject = await callApiPost(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
-        formData
-      );
+      // const newProject = await callApiPost(
+      //   `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
+      //   formData
+      // );
+      const newProject = await handleSubmit();
 
       if (newProject) {
         setNewProjectAdded(true);
@@ -54,48 +221,55 @@ const FormWrapper = ({ divisions, materials }) => {
   };
 
   useEffect(() => {
-    if (newProjectAdded) {
-      redirect("/panel/projectsPanel");
-    }
-  }, [newProjectAdded]);
-
-  const [page, setPage] = useState(0);
-  const [formData, setFormData] = useState({
-    title: "",
-    description: [""],
-    images: [],
-    thumbnail: "",
-    price: "",
-    height: "",
-    width: "",
-    length: "",
-    division: [],
-    material: [],
-  });
-  const formTitle = ["פרטי הפרויקט", "תמונת תצוגה", "תמונות"];
+    // if (newProjectAdded) {
+    //   redirect("/panel/projectsPanel");
+    // }
+  }, []);
 
   const pageDisplay = () => {
     if (page === 0) {
       return (
         <NewProjectForm
-          formData={formData}
-          setFormData={setFormData}
+          projectTitle={projectTitle}
+          setProjectTitle={setProjectTitle}
+          setProjectDescription={setProjectDescription}
+          projectDescription={projectDescription}
+          projectPrice={projectPrice}
+          setProjectPrice={setProjectPrice}
+          projectHeight={projectHeight}
+          setProjectHeight={setProjectHeight}
+          projectWidth={projectWidth}
+          setProjectWidth={setProjectWidth}
+          projectLength={projectLength}
+          setProjectLength={setProjectLength}
           divisions={divisions}
+          setProjectDivision={setProjectDivision}
           materials={materials}
+          setProjectMaterial={setProjectMaterial}
         />
       );
     } else if (page === 1) {
       return (
-        <UploadThumbnailForm formData={formData} setFormData={setFormData} />
+        <UploadThumbnailForm
+          projectThumbnail={projectThumbnail}
+          setProjectThumbnail={setProjectThumbnail}
+          handleImageUpload={handleImageUpload}
+        />
       );
     } else {
-      return <UploadImageForm formData={formData} setFormData={setFormData} />;
+      return (
+        <UploadImageForm
+          projectImages={projectImages}
+          setProjectImages={setProjectImages}
+          handleImageUpload={handleImageUpload}
+        />
+      );
     }
   };
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   return (
     <div>

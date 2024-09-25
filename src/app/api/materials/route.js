@@ -12,7 +12,6 @@ export const GET = async () => {
     await connectToDb();
 
     const materials = await Material.find({});
-    console.log(materials);
 
     return NextResponse.json({ materials });
   } catch (error) {

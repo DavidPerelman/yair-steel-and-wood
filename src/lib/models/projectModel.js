@@ -2,9 +2,20 @@ import mongoose from "mongoose";
 import { Division } from "./divisionModel";
 import { Material } from "./materialModel";
 
+// const imageSchema = new mongoose.Schema({
+//   secure_url: String,
+//   public_id: String,
+// });
+
 const imageSchema = new mongoose.Schema({
-  secure_url: String,
-  public_id: String,
+  secure_url: {
+    type: String,
+    required: true,
+  },
+  public_id: {
+    type: String,
+    required: true,
+  },
 });
 
 const projectSchema = new mongoose.Schema({

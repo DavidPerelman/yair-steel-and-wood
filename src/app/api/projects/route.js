@@ -21,18 +21,91 @@ export const GET = async () => {
   }
 };
 
-export const POST = async (req) => {
-  const body = await req.json();
+// export const POST = async (req) => {
+//   const body = await req.json();
+//   const slug = uuid();
+//   const height = parseInt(body.height);
+//   const width = parseInt(body.width);
+//   const length = parseInt(body.length);
+
+//   try {
+//     const { title, description, thumbnail, images, price, division, material } =
+//       body;
+
+//     const newProject = Project({
+//       title,
+//       description,
+//       thumbnail,
+//       images,
+//       price,
+//       height,
+//       width,
+//       length,
+//       division,
+//       material,
+//       slug,
+//     });
+
+//     const newProjectAdded = await newProject.save();
+//     console.log("saved to db");
+
+//     return NextResponse.json({ newProjectAdded });
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Failed to fetch posts");
+//   }
+// };
+
+export async function POST(request) {
+  await connectToDb();
+  const {
+    title,
+    description,
+    images,
+    thumbnail,
+    price,
+    height,
+    width,
+    length,
+    division,
+    material,
+  } = await request.json();
   const slug = uuid();
-  const height = parseInt(body.height);
-  const width = parseInt(body.width);
-  const length = parseInt(body.length);
+
+  console.log(
+    title,
+    description,
+    thumbnail,
+    images,
+    price,
+    height,
+    width,
+    length,
+    division,
+    material,
+    slug
+  );
 
   try {
-    const { title, description, thumbnail, images, price, division, material } =
-      body;
+    if (
+      !title ||
+      !description ||
+      !Array.isArray(description) ||
+      description.length === 0 ||
+      !thumbnail ||
+      !images ||
+      !Array.isArray(images) ||
+      images.length === 0 ||
+      !price ||
+      !width ||
+      !length ||
+      !division ||
+      !material
+    ) {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
 
-    const newProject = Project({
+    const newProject = new Project({
       title,
       description,
       thumbnail,
@@ -45,13 +118,14 @@ export const POST = async (req) => {
       material,
       slug,
     });
+    await newProject.save();
 
-    const newProjectAdded = await newProject.save();
-    console.log("saved to db");
-
-    return NextResponse.json({ newProjectAdded });
+    return NextResponse.json(
+      { message: "Page created successfully", newProject },
+      { status: 201 }
+    );
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch posts");
+    console.error("Error creating page:", error);
+    return NextResponse.json({ error: error.message }, { status: 400 });
   }
-};
+}
