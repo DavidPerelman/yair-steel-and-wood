@@ -12,7 +12,6 @@ import Footer from "@/components/footer/Footer";
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [aboutPage, setAboutPage] = useState(pathname === "/about");
 
   useEffect(() => {
     setOpen(false);
@@ -36,7 +35,6 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             <Navbar open={open} setOpen={setOpen} />
             <div className="container">{children}</div>
-            {/* {!aboutPage && <Footer />} */}
             <Footer />
           </AuthProvider>
         </div>

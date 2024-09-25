@@ -1,10 +1,8 @@
 "use client";
 
-import Loading from "@/app/loading";
-import { deleteImageAction, uploadToCloudinary } from "@/lib/action";
+import { deleteImageAction } from "@/lib/action";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useFormState } from "react-dom";
+import { useState } from "react";
 
 const UploadImageForm = ({
   projectImages,
@@ -28,20 +26,6 @@ const UploadImageForm = ({
       setProjectImages(newContent);
     }
   };
-
-  // useEffect(() => {
-  //   if (state !== undefined) {
-  //     const newImageObject = {
-  //       public_id: state.public_id,
-  //       secure_url: state.secure_url,
-  //     };
-
-  //     setFormData((prevState) => ({
-  //       ...prevState,
-  //       images: [...prevState.images, newImageObject],
-  //     }));
-  //   }
-  // }, [state, setFormData]);
 
   return (
     <div>

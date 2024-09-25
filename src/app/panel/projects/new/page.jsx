@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import styles from "./createProject.module.css";
-import NewPageForm from "@/components/newPageForm/NewPageForm";
 import { callApiGet } from "@/lib/action";
 import MultistepsForm from "@/components/multistepsForm/MultistepsForm";
+import CustomHead from "@/components/customHead/CustomHead";
 
 const NewProjectPage = () => {
   const [materials, setMaterials] = useState([]);
@@ -40,16 +37,18 @@ const NewProjectPage = () => {
   }, []);
 
   return (
-    <div className={styles.formContainer}>
-      <h1>יצירת פרויקט חדש</h1>
-      <div className={styles.container}>
-        <div className={styles.NewProjectPage}>
-          {divisions && materials && (
-            <MultistepsForm divisions={divisions} materials={materials} />
-          )}
-        </div>
-      </div>
-    </div>
+    <>
+      <CustomHead
+        title="יאיר ברזל ועץ - יצירת פרויקט חדש"
+        description="יאיר ברזל ועץ - יצירת פרויקט חדש"
+      />
+      {divisions.length > 0 && materials.length > 0 && (
+        <>
+          <h1>יצירת פרויקט חדש</h1>
+          <MultistepsForm divisions={divisions} materials={materials} />
+        </>
+      )}
+    </>
   );
 };
 

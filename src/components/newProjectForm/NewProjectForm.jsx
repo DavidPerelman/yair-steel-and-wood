@@ -17,9 +17,7 @@ const NewProjectForm = ({
   setProjectWidth,
   projectLength,
   setProjectLength,
-  projectDivision,
   setProjectDivision,
-  projectMaterial,
   setProjectMaterial,
 }) => {
   const addDescriptionParagraph = () => {
@@ -125,6 +123,7 @@ const NewProjectForm = ({
         onChange={(e) => setProjectLength(e.target.value)}
       />
 
+      <label htmlFor="material">מחלקה:</label>
       <select
         value={""}
         onChange={onOptionDivisionChangeHandler}

@@ -2,7 +2,7 @@
 
 import { deleteImageAction } from "@/lib/action";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const UploadThumbnailForm = ({
   projectThumbnail,

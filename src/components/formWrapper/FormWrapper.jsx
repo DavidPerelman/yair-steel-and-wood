@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
@@ -164,14 +165,10 @@ const FormWrapper = ({ divisions, materials }) => {
 
   return (
     <div>
-      <div className={styles.progress_bar}>
-        <div className={styles.steps}>
-          {formTitle.length} / {page + 1}
-        </div>
-      </div>
-      <div className={styles.form_container}>
-        <h2 className={styles.header}>{formTitle[page]}</h2>
-        <div className={styles.body}>{pageDisplay()}</div>
+      {formTitle.length} / {page + 1}
+      <div>
+        <h2>{formTitle[page]}</h2>
+        <div>{pageDisplay()}</div>
         <div className={styles.footer}>
           <button
             disabled={page === 0}

@@ -44,8 +44,6 @@ const ProjectsPage = () => {
         title="יאיר ברזל ועץ - חנות"
         description="יאיר ברזל ועץ - חנות"
       />
-      {/* <div className={styles.pageHeader}>חנות</div> */}
-
       {projects.length > 0 && divisions.length > 0 ? (
         <ProjectsContainer
           projects={projects}
