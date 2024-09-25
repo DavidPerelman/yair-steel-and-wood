@@ -43,7 +43,7 @@ const FormWrapper = ({ divisions, materials }) => {
         }),
       });
       if (res.ok) {
-        router.push("/panel/projectsPanel");
+        router.push("/panel/projects");
         console.log(res.json());
       } else {
         const errorData = await res.json();

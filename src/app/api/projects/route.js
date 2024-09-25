@@ -72,20 +72,6 @@ export async function POST(request) {
   } = await request.json();
   const slug = uuid();
 
-  console.log(
-    title,
-    description,
-    thumbnail,
-    images,
-    price,
-    height,
-    width,
-    length,
-    division,
-    material,
-    slug
-  );
-
   try {
     if (
       !title ||
