@@ -53,7 +53,7 @@ const AdminProjectsPage = () => {
         <ProjectsContainer
           projects={projects}
           divisions={divisions}
-          link="/panel/projectsPanel/"
+          link="/panel/projects/"
         />
       ) : (
         <>

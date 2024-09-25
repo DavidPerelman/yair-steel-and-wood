@@ -4,38 +4,10 @@ import styles from "./formWrapper.module.css";
 import NewProjectForm from "../newProjectForm/NewProjectForm";
 import UploadImageForm from "../uploadImagesForm/UploadImagesForm";
 import UploadThumbnailForm from "../uploadThumbnailForm/UploadThumbnailForm";
-// import { callApiPost } from "@/lib/action";
 import { useRouter } from "next/navigation";
 
-const data = {
-  title: "dddd",
-  description: ["dsds", "dsd"],
-  images: [
-    {
-      secure_url:
-        "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290523/ed6ggfuanfv9q2uioxls.jpg",
-      public_id: "ed6ggfuanfv9q2uioxls",
-    },
-    {
-      secure_url:
-        "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290533/mklx2r0wyqb1mxqzdadz.jpg",
-      public_id: "mklx2r0wyqb1mxqzdadz",
-    },
-  ],
-  thumbnail: {
-    secure_url:
-      "https://res.cloudinary.com/dflevhwgh/image/upload/v1727290154/ntnlojvblqecf0onvkv2.jpg",
-    public_id: "ntnlojvblqecf0onvkv2",
-  },
-  price: "332",
-  height: "3232",
-  width: "323",
-  length: "323",
-  division: "66d4a271d513497c1b5c1a03",
-  material: "66d4a41bd513497c1b5c1a09",
-};
-
 const FormWrapper = ({ divisions, materials }) => {
+  const router = useRouter();
   const [page, setPage] = useState(0);
   const [projectTitle, setProjectTitle] = useState("");
   const [projectDescription, setProjectDescription] = useState([""]);
@@ -48,21 +20,7 @@ const FormWrapper = ({ divisions, materials }) => {
   const [projectDivision, setProjectDivision] = useState("");
   const [projectMaterial, setProjectMaterial] = useState("");
 
-  const [newProjectData, setNewProjectData] = useState({
-    title: data.title,
-    description: data.description,
-    images: data.images,
-    thumbnail: data.thumbnail,
-    price: data.price,
-    height: data.height,
-    width: data.width,
-    length: data.length,
-    division: data.division,
-    material: data.material,
-  });
-
   const formTitle = ["פרטי הפרויקט", "תמונת תצוגה", "תמונות"];
-  const router = useRouter();
 
   const handleSubmit = async () => {
     try {
@@ -71,19 +29,18 @@ const FormWrapper = ({ divisions, materials }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
-        // body: JSON.stringify({
-        //   title: projectTitle,
-        //   description: projectDescription,
-        //   images: projectImages,
-        //   thumbnail: projectThumbnail,
-        //   price: projectPrice,
-        //   height: projectHeight,
-        //   width: projectWidth,
-        //   length: projectLength,
-        //   division: projectDivision,
-        //   material: projectMaterial,
-        // }),
+        body: JSON.stringify({
+          title: projectTitle,
+          description: projectDescription,
+          images: projectImages,
+          thumbnail: projectThumbnail,
+          price: projectPrice,
+          height: projectHeight,
+          width: projectWidth,
+          length: projectLength,
+          division: projectDivision,
+          material: projectMaterial,
+        }),
       });
       if (res.ok) {
         router.push("/panel/projectsPanel");
@@ -128,23 +85,7 @@ const FormWrapper = ({ divisions, materials }) => {
     }
   };
 
-  ///////////////////////////
-  const [newProjectAdded, setNewProjectAdded] = useState(false);
-
   const nextPageClick = () => {
-    setNewProjectData({
-      title: data.title,
-      description: data.description,
-      images: data.images,
-      thumbnail: data.thumbnail,
-      price: data.price,
-      height: data.height,
-      width: data.width,
-      length: data.length,
-      division: data.division,
-      material: data.material,
-    });
-
     if (page === 0) {
       if (
         projectTitle === "" ||
@@ -156,32 +97,15 @@ const FormWrapper = ({ divisions, materials }) => {
         projectDivision.length === 0 ||
         projectMaterial.length === 0
       ) {
-        setPage((currPage) => currPage + 1);
-
-        // alert("נא למלא את הטופס!");
-        // return;
+        alert("נא למלא את הטופס!");
+        return;
       } else {
         setPage((currPage) => currPage + 1);
       }
     } else if (page === 1) {
-      setNewProjectData({
-        title: data.title,
-        description: data.description,
-        images: data.images,
-        thumbnail: data.thumbnail,
-        price: data.price,
-        height: data.height,
-        width: data.width,
-        length: data.length,
-        division: data.division,
-        material: data.material,
-      });
-
       if (!projectThumbnail) {
-        setPage((currPage) => currPage + 1);
-
-        // alert("נא להוסיף תמונה!");
-        // return;
+        alert("נא להוסיף תמונה!");
+        return;
       } else {
         setPage((currPage) => currPage + 1);
       }
@@ -189,42 +113,13 @@ const FormWrapper = ({ divisions, materials }) => {
   };
 
   const addProjectClick = async () => {
-    setNewProjectData({
-      title: projectTitle,
-      description: projectDescription,
-      images: projectImages,
-      thumbnail: projectThumbnail,
-      price: projectPrice,
-      height: projectHeight,
-      width: projectWidth,
-      length: projectLength,
-      division: projectDivision,
-      material: projectMaterial,
-    });
-
     if (projectImages.length === 0) {
-      const newProject = await handleSubmit();
-
-      // alert("נא להוסיף תמונות!");
-      // return;
+      alert("נא להוסיף תמונות!");
+      return;
     } else {
-      // const newProject = await callApiPost(
-      //   `${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
-      //   formData
-      // );
-      const newProject = await handleSubmit();
-
-      if (newProject) {
-        setNewProjectAdded(true);
-      }
+      await handleSubmit();
     }
   };
-
-  useEffect(() => {
-    // if (newProjectAdded) {
-    //   redirect("/panel/projectsPanel");
-    // }
-  }, []);
 
   const pageDisplay = () => {
     if (page === 0) {
@@ -266,10 +161,6 @@ const FormWrapper = ({ divisions, materials }) => {
       );
     }
   };
-
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
 
   return (
     <div>
