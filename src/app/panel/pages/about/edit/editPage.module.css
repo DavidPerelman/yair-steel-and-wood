@@ -9,6 +9,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
+  border: 1px black solid;
 }
 
 .section {
@@ -20,5 +22,36 @@
 
 .section button {
   width: 20%;
+  align-self: center;
+}
+
+.button {
+  width: 30%;
+  align-self: center;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  border: 1px black solid;
+}
+
+.imageContainer input {
+  text-align-last: center;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.h3 {
+  border-bottom: solid 1px black;
+  width: 15%;
   align-self: center;
 }

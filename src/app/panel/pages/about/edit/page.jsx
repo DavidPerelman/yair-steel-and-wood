@@ -150,6 +150,7 @@ const EditAboutPage = () => {
         {Array.isArray(sections) && sections.length > 0 ? (
           sections.map((sec, sectionIndex) => (
             <div key={sectionIndex} className={styles.sections}>
+              <h3 className={styles.h3}>פסקאות:</h3>
               {Array.isArray(sec.paragraphs) && sec.paragraphs.length > 0 ? (
                 sec.paragraphs.map((paragraph, paragraphIndex) => (
                   <div key={paragraphIndex} className={styles.section}>
@@ -174,7 +175,7 @@ const EditAboutPage = () => {
                           type="button"
                           onClick={() => startEditingParagraph(paragraphIndex)}
                         >
-                          ערוך
+                          ערוך פסקה
                         </button>
                       </>
                     )}
@@ -189,19 +190,23 @@ const EditAboutPage = () => {
               ) : (
                 <p>אין פסקאות</p>
               )}
+              <button
+                className={styles.button}
+                type="button"
+                onClick={addParagraph}
+              >
+                הוסף פסקה
+              </button>
             </div>
           ))
         ) : (
           <p>No sections available</p>
         )}
 
-        <button type="button" onClick={addParagraph}>
-          הוסף פסקה
-        </button>
-
-        <div>
+        <div className={styles.imageContainer}>
+          <h3 className={styles.h3}>תמונת רקע:</h3>
           {images.map((image, index) => (
-            <div key={index}>
+            <div className={styles.image} key={index}>
               <Image
                 src={image.secure_url}
                 alt={`Post image ${index + 1}`}
@@ -224,7 +229,9 @@ const EditAboutPage = () => {
         {/* <button type="button" onClick={() => setImages([...images, ""])}>
           הוסף תמונה
         </button> */}
-        <button type="submit">שמור שינויים</button>
+        <button className={styles.button} type="submit">
+          שמור שינויים
+        </button>
       </form>
     </div>
   );
