@@ -27,9 +27,6 @@ const Footer = () => {
       <div>
         <span className={styles.span}></span>
       </div>
-      <span>
-        <Link href="/privacy-policy">תנאי שימוש ומדיניות פרטיות</Link>
-      </span>
     </div>
   );
 };
