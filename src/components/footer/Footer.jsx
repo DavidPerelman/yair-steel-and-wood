@@ -24,9 +24,6 @@ const Footer = () => {
           &nbsp;דוד פרלמן
         </Link>
       </span>
-      <div>
-        <span className={styles.span}></span>
-      </div>
     </div>
   );
 };
